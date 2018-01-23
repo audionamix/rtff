@@ -35,7 +35,7 @@ Eigen::VectorXf Window::MakeInverse(WindowType analysis_type,
     if (end_idx < size) {
       // first half
       auto window_part =
-          analysis.tail(step_size).array() * synthesis.tail(step_size).array();
+          analysis.tail(end_idx).array() * synthesis.tail(end_idx).array();
       window.head(end_idx).array() += window_part;
     } else if (end_idx > size) {
       // second half

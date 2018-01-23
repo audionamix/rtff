@@ -15,7 +15,7 @@ void RingBuffer::Init(uint32_t write_size, uint32_t read_size,
   available_data_size_ = 0;
   channel_count_ = channel_count;
 
-  buffer_.resize(read_size_ * 2);
+  buffer_.resize(std::max(read_size_, write_size_) * 2);
 
   // used in RingBuffer::Read(AmplitudeBuffer* buffer)
   temp_read_data_.resize(read_size * channel_count);
