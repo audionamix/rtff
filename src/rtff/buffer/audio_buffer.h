@@ -14,7 +14,7 @@ class AudioBuffer {
   uint32_t frame_count() const;
   uint8_t channel_count() const;
 
-private:
+ private:
   uint32_t frame_count_;
   uint32_t channel_count_;
   std::vector<float> data_;

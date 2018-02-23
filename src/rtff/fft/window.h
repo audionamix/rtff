@@ -1,8 +1,8 @@
 #ifndef RTFF_FFT_WINDOW_H_
 #define RTFF_FFT_WINDOW_H_
 
-#include <cstdint>
 #include <Eigen/Core>
+#include <cstdint>
 
 namespace rtff {
 enum class WindowType : uint8_t { Hamming };
@@ -14,6 +14,6 @@ class Window {
                                      WindowType sythesis_type, uint32_t size,
                                      uint32_t step_size);
 };
-}  // namespace spex
+}  // namespace rtff
 
 #endif  // RTFF_FFT_WINDOW_H_

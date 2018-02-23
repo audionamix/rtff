@@ -32,7 +32,7 @@ class RingBuffer {
   uint32_t available_data_size_;
   uint8_t channel_count_;
   std::vector<float> buffer_;
-  
+
   // temp data to avoid allocating memory after Init
   std::vector<float> temp_read_data_;
   std::vector<float> temp_write_data_;

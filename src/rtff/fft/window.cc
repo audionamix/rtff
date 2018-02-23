@@ -51,4 +51,4 @@ Eigen::VectorXf Window::MakeInverse(WindowType analysis_type,
   return window;
 }
 
-}  // namespace spex
+}  // namespace rtff

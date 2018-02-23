@@ -81,8 +81,8 @@ bool RingBuffer::Read(AmplitudeBuffer* buffer) {
   if (!Read(temp_read_data_.data())) {
     return false;
   }
-  Eigen::Map<Eigen::MatrixXf> read_data(
-      temp_read_data_.data(), channel_count_, read_size_ / channel_count_);
+  Eigen::Map<Eigen::MatrixXf> read_data(temp_read_data_.data(), channel_count_,
+                                        read_size_ / channel_count_);
   for (uint8_t channel_idx = 0; channel_idx < channel_count_; channel_idx++) {
     buffer->channel(channel_idx).noalias() = read_data.row(channel_idx);
   }

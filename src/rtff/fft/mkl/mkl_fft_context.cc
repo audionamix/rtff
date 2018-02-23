@@ -65,8 +65,8 @@ void MKLFftContext::InitDescriptor(std::error_code& err) {
     return;
   }
 
-//  // vDSP style in order to have the same basseline for tests.
-//  auto forward_scaling_factor = 2.f;
+  //  // vDSP style in order to have the same basseline for tests.
+  //  auto forward_scaling_factor = 2.f;
   auto forward_scaling_factor = 1.f;
   auto backward_scaling_factor = 1.f / (forward_scaling_factor * size_);
   err = mkl::make_error(

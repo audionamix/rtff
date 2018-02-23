@@ -1,8 +1,8 @@
 #ifndef RTFF_FFT_FFT_H_
 #define RTFF_FFT_FFT_H_
 
-#include <cstdint>
 #include <complex>
+#include <cstdint>
 #include <memory>
 
 namespace rtff {

@@ -15,8 +15,7 @@ void MKLFft::Forward(const float* real_data,
 
 void MKLFft::Backward(const std::complex<float>* complex_data,
                       float* real_data) {
-  DftiComputeBackward(context_.descriptor(), (float*)(complex_data),
-                      real_data);
+  DftiComputeBackward(context_.descriptor(), (float*)(complex_data), real_data);
 }
 
 }  // namespace rtff

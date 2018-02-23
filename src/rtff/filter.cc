@@ -18,11 +18,10 @@ void Filter::Init(uint32_t block_size, uint8_t channel_count,
   frequential_block_buffer_.Init(fft_size(), channel_count);
 
   // init the window to an hamming
-  analysis_window_ = Window::Make(rtff::WindowType::Hamming, window_size());
-  synthesis_window_ = Window::Make(rtff::WindowType::Hamming, window_size());
-  unwindow_ =
-      Window::MakeInverse(rtff::WindowType::Hamming, rtff::WindowType::Hamming,
-                          window_size(), hop_size());
+  analysis_window_ = Window::Make(WindowType::Hamming, fft_size_);
+  synthesis_window_ = Window::Make(WindowType::Hamming, fft_size_);
+  unwindow_ = Window::MakeInverse(WindowType::Hamming, WindowType::Hamming,
+                                  fft_size_, hop_size());
 
   // init the fft
   fft_ = Fft::Create(fft_size_, err);
@@ -35,15 +34,19 @@ void Filter::Init(uint32_t block_size, uint8_t channel_count,
   result_buffer_.resize(channel_count);
   post_ifft_buffer_.resize(channel_count);
   for (auto channel_idx = 0; channel_idx < channel_count; channel_idx++) {
-    previous_buffer_[channel_idx] = Eigen::VectorXf::Zero(window_size());
-    post_ifft_buffer_[channel_idx].resize(window_size());
-    result_buffer_[channel_idx].resize(window_size() + hop_size());
+    previous_buffer_[channel_idx] =
+        Eigen::VectorXf::Zero(analysis_window().size());
+    post_ifft_buffer_[channel_idx].resize(analysis_window().size());
+    result_buffer_[channel_idx].resize(analysis_window().size() + hop_size());
   }
 }
 
-uint32_t Filter::window_size() const { return fft_size_; }
-Eigen::VectorXf Filter::analysis_window() const { return analysis_window_; }
-Eigen::VectorXf Filter::synthesis_window() const { return synthesis_window_; }
+const Eigen::VectorXf& Filter::analysis_window() const {
+  return analysis_window_;
+}
+const Eigen::VectorXf& Filter::synthesis_window() const {
+  return synthesis_window_;
+}
 uint32_t Filter::fft_size() const { return fft_size_; }
 uint32_t Filter::overlap() const { return overlap_; }
 uint32_t Filter::hop_size() const { return fft_size_ - overlap_; }
@@ -56,7 +59,7 @@ void Filter::ProcessBlock(AudioBuffer* buffer) {
   // process as many blocks as possible
   while (input_buffer_.Read(&amplitude_block_buffer_)) {
     Analyze(amplitude_block_buffer_, &frequential_block_buffer_);
-    ProcessFreqBlock(&frequential_block_buffer_);
+    ProcessTransformedBlock(&frequential_block_buffer_);
     Synthesize(frequential_block_buffer_, &output_amplitude_block_buffer_);
 
     output_buffer_.Write(output_amplitude_block_buffer_);
@@ -96,15 +99,16 @@ void Filter::Synthesize(const FrequentialBuffer& frequential,
     // sum with previous data
     memset(result_.data(), 0, result_.size() * sizeof(float));
 
-    result_.head(window_size()) = previous_;
-    result_.tail(window_size()).array() +=
+    result_.head(analysis_window().size()) = previous_;
+    result_.tail(analysis_window().size()).array() +=
         post_ifft.array() * synthesis_window_.array() / unwindow_.array();
 
     // keep previous buffer for synthesis
-    previous_ = result_.tail(window_size());
+    previous_ = result_.tail(analysis_window().size());
 
     // unwindow to get the right buffer
-    amplitude->channel(channel_idx).noalias() = result_.head(hop_size()).transpose();
+    amplitude->channel(channel_idx).noalias() =
+        result_.head(hop_size()).transpose();
   }
 }
 
