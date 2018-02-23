@@ -9,7 +9,7 @@ const std::string gResourcePath(TEST_RESOURCES_PATH);
 
 class MyFilter : public rtff::Filter {
  private:
-  void ProcessTransformedBlock(rtff::FrequentialBuffer* buffer) override {
+  void ProcessTransformedBlock(rtff::TimeFrequencyBuffer* buffer) override {
     for (uint8_t channel_idx = 0; channel_idx < buffer->channel_count();
          channel_idx++) {
       buffer->channel(channel_idx).block(20, 0, 50, 1) *= 0;

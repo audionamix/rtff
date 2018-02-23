@@ -44,7 +44,7 @@ void RingBuffer::Write(const AudioBuffer& buffer) {
   // TODO: assert frame_count == write_size
   Write(buffer.data());
 }
-void RingBuffer::Write(const AmplitudeBuffer& buffer) {
+void RingBuffer::Write(const Buffer<float>& buffer) {
   Eigen::Map<Eigen::MatrixXf> write_data(
       temp_write_data_.data(), channel_count_, write_size_ / channel_count_);
   for (uint8_t channel_idx = 0; channel_idx < channel_count_; channel_idx++) {
@@ -77,7 +77,7 @@ bool RingBuffer::Read(float* data) {
   return read_size_;
 }
 
-bool RingBuffer::Read(AmplitudeBuffer* buffer) {
+bool RingBuffer::Read(Buffer<float>* buffer) {
   if (!Read(temp_read_data_.data())) {
     return false;
   }

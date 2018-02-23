@@ -22,6 +22,7 @@ class ErrorCategory : public std::error_category {
 std::error_code make_error_code(MKL_LONG error);
 std::error_condition make_error_condition(MKL_LONG error);
 std::error_code make_error(MKL_LONG status);
+
 }  // namespace mkl
 
 class MKLFftContext {

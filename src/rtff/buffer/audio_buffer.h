@@ -6,6 +6,7 @@
 
 namespace rtff {
 
+// AudioBuffer is an interleaved audio signal data buffer.
 class AudioBuffer {
  public:
   void Init(uint32_t frame_count, uint8_t channel_count);

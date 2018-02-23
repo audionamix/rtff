@@ -5,6 +5,7 @@
 
 namespace rtff {
 
+// Buffer is a multichannel data storage
 template <typename T>
 class Buffer {
  public:
@@ -27,8 +28,8 @@ class Buffer {
   std::vector<Vector> data_;
 };
 
-using AmplitudeBuffer = Buffer<float>;
-using FrequentialBuffer = Buffer<std::complex<float>>;
+using TimeAmplitudeBuffer = Buffer<float>;
+using TimeFrequencyBuffer = Buffer<std::complex<float>>;
 
 }  // namespace rtff
 

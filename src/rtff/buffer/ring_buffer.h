@@ -8,19 +8,25 @@ namespace rtff {
 
 template <typename T>
 class Buffer;
-using AmplitudeBuffer = Buffer<float>;
 class AudioBuffer;
 
+/**
+ * RingBuffer represent a circular buffer (see
+ * https://en.wikipedia.org/wiki/Circular_buffer ) with potentially different
+ * read an write size.
+ * It is used to store enough data before starting a process without having to
+ * allocate memory dynamically
+ */
 class RingBuffer {
  public:
   void Init(uint32_t write_size, uint32_t read_size, uint32_t step_size,
             uint8_t channel_count);
   void Write(const float* data);
   void Write(const AudioBuffer& buffer);
-  void Write(const AmplitudeBuffer& buffer);
+  void Write(const Buffer<float>& buffer);
 
   bool Read(float* data);
-  bool Read(AmplitudeBuffer* buffer);
+  bool Read(Buffer<float>* buffer);
 
  private:
   uint32_t write_size_;

@@ -73,8 +73,8 @@ void Filter::ProcessBlock(AudioBuffer* buffer) {
          buffer->channel_count() * buffer->frame_count() * sizeof(float));
 }
 
-void Filter::Analyze(AmplitudeBuffer& amplitude,
-                     FrequentialBuffer* frequential) {
+void Filter::Analyze(TimeAmplitudeBuffer& amplitude,
+                     TimeFrequencyBuffer* frequential) {
   for (uint8_t channel_idx = 0; channel_idx < amplitude.channel_count();
        channel_idx++) {
     // apply the analysis window
@@ -85,8 +85,8 @@ void Filter::Analyze(AmplitudeBuffer& amplitude,
   }
 }
 
-void Filter::Synthesize(const FrequentialBuffer& frequential,
-                        AmplitudeBuffer* amplitude) {
+void Filter::Synthesize(const TimeFrequencyBuffer& frequential,
+                        TimeAmplitudeBuffer* amplitude) {
   for (uint8_t channel_idx = 0; channel_idx < frequential.channel_count();
        channel_idx++) {
     auto& result_ = result_buffer_[channel_idx];
