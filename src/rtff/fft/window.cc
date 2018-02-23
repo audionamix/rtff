@@ -5,8 +5,8 @@
 
 namespace rtff {
 
-Eigen::VectorXf Window::Make(WindowType type, uint32_t size) {
-  if (type != WindowType::Hamming) {
+Eigen::VectorXf Window::Make(Type type, uint32_t size) {
+  if (type != Type::Hamming) {
     std::cerr << "Unkown window type" << std::endl;
     return Eigen::VectorXf::Ones(size);
   }
@@ -21,9 +21,8 @@ Eigen::VectorXf Window::Make(WindowType type, uint32_t size) {
   return window;
 }
 
-Eigen::VectorXf Window::MakeInverse(WindowType analysis_type,
-                                    WindowType sythesis_type, uint32_t size,
-                                    uint32_t step_size) {
+Eigen::VectorXf Window::MakeInverse(Type analysis_type, Type sythesis_type,
+                                    uint32_t size, uint32_t step_size) {
   auto analysis = Make(analysis_type, size);
   auto synthesis = Make(sythesis_type, size);
 

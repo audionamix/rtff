@@ -18,9 +18,9 @@ void Filter::Init(uint32_t block_size, uint8_t channel_count,
   frequential_block_buffer_.Init(fft_size(), channel_count);
 
   // init the window to an hamming
-  analysis_window_ = Window::Make(WindowType::Hamming, fft_size_);
-  synthesis_window_ = Window::Make(WindowType::Hamming, fft_size_);
-  unwindow_ = Window::MakeInverse(WindowType::Hamming, WindowType::Hamming,
+  analysis_window_ = Window::Make(Window::Type::Hamming, fft_size_);
+  synthesis_window_ = Window::Make(Window::Type::Hamming, fft_size_);
+  unwindow_ = Window::MakeInverse(Window::Type::Hamming, Window::Type::Hamming,
                                   fft_size_, hop_size());
 
   // init the fft

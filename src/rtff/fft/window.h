@@ -5,14 +5,16 @@
 #include <cstdint>
 
 namespace rtff {
-enum class WindowType : uint8_t { Hamming };
 
+// see https://en.wikipedia.org/wiki/Window_function
+// for information about window function
 class Window {
  public:
-  static Eigen::VectorXf Make(WindowType type, uint32_t size);
-  static Eigen::VectorXf MakeInverse(WindowType analysis_type,
-                                     WindowType sythesis_type, uint32_t size,
-                                     uint32_t step_size);
+  enum class Type : uint8_t { Hamming };
+
+  static Eigen::VectorXf Make(Type type, uint32_t size);
+  static Eigen::VectorXf MakeInverse(Type analysis_type, Type sythesis_type,
+                                     uint32_t size, uint32_t step_size);
 };
 }  // namespace rtff
 
