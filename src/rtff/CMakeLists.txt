@@ -8,15 +8,16 @@ add_library(rtff
   ${src}/rtff/buffer/audio_buffer.h
   ${src}/rtff/buffer/buffer.h
 
-  ${src}/rtff/fft/window.h
   ${src}/rtff/fft/window.cc
-  ${src}/rtff/fft/fft.h
+  ${src}/rtff/fft/window.h
   ${src}/rtff/fft/fft.cc
-  ${src}/rtff/fft/mkl/mkl_fft.h
+  ${src}/rtff/fft/fft.h
   ${src}/rtff/fft/mkl/mkl_fft.cc
-  ${src}/rtff/fft/mkl/mkl_fft_context.h
+  ${src}/rtff/fft/mkl/mkl_fft.h
   ${src}/rtff/fft/mkl/mkl_fft_context.cc
+  ${src}/rtff/fft/mkl/mkl_fft_context.h
 )
+
 target_include_directories(rtff
   PUBLIC
     ${eigen_install_dir}
@@ -24,6 +25,33 @@ target_include_directories(rtff
 )
 add_dependencies(rtff
   external_eigen
+)
+
+# install rules
+# - built lib
+install(TARGETS rtff
+  RUNTIME DESTINATION bin
+  LIBRARY DESTINATION lib
+  ARCHIVE DESTINATION lib
+)
+# - headers
+install(FILES ${src}/rtff/filter.h DESTINATION include/rtff)
+install(FILES
+  ${src}/rtff/buffer/ring_buffer.h
+  ${src}/rtff/buffer/audio_buffer.h
+  ${src}/rtff/buffer/buffer.h
+  DESTINATION include/rtff/buffer
+)
+# - external libraries
+set(mkl_dependencies "")
+foreach (lib ${mkl_libraries})
+  if (EXISTS ${lib})
+    set(mkl_dependencies ${mkl_dependencies} ${lib})
+  endif()
+endforeach()
+install(FILES
+  ${mkl_dependencies}
+  DESTINATION lib
 )
 
 if (${rtff_enable_tests})
