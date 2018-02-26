@@ -22,6 +22,7 @@ class Buffer {
   const Vector& channel(uint8_t channel_idx) const {
     return data_[channel_idx];
   }
+
   uint8_t channel_count() const { return data_.size(); }
 
  private:

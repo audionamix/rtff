@@ -12,6 +12,7 @@ class MyFilter : public rtff::Filter {
   void ProcessTransformedBlock(rtff::TimeFrequencyBuffer* buffer) override {
     for (uint8_t channel_idx = 0; channel_idx < buffer->channel_count();
          channel_idx++) {
+      ASSERT_EQ(buffer->channel(channel_idx).size(), fft_size() / 2 + 1);
       buffer->channel(channel_idx).block(20, 0, 50, 1) *= 0;
     }
   }

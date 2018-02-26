@@ -15,7 +15,7 @@ void Filter::Init(uint32_t block_size, uint8_t channel_count,
   // init single block buffer
   amplitude_block_buffer_.Init(fft_size(), channel_count);
   output_amplitude_block_buffer_.Init(hop_size(), channel_count);
-  frequential_block_buffer_.Init(fft_size(), channel_count);
+  frequential_block_buffer_.Init(fft_size() / 2 + 1, channel_count);
 
   // init the window to an hamming
   analysis_window_ = Window::Make(Window::Type::Hamming, fft_size_);
