@@ -2,6 +2,8 @@
 
 #include <iostream>
 
+#include <Eigen/Core>
+
 #include "rtff/filter.h"
 #include "wave/file.h"
 
@@ -9,11 +11,13 @@ const std::string gResourcePath(TEST_RESOURCES_PATH);
 
 class MyFilter : public rtff::Filter {
  private:
-  void ProcessTransformedBlock(rtff::TimeFrequencyBuffer* buffer) override {
-    for (uint8_t channel_idx = 0; channel_idx < buffer->channel_count();
+  void ProcessTransformedBlock(std::vector<std::complex<float>*> data,
+                               uint32_t size) override {
+    for (uint8_t channel_idx = 0; channel_idx < data.size();
          channel_idx++) {
-      ASSERT_EQ(buffer->channel(channel_idx).size(), fft_size() / 2 + 1);
-      buffer->channel(channel_idx).block(20, 0, 50, 1) *= 0;
+      auto buffer = Eigen::Map<Eigen::VectorXcf>(data[channel_idx], size);
+      ASSERT_EQ(size, fft_size() / 2 + 1);
+      buffer.block(20, 0, 50, 1) *= 0;
     }
   }
 };

@@ -1,6 +1,8 @@
 add_library(rtff
   ${src}/rtff/filter.cc
   ${src}/rtff/filter.h
+  ${src}/rtff/filter_impl.cc
+  ${src}/rtff/filter_impl.h
 
   ${src}/rtff/buffer/ring_buffer.cc
   ${src}/rtff/buffer/ring_buffer.h
@@ -39,7 +41,6 @@ install(FILES ${src}/rtff/filter.h DESTINATION include/rtff)
 install(FILES
   ${src}/rtff/buffer/ring_buffer.h
   ${src}/rtff/buffer/audio_buffer.h
-  ${src}/rtff/buffer/buffer.h
   DESTINATION include/rtff/buffer
 )
 # - external libraries

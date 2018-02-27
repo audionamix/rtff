@@ -25,6 +25,16 @@ class Buffer {
 
   uint8_t channel_count() const { return data_.size(); }
 
+  std::vector<T*> data_ptr() {
+    std::vector<T*> result;
+    for (auto& vector : data_) {
+      result.push_back(vector.data());
+    }
+    return result;
+  }
+
+  uint32_t size() const { return data_[0].size(); }
+
  private:
   std::vector<Vector> data_;
 };

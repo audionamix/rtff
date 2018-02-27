@@ -3,17 +3,15 @@
 
 #include <memory>
 #include <system_error>
+#include <complex>
 #include <vector>
 
-#include <Eigen/Core>
-
 #include "rtff/buffer/audio_buffer.h"
-#include "rtff/buffer/buffer.h"
 #include "rtff/buffer/ring_buffer.h"
 
 namespace rtff {
 
-class Fft;
+class FilterImpl;
 
 /**
  * @brief Base class of frequential filters.
@@ -53,11 +51,10 @@ class Filter {
    */
   virtual uint32_t FrameLatency() const;
 
-  const Eigen::VectorXf& analysis_window() const;
-  const Eigen::VectorXf& synthesis_window() const;
   uint32_t fft_size() const;
   uint32_t overlap() const;
   uint32_t hop_size() const;
+  uint32_t window_size() const;
 
  protected:
   /**
@@ -65,32 +62,18 @@ class Filter {
    * @note that function is called by the ProcessBlock function. It shouldn't be
    * called on its own
    */
-  virtual void ProcessTransformedBlock(TimeFrequencyBuffer* buffer) = 0;
+  virtual void ProcessTransformedBlock(std::vector<std::complex<float>*> data,
+                                       uint32_t size) = 0;
 
  private:
-  void Analyze(TimeAmplitudeBuffer& amplitude,
-               TimeFrequencyBuffer* frequential);
-  void Synthesize(const TimeFrequencyBuffer& frequential,
-                  TimeAmplitudeBuffer* amplitude);
-
-  uint32_t window_size() const;
-
   uint32_t fft_size_;
   uint32_t overlap_;
   RingBuffer input_buffer_, output_buffer_;
-  TimeAmplitudeBuffer amplitude_block_buffer_;
-  TimeAmplitudeBuffer output_amplitude_block_buffer_;
-  TimeFrequencyBuffer frequential_block_buffer_;
 
-  Eigen::VectorXf analysis_window_;
-  Eigen::VectorXf synthesis_window_;
-  Eigen::VectorXf unwindow_;
+  std::shared_ptr<FilterImpl> impl_;
 
-  std::shared_ptr<Fft> fft_;
-
-  std::vector<Eigen::VectorXf> previous_buffer_;
-  std::vector<Eigen::VectorXf> result_buffer_;
-  std::vector<Eigen::VectorXf> post_ifft_buffer_;
+  class Impl;
+  std::shared_ptr<Impl> buffers_;
 };
 
 }  // namespace rtff
