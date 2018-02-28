@@ -20,21 +20,19 @@ void RingBuffer::Init(uint32_t write_size, uint32_t read_size,
   // used in RingBuffer::Read(AmplitudeBuffer* buffer)
   temp_read_data_.resize(read_size * channel_count);
   // used in RingBuffer::Write(const AmplitudeBuffer& buffer)
-  temp_write_data_.resize(read_size * channel_count);
+  temp_write_data_.resize(write_size * channel_count);
 }
 
 void RingBuffer::Write(const float* data) {
   if (write_index_ + write_size_ > buffer_.size()) {
     // When we reach the end of the buffer
     auto remaining_size = buffer_.size() - write_index_;
-
-    memcpy(buffer_.data() + write_index_, data, remaining_size * sizeof(float));
-    memcpy(buffer_.data(), data + remaining_size,
-           (write_size_ - remaining_size) * sizeof(float));
+    std::copy(data, data + remaining_size, buffer_.data() + write_index_);
+    std::copy(data + remaining_size, data + write_size_, buffer_.data());
     write_index_ = (write_size_ - remaining_size);
   } else {
     // we have enough size remaining
-    memcpy(buffer_.data() + write_index_, data, write_size_ * sizeof(float));
+    std::copy(data, data + write_size_, buffer_.data() + write_index_);
     write_index_ += write_size_;
   }
   available_data_size_ += write_size_;
@@ -60,16 +58,18 @@ bool RingBuffer::Read(float* data) {
 
   if (read_index_ + read_size_ > buffer_.size()) {
     auto remaining_size = buffer_.size() - read_index_;
-    memcpy(data, buffer_.data() + read_index_, remaining_size * sizeof(float));
-    memcpy(data + remaining_size, buffer_.data(),
-           (read_size_ - remaining_size) * sizeof(float));
+    std::copy(buffer_.data() + read_index_,
+              buffer_.data() + read_index_ + remaining_size, data);
+    std::copy(buffer_.data(), buffer_.data() + (read_size_ - remaining_size),
+              data + remaining_size);
     read_index_ += step_size_;
     if (read_index_ > buffer_.size()) {
       read_index_ -= buffer_.size();
     }
   } else {
     // default read
-    memcpy(data, buffer_.data() + read_index_, read_size_ * sizeof(float));
+    std::copy(buffer_.data() + read_index_,
+              buffer_.data() + read_index_ + read_size_, data);
     read_index_ += step_size_;
   }
   available_data_size_ -= step_size_;

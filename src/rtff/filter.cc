@@ -1,7 +1,7 @@
 #include "rtff/filter.h"
 
-#include "rtff/filter_impl.h"
 #include "rtff/buffer/buffer.h"
+#include "rtff/filter_impl.h"
 
 namespace rtff {
 
@@ -57,8 +57,9 @@ void Filter::ProcessBlock(AudioBuffer* buffer) {
     return;
   }
   // if we don't have enough data to be read, just fill with zeros
-  memset(buffer->data(), 0,
-         buffer->channel_count() * buffer->frame_count() * sizeof(float));
+  std::fill(buffer->data(),
+            buffer->data() + buffer->channel_count() * buffer->frame_count(),
+            0);
 }
 
 }  // namespace rtff
