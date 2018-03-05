@@ -3,7 +3,7 @@ add_library(rtff
   ${src}/rtff/filter.h
   ${src}/rtff/abstract_filter.cc
   ${src}/rtff/abstract_filter.h
-  
+
   ${src}/rtff/filter_impl.cc
   ${src}/rtff/filter_impl.h
 
@@ -40,7 +40,11 @@ install(TARGETS rtff
   ARCHIVE DESTINATION lib
 )
 # - headers
-install(FILES ${src}/rtff/filter.h DESTINATION include/rtff)
+install(FILES
+  ${src}/rtff/filter.h
+  ${src}/rtff/abstract_filter.h
+  DESTINATION include/rtff
+)
 install(FILES
   ${src}/rtff/buffer/ring_buffer.h
   ${src}/rtff/buffer/audio_buffer.h
