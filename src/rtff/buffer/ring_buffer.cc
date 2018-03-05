@@ -5,8 +5,8 @@
 
 namespace rtff {
 
-void RingBuffer::Init(uint32_t write_size, uint32_t read_size,
-                      uint32_t step_size, uint8_t channel_count) {
+RingBuffer::RingBuffer(uint32_t write_size, uint32_t read_size,
+                       uint32_t step_size, uint8_t channel_count) {
   write_size_ = write_size * channel_count;
   read_size_ = read_size * channel_count;
   step_size_ = step_size * channel_count;
@@ -16,7 +16,6 @@ void RingBuffer::Init(uint32_t write_size, uint32_t read_size,
   channel_count_ = channel_count;
 
   buffer_.resize(std::max(read_size_, write_size_) * 2);
-
   // used in RingBuffer::Read(AmplitudeBuffer* buffer)
   temp_read_data_.resize(read_size * channel_count);
   // used in RingBuffer::Write(const AmplitudeBuffer& buffer)

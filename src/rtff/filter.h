@@ -24,7 +24,7 @@ class FilterImpl;
  *     }
  *   };
  *   auto f = MyFilter();
- *   f.Init(512, 2, err);
+ *   f.Init(2, err);  // stereo filtering
  *   f.ProcessBlock(my_audio_data);
  */
 class Filter {
@@ -32,12 +32,27 @@ class Filter {
   Filter();
   /**
    * @brief Initialize the filter
-   * @param block_size: the length in frame of input buffers (fed to
-   * ProcessBlock)
+   * @param channel_count: the number of channel of input buffers
+   * @param fft_size
+   * @param the overlap size in frames used in the fft
+   * @param err
+   */
+  void Init(uint8_t channel_count, uint32_t fft_size, uint32_t overlap,
+            std::error_code& err);
+
+  /**
+   * @brief Initialize the filter with default stft parameters
    * @param channel_count: the number of channel of input buffers
    * @param err
    */
-  void Init(uint32_t block_size, uint8_t channel_count, std::error_code& err);
+  void Init(uint8_t channel_count, std::error_code& err);
+
+  /**
+   * @brief define the block size
+   * block size is the number of frames sent in the input (ProcessBlock
+   * function)
+   */
+  void set_block_size(uint32_t value);
 
   /**
    * @brief Converts the input AudioBuffer to a Frequential buffer and calls
@@ -55,6 +70,8 @@ class Filter {
   uint32_t overlap() const;
   uint32_t hop_size() const;
   uint32_t window_size() const;
+  uint32_t block_size() const;
+  uint8_t channel_count() const;
 
  protected:
   /**
@@ -66,9 +83,13 @@ class Filter {
                                        uint32_t size) = 0;
 
  private:
+  void InitBuffers();
+
   uint32_t fft_size_;
   uint32_t overlap_;
-  RingBuffer input_buffer_, output_buffer_;
+  uint32_t block_size_;
+  uint8_t channel_count_;
+  std::shared_ptr<RingBuffer> input_buffer_, output_buffer_;
 
   std::shared_ptr<FilterImpl> impl_;
 

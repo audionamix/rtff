@@ -13,8 +13,7 @@ class MyFilter : public rtff::Filter {
  private:
   void ProcessTransformedBlock(std::vector<std::complex<float>*> data,
                                uint32_t size) override {
-    for (uint8_t channel_idx = 0; channel_idx < data.size();
-         channel_idx++) {
+    for (uint8_t channel_idx = 0; channel_idx < data.size(); channel_idx++) {
       auto buffer = Eigen::Map<Eigen::VectorXcf>(data[channel_idx], size);
       ASSERT_EQ(size, fft_size() / 2 + 1);
       buffer.block(20, 0, 50, 1) *= 0;
@@ -35,8 +34,9 @@ TEST(RTFF, Basis) {
 
   MyFilter filter;
   std::error_code err;
-  filter.Init(block_size, channel_number, err);
+  filter.Init(channel_number, err);
   ASSERT_FALSE(err);
+  filter.set_block_size(block_size);
 
   rtff::AudioBuffer buffer;
   buffer.Init(block_size, channel_number);
@@ -75,4 +75,32 @@ TEST(RTFF, Basis) {
   output.set_channel_number(file.channel_number());
   output.set_bits_per_sample(file.bits_per_sample());
   output.Write(content);
+}
+
+// This test makes sure that changing the block size doesn't crash the process
+TEST(RTFF, ChangeBlockSize) {
+  MyFilter filter;
+  std::error_code err;
+  auto channel_number = 1;
+  filter.Init(channel_number, err);
+  ASSERT_FALSE(err);
+
+  auto block_size = 512;
+  filter.set_block_size(block_size);
+
+  rtff::AudioBuffer buffer;
+  buffer.Init(block_size, channel_number);
+  // queue 50 buffer
+  for (auto index = 0; index < 50; index++) {
+    memset(buffer.data(), 0, block_size);
+    filter.ProcessBlock(&buffer);
+  }
+  block_size = 1024;
+  filter.set_block_size(block_size);
+  buffer.Init(block_size, channel_number);
+  // queue 50 other buffer
+  for (auto index = 0; index < 50; index++) {
+    memset(buffer.data(), 0, block_size);
+    filter.ProcessBlock(&buffer);
+  }
 }

@@ -12,14 +12,20 @@ class Filter::Impl {
   TimeFrequencyBuffer frequential_block;
 };
 
-Filter::Filter() : fft_size_(2048), overlap_(1024) {}
+Filter::Filter() : fft_size_(2048), overlap_(1024), block_size_(512) {}
 
-void Filter::Init(uint32_t block_size, uint8_t channel_count,
+void Filter::Init(uint8_t channel_count, uint32_t fft_size, uint32_t overlap,
                   std::error_code& err) {
-  input_buffer_.Init(block_size, fft_size(), hop_size(), channel_count);
-  output_buffer_.Init(hop_size(), block_size, block_size, channel_count);
+  fft_size_ = fft_size;
+  overlap_ = overlap;
+  Init(channel_count, err);
+}
 
-  // init single block buffer
+void Filter::Init(uint8_t channel_count, std::error_code& err) {
+  channel_count_ = channel_count;
+  InitBuffers();
+
+  // init single block buffers
   buffers_ = std::make_shared<Impl>();
   buffers_->amplitude_block.Init(fft_size(), channel_count);
   buffers_->output_amplitude_block.Init(hop_size(), channel_count);
@@ -32,6 +38,20 @@ void Filter::Init(uint32_t block_size, uint8_t channel_count,
   }
 }
 
+void Filter::InitBuffers() {
+  input_buffer_ = std::make_shared<RingBuffer>(block_size(), fft_size(),
+                                               hop_size(), channel_count());
+  output_buffer_ = std::make_shared<RingBuffer>(hop_size(), block_size(),
+                                                block_size(), channel_count());
+}
+
+void Filter::set_block_size(uint32_t value) {
+  block_size_ = value;
+  InitBuffers();
+}
+uint32_t Filter::block_size() const { return block_size_; }
+uint8_t Filter::channel_count() const { return channel_count_; }
+
 uint32_t Filter::window_size() const { return impl_->window_size(); }
 uint32_t Filter::fft_size() const { return fft_size_; }
 uint32_t Filter::overlap() const { return overlap_; }
@@ -40,20 +60,20 @@ uint32_t Filter::hop_size() const { return fft_size_ - overlap_; }
 uint32_t Filter::FrameLatency() const { return 0; }
 
 void Filter::ProcessBlock(AudioBuffer* buffer) {
-  input_buffer_.Write(*buffer);
+  input_buffer_->Write(*buffer);
 
   // process as many blocks as possible
-  while (input_buffer_.Read(&(buffers_->amplitude_block))) {
+  while (input_buffer_->Read(&(buffers_->amplitude_block))) {
     impl_->Analyze(buffers_->amplitude_block, &(buffers_->frequential_block));
     ProcessTransformedBlock(buffers_->frequential_block.data_ptr(),
                             buffers_->frequential_block.size());
     impl_->Synthesize(buffers_->frequential_block,
                       &(buffers_->output_amplitude_block));
 
-    output_buffer_.Write(buffers_->output_amplitude_block);
+    output_buffer_->Write(buffers_->output_amplitude_block);
   }
 
-  if (output_buffer_.Read(buffer->data())) {
+  if (output_buffer_->Read(buffer->data())) {
     return;
   }
   // if we don't have enough data to be read, just fill with zeros

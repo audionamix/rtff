@@ -19,8 +19,8 @@ class AudioBuffer;
  */
 class RingBuffer {
  public:
-  void Init(uint32_t write_size, uint32_t read_size, uint32_t step_size,
-            uint8_t channel_count);
+  RingBuffer(uint32_t write_size, uint32_t read_size, uint32_t step_size,
+             uint8_t channel_count);
   void Write(const float* data);
   void Write(const AudioBuffer& buffer);
   void Write(const Buffer<float>& buffer);
