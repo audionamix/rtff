@@ -1,6 +1,9 @@
 add_library(rtff
   ${src}/rtff/filter.cc
   ${src}/rtff/filter.h
+  ${src}/rtff/abstract_filter.cc
+  ${src}/rtff/abstract_filter.h
+  
   ${src}/rtff/filter_impl.cc
   ${src}/rtff/filter_impl.h
 

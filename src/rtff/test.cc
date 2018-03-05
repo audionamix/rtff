@@ -4,12 +4,13 @@
 
 #include <Eigen/Core>
 
+#include "rtff/abstract_filter.h"
 #include "rtff/filter.h"
 #include "wave/file.h"
 
 const std::string gResourcePath(TEST_RESOURCES_PATH);
 
-class MyFilter : public rtff::Filter {
+class MyFilter : public rtff::AbstractFilter {
  private:
   void ProcessTransformedBlock(std::vector<std::complex<float>*> data,
                                uint32_t size) override {
@@ -99,6 +100,33 @@ TEST(RTFF, ChangeBlockSize) {
   filter.set_block_size(block_size);
   buffer.Init(block_size, channel_number);
   // queue 50 other buffer
+  for (auto index = 0; index < 50; index++) {
+    memset(buffer.data(), 0, block_size);
+    filter.ProcessBlock(&buffer);
+  }
+}
+
+// this test makes sure that filter class syntax is functionnal
+TEST(RTFF, Filter) {
+  rtff::Filter filter;
+  std::error_code err;
+  auto channel_number = 1;
+  filter.Init(channel_number, err);
+  filter.execute = [](std::vector<std::complex<float>*> data,
+                      uint32_t size) {
+    for (uint8_t channel_idx = 0; channel_idx < data.size(); channel_idx++) {
+      auto buffer = Eigen::Map<Eigen::VectorXcf>(data[channel_idx], size);
+      buffer = Eigen::VectorXcf::Random(size);
+    }
+  };
+  
+  ASSERT_FALSE(err);
+  auto block_size = 512;
+  filter.set_block_size(block_size);
+  
+  rtff::AudioBuffer buffer;
+  buffer.Init(block_size, channel_number);
+  // queue 50 buffer
   for (auto index = 0; index < 50; index++) {
     memset(buffer.data(), 0, block_size);
     filter.ProcessBlock(&buffer);
