@@ -18,6 +18,10 @@ function(FindMkl)
       endif()
       set(FindMkl_PATH ${FindMkl_INTEL_PATH}/mkl)
     elseif (UNIX AND NOT APPLE)
+      if (NOT FindMkl_INTEL_PATH)
+        set(FindMkl_INTEL_PATH /opt/intel)
+      endif()
+      set(FindMkl_PATH ${FindMkl_INTEL_PATH}/mkl)
 
     elseif(WIN32)
 
@@ -25,7 +29,7 @@ function(FindMkl)
   endif()
 
   if (NOT EXISTS ${FindMkl_PATH})
-    message(FATAL_ERROR "Can't find Intel MKL")
+    message(FATAL_ERROR "Can't find Intel MKL. ${FindMkl_PATH} doesn't exist")
   endif()
 
   # link options provided by
@@ -49,11 +53,11 @@ function(FindMkl)
   elseif(UNIX AND NOT APPLE)
     set(mkl_libraries
       "-Wl,--start-group"
-      "${MKLROOT}/lib/ia32/libmkl_intel.a"
-      "${MKLROOT}/lib/ia32/libmkl_core.a"
-      "${MKLROOT}/lib/ia32/libmkl_intel_thread.a"
+      "${MKLROOT}/lib/intel64/libmkl_intel_lp64.a"
+      "${MKLROOT}/lib/intel64/libmkl_core.a"
+      "${MKLROOT}/lib/intel64/libmkl_intel_thread.a"
+      "${FindMkl_INTEL_PATH}/compilers_and_libraries_2017.5.239/linux/compiler/lib/intel64/libiomp5.a"
       "-Wl,--end-group"
-      "-liomp5"
       "-lpthread"
       "-lm"
       "-ldl"
