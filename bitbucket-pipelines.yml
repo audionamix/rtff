@@ -1,0 +1,8 @@
+image: gvincke/ubuntu-mkl:latest
+
+pipelines:
+  default:
+    - step:
+        script:
+          - mkdir -p build
+          - cd build; cmake ..; make; ./src/rtff/rtff_test
