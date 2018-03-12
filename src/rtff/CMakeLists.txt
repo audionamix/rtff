@@ -72,6 +72,7 @@ if (${rtff_enable_tests})
     UPDATE_COMMAND ""
     CMAKE_ARGS
       "-DCMAKE_INSTALL_PREFIX=${wave_install_dir}"
+      "-Dwave_enable_tests=OFF"
   )
   link_directories("${wave_install_dir}/lib")
 
