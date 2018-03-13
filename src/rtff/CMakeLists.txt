@@ -67,7 +67,7 @@ if (${rtff_enable_tests})
   set(wave_install_dir ${CMAKE_BINARY_DIR}/wave-install)
   ExternalProject_Add(external_wave
     GIT_REPOSITORY "https://github.com/audionamix/wave"
-    GIT_TAG "v0.6a"
+    GIT_TAG "v0.8.1a"
     # don't update so that we don't rebuild every time
     UPDATE_COMMAND ""
     CMAKE_ARGS
