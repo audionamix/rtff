@@ -70,13 +70,23 @@ function(FindMkl)
     )
     set(mkl_include_dir "${MKLROOT}/include")
   elseif(WIN32)
-    set(mkl_libraries
-       "${MKLROOT}/lib/ia32/mkl_intel_c.lib"
-       "${MKLROOT}/lib/ia32/mkl_core.lib"
-       "${MKLROOT}/lib/ia32/mkl_tbb_thread.lib"
-       #"${FindMkl_INTEL_PATH}/compiler/lib/ia32/libiomp5md.lib"
-       "${FindMkl_INTEL_PATH}/tbb/lib/ia32/vc_mt/tbb.lib"
-    )
+    if (CMAKE_SIZEOF_VOID_P MATCHES "8")
+      # 64bits
+      set(mkl_libraries
+         "${MKLROOT}/lib/intel64/mkl_intel_ilp64.lib"
+         "${MKLROOT}/lib/intel64/mkl_core.lib"
+         "${MKLROOT}/lib/intel64/mkl_tbb_thread.lib"
+         "${FindMkl_INTEL_PATH}/tbb/lib/intel64/vc_mt/tbb.lib"
+      )
+    else ()
+      # 32bits
+      set(mkl_libraries
+         "${MKLROOT}/lib/ia32/mkl_intel_c.lib"
+         "${MKLROOT}/lib/ia32/mkl_core.lib"
+         "${MKLROOT}/lib/ia32/mkl_tbb_thread.lib"
+         "${FindMkl_INTEL_PATH}/tbb/lib/ia32/vc_mt/tbb.lib"
+      )
+    endif ()
     set(mkl_compiler_options "")
     set(mkl_include_dir "${MKLROOT}/include")
   else()
