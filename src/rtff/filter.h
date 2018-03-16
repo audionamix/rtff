@@ -1,6 +1,8 @@
 #ifndef RTFF_FILTER_H_
 #define RTFF_FILTER_H_
 
+#include <functional>
+
 #include "rtff/abstract_filter.h"
 
 namespace rtff {

@@ -24,11 +24,14 @@ function(FindMkl)
       set(FindMkl_PATH ${FindMkl_INTEL_PATH}/mkl)
 
     elseif(WIN32)
-
+      if (NOT FindMkl_INTEL_PATH)
+        set(FindMkl_INTEL_PATH "$ENV{ProgramFiles}/IntelSWTools/compilers_and_libraries/windows")
+      endif()
+      set(FindMkl_PATH "${FindMkl_INTEL_PATH}/mkl")
     endif()
   endif()
 
-  if (NOT EXISTS ${FindMkl_PATH})
+  if (NOT EXISTS "${FindMkl_PATH}")
     message(FATAL_ERROR "Can't find Intel MKL. ${FindMkl_PATH} doesn't exist")
   endif()
 
@@ -68,10 +71,11 @@ function(FindMkl)
     set(mkl_include_dir "${MKLROOT}/include")
   elseif(WIN32)
     set(mkl_libraries
-       "mkl_intel_c.lib"
-       "mkl_core.lib"
-       "mkl_intel_thread.lib"
-       "libiomp5md.lib"
+       "${MKLROOT}/lib/ia32/mkl_intel_c.lib"
+       "${MKLROOT}/lib/ia32/mkl_core.lib"
+       "${MKLROOT}/lib/ia32/mkl_tbb_thread.lib"
+       #"${FindMkl_INTEL_PATH}/compiler/lib/ia32/libiomp5md.lib"
+       "${FindMkl_INTEL_PATH}/tbb/lib/ia32/vc_mt/tbb.lib"
     )
     set(mkl_compiler_options "")
     set(mkl_include_dir "${MKLROOT}/include")

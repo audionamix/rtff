@@ -83,13 +83,25 @@ if (${rtff_enable_tests})
     external_wave
     external_googletest
   )
-  target_link_libraries(rtff_test
-    gtest
-    gtest_main
-    rtff
-    wave
-    ${mkl_libraries}
-  )
+  if (UNIX)
+    target_link_libraries(rtff_test
+      gtest
+      gtest_main
+      rtff
+      wave
+      ${mkl_libraries}
+    )
+  else ()
+    target_link_libraries(rtff_test
+      optimized gtest
+      optimized gtest_main
+      debug gtestd
+      debug gtest_maind
+      rtff
+      wave
+      ${mkl_libraries}
+    )
+  endif()
   target_include_directories(rtff_test
     PUBLIC
       ${gtest_install_dir}/include
