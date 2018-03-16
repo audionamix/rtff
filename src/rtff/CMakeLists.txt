@@ -83,7 +83,7 @@ if (${rtff_enable_tests})
     external_wave
     external_googletest
   )
-  if (UNIX)
+  if (UNIX AND NOT APPLE)
     target_link_libraries(rtff_test
       gtest
       gtest_main
