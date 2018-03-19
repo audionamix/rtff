@@ -44,6 +44,11 @@ void AbstractFilter::InitBuffers() {
                                                hop_size(), channel_count());
   output_buffer_ = std::make_shared<RingBuffer>(hop_size(), block_size(),
                                                 block_size(), channel_count());
+  
+  // initialize the intput_buffer_ with hop_size frames of zeros
+  std::vector<float> zeros;
+  zeros.resize(hop_size() * channel_count(), 0);
+  input_buffer_->Write(zeros.data(), zeros.size());
 }
 
 void AbstractFilter::set_block_size(uint32_t value) {

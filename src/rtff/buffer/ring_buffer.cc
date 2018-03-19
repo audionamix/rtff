@@ -22,19 +22,23 @@ RingBuffer::RingBuffer(uint32_t write_size, uint32_t read_size,
   temp_write_data_.resize(write_size * channel_count);
 }
 
-void RingBuffer::Write(const float* data) {
-  if (write_index_ + write_size_ > buffer_.size()) {
+void RingBuffer::Write(const float* data, uint32_t size) {
+  if (write_index_ + size > buffer_.size()) {
     // When we reach the end of the buffer
     auto remaining_size = buffer_.size() - write_index_;
     std::copy(data, data + remaining_size, buffer_.data() + write_index_);
-    std::copy(data + remaining_size, data + write_size_, buffer_.data());
-    write_index_ = (write_size_ - remaining_size);
+    std::copy(data + remaining_size, data + size, buffer_.data());
+    write_index_ = (size - remaining_size);
   } else {
     // we have enough size remaining
-    std::copy(data, data + write_size_, buffer_.data() + write_index_);
-    write_index_ += write_size_;
+    std::copy(data, data + size, buffer_.data() + write_index_);
+    write_index_ += size;
   }
-  available_data_size_ += write_size_;
+  available_data_size_ += size;
+}
+  
+void RingBuffer::Write(const float* data) {
+  Write(data, write_size_);
 }
 
 void RingBuffer::Write(const AudioBuffer& buffer) {
