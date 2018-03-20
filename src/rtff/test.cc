@@ -11,7 +11,7 @@
 const std::string gResourcePath(TEST_RESOURCES_PATH);
 
 class MyFilter : public rtff::AbstractFilter {
- private:
+private:
   void ProcessTransformedBlock(std::vector<std::complex<float>*> data,
                                uint32_t size) override {
     for (uint8_t channel_idx = 0; channel_idx < data.size(); channel_idx++) {
@@ -28,47 +28,63 @@ TEST(RTFF, Basis) {
   file.Open(gResourcePath + "/Untitled3.wav", wave::OpenMode::kIn);
   std::vector<float> content(file.frame_number() * file.channel_number());
   ASSERT_EQ(file.Read(&content), wave::Error::kNoError);
-
+  
   // Initialize filter
   auto block_size = 2048;
   auto channel_number = file.channel_number();
-
+  
   MyFilter filter;
   std::error_code err;
   filter.Init(channel_number, err);
   ASSERT_FALSE(err);
   filter.set_block_size(block_size);
-
+  
   rtff::AudioBuffer buffer;
   buffer.Init(block_size, channel_number);
-
+  
   // For debug. From this point, the application shouldn't allocate any memory.
   Eigen::internal::set_is_malloc_allowed(false);
-
+  
   // Extract each frames (add latency)
   auto multichannel_buffer_size = block_size * channel_number;
-
+  
   for (uint32_t sample_idx = 0;
        sample_idx < content.size() - multichannel_buffer_size;
        sample_idx += multichannel_buffer_size) {
+    // process the input buffer
     float* sample_ptr = content.data() + sample_idx;
     memcpy(buffer.data(), sample_ptr,
            block_size * channel_number * sizeof(float));
-
     filter.ProcessBlock(&buffer);
-
-    memcpy(sample_ptr, buffer.data(),
-           block_size * channel_number * sizeof(float));
-
+    
+    // to write, we compensate the latency
+    int output_sample_idx =
+    sample_idx - (filter.FrameLatency() * channel_number);
+    if (output_sample_idx < 0) {
+      // begining of the file. As we create latency, the first few samples will
+      // be zeros. To compensate, we just remove them
+      float* output_sample_ptr = content.data();
+      float* processed_sample_ptr = buffer.data() + abs(output_sample_idx);
+      auto size_to_copy = block_size - filter.FrameLatency();
+      memcpy(output_sample_ptr, processed_sample_ptr,
+             size_to_copy * channel_number * sizeof(float));
+    } else {
+      // after the first few buffers, we are on general case. We just have the
+      // write taking the latency into consideration
+      float* output_sample_ptr = content.data() + output_sample_idx;
+      memcpy(output_sample_ptr, buffer.data(),
+             block_size * channel_number * sizeof(float));
+    }
+    
     // display the current status
     std::cout << round(double(sample_idx * 100) /
                        (file.frame_number() * file.channel_number()))
-              << "%" << std::endl;
+    << "%" << std::endl;
   }
-
+  
   // For debug. From this point, the application can allocate memory
   Eigen::internal::set_is_malloc_allowed(true);
-
+  
   // Write the output file content
   wave::File output;
   output.Open("/tmp/rtff_res.wav", wave::OpenMode::kOut);
@@ -85,10 +101,10 @@ TEST(RTFF, ChangeBlockSize) {
   auto channel_number = 1;
   filter.Init(channel_number, err);
   ASSERT_FALSE(err);
-
+  
   auto block_size = 512;
   filter.set_block_size(block_size);
-
+  
   rtff::AudioBuffer buffer;
   buffer.Init(block_size, channel_number);
   // queue 50 buffer
@@ -118,11 +134,11 @@ TEST(RTFF, Filter) {
       buffer = Eigen::VectorXcf::Random(size);
     }
   };
-
+  
   ASSERT_FALSE(err);
   auto block_size = 512;
   filter.set_block_size(block_size);
-
+  
   rtff::AudioBuffer buffer;
   buffer.Init(block_size, channel_number);
   // queue 50 buffer
@@ -139,7 +155,7 @@ TEST(RTFF, Latency) {
   std::error_code err;
   filter.Init(1, err);
   ASSERT_FALSE(err);
-
+  
   // case blocksize % fftsize == 0
   filter.set_block_size(512);
   ASSERT_EQ(filter.FrameLatency(), GetLatency(filter));
@@ -147,7 +163,7 @@ TEST(RTFF, Latency) {
   // case block size > fft size
   filter.set_block_size(filter.fft_size() + 100);
   ASSERT_EQ(filter.FrameLatency(), GetLatency(filter));
-
+  
   // case block_size < fft_size and blocksize % fftsize != 0
   filter.set_block_size(filter.fft_size() - 100);
   ASSERT_EQ(filter.FrameLatency(), GetLatency(filter));
@@ -200,27 +216,28 @@ uint32_t GetLatency(rtff::Filter& filter) {
   rtff::AudioBuffer buffer;
   buffer.Init(filter.block_size(), filter.channel_count());
   auto block_size = filter.block_size();
-
+  
   // generate a dirac
   auto sample_rate = 44100;
   auto pre_dirac_samples = sample_rate * 1;
   std::vector<float> content(pre_dirac_samples * 2 + 1, 0);
   content[pre_dirac_samples] = 1;
-
+  
   // run data into the filter
   for (uint32_t sample_idx = 0; sample_idx < content.size() - block_size;
        sample_idx += block_size) {
     float* sample_ptr = content.data() + sample_idx;
     memcpy(buffer.data(), sample_ptr, block_size * sizeof(float));
-
+    
     filter.ProcessBlock(&buffer);
-
+    
     memcpy(sample_ptr, buffer.data(), block_size * sizeof(float));
   }
   uint32_t max_index = 0;
   Eigen::Map<const Eigen::Matrix<float, Eigen::Dynamic, 1>>(content.data(),
                                                             content.size())
-      .maxCoeff(&max_index);
+  .maxCoeff(&max_index);
   auto latency = max_index - pre_dirac_samples;
   return latency;
 }
+
