@@ -3,8 +3,6 @@
 #include "rtff/buffer/buffer.h"
 #include "rtff/filter_impl.h"
 
-#include <iostream>
-
 namespace rtff {
 
 class AbstractFilter::Impl {
@@ -67,7 +65,17 @@ uint32_t AbstractFilter::fft_size() const { return fft_size_; }
 uint32_t AbstractFilter::overlap() const { return overlap_; }
 uint32_t AbstractFilter::hop_size() const { return fft_size_ - overlap_; }
 
-uint32_t AbstractFilter::FrameLatency() const { return 0; }
+uint32_t AbstractFilter::FrameLatency() const {
+  // latency has three different states:
+  if (block_size() < fft_size() && (hop_size() % block_size() == 0)) {
+    // when hop size can be devided by block size
+    return fft_size() - block_size();
+  } else if (block_size() < fft_size()) {
+    return fft_size();
+  } else {
+    return block_size();
+  }
+}
 
 void AbstractFilter::ProcessBlock(AudioBuffer* buffer) {
   input_buffer_->Write(*buffer);
