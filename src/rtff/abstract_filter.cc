@@ -13,7 +13,7 @@ class AbstractFilter::Impl {
 };
 
 AbstractFilter::AbstractFilter()
-    : fft_size_(2048), overlap_(1024), block_size_(512) {}
+    : fft_size_(2048), overlap_(2048 * 0.5), block_size_(512) {}
 
 void AbstractFilter::Init(uint8_t channel_count, uint32_t fft_size,
                           uint32_t overlap, std::error_code& err) {
@@ -44,6 +44,13 @@ void AbstractFilter::InitBuffers() {
                                                hop_size(), channel_count());
   output_buffer_ = std::make_shared<RingBuffer>(hop_size(), block_size(),
                                                 block_size(), channel_count());
+
+  // initialize the intput_buffer_ with hop_size frames of zeros
+  if (fft_size() > block_size()) {
+    std::vector<float> zeros;
+    zeros.resize((fft_size() - block_size()) * channel_count(), 0);
+    input_buffer_->Write(zeros.data(), zeros.size());
+  }
 }
 
 void AbstractFilter::set_block_size(uint32_t value) {
@@ -58,7 +65,17 @@ uint32_t AbstractFilter::fft_size() const { return fft_size_; }
 uint32_t AbstractFilter::overlap() const { return overlap_; }
 uint32_t AbstractFilter::hop_size() const { return fft_size_ - overlap_; }
 
-uint32_t AbstractFilter::FrameLatency() const { return 0; }
+uint32_t AbstractFilter::FrameLatency() const {
+  // latency has three different states:
+  if (hop_size() % block_size() == 0) {
+    // when hop size can be devided by block size
+    return fft_size() - block_size();
+  } else if (block_size() < fft_size()) {
+    return fft_size();
+  } else {
+    return block_size();
+  }
+}
 
 void AbstractFilter::ProcessBlock(AudioBuffer* buffer) {
   input_buffer_->Write(*buffer);
@@ -70,7 +87,6 @@ void AbstractFilter::ProcessBlock(AudioBuffer* buffer) {
                             buffers_->frequential_block.size());
     impl_->Synthesize(buffers_->frequential_block,
                       &(buffers_->output_amplitude_block));
-
     output_buffer_->Write(buffers_->output_amplitude_block);
   }
 

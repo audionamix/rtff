@@ -30,7 +30,7 @@ TEST(RTFF, Basis) {
   ASSERT_EQ(file.Read(&content), wave::Error::kNoError);
 
   // Initialize filter
-  auto block_size = 512;
+  auto block_size = 2048;
   auto channel_number = file.channel_number();
 
   MyFilter filter;
@@ -112,18 +112,17 @@ TEST(RTFF, Filter) {
   std::error_code err;
   auto channel_number = 1;
   filter.Init(channel_number, err);
-  filter.execute = [](std::vector<std::complex<float>*> data,
-                      uint32_t size) {
+  filter.execute = [](std::vector<std::complex<float>*> data, uint32_t size) {
     for (uint8_t channel_idx = 0; channel_idx < data.size(); channel_idx++) {
       auto buffer = Eigen::Map<Eigen::VectorXcf>(data[channel_idx], size);
       buffer = Eigen::VectorXcf::Random(size);
     }
   };
-  
+
   ASSERT_FALSE(err);
   auto block_size = 512;
   filter.set_block_size(block_size);
-  
+
   rtff::AudioBuffer buffer;
   buffer.Init(block_size, channel_number);
   // queue 50 buffer
@@ -131,4 +130,97 @@ TEST(RTFF, Filter) {
     memset(buffer.data(), 0, block_size);
     filter.ProcessBlock(&buffer);
   }
+}
+
+uint32_t GetLatency(rtff::Filter& filter);
+
+TEST(RTFF, Latency) {
+  rtff::Filter filter;
+  std::error_code err;
+  filter.Init(1, err);
+  ASSERT_FALSE(err);
+
+  // case blocksize % fftsize == 0
+  filter.set_block_size(512);
+  ASSERT_EQ(filter.FrameLatency(), GetLatency(filter));
+  
+  // case block size > fft size
+  filter.set_block_size(filter.fft_size() + 100);
+  ASSERT_EQ(filter.FrameLatency(), GetLatency(filter));
+
+  // case block_size < fft_size and blocksize % fftsize != 0
+  filter.set_block_size(filter.fft_size() - 100);
+  ASSERT_EQ(filter.FrameLatency(), GetLatency(filter));
+}
+
+TEST(RTFF, Latency4096) {
+  rtff::Filter filter;
+  std::error_code err;
+  filter.Init(1, 4096, 4096 * 0.75, err);
+  ASSERT_FALSE(err);
+  
+  // case blocksize % fftsize == 0
+  filter.set_block_size(512);
+  ASSERT_EQ(filter.FrameLatency(), GetLatency(filter));
+  
+  // case block size > fft size
+  filter.set_block_size(filter.fft_size() + 100);
+  ASSERT_EQ(filter.FrameLatency(), GetLatency(filter));
+  
+  // case block_size < fft_size and blocksize % fftsize != 0
+  filter.set_block_size(filter.fft_size() - 100);
+  ASSERT_EQ(filter.FrameLatency(), GetLatency(filter));
+}
+
+TEST(RTFF, Latency0Overlap) {
+  rtff::Filter filter;
+  std::error_code err;
+  filter.Init(1, 4096, 0, err);
+  ASSERT_FALSE(err);
+  
+  // case blocksize % fftsize == 0
+  filter.set_block_size(512);
+  ASSERT_EQ(filter.FrameLatency(), GetLatency(filter));
+  
+  // case blocksize % fftsize == 0
+  filter.set_block_size(filter.fft_size());
+  ASSERT_EQ(filter.FrameLatency(), GetLatency(filter));
+  
+  // case block size > fft size
+  filter.set_block_size(filter.fft_size() + 100);
+  ASSERT_EQ(filter.FrameLatency(), GetLatency(filter));
+  
+  // case block_size < fft_size and blocksize % fftsize != 0
+  filter.set_block_size(filter.fft_size() - 100);
+  ASSERT_EQ(filter.FrameLatency(), GetLatency(filter));
+}
+
+// Compute the filter latency by sending a Dirac and checking the filter output
+uint32_t GetLatency(rtff::Filter& filter) {
+  rtff::AudioBuffer buffer;
+  buffer.Init(filter.block_size(), filter.channel_count());
+  auto block_size = filter.block_size();
+
+  // generate a dirac
+  auto sample_rate = 44100;
+  auto pre_dirac_samples = sample_rate * 1;
+  std::vector<float> content(pre_dirac_samples * 2 + 1, 0);
+  content[pre_dirac_samples] = 1;
+
+  // run data into the filter
+  for (uint32_t sample_idx = 0; sample_idx < content.size() - block_size;
+       sample_idx += block_size) {
+    float* sample_ptr = content.data() + sample_idx;
+    memcpy(buffer.data(), sample_ptr, block_size * sizeof(float));
+
+    filter.ProcessBlock(&buffer);
+
+    memcpy(sample_ptr, buffer.data(), block_size * sizeof(float));
+  }
+  uint32_t max_index = 0;
+  Eigen::Map<const Eigen::Matrix<float, Eigen::Dynamic, 1>>(content.data(),
+                                                            content.size())
+      .maxCoeff(&max_index);
+  auto latency = max_index - pre_dirac_samples;
+  return latency;
 }
