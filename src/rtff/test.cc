@@ -138,6 +138,7 @@ TEST(RTFF, Latency) {
   rtff::Filter filter;
   std::error_code err;
   filter.Init(1, err);
+  ASSERT_FALSE(err);
 
   // case blocksize % fftsize == 0
   filter.set_block_size(512);
@@ -147,6 +148,44 @@ TEST(RTFF, Latency) {
   filter.set_block_size(filter.fft_size() + 100);
   ASSERT_EQ(filter.FrameLatency(), GetLatency(filter));
 
+  // case block_size < fft_size and blocksize % fftsize != 0
+  filter.set_block_size(filter.fft_size() - 100);
+  ASSERT_EQ(filter.FrameLatency(), GetLatency(filter));
+}
+
+TEST(RTFF, Latency4096) {
+  rtff::Filter filter;
+  std::error_code err;
+  filter.Init(1, 4096, 4096 * 0.75, err);
+  ASSERT_FALSE(err);
+  
+  // case blocksize % fftsize == 0
+  filter.set_block_size(512);
+  ASSERT_EQ(filter.FrameLatency(), GetLatency(filter));
+  
+  // case block size > fft size
+  filter.set_block_size(filter.fft_size() + 100);
+  ASSERT_EQ(filter.FrameLatency(), GetLatency(filter));
+  
+  // case block_size < fft_size and blocksize % fftsize != 0
+  filter.set_block_size(filter.fft_size() - 100);
+  ASSERT_EQ(filter.FrameLatency(), GetLatency(filter));
+}
+
+TEST(RTFF, Latency0Overlap) {
+  rtff::Filter filter;
+  std::error_code err;
+  filter.Init(1, 4096, 0, err);
+  ASSERT_FALSE(err);
+  
+  // case blocksize % fftsize == 0
+  filter.set_block_size(512);
+  ASSERT_EQ(filter.FrameLatency(), GetLatency(filter));
+  
+  // case block size > fft size
+  filter.set_block_size(filter.fft_size() + 100);
+  ASSERT_EQ(filter.FrameLatency(), GetLatency(filter));
+  
   // case block_size < fft_size and blocksize % fftsize != 0
   filter.set_block_size(filter.fft_size() - 100);
   ASSERT_EQ(filter.FrameLatency(), GetLatency(filter));
