@@ -143,7 +143,7 @@ TEST(RTFF, Latency) {
   // case blocksize % fftsize == 0
   filter.set_block_size(512);
   ASSERT_EQ(filter.FrameLatency(), GetLatency(filter));
-
+  
   // case block size > fft size
   filter.set_block_size(filter.fft_size() + 100);
   ASSERT_EQ(filter.FrameLatency(), GetLatency(filter));
@@ -180,6 +180,10 @@ TEST(RTFF, Latency0Overlap) {
   
   // case blocksize % fftsize == 0
   filter.set_block_size(512);
+  ASSERT_EQ(filter.FrameLatency(), GetLatency(filter));
+  
+  // case blocksize % fftsize == 0
+  filter.set_block_size(filter.fft_size());
   ASSERT_EQ(filter.FrameLatency(), GetLatency(filter));
   
   // case block size > fft size
