@@ -6,7 +6,7 @@
 #include "rtff/abstract_filter.h"
 
 namespace rtff {
-  
+
 /**
  * @brief Simple frequential filter that applies the execute function on each
  * frame

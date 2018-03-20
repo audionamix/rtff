@@ -27,7 +27,8 @@ void FilterImpl::Init(uint32_t fft_size, uint32_t overlap,
   result_buffer_.resize(channel_count);
   post_ifft_buffer_.resize(channel_count);
   for (auto channel_idx = 0; channel_idx < channel_count; channel_idx++) {
-    previous_buffer_[channel_idx] = Eigen::VectorXf::Zero(window_size() - hop_size());
+    previous_buffer_[channel_idx] =
+        Eigen::VectorXf::Zero(window_size() - hop_size());
     post_ifft_buffer_[channel_idx].resize(window_size());
     result_buffer_[channel_idx].resize(window_size());
   }

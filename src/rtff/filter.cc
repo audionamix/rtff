@@ -5,7 +5,7 @@ namespace rtff {
 Filter::Filter()
     : rtff::AbstractFilter(),
       execute([](std::vector<std::complex<float>*>, uint32_t) {}) {}
-  
+
 void Filter::ProcessTransformedBlock(std::vector<std::complex<float>*> data,
                                      uint32_t size) {
   execute(data, size);

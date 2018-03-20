@@ -36,10 +36,8 @@ void RingBuffer::Write(const float* data, uint32_t size) {
   }
   available_data_size_ += size;
 }
-  
-void RingBuffer::Write(const float* data) {
-  Write(data, write_size_);
-}
+
+void RingBuffer::Write(const float* data) { Write(data, write_size_); }
 
 void RingBuffer::Write(const AudioBuffer& buffer) {
   // TODO: assert frame_count == write_size
