@@ -3,6 +3,8 @@
 #include "rtff/buffer/buffer.h"
 #include "rtff/filter_impl.h"
 
+#include <iostream>
+
 namespace rtff {
 
 class AbstractFilter::Impl {
@@ -13,7 +15,7 @@ class AbstractFilter::Impl {
 };
 
 AbstractFilter::AbstractFilter()
-    : fft_size_(2048), overlap_(1024), block_size_(512) {}
+    : fft_size_(2048), overlap_(2048 * 0.5), block_size_(512) {}
 
 void AbstractFilter::Init(uint8_t channel_count, uint32_t fft_size,
                           uint32_t overlap, std::error_code& err) {
@@ -46,9 +48,11 @@ void AbstractFilter::InitBuffers() {
                                                 block_size(), channel_count());
   
   // initialize the intput_buffer_ with hop_size frames of zeros
-  std::vector<float> zeros;
-  zeros.resize(hop_size() * channel_count(), 0);
-  input_buffer_->Write(zeros.data(), zeros.size());
+  if (fft_size() > block_size()) {
+    std::vector<float> zeros;
+    zeros.resize((fft_size() - block_size()) * channel_count(), 0);
+    input_buffer_->Write(zeros.data(), zeros.size());
+  }
 }
 
 void AbstractFilter::set_block_size(uint32_t value) {
@@ -75,7 +79,6 @@ void AbstractFilter::ProcessBlock(AudioBuffer* buffer) {
                             buffers_->frequential_block.size());
     impl_->Synthesize(buffers_->frequential_block,
                       &(buffers_->output_amplitude_block));
-
     output_buffer_->Write(buffers_->output_amplitude_block);
   }
 

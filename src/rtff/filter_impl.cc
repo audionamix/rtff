@@ -27,9 +27,9 @@ void FilterImpl::Init(uint32_t fft_size, uint32_t overlap,
   result_buffer_.resize(channel_count);
   post_ifft_buffer_.resize(channel_count);
   for (auto channel_idx = 0; channel_idx < channel_count; channel_idx++) {
-    previous_buffer_[channel_idx] = Eigen::VectorXf::Zero(window_size());
+    previous_buffer_[channel_idx] = Eigen::VectorXf::Zero(window_size() - hop_size());
     post_ifft_buffer_[channel_idx].resize(window_size());
-    result_buffer_[channel_idx].resize(window_size() + hop_size());
+    result_buffer_[channel_idx].resize(window_size());
   }
 }
 
@@ -70,12 +70,12 @@ void FilterImpl::Synthesize(const TimeFrequencyBuffer& frequential,
     // sum with previous data
     memset(result_.data(), 0, result_.size() * sizeof(float));
 
-    result_.head(window_size()) = previous_;
-    result_.tail(window_size()).array() +=
+    result_.head(previous_.size()) = previous_;
+    result_.array() +=
         post_ifft.array() * synthesis_window_.array() / unwindow_.array();
 
     // keep previous buffer for synthesis
-    previous_ = result_.tail(window_size());
+    previous_ = result_.tail(previous_.size());
 
     // unwindow to get the right buffer
     amplitude->channel(channel_idx).noalias() =
