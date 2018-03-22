@@ -1,4 +1,4 @@
-add_library(rtff
+set(rtff_sources
   ${src}/rtff/filter.cc
   ${src}/rtff/filter.h
   ${src}/rtff/abstract_filter.cc
@@ -22,6 +22,9 @@ add_library(rtff
   ${src}/rtff/fft/mkl/mkl_fft_context.cc
   ${src}/rtff/fft/mkl/mkl_fft_context.h
 )
+add_library(rtff ${rtff_sources})
+
+OrganizeSources(SOURCES ${rtff_sources})
 
 target_include_directories(rtff
   PUBLIC

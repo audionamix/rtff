@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.0)
 
 include(ExternalProject)
 include("cmake/mkl.cmake")
+include("cmake/organize_sources.cmake")
 
 project(rtff)
 
