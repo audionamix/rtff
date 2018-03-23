@@ -42,12 +42,10 @@ function(FindMkl)
     set(mkl_libraries
       "${MKLROOT}/lib/libmkl_intel.a"
       "${MKLROOT}/lib/libmkl_core.a"
-      "${MKLROOT}/lib/libmkl_intel_thread.a"
-      "${FindMkl_INTEL_PATH}/lib/libiomp5.a"
+      "${MKLROOT}/lib/libmkl_tbb_thread.a"
       "-lpthread"
       "-lm"
       "-ldl"
-      "-L${FindMkl_INTEL_PATH}/lib"
     )
     set(mkl_compiler_options
       "-m32"
@@ -58,8 +56,7 @@ function(FindMkl)
       "-Wl,--start-group"
       "${MKLROOT}/lib/intel64/libmkl_intel_lp64.a"
       "${MKLROOT}/lib/intel64/libmkl_core.a"
-      "${MKLROOT}/lib/intel64/libmkl_intel_thread.a"
-      "${FindMkl_INTEL_PATH}/compilers_and_libraries_2017.5.239/linux/compiler/lib/intel64/libiomp5.a"
+      "${MKLROOT}/lib/intel64/libmkl_tbb_thread.a"
       "-Wl,--end-group"
       "-lpthread"
       "-lm"
