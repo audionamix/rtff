@@ -14,17 +14,21 @@ project(rtff)
 option(rtff_enable_tests "Build Unit tests" ON)
 set(CMAKE_CXX_STANDARD 14)
 
-# Intel Tbb
-tbb_get(TBB_ROOT tbb_root RELEASE_TAG "2018_U2" SOURCE_CODE)
-tbb_build(TBB_ROOT ${tbb_root} CONFIG_DIR TBB_DIR)
-set(tbb_library_dir
-  ${CMAKE_BINARY_DIR}/tbb_cmake_build/tbb_cmake_build_subdir_release
-)
-
 # Intel Mkl
 FindMkl(TBB_PATH ${tbb_library_dir})
 
 if (${rtff_enable_tests})
+  # Intel Tbb as a shared library. Not necessary unless we actually go to link
+  # stage which is only necessary when building a shared lib or an executable
+  # like the tests.
+  # External libs using rtff will need to link against tbb themself
+  tbb_get(TBB_ROOT tbb_root RELEASE_TAG "2018_U2" SOURCE_CODE)
+  tbb_build(TBB_ROOT ${tbb_root} CONFIG_DIR TBB_DIR)
+  set(tbb_library_dir
+    ${CMAKE_BINARY_DIR}/tbb_cmake_build/tbb_cmake_build_subdir_release
+  )
+  link_directories(${tbb_library_dir})
+
   enable_testing()
 
   # gtest

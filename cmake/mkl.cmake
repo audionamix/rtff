@@ -5,15 +5,10 @@ function(FindMkl)
   # parse args
   set(option_args "")
   set(multiple_val_args "")
-  set(one_val_args PATH INTEL_PATH TBB_PATH)
+  set(one_val_args PATH INTEL_PATH)
   cmake_parse_arguments(FindMkl
     "${option_args}" "${one_val_args}" "${multiple_val_args}" "${ARGN}"
   )
-
-  if (NOT FindMkl_TBB_PATH)
-    # TODO: default to mkl prebuild version of tbb
-    message(FATAL "Intel TBB path should be supplied to build against that library")
-  endif()
 
   # if not path provided, use mklroot default values
   if (NOT FindMkl_PATH)
@@ -48,7 +43,6 @@ function(FindMkl)
       "${MKLROOT}/lib/libmkl_intel.a"
       "${MKLROOT}/lib/libmkl_core.a"
       "${MKLROOT}/lib/libmkl_tbb_thread.a"
-      "-ltbb"
       "-lpthread"
       "-lm"
       "-ldl"
@@ -68,7 +62,6 @@ function(FindMkl)
       "${MKLROOT}/lib/intel64/libmkl_core.a"
       "${MKLROOT}/lib/intel64/libmkl_tbb_thread.a"
       "-Wl,--end-group"
-      "-ltbb"
       "-lpthread"
       "-lm"
       "-ldl"
@@ -77,10 +70,6 @@ function(FindMkl)
       "-m32"
     )
     set(mkl_include_dir "${MKLROOT}/include")
-    link_directories(${FindMkl_TBB_PATH})  # for tbb lib to be found
-    set(tbb_libraries
-      ${FindMkl_TBB_PATH}/libtbb.so.2
-    )
   elseif(WIN32)
     if (CMAKE_SIZEOF_VOID_P MATCHES "8")
       # 64bits
@@ -88,7 +77,6 @@ function(FindMkl)
          "${MKLROOT}/lib/intel64/mkl_intel_ilp64.lib"
          "${MKLROOT}/lib/intel64/mkl_core.lib"
          "${MKLROOT}/lib/intel64/mkl_tbb_thread.lib"
-         "${FindMkl_TBB_PATH}/tbb.lib"
       )
     else ()
       # 32bits
@@ -96,14 +84,10 @@ function(FindMkl)
          "${MKLROOT}/lib/ia32/mkl_intel_c.lib"
          "${MKLROOT}/lib/ia32/mkl_core.lib"
          "${MKLROOT}/lib/ia32/mkl_tbb_thread.lib"
-         "${FindMkl_TBB_PATH}/tbb.lib"
       )
     endif ()
     set(mkl_compiler_options "")
     set(mkl_include_dir "${MKLROOT}/include")
-    set(tbb_libraries
-      ${FindMkl_TBB_PATH}/tbb.lib
-    )
   else()
     message(FATAL_ERROR "Unkown platform")
   endif()
@@ -111,5 +95,4 @@ function(FindMkl)
   set(mkl_libraries ${mkl_libraries} PARENT_SCOPE)
   set(mkl_include_dir ${mkl_include_dir} PARENT_SCOPE)
   set(mkl_compiler_options ${mkl_compiler_options} PARENT_SCOPE)
-  set(tbb_libraries ${tbb_libraries} PARENT_SCOPE)
 endfunction(FindMkl)

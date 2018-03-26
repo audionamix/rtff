@@ -62,7 +62,6 @@ foreach (lib ${mkl_libraries})
 endforeach()
 install(FILES
   ${mkl_dependencies}
-  ${tbb_libraries}
   DESTINATION lib
 )
 
@@ -94,6 +93,7 @@ if (${rtff_enable_tests})
       rtff
       wave
       ${mkl_libraries}
+      tbb
     )
   else ()
     target_link_libraries(rtff_test
@@ -104,6 +104,7 @@ if (${rtff_enable_tests})
       rtff
       wave
       ${mkl_libraries}
+      tbb
     )
   endif()
   target_include_directories(rtff_test
