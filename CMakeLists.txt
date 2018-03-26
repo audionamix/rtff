@@ -1,16 +1,28 @@
 cmake_minimum_required(VERSION 3.0)
 
+list(APPEND CMAKE_PREFIX_PATH ${PROJECT_SOURCE_DIR}/tbb/cmake)
+
 include(ExternalProject)
+
 include("cmake/mkl.cmake")
 include("cmake/organize_sources.cmake")
+include("cmake/tbb/TBBGet.cmake")
+include("cmake/tbb/TBBBuild.cmake")
 
 project(rtff)
 
 option(rtff_enable_tests "Build Unit tests" ON)
 set(CMAKE_CXX_STANDARD 14)
 
-# Mkl
-FindMkl()
+# Intel Tbb
+tbb_get(TBB_ROOT tbb_root RELEASE_TAG "2018_U2" SOURCE_CODE)
+tbb_build(TBB_ROOT ${tbb_root} CONFIG_DIR TBB_DIR)
+set(tbb_library_dir
+  ${CMAKE_BINARY_DIR}/tbb_cmake_build/tbb_cmake_build_subdir_release
+)
+
+# Intel Mkl
+FindMkl(TBB_PATH ${tbb_library_dir})
 
 if (${rtff_enable_tests})
   enable_testing()

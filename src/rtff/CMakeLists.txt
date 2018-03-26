@@ -62,6 +62,7 @@ foreach (lib ${mkl_libraries})
 endforeach()
 install(FILES
   ${mkl_dependencies}
+  ${tbb_libraries}
   DESTINATION lib
 )
 
