@@ -85,6 +85,7 @@ if (${rtff_enable_tests})
   add_dependencies(rtff_test
     external_wave
     external_googletest
+    external_tbb
   )
   if (UNIX AND NOT APPLE)
     target_link_libraries(rtff_test
