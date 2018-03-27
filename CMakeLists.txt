@@ -11,12 +11,16 @@ project(rtff)
 
 option(rtff_enable_tests "Build Unit tests" ON)
 set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_DEBUG_POSTFIX d)  # add the d postfix to generated libraries
 
 # Intel TBB
 set(tbb_install_dir ${CMAKE_BINARY_DIR}/tbb-install)
 ExternalProject_Add(external_tbb
   GIT_REPOSITORY "https://github.com/wjakob/tbb.git"
   GIT_TAG "tbb44u4"
+  # to avoid long paths on windows, build in the binary folder
+  SOURCE_DIR ${CMAKE_BINARY_DIR}/tbb-sources
+  BUILD_IN_SOURCE 1
   CMAKE_ARGS
     "-DTBB_BUILD_STATIC=OFF"
     "-DTBB_BUILD_TBBMALLOC=OFF"
