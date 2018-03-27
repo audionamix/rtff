@@ -24,10 +24,12 @@ function(FindMkl)
       set(FindMkl_PATH ${FindMkl_INTEL_PATH}/mkl)
 
     elseif(WIN32)
+      set(program_files_env_var "PROGRAMFILES(X86)")
+      string(REPLACE "\\" "/" program_files $ENV{${program_files_env_var}})
       if (NOT FindMkl_INTEL_PATH)
-        set(FindMkl_INTEL_PATH "$ENV{ProgramFiles}/IntelSWTools/compilers_and_libraries/windows")
+        set(FindMkl_INTEL_PATH ${program_files}/IntelSWTools/compilers_and_libraries/windows)
       endif()
-      set(FindMkl_PATH "${FindMkl_INTEL_PATH}/mkl")
+      set(FindMkl_PATH ${FindMkl_INTEL_PATH}/mkl)
     endif()
   endif()
 
@@ -43,6 +45,7 @@ function(FindMkl)
       "${MKLROOT}/lib/libmkl_intel.a"
       "${MKLROOT}/lib/libmkl_core.a"
       "${MKLROOT}/lib/libmkl_tbb_thread.a"
+      "-ltbb"
       "-lpthread"
       "-lm"
       "-ldl"
@@ -62,6 +65,7 @@ function(FindMkl)
       "${MKLROOT}/lib/intel64/libmkl_core.a"
       "${MKLROOT}/lib/intel64/libmkl_tbb_thread.a"
       "-Wl,--end-group"
+      "-ltbb"
       "-lpthread"
       "-lm"
       "-ldl"

@@ -57,7 +57,7 @@ install(FILES
 set(mkl_dependencies "")
 foreach (lib ${mkl_libraries})
   if (EXISTS ${lib})
-    set(mkl_dependencies ${mkl_dependencies} ${lib})
+    set(mkl_dependencies ${mkl_dependencies} "${lib}")
   endif()
 endforeach()
 install(FILES

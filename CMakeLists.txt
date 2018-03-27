@@ -4,31 +4,42 @@ list(APPEND CMAKE_PREFIX_PATH ${PROJECT_SOURCE_DIR}/tbb/cmake)
 
 include(ExternalProject)
 
-include("cmake/mkl.cmake")
 include("cmake/organize_sources.cmake")
-include("cmake/tbb/TBBGet.cmake")
-include("cmake/tbb/TBBBuild.cmake")
+include("cmake/mkl.cmake")
 
 project(rtff)
 
 option(rtff_enable_tests "Build Unit tests" ON)
 set(CMAKE_CXX_STANDARD 14)
 
+# Intel TBB
+set(tbb_install_dir ${CMAKE_BINARY_DIR}/tbb-install)
+ExternalProject_Add(external_tbb
+  GIT_REPOSITORY "https://github.com/wjakob/tbb.git"
+  GIT_TAG "tbb44u4"
+  CMAKE_ARGS
+    "-DTBB_BUILD_STATIC=OFF"
+    "-DTBB_BUILD_TBBMALLOC=OFF"
+    "-DTBB_BUILD_TBBMALLOC_PROXY=OFF"
+    "-DTBB_BUILD_TESTS=OFF"
+    "-DCMAKE_INSTALL_PREFIX=${tbb_install_dir}"
+)
+link_directories(${tbb_install_dir}/lib)
+if (WIN32)
+  install(DIRECTORY
+    ${tbb_install_dir}/bin
+    DESTINATION .
+  )
+endif()
+install(DIRECTORY
+  ${tbb_install_dir}/lib
+  DESTINATION .
+)
+
 # Intel Mkl
-FindMkl(TBB_PATH ${tbb_library_dir})
+FindMkl(TBB_PATH ${tbb_install_dir}/bin)
 
 if (${rtff_enable_tests})
-  # Intel Tbb as a shared library. Not necessary unless we actually go to link
-  # stage which is only necessary when building a shared lib or an executable
-  # like the tests.
-  # External libs using rtff will need to link against tbb themself
-  tbb_get(TBB_ROOT tbb_root RELEASE_TAG "2018_U2" SOURCE_CODE)
-  tbb_build(TBB_ROOT ${tbb_root} CONFIG_DIR TBB_DIR)
-  set(tbb_library_dir
-    ${CMAKE_BINARY_DIR}/tbb_cmake_build/tbb_cmake_build_subdir_release
-  )
-  link_directories(${tbb_library_dir})
-
   enable_testing()
 
   # gtest
