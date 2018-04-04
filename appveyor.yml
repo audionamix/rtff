@@ -1,0 +1,17 @@
+version: 1.0.{build}
+
+image:
+  - Visual Studio 2015
+  - Visual Studio 2017
+
+build_script:
+  - mkdir build
+  - cd build
+  - cmake ..
+  - cmake --build .
+
+test_script:
+  - cmd: C:/projects/rtff/build/src/rtff/Debug/rtff_test.exe --gtest_output=xml:tests.xml
+
+after_test:
+   - ps: (new-object net.webclient).UploadFile("https://ci.appveyor.com/api/testresults/junit/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\tests.xml))
