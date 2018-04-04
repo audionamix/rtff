@@ -5,13 +5,14 @@ image:
   - Visual Studio 2017
 
 install:
-  - ps: (new-object net.webclient).DownloadFile('http://registrationcenter-download.intel.com/akdlm/irc_nas/tec/11564/w_mkl_2017.3.210.exe', 'C:/users/appveyor/w_mkl_2017.3.210.exe')
+  - ps: (new-object net.webclient).DownloadFile('https://s3.amazonaws.com/audionamix-public/w_mkl_2017.3.210.exe', 'C:/users/appveyor/w_mkl_2017.3.210.exe')
   - cmd : C:/users/appveyor/w_mkl_2017.3.210.exe -f C:/users/appveyor --s --x
   - cmd : C:/users/appveyor/setup.exe install --output=output --eula=accept
   - cmd : cd "C:/Program Files (x86)/IntelSWTools/compilers_and_libraries_2017/windows/mkl/bin/"
   - cmd : mklvars.bat intel64 #Fills the env variables MKLROOT LIB INCLUDE
 
 build_script:
+  - cd C:\projects\rtff
   - mkdir build
   - cd build
   - cmake ..
