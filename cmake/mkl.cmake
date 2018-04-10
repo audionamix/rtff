@@ -58,26 +58,34 @@ function(FindMkl)
       set(mkl_libraries ${mkl_libraries} "${MKLROOT}/lib/libmkl_sequential.a")
     endif()
   elseif(UNIX AND NOT APPLE)
-    set(mkl_libraries
-      "-Wl,--start-group"
-      "${MKLROOT}/lib/intel64/libmkl_intel_lp64.a"
-      "${MKLROOT}/lib/intel64/libmkl_core.a"
-      "-Wl,--end-group"
-      "-lpthread"
-      "-lm"
-      "-ldl"
-    )
+    if (${FindMkl_MULTIHREADING})
+      set(mkl_libraries
+        "-Wl,--start-group"
+        "${MKLROOT}/lib/intel64/libmkl_intel_lp64.a"
+        "${MKLROOT}/lib/intel64/libmkl_core.a"
+        "${MKLROOT}/lib/intel64/libmkl_tbb_thread.a"
+        "-Wl,--end-group"
+        "-ltbb"
+        "-lpthread"
+        "-lm"
+        "-ldl"
+      )
+    else()
+      set(mkl_libraries
+        "-Wl,--start-group"
+        "${MKLROOT}/lib/intel64/libmkl_intel_lp64.a"
+        "${MKLROOT}/lib/intel64/libmkl_core.a"
+        "${MKLROOT}/lib/intel64/libmkl_sequential.a"
+        "-Wl,--end-group"
+        "-lpthread"
+        "-lm"
+        "-ldl"
+      )
+    endif()
     set(mkl_compiler_options
       "-m32"
     )
     set(mkl_include_dir "${MKLROOT}/include")
-
-    if (${FindMkl_MULTIHREADING})
-      set(mkl_libraries ${mkl_libraries} "${MKLROOT}/lib/intel64/libmkl_tbb_thread.a" "-ltbb")
-    else()
-      set(mkl_libraries ${mkl_libraries} "${MKLROOT}/lib/intel64/libmkl_sequential.a")
-    endif()
-
   elseif(WIN32)
     if (CMAKE_SIZEOF_VOID_P MATCHES "8")
       # 64bits
