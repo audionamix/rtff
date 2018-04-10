@@ -10,38 +10,42 @@ include("cmake/mkl.cmake")
 project(rtff)
 
 option(rtff_enable_tests "Build Unit tests" ON)
+option(rtff_enable_multithread "Allow multithreading" OFF)
+
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_DEBUG_POSTFIX d)  # add the d postfix to generated libraries
 
+# Intel Mkl
+FindMkl()
+
 # Intel TBB
-set(tbb_install_dir ${CMAKE_BINARY_DIR}/tbb-install)
-ExternalProject_Add(external_tbb
-  GIT_REPOSITORY "https://github.com/wjakob/tbb.git"
-  GIT_TAG "tbb44u4"
-  # to avoid long paths on windows, build in the binary folder
-  SOURCE_DIR ${CMAKE_BINARY_DIR}/tbb-sources
-  BUILD_IN_SOURCE 1
-  CMAKE_ARGS
-    "-DTBB_BUILD_STATIC=OFF"
-    "-DTBB_BUILD_TBBMALLOC=OFF"
-    "-DTBB_BUILD_TBBMALLOC_PROXY=OFF"
-    "-DTBB_BUILD_TESTS=OFF"
-    "-DCMAKE_INSTALL_PREFIX=${tbb_install_dir}"
-)
-link_directories(${tbb_install_dir}/lib)
-if (WIN32)
+if (${rtff_enable_multithread})
+  set(tbb_install_dir ${CMAKE_BINARY_DIR}/tbb-install)
+  ExternalProject_Add(external_tbb
+    GIT_REPOSITORY "https://github.com/wjakob/tbb.git"
+    GIT_TAG "tbb44u4"
+    # to avoid long paths on windows, build in the binary folder
+    SOURCE_DIR ${CMAKE_BINARY_DIR}/tbb-sources
+    BUILD_IN_SOURCE 1
+    CMAKE_ARGS
+      "-DTBB_BUILD_STATIC=OFF"
+      "-DTBB_BUILD_TBBMALLOC=OFF"
+      "-DTBB_BUILD_TBBMALLOC_PROXY=OFF"
+      "-DTBB_BUILD_TESTS=OFF"
+      "-DCMAKE_INSTALL_PREFIX=${tbb_install_dir}"
+  )
+  link_directories(${tbb_install_dir}/lib)
+  if (WIN32)
+    install(DIRECTORY
+      ${tbb_install_dir}/bin
+      DESTINATION .
+    )
+  endif()
   install(DIRECTORY
-    ${tbb_install_dir}/bin
+    ${tbb_install_dir}/lib
     DESTINATION .
   )
 endif()
-install(DIRECTORY
-  ${tbb_install_dir}/lib
-  DESTINATION .
-)
-
-# Intel Mkl
-FindMkl(TBB_PATH ${tbb_install_dir}/bin)
 
 if (${rtff_enable_tests})
   enable_testing()

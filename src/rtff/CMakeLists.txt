@@ -85,8 +85,10 @@ if (${rtff_enable_tests})
   add_dependencies(rtff_test
     external_wave
     external_googletest
-    external_tbb
   )
+  if (${rtff_enable_multithread})
+    add_dependencies(rtff_test external_tbb)
+  endif()
   if (UNIX AND NOT APPLE)
     target_link_libraries(rtff_test
       gtest
@@ -95,7 +97,6 @@ if (${rtff_enable_tests})
       debug waved
       optimized wave
       ${mkl_libraries}
-      tbb
     )
   else ()
     target_link_libraries(rtff_test
@@ -107,7 +108,6 @@ if (${rtff_enable_tests})
       debug waved
       optimized wave
       ${mkl_libraries}
-      tbb
     )
   endif()
   target_include_directories(rtff_test

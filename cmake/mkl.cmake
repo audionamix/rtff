@@ -3,7 +3,7 @@
 # TODO switch x86 / x64
 function(FindMkl)
   # parse args
-  set(option_args "")
+  set(option_args MULTITHREADING)
   set(multiple_val_args "")
   set(one_val_args PATH INTEL_PATH)
   cmake_parse_arguments(FindMkl
@@ -44,8 +44,6 @@ function(FindMkl)
     set(mkl_libraries
       "${MKLROOT}/lib/libmkl_intel.a"
       "${MKLROOT}/lib/libmkl_core.a"
-      "${MKLROOT}/lib/libmkl_tbb_thread.a"
-      "-ltbb"
       "-lpthread"
       "-lm"
       "-ldl"
@@ -54,18 +52,17 @@ function(FindMkl)
       "-m32"
     )
     set(mkl_include_dir "${MKLROOT}/include")
-    link_directories(${FindMkl_TBB_PATH})  # for tbb lib to be found
-    set(tbb_libraries
-      ${FindMkl_TBB_PATH}/libtbb.dylib
-    )
+    if (${FindMkl_MULTIHREADING})
+      set(mkl_libraries ${mkl_libraries} "${MKLROOT}/lib/libmkl_tbb_thread.a" "-ltbb")
+    else()
+      set(mkl_libraries ${mkl_libraries} "${MKLROOT}/lib/libmkl_sequential.a")
+    endif()
   elseif(UNIX AND NOT APPLE)
     set(mkl_libraries
       "-Wl,--start-group"
       "${MKLROOT}/lib/intel64/libmkl_intel_lp64.a"
       "${MKLROOT}/lib/intel64/libmkl_core.a"
-      "${MKLROOT}/lib/intel64/libmkl_tbb_thread.a"
       "-Wl,--end-group"
-      "-ltbb"
       "-lpthread"
       "-lm"
       "-ldl"
@@ -74,21 +71,36 @@ function(FindMkl)
       "-m32"
     )
     set(mkl_include_dir "${MKLROOT}/include")
+
+    if (${FindMkl_MULTIHREADING})
+      set(mkl_libraries ${mkl_libraries} "${MKLROOT}/lib/intel64/libmkl_tbb_thread.a" "-ltbb")
+    else()
+      set(mkl_libraries ${mkl_libraries} "${MKLROOT}/lib/intel64/libmkl_sequential.a")
+    endif()
+
   elseif(WIN32)
     if (CMAKE_SIZEOF_VOID_P MATCHES "8")
       # 64bits
       set(mkl_libraries
          "${MKLROOT}/lib/intel64/mkl_intel_ilp64.lib"
          "${MKLROOT}/lib/intel64/mkl_core.lib"
-         "${MKLROOT}/lib/intel64/mkl_tbb_thread.lib"
       )
+      if (${FindMkl_MULTIHREADING})
+        set(mkl_libraries ${mkl_libraries} "${MKLROOT}/lib/intel64/mkl_tbb_thread.lib")
+      else()
+        set(mkl_libraries ${mkl_libraries} "${MKLROOT}/lib/intel64/mkl_sequential.lib")
+      endif()
     else ()
       # 32bits
       set(mkl_libraries
          "${MKLROOT}/lib/ia32/mkl_intel_c.lib"
          "${MKLROOT}/lib/ia32/mkl_core.lib"
-         "${MKLROOT}/lib/ia32/mkl_tbb_thread.lib"
       )
+      if (${FindMkl_MULTIHREADING})
+        set(mkl_libraries ${mkl_libraries} "${MKLROOT}/lib/ia32/mkl_tbb_thread.lib")
+      else()
+        set(mkl_libraries ${mkl_libraries} "${MKLROOT}/lib/ia32/mkl_sequential.lib")
+      endif()
     endif ()
     set(mkl_compiler_options "")
     set(mkl_include_dir "${MKLROOT}/include")
