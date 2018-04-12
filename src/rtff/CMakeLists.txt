@@ -52,6 +52,7 @@ install(FILES
 )
 install(FILES
   ${src}/rtff/buffer/ring_buffer.h
+  ${src}/rtff/buffer/multichannel_ring_buffer.h
   ${src}/rtff/buffer/audio_buffer.h
   DESTINATION include/rtff/buffer
 )
