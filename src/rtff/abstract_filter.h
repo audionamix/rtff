@@ -7,7 +7,7 @@
 #include <vector>
 
 #include "rtff/buffer/audio_buffer.h"
-#include "rtff/buffer/ring_buffer.h"
+#include "rtff/buffer/multichannel_ring_buffer.h"
 
 namespace rtff {
 
@@ -89,7 +89,7 @@ class AbstractFilter {
   uint32_t overlap_;
   uint32_t block_size_;
   uint8_t channel_count_;
-  std::shared_ptr<RingBuffer> input_buffer_, output_buffer_;
+  std::shared_ptr<MultichannelRingBuffer> input_buffer_, output_buffer_;
 
   std::shared_ptr<FilterImpl> impl_;
 

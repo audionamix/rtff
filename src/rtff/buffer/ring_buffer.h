@@ -19,15 +19,10 @@ class AudioBuffer;
  */
 class RingBuffer {
  public:
-  RingBuffer(uint32_t write_size, uint32_t read_size, uint32_t step_size,
-             uint8_t channel_count);
-  void Write(const float* data, uint32_t size);
+  RingBuffer(uint32_t write_size, uint32_t read_size, uint32_t step_size);
+  void InitWithZeros(uint32_t count);
   void Write(const float* data);
-  void Write(const AudioBuffer& buffer);
-  void Write(const Buffer<float>& buffer);
-
   bool Read(float* data);
-  bool Read(Buffer<float>* buffer);
 
  private:
   uint32_t write_size_;
@@ -37,7 +32,6 @@ class RingBuffer {
   uint32_t write_index_;
   uint32_t read_index_;
   uint32_t available_data_size_;
-  uint8_t channel_count_;
   std::vector<float> buffer_;
 
   // temp data to avoid allocating memory after Init

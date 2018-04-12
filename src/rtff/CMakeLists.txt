@@ -9,6 +9,8 @@ set(rtff_sources
 
   ${src}/rtff/buffer/ring_buffer.cc
   ${src}/rtff/buffer/ring_buffer.h
+  ${src}/rtff/buffer/multichannel_ring_buffer.cc
+  ${src}/rtff/buffer/multichannel_ring_buffer.h
   ${src}/rtff/buffer/audio_buffer.cc
   ${src}/rtff/buffer/audio_buffer.h
   ${src}/rtff/buffer/buffer.h
@@ -81,6 +83,7 @@ if (${rtff_enable_tests})
 
   add_executable(rtff_test
     ${src}/rtff/test.cc
+    ${src}/rtff/buffer/buffer_test.cc
   )
   add_dependencies(rtff_test
     external_wave
