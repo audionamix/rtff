@@ -90,7 +90,7 @@ function(FindMkl)
     if (CMAKE_SIZEOF_VOID_P MATCHES "8")
       # 64bits
       set(mkl_libraries
-         "${MKLROOT}/lib/intel64/mkl_intel_ilp64.lib"
+         "${MKLROOT}/lib/intel64/mkl_intel_lp64.lib"
          "${MKLROOT}/lib/intel64/mkl_core.lib"
       )
       if (${FindMkl_MULTIHREADING})
