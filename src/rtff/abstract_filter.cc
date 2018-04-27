@@ -15,6 +15,8 @@ class AbstractFilter::Impl {
 AbstractFilter::AbstractFilter()
     : fft_size_(2048), overlap_(2048 * 0.5), block_size_(512) {}
 
+AbstractFilter::~AbstractFilter() {}
+  
 void AbstractFilter::Init(uint8_t channel_count, uint32_t fft_size,
                           uint32_t overlap, std::error_code& err) {
   fft_size_ = fft_size;

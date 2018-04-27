@@ -30,6 +30,7 @@ class FilterImpl;
 class AbstractFilter {
  public:
   AbstractFilter();
+  virtual ~AbstractFilter();
   /**
    * @brief Initialize the filter
    * @param channel_count: the number of channel of input buffers

@@ -14,6 +14,7 @@ namespace rtff {
 class Filter : public AbstractFilter {
  public:
   Filter();
+  virtual ~Filter();
   std::function<void(std::vector<std::complex<float>*>, uint32_t)> execute;
 
  protected:
