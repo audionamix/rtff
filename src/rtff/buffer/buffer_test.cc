@@ -5,8 +5,8 @@
 #include <Eigen/Core>
 
 #include "rtff/buffer/audio_buffer.h"
-#include "rtff/buffer/ring_buffer.h"
-#include "rtff/buffer/multichannel_ring_buffer.h"
+#include "rtff/buffer/overlap_ring_buffer.h"
+#include "rtff/buffer/overlap_ring_buffer.h"
 
 TEST(Buffer, AudioBuffer) {
   // Test convertion split channel to interleaved and interleaved to split
@@ -45,7 +45,7 @@ TEST(Buffer, AudioBuffer) {
   ASSERT_EQ(interleaved, read_interleaved);
 }
 
-TEST(Buffer, RingBuffer) {
+TEST(Buffer, OverlapRingBuffer) {
   using namespace rtff;
 
   const auto frame_number = 44100;
@@ -58,7 +58,7 @@ TEST(Buffer, RingBuffer) {
   auto successful_read_count = 0;
 
   Eigen::VectorXf output_data(read_size);
-  RingBuffer buffer(read_size, step_size);
+  OverlapRingBuffer buffer(read_size, step_size);
 
   // write first 3 parts
   // => we shouldn't be able to read as we don't have enough data
@@ -109,7 +109,7 @@ TEST(Buffer, RingBuffer) {
   }
 }
 
-TEST(Buffer, MultichannelRingBuffer) {
+TEST(Buffer, MultichannelOverlapRingBuffer) {
   using namespace rtff;
 
   const auto frame_number = 44100;
@@ -124,7 +124,7 @@ TEST(Buffer, MultichannelRingBuffer) {
 
   Eigen::MatrixXf output_data(channel_number, read_size);
   Eigen::MatrixXf input_data(channel_number, write_size);
-  MultichannelRingBuffer buffer(read_size, step_size, channel_number);
+  MultichannelOverlapRingBuffer buffer(read_size, step_size, channel_number);
 
   AudioBuffer input_buffer(write_size, channel_number);
   AudioBuffer output_buffer(read_size, channel_number);
@@ -132,12 +132,12 @@ TEST(Buffer, MultichannelRingBuffer) {
   // write first 2 can't read
   input_data = data.block(0, current_frame, channel_number, write_size);
   input_buffer.fromInterleaved(input_data.data());
-  buffer.Write(input_buffer);
+  buffer.Write(input_buffer, input_buffer.frame_count());
   ASSERT_FALSE(buffer.Read(&output_buffer));
   current_frame += write_size;
   input_data = data.block(0, current_frame, channel_number, write_size);
   input_buffer.fromInterleaved(input_data.data());
-  buffer.Write(input_buffer);
+  buffer.Write(input_buffer, input_buffer.frame_count());
   ASSERT_FALSE(buffer.Read(&output_buffer));
   current_frame += write_size;
 
@@ -145,13 +145,13 @@ TEST(Buffer, MultichannelRingBuffer) {
   while (current_frame < frame_number - read_size) {
     input_data = data.block(0, current_frame, channel_number, write_size);
     input_buffer.fromInterleaved(input_data.data());
-    buffer.Write(input_buffer);
+    buffer.Write(input_buffer, input_buffer.frame_count());
     ASSERT_FALSE(buffer.Read(&output_buffer));
     current_frame += write_size;
 
     input_data = data.block(0, current_frame, channel_number, write_size);
     input_buffer.fromInterleaved(input_data.data());
-    buffer.Write(input_buffer);
+    buffer.Write(input_buffer, input_buffer.frame_count());
     ASSERT_TRUE(buffer.Read(&output_buffer));
     output_buffer.toInterleaved(output_data.data());
     ASSERT_EQ(output_data, data.block(0, successful_read_count * step_size,
@@ -162,86 +162,39 @@ TEST(Buffer, MultichannelRingBuffer) {
   }
 }
 
-TEST(Buffer, RingBufferRandomWriteSize) {
+TEST(Buffer, OverlapRingBufferRandomWriteSize) {
   using namespace rtff;
-  
-  std::random_device rd;  //Will be used to obtain a seed for the random number engine
-  std::mt19937 gen(rd()); //Standard mersenne_twister_engine seeded with rd()
-  
+
+  std::random_device
+      rd;  // Will be used to obtain a seed for the random number engine
+  std::mt19937 gen(rd());  // Standard mersenne_twister_engine seeded with rd()
+
   const auto frame_number = 44100;
   Eigen::VectorXf data = Eigen::VectorXf::Random(frame_number);
-  
+
   const auto max_write_size = 512;
   const auto read_size = 2048;  // read fft_size data
   const auto step_size = 1024;  // overlap
   auto current_frame = 0;
   auto successful_read_count = 0;
-  
+
   Eigen::VectorXf output_data(read_size);
-  RingBuffer buffer(read_size, step_size);
-  
+  OverlapRingBuffer buffer(read_size, step_size);
+
   std::uniform_int_distribution<> dis(1, max_write_size);
   auto written_size = 0;
-  auto red_size = 0;
   while (written_size < frame_number) {
     auto write_size = dis(gen);
     buffer.Write(data.segment(current_frame, write_size).data(), write_size);
-    
+
     written_size += write_size;
     if (written_size < read_size) {
       ASSERT_FALSE(buffer.Read(output_data.data()));
-    } else if (written_size - red_size >= read_size) {
+    } else if (written_size - successful_read_count >= read_size) {
       ASSERT_TRUE(buffer.Read(output_data.data()));
-      red_size += step_size;
+      successful_read_count += step_size;
     } else {
       ASSERT_FALSE(buffer.Read(output_data.data()));
     }
   }
-//  // write first 3 parts
-//  // => we shouldn't be able to read as we don't have enough data
-//  buffer.Write(data.segment(current_frame, write_size).data(), write_size);
-//  ASSERT_FALSE(buffer.Read(output_data.data()));
-//  current_frame += write_size;
-//  buffer.Write(data.segment(current_frame, write_size).data(), write_size);
-//  ASSERT_FALSE(buffer.Read(output_data.data()));
-//  current_frame += write_size;
-//  buffer.Write(data.segment(current_frame, write_size).data(), write_size);
-//  ASSERT_FALSE(buffer.Read(output_data.data()));
-//  current_frame += write_size;
-//  // write 4th part
-//  // => we have enough data. outut should be the first read_size frames of the
-//  // input signal
-//  buffer.Write(data.segment(current_frame, write_size).data(), write_size);
-//  ASSERT_TRUE(buffer.Read(output_data.data()));
-//  ASSERT_EQ(output_data, data.segment(0, read_size));
-//  current_frame += write_size;
-//  successful_read_count++;
-//  // write 5th part
-//  // can't read as we don't have enough data
-//  buffer.Write(data.segment(current_frame, write_size).data(), write_size);
-//  ASSERT_FALSE(buffer.Read(output_data.data()));
-//  current_frame += write_size;
-//  // write 6th part
-//  // => read should work and read data should be the input skipped by step_size
-//  buffer.Write(data.segment(current_frame, write_size).data(), write_size);
-//  ASSERT_TRUE(buffer.Read(output_data.data()));
-//  ASSERT_EQ(output_data, data.segment(step_size, read_size));
-//  current_frame += write_size;
-//  successful_read_count++;
-//
-//  // keep on doing this until the end of the signal
-//  while (current_frame < frame_number - read_size) {
-//    // can't read the first time
-//    buffer.Write(data.segment(current_frame, write_size).data(), write_size);
-//    ASSERT_FALSE(buffer.Read(output_data.data()));
-//    current_frame += write_size;
-//
-//    // can read the second
-//    buffer.Write(data.segment(current_frame, write_size).data(), write_size);
-//    ASSERT_TRUE(buffer.Read(output_data.data()));
-//    ASSERT_EQ(output_data,
-//              data.segment(successful_read_count * step_size, read_size));
-//    current_frame += write_size;
-//    successful_read_count++;
-//  }
 }

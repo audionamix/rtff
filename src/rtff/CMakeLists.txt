@@ -9,8 +9,8 @@ set(rtff_sources
 
   ${src}/rtff/buffer/ring_buffer.cc
   ${src}/rtff/buffer/ring_buffer.h
-  ${src}/rtff/buffer/multichannel_ring_buffer.cc
-  ${src}/rtff/buffer/multichannel_ring_buffer.h
+  ${src}/rtff/buffer/overlap_ring_buffer.cc
+  ${src}/rtff/buffer/overlap_ring_buffer.h
   ${src}/rtff/buffer/audio_buffer.cc
   ${src}/rtff/buffer/audio_buffer.h
   ${src}/rtff/buffer/buffer.h
@@ -52,7 +52,7 @@ install(FILES
 )
 install(FILES
   ${src}/rtff/buffer/ring_buffer.h
-  ${src}/rtff/buffer/multichannel_ring_buffer.h
+  ${src}/rtff/buffer/overlap_ring_buffer.h
   ${src}/rtff/buffer/audio_buffer.h
   DESTINATION include/rtff/buffer
 )
