@@ -44,8 +44,8 @@ void AbstractFilter::Init(uint8_t channel_count, std::error_code& err) {
 void AbstractFilter::InitBuffers() {
   input_buffer_ = std::make_shared<MultichannelOverlapRingBuffer>(
       fft_size(), hop_size(), channel_count());
-  output_buffer_ = std::make_shared<MultichannelOverlapRingBuffer>(
-      block_size(), block_size(), channel_count());
+  output_buffer_ = std::make_shared<MultichannelRingBuffer>(block_size() * 8,
+                                                            channel_count());
 
   // initialize the intput_buffer_ with hop_size frames of zeros
   if (fft_size() > block_size()) {
@@ -77,8 +77,11 @@ uint32_t AbstractFilter::FrameLatency() const {
   }
 }
 
-void AbstractFilter::ProcessBlock(AudioBuffer* buffer) {
-  input_buffer_->Write(*buffer, buffer->frame_count());
+void AbstractFilter::ProcessBlock(AudioBuffer* buffer, uint32_t frame_count) {
+  if (frame_count == 0) {
+    frame_count = buffer->frame_count();
+  }
+  input_buffer_->Write(*buffer, frame_count);
 
   // process as many blocks as possible
   while (input_buffer_->Read(&(buffers_->amplitude_block))) {
@@ -91,14 +94,12 @@ void AbstractFilter::ProcessBlock(AudioBuffer* buffer) {
                           buffers_->output_amplitude_block.size());
   }
 
-  if (output_buffer_->Read(buffer)) {
+  if (output_buffer_->Read(buffer, frame_count)) {
     return;
   }
   // if we don't have enough data to be read, just fill with zeros
-  for (auto channel_idx = 0; channel_idx < buffer->channel_count();
-       channel_idx++) {
-    std::fill(buffer->data(channel_idx),
-              buffer->data(channel_idx) + buffer->frame_count(), 0);
+  for (auto channel_idx = 0; channel_idx < buffer->channel_count(); channel_idx++) {
+    std::fill(buffer->data(channel_idx), buffer->data(channel_idx) + frame_count, 0);
   }
 }
 
