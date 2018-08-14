@@ -19,13 +19,12 @@ class AudioBuffer;
  */
 class RingBuffer {
  public:
-  RingBuffer(uint32_t write_size, uint32_t read_size, uint32_t step_size);
+  RingBuffer(uint32_t read_size, uint32_t step_size);
   void InitWithZeros(uint32_t count);
-  void Write(const float* data);
+  void Write(const float* data, uint32_t frame_count);
   bool Read(float* data);
 
  private:
-  uint32_t write_size_;
   uint32_t read_size_;
   uint32_t step_size_;
 

@@ -5,20 +5,17 @@
 
 namespace rtff {
 
-RingBuffer::RingBuffer(uint32_t write_size, uint32_t read_size,
-                       uint32_t step_size) {
-  write_size_ = write_size;
+RingBuffer::RingBuffer(uint32_t read_size, uint32_t step_size) {
   read_size_ = read_size;
   step_size_ = step_size;
   write_index_ = 0;
   read_index_ = 0;
   available_data_size_ = 0;
 
-  buffer_.resize(std::max(read_size_, write_size_) * 2);
-  // used in RingBuffer::Read(AmplitudeBuffer* buffer)
-  temp_read_data_.resize(read_size);
-  // used in RingBuffer::Write(const AmplitudeBuffer& buffer)
-  temp_write_data_.resize(write_size);
+  // the buffer size is arbitrary.
+  // We should give a way to initialize it to a given value to
+  // avoid allocating uncessary memory
+  buffer_.resize(read_size_ * 8);
 }
 
 void RingBuffer::InitWithZeros(uint32_t count) {
@@ -27,7 +24,7 @@ void RingBuffer::InitWithZeros(uint32_t count) {
     std::fill(buffer_.data() + write_index_,
               buffer_.data() + write_index_ + remaining_size, 0);
     std::fill(buffer_.data(), buffer_.data() + (count - remaining_size), 0);
-    write_index_ = (write_size_ - remaining_size);
+    write_index_ = (count - remaining_size);
   } else {
     std::fill(buffer_.data() + write_index_,
               buffer_.data() + write_index_ + count, 0);
@@ -36,19 +33,20 @@ void RingBuffer::InitWithZeros(uint32_t count) {
   available_data_size_ += count;
 }
 
-void RingBuffer::Write(const float* data) {
-  if (write_index_ + write_size_ > buffer_.size()) {
+void RingBuffer::Write(const float* data, uint32_t frame_count) {
+  auto write_size = frame_count;
+  if (write_index_ + write_size > buffer_.size()) {
     // When we reach the end of the buffer
     auto remaining_size = buffer_.size() - write_index_;
     std::copy(data, data + remaining_size, buffer_.data() + write_index_);
-    std::copy(data + remaining_size, data + write_size_, buffer_.data());
-    write_index_ = (write_size_ - remaining_size);
+    std::copy(data + remaining_size, data + write_size, buffer_.data());
+    write_index_ = (write_size - remaining_size);
   } else {
     // we have enough size remaining
-    std::copy(data, data + write_size_, buffer_.data() + write_index_);
-    write_index_ += write_size_;
+    std::copy(data, data + write_size, buffer_.data() + write_index_);
+    write_index_ += write_size;
   }
-  available_data_size_ += write_size_;
+  available_data_size_ += write_size;
 }
 
 bool RingBuffer::Read(float* data) {

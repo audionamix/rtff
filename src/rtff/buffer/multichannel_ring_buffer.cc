@@ -5,15 +5,14 @@
 #include "rtff/buffer/buffer.h"
 
 namespace rtff {
-MultichannelRingBuffer::MultichannelRingBuffer(uint32_t write_size,
-                                               uint32_t read_size,
+MultichannelRingBuffer::MultichannelRingBuffer(uint32_t read_size,
                                                uint32_t step_size,
                                                uint8_t channel_count) {
   for (auto channel_idx = 0; channel_idx < channel_count; channel_idx++) {
-    buffers_.push_back(RingBuffer(write_size, read_size, step_size));
+    buffers_.push_back(RingBuffer(read_size, step_size));
   }
 }
-  
+
 void MultichannelRingBuffer::InitWithZeros(uint32_t frame_number) {
   for (auto& buffer : buffers_) {
     buffer.InitWithZeros(frame_number);
@@ -31,7 +30,7 @@ const RingBuffer& MultichannelRingBuffer::operator[](
 void MultichannelRingBuffer::Write(const AudioBuffer& buffer) {
   assert(buffer.channel_count() == buffers_.size());
   for (auto channel_idx = 0; channel_idx < buffers_.size(); channel_idx++) {
-    buffers_[channel_idx].Write(buffer.data(channel_idx));
+    buffers_[channel_idx].Write(buffer.data(channel_idx), buffer.frame_count());
   }
 }
 bool MultichannelRingBuffer::Read(AudioBuffer* buffer) {
@@ -47,7 +46,8 @@ bool MultichannelRingBuffer::Read(AudioBuffer* buffer) {
 void MultichannelRingBuffer::Write(const Buffer<float>& buffer) {
   assert(buffer.channel_count() == buffers_.size());
   for (auto channel_idx = 0; channel_idx < buffers_.size(); channel_idx++) {
-    buffers_[channel_idx].Write(buffer.channel(channel_idx).data());
+    buffers_[channel_idx].Write(buffer.channel(channel_idx).data(),
+                                buffer.size());
   }
 }
 bool MultichannelRingBuffer::Read(Buffer<float>* buffer) {

@@ -43,9 +43,9 @@ void AbstractFilter::Init(uint8_t channel_count, std::error_code& err) {
 
 void AbstractFilter::InitBuffers() {
   input_buffer_ = std::make_shared<MultichannelRingBuffer>(
-      block_size(), fft_size(), hop_size(), channel_count());
+      fft_size(), hop_size(), channel_count());
   output_buffer_ = std::make_shared<MultichannelRingBuffer>(
-      hop_size(), block_size(), block_size(), channel_count());
+      block_size(), block_size(), channel_count());
 
   // initialize the intput_buffer_ with hop_size frames of zeros
   if (fft_size() > block_size()) {

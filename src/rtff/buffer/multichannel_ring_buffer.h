@@ -10,7 +10,7 @@ namespace rtff {
 
 class MultichannelRingBuffer {
  public:
-  MultichannelRingBuffer(uint32_t write_size, uint32_t read_size, uint32_t step_size,
+  MultichannelRingBuffer(uint32_t read_size, uint32_t step_size,
                          uint8_t channel_count);
   
   void InitWithZeros(uint32_t frame_number);
