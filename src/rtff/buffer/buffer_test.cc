@@ -6,7 +6,7 @@
 
 #include "rtff/buffer/audio_buffer.h"
 #include "rtff/buffer/overlap_ring_buffer.h"
-#include "rtff/buffer/overlap_ring_buffer.h"
+#include "rtff/buffer/ring_buffer.h"
 
 TEST(Buffer, AudioBuffer) {
   // Test convertion split channel to interleaved and interleaved to split
@@ -197,4 +197,62 @@ TEST(Buffer, OverlapRingBufferRandomWriteSize) {
       ASSERT_FALSE(buffer.Read(output_data.data()));
     }
   }
+}
+
+TEST(Buffer, RingBuffer) {
+  using namespace rtff;
+  
+  const auto frame_number = 44100;
+  
+  RingBuffer buffer(2048 * 8);
+  
+  Eigen::VectorXf data = Eigen::VectorXf::Random(frame_number);
+  Eigen::VectorXf output_data(frame_number);
+  
+  auto written_size = 0;
+  buffer.Write(data.data(), 256);
+  written_size += 256;
+  // we can't read more data than what we input
+  ASSERT_FALSE(buffer.Read(output_data.data(), written_size + 1));
+  // we can read less
+  ASSERT_TRUE(buffer.Read(output_data.data(), written_size - 20));
+  // but we won't have any left
+  ASSERT_FALSE(buffer.Read(output_data.data(), written_size));
+  ASSERT_FALSE(buffer.Read(output_data.data(), 21));
+  ASSERT_TRUE(buffer.Read(output_data.data(), 20));
+  
+  // we can also write in several times
+  buffer.Write(data.data(), 256);
+  ASSERT_FALSE(buffer.Read(output_data.data(), 512));
+  buffer.Write(data.data(), 256);
+  ASSERT_TRUE(buffer.Read(output_data.data(), 512));
+}
+
+TEST(Buffer, MultichannelRingBuffer) {
+  using namespace rtff;
+  
+  const auto channel_number = 2;
+
+  AudioBuffer input_buffer(2048, channel_number);
+  AudioBuffer output_buffer(2048, channel_number);
+  
+  MultichannelRingBuffer buffer(2048 * 8, 2);
+  
+  auto written_size = 0;
+  buffer.Write(input_buffer, 256);
+  written_size += 256;
+  // we can't read more data than what we input
+  ASSERT_FALSE(buffer.Read(&output_buffer, written_size + 1));
+  // we can read less
+  ASSERT_TRUE(buffer.Read(&output_buffer, written_size - 20));
+  // but we won't have any left
+  ASSERT_FALSE(buffer.Read(&output_buffer, written_size));
+  ASSERT_FALSE(buffer.Read(&output_buffer, 21));
+  ASSERT_TRUE(buffer.Read(&output_buffer, 20));
+  
+  // we can also write in several times
+  buffer.Write(input_buffer, 256);
+  ASSERT_FALSE(buffer.Read(&output_buffer, 512));
+  buffer.Write(input_buffer, 256);
+  ASSERT_TRUE(buffer.Read(&output_buffer, 512));
 }

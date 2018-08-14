@@ -11,6 +11,9 @@ namespace rtff {
 //-----------------------------------
 //-----------------------------------
 RingBuffer::RingBuffer(uint32_t container_size) {
+  write_index_ = 0;
+  read_index_ = 0;
+  available_data_size_ = 0;
   buffer_.resize(container_size);
 }
 
