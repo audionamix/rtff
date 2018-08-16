@@ -51,8 +51,6 @@ install(FILES
   DESTINATION include/rtff
 )
 install(FILES
-  ${src}/rtff/buffer/ring_buffer.h
-  ${src}/rtff/buffer/overlap_ring_buffer.h
   ${src}/rtff/buffer/audio_buffer.h
   DESTINATION include/rtff/buffer
 )

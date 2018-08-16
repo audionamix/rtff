@@ -7,11 +7,11 @@
 #include <vector>
 
 #include "rtff/buffer/audio_buffer.h"
-#include "rtff/buffer/ring_buffer.h"
-#include "rtff/buffer/overlap_ring_buffer.h"
 
 namespace rtff {
-
+  
+class MultichannelOverlapRingBuffer;
+class MultichannelRingBuffer;
 class FilterImpl;
 
 /**
