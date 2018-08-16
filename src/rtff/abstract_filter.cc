@@ -1,9 +1,6 @@
 #include "rtff/abstract_filter.h"
 
 #include "rtff/buffer/buffer.h"
-#include "rtff/buffer/ring_buffer.h"
-#include "rtff/buffer/overlap_ring_buffer.h"
-
 #include "rtff/filter_impl.h"
 
 namespace rtff {
