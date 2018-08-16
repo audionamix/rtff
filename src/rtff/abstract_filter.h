@@ -60,8 +60,8 @@ class AbstractFilter {
    * @brief Converts the input AudioBuffer to a Frequential buffer and calls
    * ProcessFreqBlock
    * @param buffer
-   * @param frame_count the actual number of frames to be used in the input
-   * buffer. if set to 0, all the frames available in the buffer will be used
+   * @param frame_count the actual frame_count to be used in the input buffer.
+   * if set to 0, all the frames available in the buffer will be used
    */
   void ProcessBlock(AudioBuffer* buffer, uint32_t frame_count = 0);
 
