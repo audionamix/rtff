@@ -77,10 +77,8 @@ uint32_t AbstractFilter::FrameLatency() const {
   }
 }
 
-void AbstractFilter::ProcessBlock(AudioBuffer* buffer, uint32_t frame_count) {
-  if (frame_count == 0) {
-    frame_count = buffer->frame_count();
-  }
+void AbstractFilter::ProcessBlock(AudioBuffer* buffer) {
+  auto frame_count = buffer->frame_count();
   input_buffer_->Write(*buffer, frame_count);
 
   // process as many blocks as possible
