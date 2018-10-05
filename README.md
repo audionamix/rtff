@@ -1,4 +1,5 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/5rlqnh3v74n606sw?svg=true)](https://ci.appveyor.com/project/Audionamix/rtff)
+[![Build status](https://ci.appveyor.com/api/projects/status/3y6vp1bns9vasil3?svg=true)](https://ci.appveyor.com/project/Audionamix/rtff-0j7kw)
+
 
 # Real Time Frequential Filtering
 
