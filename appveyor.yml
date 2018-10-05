@@ -12,14 +12,14 @@ install:
   - cmd : mklvars.bat intel64 #Fills the env variables MKLROOT LIB INCLUDE
 
 build_script:
-  - cd C:\projects\rtff
+  - cd C:\projects\rtff-0j7kw
   - mkdir build
   - cd build
   - cmake ..
   - cmake --build .
 
 test_script:
-  - cmd: C:/projects/rtff/build/src/rtff/Debug/rtff_test.exe --gtest_output=xml:tests.xml
+  - cmd: C:/projects/rtff-0j7kw/build/src/rtff/Debug/rtff_test.exe --gtest_output=xml:tests.xml
 
 after_test:
    - ps: (new-object net.webclient).UploadFile("https://ci.appveyor.com/api/testresults/junit/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\tests.xml))
