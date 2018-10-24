@@ -100,11 +100,10 @@ if (${rtff_use_mkl})
 else()
   set(external_libraries ${fftw_libraries})
   set(external_includes ${fftw_include_dir})
-
-  # install(FILES
-  #   ${mkl_dependencies}
-  #   DESTINATION lib
-  # )
+  install(FILES
+    ${fftw_install_dir}/lib/libfftw3f.a
+    DESTINATION lib
+  )
 endif()
 
 if (${rtff_enable_tests})
