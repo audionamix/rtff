@@ -99,6 +99,9 @@ if (${rtff_use_mkl})
   )
 else()
   set(external_libraries ${fftw_libraries})
+  if (UNIX AND NOT APPLE)
+      set(external_libraries ${external_libraries} pthread)
+  endif()
   set(external_includes ${fftw_include_dir})
   install(FILES
     ${fftw_install_dir}/lib/libfftw3f.a
