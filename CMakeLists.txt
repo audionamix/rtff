@@ -11,12 +11,32 @@ project(rtff)
 
 option(rtff_enable_tests "Build Unit tests" ON)
 option(rtff_enable_multithread "Allow multithreading" OFF)
+option(rtff_use_mkl "Use the mkl backend to compute faster ffts and matrix operation" OFF)
 
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_DEBUG_POSTFIX d)  # add the d postfix to generated libraries
 
 # Intel Mkl
-FindMkl()
+if (${rtff_use_mkl})
+  FindMkl()
+else ()
+  # Default to fftw
+  set(fftw_source_dir ${CMAKE_BINARY_DIR}/fftw-source)
+  set(fftw_install_dir ${CMAKE_BINARY_DIR}/fftw-install)
+  ExternalProject_Add(external_fftw
+    URL "http://www.fftw.org/fftw-3.3.5.tar.gz"
+    URL_MD5 6cc08a3b9c7ee06fdd5b9eb02e06f569
+    SOURCE_DIR ${fftw_source_dir}
+    BINARY_DIR ${fftw_source_dir}
+    INSTALL_DIR ${fftw_install_dir}
+    BUILD_COMMAND "make"
+    UPDATE_COMMAND ""
+    CONFIGURE_COMMAND ./configure --prefix=${fftw_install_dir} --enable-static --enable-float
+  )
+  link_directories(${fftw_install_dir}/lib)
+  set(fftw_include_dir ${fftw_install_dir}/include)
+  set(fftw_libraries fftw3f)
+endif()
 
 # Intel TBB
 if (${rtff_enable_multithread})

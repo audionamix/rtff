@@ -19,23 +19,50 @@ set(rtff_sources
   ${src}/rtff/fft/window.h
   ${src}/rtff/fft/fft.cc
   ${src}/rtff/fft/fft.h
-  ${src}/rtff/fft/mkl/mkl_fft.cc
-  ${src}/rtff/fft/mkl/mkl_fft.h
-  ${src}/rtff/fft/mkl/mkl_fft_context.cc
-  ${src}/rtff/fft/mkl/mkl_fft_context.h
 )
+if (${rtff_use_mkl})
+  set(rtff_sources ${rtff_sources}
+    ${src}/rtff/fft/mkl/mkl_fft.cc
+    ${src}/rtff/fft/mkl/mkl_fft.h
+    ${src}/rtff/fft/mkl/mkl_fft_context.cc
+    ${src}/rtff/fft/mkl/mkl_fft_context.h
+  )
+else()
+  set(rtff_sources ${rtff_sources}
+    ${src}/rtff/fft/fftw/fftw_fft.cc
+    ${src}/rtff/fft/fftw/fftw_fft.h
+  )
+endif()
+
 add_library(rtff ${rtff_sources})
 
 OrganizeSources(SOURCES ${rtff_sources})
 
-target_include_directories(rtff
-  PUBLIC
-    ${eigen_install_dir}
-    ${mkl_include_dir}
-)
-add_dependencies(rtff
-  external_eigen
-)
+# Add fftw if we don't want to use the mkl
+if (${rtff_use_mkl})
+  target_include_directories(rtff
+    PUBLIC
+      ${eigen_install_dir}
+      ${mkl_include_dir}
+  )
+  add_dependencies(rtff
+    external_eigen
+  )
+  target_compile_definitions(rtff
+    PUBLIC
+      -DRTFF_USE_MKL
+  )
+else()
+  target_include_directories(rtff
+    PUBLIC
+      ${eigen_install_dir}
+      ${fftw_include_dir}
+  )
+  add_dependencies(rtff
+    external_eigen
+    external_fftw
+  )
+endif()
 
 # install rules
 # - built lib
@@ -55,16 +82,30 @@ install(FILES
   DESTINATION include/rtff/buffer
 )
 # - external libraries
-set(mkl_dependencies "")
-foreach (lib ${mkl_libraries})
-  if (EXISTS ${lib})
-    set(mkl_dependencies ${mkl_dependencies} "${lib}")
-  endif()
-endforeach()
-install(FILES
-  ${mkl_dependencies}
-  DESTINATION lib
-)
+set(external_libraries "")
+set(external_includes "")
+if (${rtff_use_mkl})
+  set(external_libraries ${mkl_libraries})
+  set(mkl_dependencies "")
+  foreach (lib ${external_libraries})
+    if (EXISTS ${lib})
+      set(mkl_dependencies ${mkl_dependencies} "${lib}")
+    endif()
+  endforeach()
+
+  install(FILES
+    ${mkl_dependencies}
+    DESTINATION lib
+  )
+else()
+  set(external_libraries ${fftw_libraries})
+  set(external_includes ${fftw_include_dir})
+
+  # install(FILES
+  #   ${mkl_dependencies}
+  #   DESTINATION lib
+  # )
+endif()
 
 if (${rtff_enable_tests})
   # libwave
@@ -98,7 +139,7 @@ if (${rtff_enable_tests})
       rtff
       debug waved
       optimized wave
-      ${mkl_libraries}
+      ${external_libraries}
     )
   else ()
     target_link_libraries(rtff_test
@@ -109,7 +150,7 @@ if (${rtff_enable_tests})
       rtff
       debug waved
       optimized wave
-      ${mkl_libraries}
+      ${external_libraries}
     )
   endif()
   target_include_directories(rtff_test
@@ -117,6 +158,7 @@ if (${rtff_enable_tests})
       ${gtest_install_dir}/include
       ${eigen_install_dir}
       ${wave_install_dir}/include
+      ${external_includes}
   )
   target_compile_definitions(rtff_test
     PUBLIC
