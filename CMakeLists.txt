@@ -11,7 +11,7 @@ project(rtff)
 
 option(rtff_enable_tests "Build Unit tests" ON)
 option(rtff_enable_multithread "Allow multithreading" OFF)
-option(rtff_use_mkl "Use the mkl backend to compute faster ffts and matrix operation" OFF)
+option(rtff_use_mkl "Use the mkl backend to compute faster ffts and matrix operation" ON)
 
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_DEBUG_POSTFIX d)  # add the d postfix to generated libraries
