@@ -4,6 +4,7 @@
 #include <complex>
 #include <cstdint>
 #include <memory>
+#include <system_error>
 
 namespace rtff {
 

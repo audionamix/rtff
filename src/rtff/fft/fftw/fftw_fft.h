@@ -3,6 +3,7 @@
 
 #include <complex>
 #include <memory>
+#include <system_error>
 
 #include "rtff/fft/fft.h"
 
