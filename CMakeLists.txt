@@ -16,11 +16,14 @@ option(rtff_use_mkl "Use the mkl backend to compute faster ffts and matrix opera
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_DEBUG_POSTFIX d)  # add the d postfix to generated libraries
 
-# Intel Mkl
 if (${rtff_use_mkl})
+  # Intel Mkl
   FindMkl()
 else ()
   # Default to fftw
+  if (WIN32)
+    message(FATAL_ERROR "The fftw backend is not supported on Windows. Please use the mkl.")
+  endif ()
   set(fftw_source_dir ${CMAKE_BINARY_DIR}/fftw-source)
   set(fftw_install_dir ${CMAKE_BINARY_DIR}/fftw-install)
   ExternalProject_Add(external_fftw
