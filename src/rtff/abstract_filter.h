@@ -77,6 +77,12 @@ class AbstractFilter {
 
  protected:
   /**
+   * @brief function called at the end of the initialization process. Override
+   * this to initialize custom member in child classes
+   */
+  virtual void PrepareToPlay(std::error_code& err);
+  
+  /**
    * @brief Process a frequential buffer.
    * @note that function is called by the ProcessBlock function. It shouldn't be
    * called on its own

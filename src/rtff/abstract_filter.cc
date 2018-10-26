@@ -41,6 +41,7 @@ void AbstractFilter::Init(uint8_t channel_count, std::error_code& err) {
   if (err) {
     return;
   }
+  PrepareToPlay(err);
 }
 
 void AbstractFilter::InitBuffers() {
@@ -103,4 +104,5 @@ void AbstractFilter::ProcessBlock(AudioBuffer* buffer) {
   }
 }
 
+void AbstractFilter::PrepareToPlay(std::error_code& err) {}
 }  // namespace rtff
