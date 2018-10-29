@@ -80,7 +80,7 @@ class AbstractFilter {
    * @brief function called at the end of the initialization process. Override
    * this to initialize custom member in child classes
    */
-  virtual void PrepareToPlay(std::error_code& err);
+  virtual void PrepareToPlay();
 
   /**
    * @brief Process a frequential buffer.
