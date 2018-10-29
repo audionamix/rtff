@@ -59,6 +59,7 @@ void AbstractFilter::InitBuffers() {
 void AbstractFilter::set_block_size(uint32_t value) {
   block_size_ = value;
   InitBuffers();
+  PrepareToPlay(err);
 }
 uint32_t AbstractFilter::block_size() const { return block_size_; }
 uint8_t AbstractFilter::channel_count() const { return channel_count_; }
