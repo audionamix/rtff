@@ -1,0 +1,289 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classrtff_1_1MultichannelOverlapRingBuffer" kind="class" language="C++" prot="public">
+    <compoundname>rtff::MultichannelOverlapRingBuffer</compoundname>
+    <includes refid="overlap__ring__buffer_8h" local="no">overlap_ring_buffer.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classrtff_1_1MultichannelOverlapRingBuffer_1ae7e5b20538578eaa85ad3c4c3f426170" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="classrtff_1_1OverlapRingBuffer" kindref="compound">OverlapRingBuffer</ref> &gt;</type>
+        <definition>std::vector&lt;OverlapRingBuffer&gt; rtff::MultichannelOverlapRingBuffer::buffers_</definition>
+        <argsstring></argsstring>
+        <name>buffers_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/buffer/overlap_ring_buffer.h" line="120" column="1" bodyfile="/code/src/rtff/buffer/overlap_ring_buffer.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classrtff_1_1MultichannelOverlapRingBuffer_1a0347a353873ee9b4bc158808a1878b09" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>rtff::MultichannelOverlapRingBuffer::MultichannelOverlapRingBuffer</definition>
+        <argsstring>(uint32_t read_size, uint32_t step_size, uint8_t channel_count)</argsstring>
+        <name>MultichannelOverlapRingBuffer</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>read_size</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>step_size</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel_count</declname>
+        </param>
+        <briefdescription>
+<para>Constructor. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>read_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the number of frames read when calling the Read function </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>step_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the number of frames to remove from the buffer after a call to the Read function </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>channel_count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the number of channels of the original signal </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/buffer/overlap_ring_buffer.h" line="70" column="1" bodyfile="/code/src/rtff/buffer/overlap_ring_buffer.cc" bodystart="88" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="classrtff_1_1MultichannelOverlapRingBuffer_1a96e36073a531eddf4f23730fc6d844bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void rtff::MultichannelOverlapRingBuffer::InitWithZeros</definition>
+        <argsstring>(uint32_t frame_number)</argsstring>
+        <name>InitWithZeros</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>frame_number</declname>
+        </param>
+        <briefdescription>
+<para>fill the buffer with count zeros </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>frame_number</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the number of zeros to add into the buffer </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/buffer/overlap_ring_buffer.h" line="77" column="1" bodyfile="/code/src/rtff/buffer/overlap_ring_buffer.cc" bodystart="95" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="function" id="classrtff_1_1MultichannelOverlapRingBuffer_1a9dc6ef733d74359f36b6c2707983cded" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classrtff_1_1OverlapRingBuffer" kindref="compound">OverlapRingBuffer</ref> &amp;</type>
+        <definition>OverlapRingBuffer &amp; rtff::MultichannelOverlapRingBuffer::operator[]</definition>
+        <argsstring>(uint8_t channel_idx)</argsstring>
+        <name>operator[]</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel_idx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the <ref refid="classrtff_1_1OverlapRingBuffer" kindref="compound">OverlapRingBuffer</ref> at a given channel </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>channel_idx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the index of the channel to access </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/buffer/overlap_ring_buffer.h" line="83" column="1" bodyfile="/code/src/rtff/buffer/overlap_ring_buffer.cc" bodystart="101" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="function" id="classrtff_1_1MultichannelOverlapRingBuffer_1ac4404be8492379b66a4024b3584180cc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="classrtff_1_1OverlapRingBuffer" kindref="compound">OverlapRingBuffer</ref> &amp;</type>
+        <definition>const OverlapRingBuffer &amp; rtff::MultichannelOverlapRingBuffer::operator[]</definition>
+        <argsstring>(uint8_t channel_idx) const</argsstring>
+        <name>operator[]</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel_idx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the <ref refid="classrtff_1_1OverlapRingBuffer" kindref="compound">OverlapRingBuffer</ref> at a given channel </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>channel_idx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the index of the channel to access </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/buffer/overlap_ring_buffer.h" line="89" column="1" bodyfile="/code/src/rtff/buffer/overlap_ring_buffer.cc" bodystart="105" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="function" id="classrtff_1_1MultichannelOverlapRingBuffer_1acc0e0f2aa59e764f62442c9cb5246c4c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void rtff::MultichannelOverlapRingBuffer::Write</definition>
+        <argsstring>(const AudioBuffer &amp;buffer, uint32_t frame_count)</argsstring>
+        <name>Write</name>
+        <param>
+          <type>const <ref refid="classrtff_1_1AudioBuffer" kindref="compound">AudioBuffer</ref> &amp;</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>frame_count</declname>
+        </param>
+        <briefdescription>
+<para>write data to the buffer </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the <ref refid="classrtff_1_1AudioBuffer" kindref="compound">AudioBuffer</ref> to write </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>frame_count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the number of samples available in the buffer </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/buffer/overlap_ring_buffer.h" line="96" column="1" bodyfile="/code/src/rtff/buffer/overlap_ring_buffer.cc" bodystart="110" bodyend="116"/>
+      </memberdef>
+      <memberdef kind="function" id="classrtff_1_1MultichannelOverlapRingBuffer_1a93ddf61d7f185018c1cefe00102406c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool rtff::MultichannelOverlapRingBuffer::Read</definition>
+        <argsstring>(AudioBuffer *buffer)</argsstring>
+        <name>Read</name>
+        <param>
+          <type><ref refid="classrtff_1_1AudioBuffer" kindref="compound">AudioBuffer</ref> *</type>
+          <declname>buffer</declname>
+        </param>
+        <briefdescription>
+<para>read data from the buffer and remove step_size data </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a pre-allocated <ref refid="classrtff_1_1AudioBuffer" kindref="compound">AudioBuffer</ref> of size read_size </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true is read was successful </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/buffer/overlap_ring_buffer.h" line="103" column="1" bodyfile="/code/src/rtff/buffer/overlap_ring_buffer.cc" bodystart="117" bodyend="125"/>
+      </memberdef>
+      <memberdef kind="function" id="classrtff_1_1MultichannelOverlapRingBuffer_1aa45267817ce4ea9acff5324aa1180f5d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void rtff::MultichannelOverlapRingBuffer::Write</definition>
+        <argsstring>(const Buffer&lt; float &gt; &amp;buffer, uint32_t frame_count)</argsstring>
+        <name>Write</name>
+        <param>
+          <type>const <ref refid="classrtff_1_1Buffer" kindref="compound">Buffer</ref>&lt; float &gt; &amp;</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>frame_count</declname>
+        </param>
+        <briefdescription>
+<para>write data to the buffer </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the <ref refid="classrtff_1_1Buffer" kindref="compound">Buffer&lt;float&gt;</ref> to write </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>frame_count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the number of samples available in the buffer </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/buffer/overlap_ring_buffer.h" line="110" column="1" bodyfile="/code/src/rtff/buffer/overlap_ring_buffer.cc" bodystart="127" bodyend="134"/>
+      </memberdef>
+      <memberdef kind="function" id="classrtff_1_1MultichannelOverlapRingBuffer_1a5667c712fd0a6fdc9c6cb0920d29ee06" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool rtff::MultichannelOverlapRingBuffer::Read</definition>
+        <argsstring>(Buffer&lt; float &gt; *buffer)</argsstring>
+        <name>Read</name>
+        <param>
+          <type><ref refid="classrtff_1_1Buffer" kindref="compound">Buffer</ref>&lt; float &gt; *</type>
+          <declname>buffer</declname>
+        </param>
+        <briefdescription>
+<para>read data from the buffer and remove step_size data </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a pre-allocated <ref refid="classrtff_1_1Buffer" kindref="compound">Buffer&lt;float&gt;</ref> of size read_size </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true is read was successful </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/buffer/overlap_ring_buffer.h" line="117" column="1" bodyfile="/code/src/rtff/buffer/overlap_ring_buffer.cc" bodystart="135" bodyend="143"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>A multichannel wrapper around the <ref refid="classrtff_1_1OverlapRingBuffer" kindref="compound">OverlapRingBuffer</ref>. </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="classrtff_1_1OverlapRingBuffer" kindref="compound">OverlapRingBuffer</ref> </para></simplesect>
+</para>    </detaileddescription>
+    <location file="/code/src/rtff/buffer/overlap_ring_buffer.h" line="61" column="1" bodyfile="/code/src/rtff/buffer/overlap_ring_buffer.h" bodystart="61" bodyend="121"/>
+    <listofallmembers>
+      <member refid="classrtff_1_1MultichannelOverlapRingBuffer_1ae7e5b20538578eaa85ad3c4c3f426170" prot="private" virt="non-virtual"><scope>rtff::MultichannelOverlapRingBuffer</scope><name>buffers_</name></member>
+      <member refid="classrtff_1_1MultichannelOverlapRingBuffer_1a96e36073a531eddf4f23730fc6d844bd" prot="public" virt="non-virtual"><scope>rtff::MultichannelOverlapRingBuffer</scope><name>InitWithZeros</name></member>
+      <member refid="classrtff_1_1MultichannelOverlapRingBuffer_1a0347a353873ee9b4bc158808a1878b09" prot="public" virt="non-virtual"><scope>rtff::MultichannelOverlapRingBuffer</scope><name>MultichannelOverlapRingBuffer</name></member>
+      <member refid="classrtff_1_1MultichannelOverlapRingBuffer_1a9dc6ef733d74359f36b6c2707983cded" prot="public" virt="non-virtual"><scope>rtff::MultichannelOverlapRingBuffer</scope><name>operator[]</name></member>
+      <member refid="classrtff_1_1MultichannelOverlapRingBuffer_1ac4404be8492379b66a4024b3584180cc" prot="public" virt="non-virtual"><scope>rtff::MultichannelOverlapRingBuffer</scope><name>operator[]</name></member>
+      <member refid="classrtff_1_1MultichannelOverlapRingBuffer_1a93ddf61d7f185018c1cefe00102406c7" prot="public" virt="non-virtual"><scope>rtff::MultichannelOverlapRingBuffer</scope><name>Read</name></member>
+      <member refid="classrtff_1_1MultichannelOverlapRingBuffer_1a5667c712fd0a6fdc9c6cb0920d29ee06" prot="public" virt="non-virtual"><scope>rtff::MultichannelOverlapRingBuffer</scope><name>Read</name></member>
+      <member refid="classrtff_1_1MultichannelOverlapRingBuffer_1acc0e0f2aa59e764f62442c9cb5246c4c" prot="public" virt="non-virtual"><scope>rtff::MultichannelOverlapRingBuffer</scope><name>Write</name></member>
+      <member refid="classrtff_1_1MultichannelOverlapRingBuffer_1aa45267817ce4ea9acff5324aa1180f5d" prot="public" virt="non-virtual"><scope>rtff::MultichannelOverlapRingBuffer</scope><name>Write</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

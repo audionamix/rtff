@@ -1,0 +1,495 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classrtff_1_1AbstractFilter" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>rtff::AbstractFilter</compoundname>
+    <derivedcompoundref refid="classMyFilter" prot="public" virt="non-virtual">MyFilter</derivedcompoundref>
+    <derivedcompoundref refid="classrtff_1_1Filter" prot="public" virt="non-virtual">rtff::Filter</derivedcompoundref>
+    <includes refid="abstract__filter_8h" local="no">abstract_filter.h</includes>
+    <innerclass refid="classrtff_1_1AbstractFilter_1_1Impl" prot="public">rtff::AbstractFilter::Impl</innerclass>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classrtff_1_1AbstractFilter_1af6a80fdad0569c2e1e341e4409554835" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t rtff::AbstractFilter::fft_size_</definition>
+        <argsstring></argsstring>
+        <name>fft_size_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/abstract_filter.h" line="113" column="1" bodyfile="/code/src/rtff/abstract_filter.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classrtff_1_1AbstractFilter_1a44ec02c48d8e0cab832988d6e6e02138" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t rtff::AbstractFilter::overlap_</definition>
+        <argsstring></argsstring>
+        <name>overlap_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/abstract_filter.h" line="114" column="1" bodyfile="/code/src/rtff/abstract_filter.h" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classrtff_1_1AbstractFilter_1aa32595c2e24724d4cbb7d7426ee0d631" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t rtff::AbstractFilter::block_size_</definition>
+        <argsstring></argsstring>
+        <name>block_size_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/abstract_filter.h" line="115" column="1" bodyfile="/code/src/rtff/abstract_filter.h" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classrtff_1_1AbstractFilter_1a6ce0d0967cc875c1b8b36496afbe0127" prot="private" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t rtff::AbstractFilter::channel_count_</definition>
+        <argsstring></argsstring>
+        <name>channel_count_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/abstract_filter.h" line="116" column="1" bodyfile="/code/src/rtff/abstract_filter.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classrtff_1_1AbstractFilter_1a33433931fd078d040f0c47e3fbd20e05" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="classrtff_1_1MultichannelOverlapRingBuffer" kindref="compound">MultichannelOverlapRingBuffer</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;MultichannelOverlapRingBuffer&gt; rtff::AbstractFilter::input_buffer_</definition>
+        <argsstring></argsstring>
+        <name>input_buffer_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/abstract_filter.h" line="117" column="1" bodyfile="/code/src/rtff/abstract_filter.h" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classrtff_1_1AbstractFilter_1ab4f47b0742b4caafb4b1326c76055f1e" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="classrtff_1_1MultichannelRingBuffer" kindref="compound">MultichannelRingBuffer</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;MultichannelRingBuffer&gt; rtff::AbstractFilter::output_buffer_</definition>
+        <argsstring></argsstring>
+        <name>output_buffer_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/abstract_filter.h" line="118" column="1" bodyfile="/code/src/rtff/abstract_filter.h" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classrtff_1_1AbstractFilter_1a4350b4dc31624d4071bf56491bdb30da" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="classrtff_1_1FilterImpl" kindref="compound">FilterImpl</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;FilterImpl&gt; rtff::AbstractFilter::impl_</definition>
+        <argsstring></argsstring>
+        <name>impl_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/abstract_filter.h" line="120" column="1" bodyfile="/code/src/rtff/abstract_filter.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classrtff_1_1AbstractFilter_1a42fdb3e2e27324ac58af43ebcd5aa214" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="classrtff_1_1AbstractFilter_1_1Impl" kindref="compound">Impl</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;Impl&gt; rtff::AbstractFilter::buffers_</definition>
+        <argsstring></argsstring>
+        <name>buffers_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/abstract_filter.h" line="123" column="1" bodyfile="/code/src/rtff/abstract_filter.h" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classrtff_1_1AbstractFilter_1a0b2338d763b7990c74427ac9cff831fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>rtff::AbstractFilter::AbstractFilter</definition>
+        <argsstring>()</argsstring>
+        <name>AbstractFilter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/abstract_filter.h" line="23" column="1" bodyfile="/code/src/rtff/abstract_filter.cc" bodystart="17" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classrtff_1_1AbstractFilter_1ad1548ae471fc315323a4e61d57c7e543" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>rtff::AbstractFilter::~AbstractFilter</definition>
+        <argsstring>()</argsstring>
+        <name>~AbstractFilter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/abstract_filter.h" line="24" column="1" bodyfile="/code/src/rtff/abstract_filter.cc" bodystart="20" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="classrtff_1_1AbstractFilter_1a185245f9c36468ccec762de9fb7444d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void rtff::AbstractFilter::Init</definition>
+        <argsstring>(uint8_t channel_count, uint32_t fft_size, uint32_t overlap, std::error_code &amp;err)</argsstring>
+        <name>Init</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel_count</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>fft_size</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>overlap</declname>
+        </param>
+        <param>
+          <type>std::error_code &amp;</type>
+          <declname>err</declname>
+        </param>
+        <briefdescription>
+<para>Initialize the filter. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>channel_count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the number of channel of the input signal </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fft_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the length in samples of the fourier transform window. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>overlap</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the number of samples that will be kept between each window. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>err</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>an error code that gets set if something goes wrong </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/abstract_filter.h" line="33" column="1" bodyfile="/code/src/rtff/abstract_filter.cc" bodystart="22" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classrtff_1_1AbstractFilter_1a1c18d98db01345a3243fb86f978501e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void rtff::AbstractFilter::Init</definition>
+        <argsstring>(uint8_t channel_count, std::error_code &amp;err)</argsstring>
+        <name>Init</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel_count</declname>
+        </param>
+        <param>
+          <type>std::error_code &amp;</type>
+          <declname>err</declname>
+        </param>
+        <briefdescription>
+<para>Initialize the filter with default stft parameters. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>channel_count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the number of channel of the input signal </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>err</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>an error code that gets set if something goes wrong </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/abstract_filter.h" line="41" column="1" bodyfile="/code/src/rtff/abstract_filter.cc" bodystart="29" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classrtff_1_1AbstractFilter_1a67ce341229f3b4b1a1d9fc76d88168cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void rtff::AbstractFilter::set_block_size</definition>
+        <argsstring>(uint32_t value)</argsstring>
+        <name>set_block_size</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>define the block size </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>the block size correspond to the number of frames contained in each <ref refid="classrtff_1_1AudioBuffer" kindref="compound">AudioBuffer</ref> sent to filter using the ProcessBlock function </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the block size </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/abstract_filter.h" line="49" column="1" bodyfile="/code/src/rtff/abstract_filter.cc" bodystart="59" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="classrtff_1_1AbstractFilter_1aa1d927fcd284e0af110c0c08e2fcee0d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void rtff::AbstractFilter::ProcessBlock</definition>
+        <argsstring>(AudioBuffer *buffer)</argsstring>
+        <name>ProcessBlock</name>
+        <param>
+          <type><ref refid="classrtff_1_1AudioBuffer" kindref="compound">AudioBuffer</ref> *</type>
+          <declname>buffer</declname>
+        </param>
+        <briefdescription>
+<para>Process a buffer. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>the buffer should have the same channel_count and its frame_number should be equal to the filter block_size </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the data </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/abstract_filter.h" line="57" column="1" bodyfile="/code/src/rtff/abstract_filter.cc" bodystart="84" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="classrtff_1_1AbstractFilter_1afe3d19b9c3d5afd0ab5a5462954c0149" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t rtff::AbstractFilter::FrameLatency</definition>
+        <argsstring>() const</argsstring>
+        <name>FrameLatency</name>
+        <briefdescription>
+<para>Acccess the number of frame of latency generated by the filter. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Due to fourier transform computation, a filter most usually creates latency. It depends on the block size, overlap and fft size. </para></simplesect>
+<simplesect kind="return"><para>The latency generated by the filter in frames. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/abstract_filter.h" line="65" column="1" bodyfile="/code/src/rtff/abstract_filter.cc" bodystart="72" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="classrtff_1_1AbstractFilter_1af97e4572db76473343eb4716ad7a9b55" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t rtff::AbstractFilter::fft_size</definition>
+        <argsstring>() const</argsstring>
+        <name>fft_size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the fft size in samples </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/abstract_filter.h" line="70" column="1" bodyfile="/code/src/rtff/abstract_filter.cc" bodystart="68" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="classrtff_1_1AbstractFilter_1a1b946cc576936888a6708dd561fea101" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t rtff::AbstractFilter::overlap</definition>
+        <argsstring>() const</argsstring>
+        <name>overlap</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the overlap in samples </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/abstract_filter.h" line="74" column="1" bodyfile="/code/src/rtff/abstract_filter.cc" bodystart="69" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="classrtff_1_1AbstractFilter_1a23a71356d7887feb757f289d6b5833d5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t rtff::AbstractFilter::hop_size</definition>
+        <argsstring>() const</argsstring>
+        <name>hop_size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the hop size in sample </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/abstract_filter.h" line="78" column="1" bodyfile="/code/src/rtff/abstract_filter.cc" bodystart="70" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="classrtff_1_1AbstractFilter_1a879a3d4f23819048234c4cf5427e1dec" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t rtff::AbstractFilter::window_size</definition>
+        <argsstring>() const</argsstring>
+        <name>window_size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the window size in samples </para></simplesect>
+<simplesect kind="note"><para>this value will be the same as the fft size </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/abstract_filter.h" line="83" column="1" bodyfile="/code/src/rtff/abstract_filter.cc" bodystart="67" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="classrtff_1_1AbstractFilter_1a85575f0682289eedba27163687efe71e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t rtff::AbstractFilter::block_size</definition>
+        <argsstring>() const</argsstring>
+        <name>block_size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the block size </para></simplesect>
+<simplesect kind="see"><para><ref refid="classrtff_1_1AbstractFilter_1a67ce341229f3b4b1a1d9fc76d88168cd" kindref="member">set_block_size</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/abstract_filter.h" line="88" column="1" bodyfile="/code/src/rtff/abstract_filter.cc" bodystart="64" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="classrtff_1_1AbstractFilter_1a59f3ac6a366916737594253dde6e51ac" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t rtff::AbstractFilter::channel_count</definition>
+        <argsstring>() const</argsstring>
+        <name>channel_count</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the number of channel of the input signal </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/abstract_filter.h" line="92" column="1" bodyfile="/code/src/rtff/abstract_filter.cc" bodystart="65" bodyend="65"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classrtff_1_1AbstractFilter_1a1b15b7ee20f27f0782f19bfd05fa8a94" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void rtff::AbstractFilter::PrepareToPlay</definition>
+        <argsstring>()</argsstring>
+        <name>PrepareToPlay</name>
+        <briefdescription>
+<para>function called at the end of the initialization process. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Override this to initialize custom member in child classes </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/abstract_filter.h" line="99" column="1" bodyfile="/code/src/rtff/abstract_filter.cc" bodystart="108" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="function" id="classrtff_1_1AbstractFilter_1a6393f65d8ffdbef96a61d8bdd010ede4" prot="protected" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void rtff::AbstractFilter::ProcessTransformedBlock</definition>
+        <argsstring>(std::vector&lt; std::complex&lt; float &gt; *&gt; data, uint32_t size)=0</argsstring>
+        <name>ProcessTransformedBlock</name>
+        <reimplementedby refid="classMyFilter_1a284b8e49d27a3c2c4f4ac8bc3417dd3d">ProcessTransformedBlock</reimplementedby>
+        <reimplementedby refid="classrtff_1_1Filter_1a0aa7657161cce126ba0511de5acdfb89">ProcessTransformedBlock</reimplementedby>
+        <param>
+          <type>std::vector&lt; std::complex&lt; float &gt; *&gt;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Process a frequential buffer. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>that function is called by the ProcessBlock function. It shouldn&apos;t be called on its own Override this function to design your filter </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/abstract_filter.h" line="107" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classrtff_1_1AbstractFilter_1a172241acd79e242556b8ad7d6a41d8ce" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void rtff::AbstractFilter::InitBuffers</definition>
+        <argsstring>()</argsstring>
+        <name>InitBuffers</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/abstract_filter.h" line="111" column="1" bodyfile="/code/src/rtff/abstract_filter.cc" bodystart="47" bodyend="57"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Base class of frequential filters. Feed raw audio data and process them in the time frequency domain. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="0">
+        <label>rtff::AbstractFilter</label>
+        <link refid="classrtff_1_1AbstractFilter"/>
+      </node>
+      <node id="1">
+        <label>MyFilter</label>
+        <link refid="classMyFilter"/>
+        <childnode refid="0" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>rtff::Filter</label>
+        <link refid="classrtff_1_1Filter"/>
+        <childnode refid="0" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="/code/src/rtff/abstract_filter.h" line="21" column="1" bodyfile="/code/src/rtff/abstract_filter.h" bodystart="21" bodyend="124"/>
+    <listofallmembers>
+      <member refid="classrtff_1_1AbstractFilter_1a0b2338d763b7990c74427ac9cff831fe" prot="public" virt="non-virtual"><scope>rtff::AbstractFilter</scope><name>AbstractFilter</name></member>
+      <member refid="classrtff_1_1AbstractFilter_1a85575f0682289eedba27163687efe71e" prot="public" virt="non-virtual"><scope>rtff::AbstractFilter</scope><name>block_size</name></member>
+      <member refid="classrtff_1_1AbstractFilter_1aa32595c2e24724d4cbb7d7426ee0d631" prot="private" virt="non-virtual"><scope>rtff::AbstractFilter</scope><name>block_size_</name></member>
+      <member refid="classrtff_1_1AbstractFilter_1a42fdb3e2e27324ac58af43ebcd5aa214" prot="private" virt="non-virtual"><scope>rtff::AbstractFilter</scope><name>buffers_</name></member>
+      <member refid="classrtff_1_1AbstractFilter_1a59f3ac6a366916737594253dde6e51ac" prot="public" virt="non-virtual"><scope>rtff::AbstractFilter</scope><name>channel_count</name></member>
+      <member refid="classrtff_1_1AbstractFilter_1a6ce0d0967cc875c1b8b36496afbe0127" prot="private" virt="non-virtual"><scope>rtff::AbstractFilter</scope><name>channel_count_</name></member>
+      <member refid="classrtff_1_1AbstractFilter_1af97e4572db76473343eb4716ad7a9b55" prot="public" virt="non-virtual"><scope>rtff::AbstractFilter</scope><name>fft_size</name></member>
+      <member refid="classrtff_1_1AbstractFilter_1af6a80fdad0569c2e1e341e4409554835" prot="private" virt="non-virtual"><scope>rtff::AbstractFilter</scope><name>fft_size_</name></member>
+      <member refid="classrtff_1_1AbstractFilter_1afe3d19b9c3d5afd0ab5a5462954c0149" prot="public" virt="virtual"><scope>rtff::AbstractFilter</scope><name>FrameLatency</name></member>
+      <member refid="classrtff_1_1AbstractFilter_1a23a71356d7887feb757f289d6b5833d5" prot="public" virt="non-virtual"><scope>rtff::AbstractFilter</scope><name>hop_size</name></member>
+      <member refid="classrtff_1_1AbstractFilter_1a4350b4dc31624d4071bf56491bdb30da" prot="private" virt="non-virtual"><scope>rtff::AbstractFilter</scope><name>impl_</name></member>
+      <member refid="classrtff_1_1AbstractFilter_1a185245f9c36468ccec762de9fb7444d1" prot="public" virt="non-virtual"><scope>rtff::AbstractFilter</scope><name>Init</name></member>
+      <member refid="classrtff_1_1AbstractFilter_1a1c18d98db01345a3243fb86f978501e6" prot="public" virt="non-virtual"><scope>rtff::AbstractFilter</scope><name>Init</name></member>
+      <member refid="classrtff_1_1AbstractFilter_1a172241acd79e242556b8ad7d6a41d8ce" prot="private" virt="non-virtual"><scope>rtff::AbstractFilter</scope><name>InitBuffers</name></member>
+      <member refid="classrtff_1_1AbstractFilter_1a33433931fd078d040f0c47e3fbd20e05" prot="private" virt="non-virtual"><scope>rtff::AbstractFilter</scope><name>input_buffer_</name></member>
+      <member refid="classrtff_1_1AbstractFilter_1ab4f47b0742b4caafb4b1326c76055f1e" prot="private" virt="non-virtual"><scope>rtff::AbstractFilter</scope><name>output_buffer_</name></member>
+      <member refid="classrtff_1_1AbstractFilter_1a1b946cc576936888a6708dd561fea101" prot="public" virt="non-virtual"><scope>rtff::AbstractFilter</scope><name>overlap</name></member>
+      <member refid="classrtff_1_1AbstractFilter_1a44ec02c48d8e0cab832988d6e6e02138" prot="private" virt="non-virtual"><scope>rtff::AbstractFilter</scope><name>overlap_</name></member>
+      <member refid="classrtff_1_1AbstractFilter_1a1b15b7ee20f27f0782f19bfd05fa8a94" prot="protected" virt="virtual"><scope>rtff::AbstractFilter</scope><name>PrepareToPlay</name></member>
+      <member refid="classrtff_1_1AbstractFilter_1aa1d927fcd284e0af110c0c08e2fcee0d" prot="public" virt="virtual"><scope>rtff::AbstractFilter</scope><name>ProcessBlock</name></member>
+      <member refid="classrtff_1_1AbstractFilter_1a6393f65d8ffdbef96a61d8bdd010ede4" prot="protected" virt="pure-virtual"><scope>rtff::AbstractFilter</scope><name>ProcessTransformedBlock</name></member>
+      <member refid="classrtff_1_1AbstractFilter_1a67ce341229f3b4b1a1d9fc76d88168cd" prot="public" virt="non-virtual"><scope>rtff::AbstractFilter</scope><name>set_block_size</name></member>
+      <member refid="classrtff_1_1AbstractFilter_1a879a3d4f23819048234c4cf5427e1dec" prot="public" virt="non-virtual"><scope>rtff::AbstractFilter</scope><name>window_size</name></member>
+      <member refid="classrtff_1_1AbstractFilter_1ad1548ae471fc315323a4e61d57c7e543" prot="public" virt="virtual"><scope>rtff::AbstractFilter</scope><name>~AbstractFilter</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

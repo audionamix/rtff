@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classrtff_1_1AbstractFilter_1_1Impl" kind="class" language="C++" prot="public">
+    <compoundname>rtff::AbstractFilter::Impl</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classrtff_1_1AbstractFilter_1_1Impl_1ae2bf06c09b3f4140d007142c67fe180b" prot="public" static="no" mutable="no">
+        <type><ref refid="classrtff_1_1Buffer" kindref="compound">TimeAmplitudeBuffer</ref></type>
+        <definition>TimeAmplitudeBuffer rtff::AbstractFilter::Impl::amplitude_block</definition>
+        <argsstring></argsstring>
+        <name>amplitude_block</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/abstract_filter.cc" line="12" column="1" bodyfile="/code/src/rtff/abstract_filter.cc" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classrtff_1_1AbstractFilter_1_1Impl_1a634b69a8d28a2fadeffaba23ad2c8b86" prot="public" static="no" mutable="no">
+        <type><ref refid="classrtff_1_1Buffer" kindref="compound">TimeAmplitudeBuffer</ref></type>
+        <definition>TimeAmplitudeBuffer rtff::AbstractFilter::Impl::output_amplitude_block</definition>
+        <argsstring></argsstring>
+        <name>output_amplitude_block</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/abstract_filter.cc" line="13" column="1" bodyfile="/code/src/rtff/abstract_filter.cc" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classrtff_1_1AbstractFilter_1_1Impl_1a1873a42446cd12d9834d3db4972f4411" prot="public" static="no" mutable="no">
+        <type><ref refid="classrtff_1_1Buffer" kindref="compound">TimeFrequencyBuffer</ref></type>
+        <definition>TimeFrequencyBuffer rtff::AbstractFilter::Impl::frequential_block</definition>
+        <argsstring></argsstring>
+        <name>frequential_block</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/abstract_filter.cc" line="14" column="1" bodyfile="/code/src/rtff/abstract_filter.cc" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="29">
+        <label>rtff::Buffer&lt; float &gt;</label>
+        <link refid="classrtff_1_1Buffer"/>
+      </node>
+      <node id="27">
+        <label>rtff::AbstractFilter::Impl</label>
+        <link refid="classrtff_1_1AbstractFilter_1_1Impl"/>
+        <childnode refid="28" relation="usage">
+          <edgelabel>frequential_block</edgelabel>
+        </childnode>
+        <childnode refid="29" relation="usage">
+          <edgelabel>amplitude_block</edgelabel>
+          <edgelabel>output_amplitude_block</edgelabel>
+        </childnode>
+      </node>
+      <node id="28">
+        <label>rtff::Buffer&lt; std::complex&lt; float &gt; &gt;</label>
+        <link refid="classrtff_1_1Buffer"/>
+      </node>
+    </collaborationgraph>
+    <location file="/code/src/rtff/abstract_filter.cc" line="10" column="1" bodyfile="/code/src/rtff/abstract_filter.cc" bodystart="10" bodyend="15"/>
+    <listofallmembers>
+      <member refid="classrtff_1_1AbstractFilter_1_1Impl_1ae2bf06c09b3f4140d007142c67fe180b" prot="public" virt="non-virtual"><scope>rtff::AbstractFilter::Impl</scope><name>amplitude_block</name></member>
+      <member refid="classrtff_1_1AbstractFilter_1_1Impl_1a1873a42446cd12d9834d3db4972f4411" prot="public" virt="non-virtual"><scope>rtff::AbstractFilter::Impl</scope><name>frequential_block</name></member>
+      <member refid="classrtff_1_1AbstractFilter_1_1Impl_1a634b69a8d28a2fadeffaba23ad2c8b86" prot="public" virt="non-virtual"><scope>rtff::AbstractFilter::Impl</scope><name>output_amplitude_block</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,194 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="filter__impl_8cc" kind="file" language="C++">
+    <compoundname>filter_impl.cc</compoundname>
+    <includes refid="filter__impl_8h" local="yes">rtff/filter_impl.h</includes>
+    <includes refid="fft_8h" local="yes">rtff/fft/fft.h</includes>
+    <includes refid="window_8h" local="yes">rtff/fft/window.h</includes>
+    <incdepgraph>
+      <node id="181">
+        <label>system_error</label>
+      </node>
+      <node id="179">
+        <label>rtff/filter_impl.h</label>
+        <link refid="filter__impl_8h_source"/>
+        <childnode refid="180" relation="include">
+        </childnode>
+        <childnode refid="181" relation="include">
+        </childnode>
+        <childnode refid="182" relation="include">
+        </childnode>
+        <childnode refid="183" relation="include">
+        </childnode>
+        <childnode refid="184" relation="include">
+        </childnode>
+        <childnode refid="186" relation="include">
+        </childnode>
+        <childnode refid="187" relation="include">
+        </childnode>
+      </node>
+      <node id="188">
+        <label>rtff/fft/fft.h</label>
+        <link refid="fft_8h_source"/>
+        <childnode refid="189" relation="include">
+        </childnode>
+        <childnode refid="185" relation="include">
+        </childnode>
+        <childnode refid="180" relation="include">
+        </childnode>
+        <childnode refid="181" relation="include">
+        </childnode>
+      </node>
+      <node id="185">
+        <label>cstdint</label>
+      </node>
+      <node id="183">
+        <label>Eigen/Core</label>
+      </node>
+      <node id="178">
+        <label>/code/src/rtff/filter_impl.cc</label>
+        <link refid="filter__impl_8cc"/>
+        <childnode refid="179" relation="include">
+        </childnode>
+        <childnode refid="188" relation="include">
+        </childnode>
+        <childnode refid="190" relation="include">
+        </childnode>
+      </node>
+      <node id="190">
+        <label>rtff/fft/window.h</label>
+        <link refid="window_8h_source"/>
+        <childnode refid="183" relation="include">
+        </childnode>
+        <childnode refid="185" relation="include">
+        </childnode>
+      </node>
+      <node id="187">
+        <label>rtff/buffer/ring_buffer.h</label>
+        <link refid="ring__buffer_8h_source"/>
+        <childnode refid="185" relation="include">
+        </childnode>
+        <childnode refid="182" relation="include">
+        </childnode>
+      </node>
+      <node id="182">
+        <label>vector</label>
+      </node>
+      <node id="184">
+        <label>rtff/buffer/audio_buffer.h</label>
+        <link refid="audio__buffer_8h_source"/>
+        <childnode refid="185" relation="include">
+        </childnode>
+        <childnode refid="182" relation="include">
+        </childnode>
+      </node>
+      <node id="186">
+        <label>rtff/buffer/buffer.h</label>
+        <link refid="buffer_8h_source"/>
+        <childnode refid="183" relation="include">
+        </childnode>
+      </node>
+      <node id="189">
+        <label>complex</label>
+      </node>
+      <node id="180">
+        <label>memory</label>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespacertff">rtff</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;rtff/filter_impl.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;rtff/fft/fft.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;rtff/fft/window.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacertff" kindref="compound">rtff</ref><sp/>{</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classrtff_1_1FilterImpl_1ad204a56b1a90fd97463cf9fd9e103aa5" kindref="member">FilterImpl::Init</ref>(uint32_t<sp/>fft_size,<sp/>uint32_t<sp/>overlap,</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint8_t<sp/>channel_count,<sp/>std::error_code&amp;<sp/>err)<sp/>{</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/>fft_size_<sp/>=<sp/><ref refid="classrtff_1_1FilterImpl_1a271ed97d8c4ba0c6f46c12c23144451c" kindref="member">fft_size</ref>;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/>overlap_<sp/>=<sp/><ref refid="classrtff_1_1FilterImpl_1a79aae76e30c58453b50bc76d8833ebb6" kindref="member">overlap</ref>;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>init<sp/>the<sp/>window<sp/>to<sp/>an<sp/>hamming</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/>analysis_window_<sp/>=<sp/><ref refid="classrtff_1_1Window_1ac71e601e481f770395f7e378f8d8baad" kindref="member">Window::Make</ref>(Window::Type::Hamming,<sp/>fft_size);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/>synthesis_window_<sp/>=<sp/><ref refid="classrtff_1_1Window_1ac71e601e481f770395f7e378f8d8baad" kindref="member">Window::Make</ref>(Window::Type::Hamming,<sp/>fft_size);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/>unwindow_<sp/>=<sp/><ref refid="classrtff_1_1Window_1a82de398a439fc2c0665d371760a29a5d" kindref="member">Window::MakeInverse</ref>(Window::Type::Hamming,<sp/>Window::Type::Hamming,</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fft_size,<sp/><ref refid="classrtff_1_1FilterImpl_1ad81014ad35a9d05d7fcf8a27ef685457" kindref="member">hop_size</ref>());</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>init<sp/>the<sp/>fft</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/>fft_<sp/>=<sp/><ref refid="classrtff_1_1Fft_1aca023c41f0bbf267bccff7fc9d34d71f" kindref="member">Fft::Create</ref>(fft_size_,<sp/>err);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(err)<sp/>{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>init<sp/>inverse<sp/>transform<sp/>temp<sp/>data</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/>previous_buffer_.resize(channel_count);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/>result_buffer_.resize(channel_count);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/>post_ifft_buffer_.resize(channel_count);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>channel_idx<sp/>=<sp/>0;<sp/>channel_idx<sp/>&lt;<sp/>channel_count;<sp/>channel_idx++)<sp/>{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>previous_buffer_[channel_idx]<sp/>=</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Eigen::VectorXf::Zero(<ref refid="classrtff_1_1FilterImpl_1af736527d84e83b3836b5e1138e0b78e3" kindref="member">window_size</ref>()<sp/>-<sp/><ref refid="classrtff_1_1FilterImpl_1ad81014ad35a9d05d7fcf8a27ef685457" kindref="member">hop_size</ref>());</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>post_ifft_buffer_[channel_idx].resize(<ref refid="classrtff_1_1FilterImpl_1af736527d84e83b3836b5e1138e0b78e3" kindref="member">window_size</ref>());</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>result_buffer_[channel_idx].resize(<ref refid="classrtff_1_1FilterImpl_1af736527d84e83b3836b5e1138e0b78e3" kindref="member">window_size</ref>());</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="35"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal">uint32_t<sp/><ref refid="classrtff_1_1FilterImpl_1a79aae76e30c58453b50bc76d8833ebb6" kindref="member">FilterImpl::overlap</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>overlap_;<sp/>}</highlight></codeline>
+<codeline lineno="38"><highlight class="normal">uint32_t<sp/><ref refid="classrtff_1_1FilterImpl_1a271ed97d8c4ba0c6f46c12c23144451c" kindref="member">FilterImpl::fft_size</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>fft_size_;<sp/>}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal">uint32_t<sp/><ref refid="classrtff_1_1FilterImpl_1af736527d84e83b3836b5e1138e0b78e3" kindref="member">FilterImpl::window_size</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classrtff_1_1FilterImpl_1a9f8929577d8ec767cbe5d7f2f6c15852" kindref="member">analysis_window</ref>().size();<sp/>}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal">uint32_t<sp/><ref refid="classrtff_1_1FilterImpl_1ad81014ad35a9d05d7fcf8a27ef685457" kindref="member">FilterImpl::hop_size</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>fft_size_<sp/>-<sp/>overlap_;<sp/>}</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Eigen::VectorXf&amp;<sp/><ref refid="classrtff_1_1FilterImpl_1a9f8929577d8ec767cbe5d7f2f6c15852" kindref="member">FilterImpl::analysis_window</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>analysis_window_;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Eigen::VectorXf&amp;<sp/><ref refid="classrtff_1_1FilterImpl_1ac27df2b09806886c5f96ac75559510c4" kindref="member">FilterImpl::synthesis_window</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>synthesis_window_;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classrtff_1_1FilterImpl_1ad3a3938e507b17801213a3ea579bf9ac" kindref="member">FilterImpl::Analyze</ref>(TimeAmplitudeBuffer&amp;<sp/>amplitude,</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TimeFrequencyBuffer*<sp/>frequential)<sp/>{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(uint8_t<sp/>channel_idx<sp/>=<sp/>0;<sp/>channel_idx<sp/>&lt;<sp/>amplitude.channel_count();</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>channel_idx++)<sp/>{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>apply<sp/>the<sp/>analysis<sp/>window</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>amplitude.channel(channel_idx).array()<sp/>*=<sp/>analysis_window_.array();</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>compute<sp/>the<sp/>fft<sp/>and<sp/>store<sp/>it<sp/>into<sp/>the<sp/>frequential<sp/>buffer</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>fft_-&gt;Forward(amplitude.channel(channel_idx).data(),</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>frequential-&gt;channel(channel_idx).data());</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="58"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classrtff_1_1FilterImpl_1abaf359c7f41eb8de2d1df3448a47c478" kindref="member">FilterImpl::Synthesize</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>TimeFrequencyBuffer&amp;<sp/>frequential,</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TimeAmplitudeBuffer*<sp/>amplitude)<sp/>{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(uint8_t<sp/>channel_idx<sp/>=<sp/>0;<sp/>channel_idx<sp/>&lt;<sp/>frequential.channel_count();</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>channel_idx++)<sp/>{</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>result_<sp/>=<sp/>result_buffer_[channel_idx];</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>previous_<sp/>=<sp/>previous_buffer_[channel_idx];</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>post_ifft<sp/>=<sp/>post_ifft_buffer_[channel_idx];</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>ifft</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>fft_-&gt;Backward(frequential.channel(channel_idx).data(),<sp/>post_ifft.data());</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>apply<sp/>synthesis<sp/>window<sp/>and<sp/>sum<sp/>to<sp/>previous<sp/>data</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>sum<sp/>with<sp/>previous<sp/>data</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>memset(result_.data(),<sp/>0,<sp/>result_.size()<sp/>*<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(float));</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>result_.head(previous_.size())<sp/>=<sp/>previous_;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>result_.array()<sp/>+=</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>post_ifft.array()<sp/>*<sp/>synthesis_window_.array()<sp/>/<sp/>unwindow_.array();</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>keep<sp/>previous<sp/>buffer<sp/>for<sp/>synthesis</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>previous_<sp/>=<sp/>result_.tail(previous_.size());</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>unwindow<sp/>to<sp/>get<sp/>the<sp/>right<sp/>buffer</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>amplitude-&gt;channel(channel_idx).noalias()<sp/>=</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result_.head(<ref refid="classrtff_1_1FilterImpl_1ad81014ad35a9d05d7fcf8a27ef685457" kindref="member">hop_size</ref>()).transpose();</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="85"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>rtff</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/code/src/rtff/filter_impl.cc"/>
+  </compounddef>
+</doxygen>

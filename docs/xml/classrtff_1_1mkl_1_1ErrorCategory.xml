@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classrtff_1_1mkl_1_1ErrorCategory" kind="class" language="C++" prot="public">
+    <compoundname>rtff::mkl::ErrorCategory</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">error_category</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classrtff_1_1mkl_1_1ErrorCategory_1acbf97643ded19b7fcf0bc04192d70a32" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * rtff::mkl::ErrorCategory::name</definition>
+        <argsstring>() const override</argsstring>
+        <name>name</name>
+        <exceptions> throw ()</exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/fft/mkl/mkl_fft_context.h" line="17" column="1" bodyfile="/code/src/rtff/fft/mkl/mkl_fft_context.cc" bodystart="7" bodyend="7"/>
+      </memberdef>
+      <memberdef kind="function" id="classrtff_1_1mkl_1_1ErrorCategory_1a2345d25bcf03c72497d7c9d3c089aefc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string rtff::mkl::ErrorCategory::message</definition>
+        <argsstring>(int ev) const override</argsstring>
+        <name>message</name>
+        <param>
+          <type>int</type>
+          <declname>ev</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/fft/mkl/mkl_fft_context.h" line="18" column="1" bodyfile="/code/src/rtff/fft/mkl/mkl_fft_context.cc" bodystart="8" bodyend="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classrtff_1_1mkl_1_1ErrorCategory_1af42a6ec1426a63430e19d9bc0e5371c2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool rtff::mkl::ErrorCategory::equivalent</definition>
+        <argsstring>(const std::error_code &amp;code, int condition) const override</argsstring>
+        <name>equivalent</name>
+        <param>
+          <type>const std::error_code &amp;</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>condition</declname>
+        </param>
+        <exceptions> throw ()</exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/fft/mkl/mkl_fft_context.h" line="19" column="1" bodyfile="/code/src/rtff/fft/mkl/mkl_fft_context.cc" bodystart="11" bodyend="16"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="9">
+        <label>std::error_category</label>
+      </node>
+      <node id="8">
+        <label>rtff::mkl::ErrorCategory</label>
+        <link refid="classrtff_1_1mkl_1_1ErrorCategory"/>
+        <childnode refid="9" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="11">
+        <label>std::error_category</label>
+      </node>
+      <node id="10">
+        <label>rtff::mkl::ErrorCategory</label>
+        <link refid="classrtff_1_1mkl_1_1ErrorCategory"/>
+        <childnode refid="11" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/code/src/rtff/fft/mkl/mkl_fft_context.h" line="15" column="1" bodyfile="/code/src/rtff/fft/mkl/mkl_fft_context.h" bodystart="15" bodyend="21"/>
+    <listofallmembers>
+      <member refid="classrtff_1_1mkl_1_1ErrorCategory_1af42a6ec1426a63430e19d9bc0e5371c2" prot="public" virt="non-virtual"><scope>rtff::mkl::ErrorCategory</scope><name>equivalent</name></member>
+      <member refid="classrtff_1_1mkl_1_1ErrorCategory_1a2345d25bcf03c72497d7c9d3c089aefc" prot="public" virt="non-virtual"><scope>rtff::mkl::ErrorCategory</scope><name>message</name></member>
+      <member refid="classrtff_1_1mkl_1_1ErrorCategory_1acbf97643ded19b7fcf0bc04192d70a32" prot="public" virt="non-virtual"><scope>rtff::mkl::ErrorCategory</scope><name>name</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

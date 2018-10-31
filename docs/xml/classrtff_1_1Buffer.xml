@@ -1,0 +1,182 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classrtff_1_1Buffer" kind="class" language="C++" prot="public">
+    <compoundname>rtff::Buffer</compoundname>
+    <includes refid="buffer_8h" local="no">buffer.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename</type>
+        <declname>T</declname>
+        <defname>T</defname>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classrtff_1_1Buffer_1acd4ee3e17795f20033eff05997dcb71b" prot="public" static="no">
+        <type>Eigen::Matrix&lt; T, Eigen::Dynamic, 1 &gt;</type>
+        <definition>using rtff::Buffer&lt; T &gt;::Vector =  Eigen::Matrix&lt;T, Eigen::Dynamic, 1&gt;</definition>
+        <argsstring></argsstring>
+        <name>Vector</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/buffer/buffer.h" line="14" column="1" bodyfile="/code/src/rtff/buffer/buffer.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classrtff_1_1Buffer_1a1f30f30ddf3c7fe8d464ce723c1069ef" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; Vector &gt;</type>
+        <definition>std::vector&lt;Vector&gt; rtff::Buffer&lt; T &gt;::data_</definition>
+        <argsstring></argsstring>
+        <name>data_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/buffer/buffer.h" line="58" column="1" bodyfile="/code/src/rtff/buffer/buffer.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classrtff_1_1Buffer_1a134881532cd7b78eed974736042bdd1d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void rtff::Buffer&lt; T &gt;::Init</definition>
+        <argsstring>(uint32_t frame_count, uint8_t channel_count)</argsstring>
+        <name>Init</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>frame_count</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel_count</declname>
+        </param>
+        <briefdescription>
+<para>Initialize and allocate memory. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>frame_count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the number of samples of each channel </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>channel_count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the number of channels </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/buffer/buffer.h" line="20" column="1" bodyfile="/code/src/rtff/buffer/buffer.h" bodystart="20" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classrtff_1_1Buffer_1a911ac1515779c812f2c2486af72bd10b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Vector &amp;</type>
+        <definition>Vector&amp; rtff::Buffer&lt; T &gt;::channel</definition>
+        <argsstring>(uint8_t channel_idx)</argsstring>
+        <name>channel</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel_idx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>channel_idx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the channel index </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>a reference to the raw data stored in a vector </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/buffer/buffer.h" line="31" column="1" bodyfile="/code/src/rtff/buffer/buffer.h" bodystart="31" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="classrtff_1_1Buffer_1a1a5acb08f0e1ba3351f1ae1238f16f7b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const Vector &amp;</type>
+        <definition>const Vector&amp; rtff::Buffer&lt; T &gt;::channel</definition>
+        <argsstring>(uint8_t channel_idx) const</argsstring>
+        <name>channel</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel_idx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/buffer/buffer.h" line="32" column="1" bodyfile="/code/src/rtff/buffer/buffer.h" bodystart="32" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="classrtff_1_1Buffer_1a32a99b8c67f7b618a8bb7aeb771dcc70" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t rtff::Buffer&lt; T &gt;::channel_count</definition>
+        <argsstring>() const</argsstring>
+        <name>channel_count</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the number of channels </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/buffer/buffer.h" line="39" column="1" bodyfile="/code/src/rtff/buffer/buffer.h" bodystart="39" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="classrtff_1_1Buffer_1a4a9b9465dc09b7901a31958105ac998a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; T * &gt;</type>
+        <definition>std::vector&lt;T*&gt; rtff::Buffer&lt; T &gt;::data_ptr</definition>
+        <argsstring>()</argsstring>
+        <name>data_ptr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>a vector of pointers giving access to raw data </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/buffer/buffer.h" line="44" column="1" bodyfile="/code/src/rtff/buffer/buffer.h" bodystart="44" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="classrtff_1_1Buffer_1a83f5ac85d48fa1943815d39e412b7b4b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t rtff::Buffer&lt; T &gt;::size</definition>
+        <argsstring>() const</argsstring>
+        <name>size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the number of samples contained in each channel </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/buffer/buffer.h" line="55" column="1" bodyfile="/code/src/rtff/buffer/buffer.h" bodystart="55" bodyend="55"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>A multichannel data storage class. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/code/src/rtff/buffer/buffer.h" line="12" column="1" bodyfile="/code/src/rtff/buffer/buffer.h" bodystart="12" bodyend="59"/>
+    <listofallmembers>
+      <member refid="classrtff_1_1Buffer_1a911ac1515779c812f2c2486af72bd10b" prot="public" virt="non-virtual"><scope>rtff::Buffer</scope><name>channel</name></member>
+      <member refid="classrtff_1_1Buffer_1a1a5acb08f0e1ba3351f1ae1238f16f7b" prot="public" virt="non-virtual"><scope>rtff::Buffer</scope><name>channel</name></member>
+      <member refid="classrtff_1_1Buffer_1a32a99b8c67f7b618a8bb7aeb771dcc70" prot="public" virt="non-virtual"><scope>rtff::Buffer</scope><name>channel_count</name></member>
+      <member refid="classrtff_1_1Buffer_1a1f30f30ddf3c7fe8d464ce723c1069ef" prot="private" virt="non-virtual"><scope>rtff::Buffer</scope><name>data_</name></member>
+      <member refid="classrtff_1_1Buffer_1a4a9b9465dc09b7901a31958105ac998a" prot="public" virt="non-virtual"><scope>rtff::Buffer</scope><name>data_ptr</name></member>
+      <member refid="classrtff_1_1Buffer_1a134881532cd7b78eed974736042bdd1d" prot="public" virt="non-virtual"><scope>rtff::Buffer</scope><name>Init</name></member>
+      <member refid="classrtff_1_1Buffer_1a83f5ac85d48fa1943815d39e412b7b4b" prot="public" virt="non-virtual"><scope>rtff::Buffer</scope><name>size</name></member>
+      <member refid="classrtff_1_1Buffer_1acd4ee3e17795f20033eff05997dcb71b" prot="public" virt="non-virtual"><scope>rtff::Buffer</scope><name>Vector</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

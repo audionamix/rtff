@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classrtff_1_1Window" kind="class" language="C++" prot="public">
+    <compoundname>rtff::Window</compoundname>
+    <includes refid="window_8h" local="no">window.h</includes>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classrtff_1_1Window_1ae19113ca2b4df789f61da90ce26c6bf9" prot="public" static="no">
+        <name>Type</name>
+        <enumvalue id="classrtff_1_1Window_1ae19113ca2b4df789f61da90ce26c6bf9a718179b3bcff69a9d3f010aca0e9901a" prot="public">
+          <name>Hamming</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>enumerate representing the analysis window type. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/fft/window.h" line="18" column="1" bodyfile="/code/src/rtff/fft/window.h" bodystart="18" bodyend="18"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classrtff_1_1Window_1ac71e601e481f770395f7e378f8d8baad" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Eigen::VectorXf</type>
+        <definition>Eigen::VectorXf rtff::Window::Make</definition>
+        <argsstring>(Type type, uint32_t size)</argsstring>
+        <name>Make</name>
+        <param>
+          <type><ref refid="classrtff_1_1Window_1ae19113ca2b4df789f61da90ce26c6bf9" kindref="member">Type</ref></type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>generate an analysis window </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the type of the window </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the window size in sample </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/fft/window.h" line="25" column="1" bodyfile="/code/src/rtff/fft/window.cc" bodystart="7" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classrtff_1_1Window_1a82de398a439fc2c0665d371760a29a5d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Eigen::VectorXf</type>
+        <definition>Eigen::VectorXf rtff::Window::MakeInverse</definition>
+        <argsstring>(Type analysis_type, Type sythesis_type, uint32_t size, uint32_t step_size)</argsstring>
+        <name>MakeInverse</name>
+        <param>
+          <type><ref refid="classrtff_1_1Window_1ae19113ca2b4df789f61da90ce26c6bf9" kindref="member">Type</ref></type>
+          <declname>analysis_type</declname>
+        </param>
+        <param>
+          <type><ref refid="classrtff_1_1Window_1ae19113ca2b4df789f61da90ce26c6bf9" kindref="member">Type</ref></type>
+          <declname>sythesis_type</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>step_size</declname>
+        </param>
+        <briefdescription>
+<para>generate an unwindow used in the inverse fft step </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>analysis_type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the type of the window used in the analysis step </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sythesis_type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the type of the window used in the synthesis step </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the window size in sample </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>step_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the hop size used by the filter </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/fft/window.h" line="33" column="1" bodyfile="/code/src/rtff/fft/window.cc" bodystart="26" bodyend="53"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Utility function to build an analysis window. </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="see"><para><ulink url="https://en.wikipedia.org/wiki/Window_function">https://en.wikipedia.org/wiki/Window_function</ulink> for more </para></simplesect>
+</para>    </detaileddescription>
+    <location file="/code/src/rtff/fft/window.h" line="13" column="1" bodyfile="/code/src/rtff/fft/window.h" bodystart="13" bodyend="35"/>
+    <listofallmembers>
+      <member refid="classrtff_1_1Window_1ac71e601e481f770395f7e378f8d8baad" prot="public" virt="non-virtual"><scope>rtff::Window</scope><name>Make</name></member>
+      <member refid="classrtff_1_1Window_1a82de398a439fc2c0665d371760a29a5d" prot="public" virt="non-virtual"><scope>rtff::Window</scope><name>MakeInverse</name></member>
+      <member refid="classrtff_1_1Window_1ae19113ca2b4df789f61da90ce26c6bf9" prot="public" virt="non-virtual"><scope>rtff::Window</scope><name>Type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,202 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classrtff_1_1RingBuffer" kind="class" language="C++" prot="public">
+    <compoundname>rtff::RingBuffer</compoundname>
+    <includes refid="ring__buffer_8h" local="no">ring_buffer.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classrtff_1_1RingBuffer_1a53a6f79062c9ccb0ef0c2fba691f1e30" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t rtff::RingBuffer::write_index_</definition>
+        <argsstring></argsstring>
+        <name>write_index_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/buffer/ring_buffer.h" line="46" column="1" bodyfile="/code/src/rtff/buffer/ring_buffer.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classrtff_1_1RingBuffer_1a09ebf1d8c31a1a39b08777bba447b5e4" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t rtff::RingBuffer::read_index_</definition>
+        <argsstring></argsstring>
+        <name>read_index_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/buffer/ring_buffer.h" line="47" column="1" bodyfile="/code/src/rtff/buffer/ring_buffer.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classrtff_1_1RingBuffer_1a78603235e270b93debb7c106fa5a339d" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t rtff::RingBuffer::available_data_size_</definition>
+        <argsstring></argsstring>
+        <name>available_data_size_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/buffer/ring_buffer.h" line="48" column="1" bodyfile="/code/src/rtff/buffer/ring_buffer.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classrtff_1_1RingBuffer_1ab35c1fa7cede810270fc033c83f68f5f" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; float &gt;</type>
+        <definition>std::vector&lt;float&gt; rtff::RingBuffer::buffer_</definition>
+        <argsstring></argsstring>
+        <name>buffer_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/buffer/ring_buffer.h" line="49" column="1" bodyfile="/code/src/rtff/buffer/ring_buffer.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classrtff_1_1RingBuffer_1ab4871ad9a00835c2ab2f3989a85d87f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>rtff::RingBuffer::RingBuffer</definition>
+        <argsstring>(uint32_t container_size)</argsstring>
+        <name>RingBuffer</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>container_size</declname>
+        </param>
+        <briefdescription>
+<para>Constructor. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>container_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the maximum number of data a user can write without reading </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/buffer/ring_buffer.h" line="25" column="1" bodyfile="/code/src/rtff/buffer/ring_buffer.cc" bodystart="13" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classrtff_1_1RingBuffer_1aecf717c308ad767a5c21d41dbe5f3257" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void rtff::RingBuffer::InitWithZeros</definition>
+        <argsstring>(uint32_t count)</argsstring>
+        <name>InitWithZeros</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>count</declname>
+        </param>
+        <briefdescription>
+<para>fill the buffer with count zeros </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the number of zeros to add into the buffer </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/buffer/ring_buffer.h" line="30" column="1" bodyfile="/code/src/rtff/buffer/ring_buffer.cc" bodystart="20" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="classrtff_1_1RingBuffer_1aa42a3c4435401f80cd8b4ec148117698" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void rtff::RingBuffer::Write</definition>
+        <argsstring>(const float *data, uint32_t frame_count)</argsstring>
+        <name>Write</name>
+        <param>
+          <type>const float *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>frame_count</declname>
+        </param>
+        <briefdescription>
+<para>write data to the buffer </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pointer to the data </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>frame_count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the number of samples available in the data array </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/buffer/ring_buffer.h" line="36" column="1" bodyfile="/code/src/rtff/buffer/ring_buffer.cc" bodystart="35" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="classrtff_1_1RingBuffer_1afd54a4505471f07ee14cc70d4079312d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool rtff::RingBuffer::Read</definition>
+        <argsstring>(float *data, uint32_t frame_count)</argsstring>
+        <name>Read</name>
+        <param>
+          <type>float *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>frame_count</declname>
+        </param>
+        <briefdescription>
+<para>read data from the buffer and remove frame_count data </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a pre-allocated array of size frame_count </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>frame_count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the number of frames to read </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true is read was successful </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/buffer/ring_buffer.h" line="43" column="1" bodyfile="/code/src/rtff/buffer/ring_buffer.cc" bodystart="51" bodyend="76"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="classrtff_1_1RingBuffer" kindref="compound">RingBuffer</ref> represent a circular buffer. It is used to store enough data before starting a process without having to allocate memory dynamically. </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="see"><para><ulink url="https://en.wikipedia.org/wiki/Circular_buffer">https://en.wikipedia.org/wiki/Circular_buffer</ulink> </para></simplesect>
+</para>    </detaileddescription>
+    <location file="/code/src/rtff/buffer/ring_buffer.h" line="18" column="1" bodyfile="/code/src/rtff/buffer/ring_buffer.h" bodystart="18" bodyend="50"/>
+    <listofallmembers>
+      <member refid="classrtff_1_1RingBuffer_1a78603235e270b93debb7c106fa5a339d" prot="private" virt="non-virtual"><scope>rtff::RingBuffer</scope><name>available_data_size_</name></member>
+      <member refid="classrtff_1_1RingBuffer_1ab35c1fa7cede810270fc033c83f68f5f" prot="private" virt="non-virtual"><scope>rtff::RingBuffer</scope><name>buffer_</name></member>
+      <member refid="classrtff_1_1RingBuffer_1aecf717c308ad767a5c21d41dbe5f3257" prot="public" virt="non-virtual"><scope>rtff::RingBuffer</scope><name>InitWithZeros</name></member>
+      <member refid="classrtff_1_1RingBuffer_1afd54a4505471f07ee14cc70d4079312d" prot="public" virt="non-virtual"><scope>rtff::RingBuffer</scope><name>Read</name></member>
+      <member refid="classrtff_1_1RingBuffer_1a09ebf1d8c31a1a39b08777bba447b5e4" prot="private" virt="non-virtual"><scope>rtff::RingBuffer</scope><name>read_index_</name></member>
+      <member refid="classrtff_1_1RingBuffer_1ab4871ad9a00835c2ab2f3989a85d87f8" prot="public" virt="non-virtual"><scope>rtff::RingBuffer</scope><name>RingBuffer</name></member>
+      <member refid="classrtff_1_1RingBuffer_1aa42a3c4435401f80cd8b4ec148117698" prot="public" virt="non-virtual"><scope>rtff::RingBuffer</scope><name>Write</name></member>
+      <member refid="classrtff_1_1RingBuffer_1a53a6f79062c9ccb0ef0c2fba691f1e30" prot="private" virt="non-virtual"><scope>rtff::RingBuffer</scope><name>write_index_</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

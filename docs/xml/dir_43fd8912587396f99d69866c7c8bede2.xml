@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="dir_43fd8912587396f99d69866c7c8bede2" kind="dir">
+    <compoundname>/code/src/rtff/buffer</compoundname>
+    <innerfile refid="audio__buffer_8cc">audio_buffer.cc</innerfile>
+    <innerfile refid="audio__buffer_8h">audio_buffer.h</innerfile>
+    <innerfile refid="buffer_8h">buffer.h</innerfile>
+    <innerfile refid="buffer__test_8cc">buffer_test.cc</innerfile>
+    <innerfile refid="overlap__ring__buffer_8cc">overlap_ring_buffer.cc</innerfile>
+    <innerfile refid="overlap__ring__buffer_8h">overlap_ring_buffer.h</innerfile>
+    <innerfile refid="ring__buffer_8cc">ring_buffer.cc</innerfile>
+    <innerfile refid="ring__buffer_8h">ring_buffer.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/code/src/rtff/buffer/"/>
+  </compounddef>
+</doxygen>

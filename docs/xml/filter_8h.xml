@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="filter_8h" kind="file" language="C++">
+    <compoundname>filter.h</compoundname>
+    <includes local="no">functional</includes>
+    <includes refid="abstract__filter_8h" local="yes">rtff/abstract_filter.h</includes>
+    <includedby refid="filter_8cc" local="yes">/code/src/rtff/filter.cc</includedby>
+    <includedby refid="test_8cc" local="yes">/code/src/rtff/test.cc</includedby>
+    <incdepgraph>
+      <node id="173">
+        <label>system_error</label>
+      </node>
+      <node id="169">
+        <label>functional</label>
+      </node>
+      <node id="176">
+        <label>cstdint</label>
+      </node>
+      <node id="168">
+        <label>/code/src/rtff/filter.h</label>
+        <link refid="filter_8h"/>
+        <childnode refid="169" relation="include">
+        </childnode>
+        <childnode refid="170" relation="include">
+        </childnode>
+      </node>
+      <node id="174">
+        <label>vector</label>
+      </node>
+      <node id="175">
+        <label>rtff/buffer/audio_buffer.h</label>
+        <link refid="audio__buffer_8h_source"/>
+        <childnode refid="176" relation="include">
+        </childnode>
+        <childnode refid="174" relation="include">
+        </childnode>
+      </node>
+      <node id="171">
+        <label>complex</label>
+      </node>
+      <node id="170">
+        <label>rtff/abstract_filter.h</label>
+        <link refid="abstract__filter_8h_source"/>
+        <childnode refid="171" relation="include">
+        </childnode>
+        <childnode refid="172" relation="include">
+        </childnode>
+        <childnode refid="173" relation="include">
+        </childnode>
+        <childnode refid="174" relation="include">
+        </childnode>
+        <childnode refid="175" relation="include">
+        </childnode>
+      </node>
+      <node id="172">
+        <label>memory</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classrtff_1_1Filter" prot="public">rtff::Filter</innerclass>
+    <innernamespace refid="namespacertff">rtff</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>RTFF_FILTER_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RTFF_FILTER_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;functional&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;rtff/abstract_filter.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacertff" kindref="compound">rtff</ref><sp/>{</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14" refid="classrtff_1_1Filter" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classrtff_1_1Filter" kindref="compound">Filter</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classrtff_1_1AbstractFilter" kindref="compound">AbstractFilter</ref><sp/>{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><ref refid="classrtff_1_1Filter" kindref="compound">Filter</ref>();</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>~<ref refid="classrtff_1_1Filter" kindref="compound">Filter</ref>();</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23" refid="classrtff_1_1Filter_1ac578e43c43eaf0cac114a710908c77d6" refkind="member"><highlight class="normal"><sp/><sp/>std::function&lt;void(std::vector&lt;std::complex&lt;float&gt;*&gt;,<sp/>uint32_t)&gt;<sp/><ref refid="classrtff_1_1Filter_1ac578e43c43eaf0cac114a710908c77d6" kindref="member">execute</ref>;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classrtff_1_1Filter_1a0aa7657161cce126ba0511de5acdfb89" kindref="member">ProcessTransformedBlock</ref>(std::vector&lt;std::complex&lt;float&gt;*&gt;<sp/>data,</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/>size)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>rtff</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/>//<sp/>RTFF_FILTER_H_</highlight></codeline>
+    </programlisting>
+    <location file="/code/src/rtff/filter.h"/>
+  </compounddef>
+</doxygen>

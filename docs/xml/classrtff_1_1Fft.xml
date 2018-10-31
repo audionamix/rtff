@@ -1,0 +1,153 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classrtff_1_1Fft" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>rtff::Fft</compoundname>
+    <derivedcompoundref refid="classrtff_1_1FFTWFft" prot="public" virt="non-virtual">rtff::FFTWFft</derivedcompoundref>
+    <derivedcompoundref refid="classrtff_1_1MKLFft" prot="public" virt="non-virtual">rtff::MKLFft</derivedcompoundref>
+    <includes refid="fft_8h" local="no">fft.h</includes>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classrtff_1_1Fft_1aca023c41f0bbf267bccff7fc9d34d71f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="classrtff_1_1Fft" kindref="compound">Fft</ref> &gt;</type>
+        <definition>std::shared_ptr&lt; Fft &gt; rtff::Fft::Create</definition>
+        <argsstring>(uint32_t size, std::error_code &amp;err)</argsstring>
+        <name>Create</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>std::error_code &amp;</type>
+          <declname>err</declname>
+        </param>
+        <briefdescription>
+<para>Create a default computer based on various libraries depending on your system. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the size in samples of the fft </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>err</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>an error code that gets set if something goes wrong </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/fft/fft.h" line="22" column="1" bodyfile="/code/src/rtff/fft/fft.cc" bodystart="20" bodyend="24"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classrtff_1_1Fft_1ae93eb9d6e8c5f2d98716ad2e3daad5cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void rtff::Fft::Forward</definition>
+        <argsstring>(const float *real_data, std::complex&lt; float &gt; *complex_data)=0</argsstring>
+        <name>Forward</name>
+        <reimplementedby refid="classrtff_1_1MKLFft_1a6a7b02cf0c72af815ece4625b76537aa">Forward</reimplementedby>
+        <reimplementedby refid="classrtff_1_1FFTWFft_1af5a414545c2bc21dce082da915c67782">Forward</reimplementedby>
+        <param>
+          <type>const float *</type>
+          <declname>real_data</declname>
+        </param>
+        <param>
+          <type>std::complex&lt; float &gt; *</type>
+          <declname>complex_data</declname>
+        </param>
+        <briefdescription>
+<para>transform a buffer of real signal data to its time frequency complex representation </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>real_data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the signal data </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>complex_data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the fourier transform of the real data </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/fft/fft.h" line="30" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classrtff_1_1Fft_1a53292ab571f71b181d908d0b20e03061" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void rtff::Fft::Backward</definition>
+        <argsstring>(const std::complex&lt; float &gt; *complex_data, float *real_data)=0</argsstring>
+        <name>Backward</name>
+        <reimplementedby refid="classrtff_1_1MKLFft_1a8091f57dbba9f6ee81a253680d74fe8d">Backward</reimplementedby>
+        <reimplementedby refid="classrtff_1_1FFTWFft_1aa1f883d6046179d26fbdc996168ee555">Backward</reimplementedby>
+        <param>
+          <type>const std::complex&lt; float &gt; *</type>
+          <declname>complex_data</declname>
+        </param>
+        <param>
+          <type>float *</type>
+          <declname>real_data</declname>
+        </param>
+        <briefdescription>
+<para>transform the complex time frequency representation back to the time domain </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>complex_data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the time frequency data </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>real_data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the inverse fourier transform of the complex_data </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/fft/fft.h" line="38" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>base class for Fast fourier transform computers </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="12">
+        <label>rtff::Fft</label>
+        <link refid="classrtff_1_1Fft"/>
+      </node>
+      <node id="13">
+        <label>rtff::FFTWFft</label>
+        <link refid="classrtff_1_1FFTWFft"/>
+        <childnode refid="12" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>rtff::MKLFft</label>
+        <link refid="classrtff_1_1MKLFft"/>
+        <childnode refid="12" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="/code/src/rtff/fft/fft.h" line="14" column="1" bodyfile="/code/src/rtff/fft/fft.h" bodystart="14" bodyend="40"/>
+    <listofallmembers>
+      <member refid="classrtff_1_1Fft_1a53292ab571f71b181d908d0b20e03061" prot="public" virt="pure-virtual"><scope>rtff::Fft</scope><name>Backward</name></member>
+      <member refid="classrtff_1_1Fft_1aca023c41f0bbf267bccff7fc9d34d71f" prot="public" virt="non-virtual"><scope>rtff::Fft</scope><name>Create</name></member>
+      <member refid="classrtff_1_1Fft_1ae93eb9d6e8c5f2d98716ad2e3daad5cd" prot="public" virt="pure-virtual"><scope>rtff::Fft</scope><name>Forward</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

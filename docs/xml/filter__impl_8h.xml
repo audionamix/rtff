@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="filter__impl_8h" kind="file" language="C++">
+    <compoundname>filter_impl.h</compoundname>
+    <includes local="no">memory</includes>
+    <includes local="no">system_error</includes>
+    <includes local="no">vector</includes>
+    <includes local="no">Eigen/Core</includes>
+    <includes refid="audio__buffer_8h" local="yes">rtff/buffer/audio_buffer.h</includes>
+    <includes refid="buffer_8h" local="yes">rtff/buffer/buffer.h</includes>
+    <includes refid="ring__buffer_8h" local="yes">rtff/buffer/ring_buffer.h</includes>
+    <includedby refid="abstract__filter_8cc" local="yes">/code/src/rtff/abstract_filter.cc</includedby>
+    <includedby refid="filter__impl_8cc" local="yes">/code/src/rtff/filter_impl.cc</includedby>
+    <incdepgraph>
+      <node id="194">
+        <label>system_error</label>
+      </node>
+      <node id="192">
+        <label>/code/src/rtff/filter_impl.h</label>
+        <link refid="filter__impl_8h"/>
+        <childnode refid="193" relation="include">
+        </childnode>
+        <childnode refid="194" relation="include">
+        </childnode>
+        <childnode refid="195" relation="include">
+        </childnode>
+        <childnode refid="196" relation="include">
+        </childnode>
+        <childnode refid="197" relation="include">
+        </childnode>
+        <childnode refid="199" relation="include">
+        </childnode>
+        <childnode refid="200" relation="include">
+        </childnode>
+      </node>
+      <node id="198">
+        <label>cstdint</label>
+      </node>
+      <node id="196">
+        <label>Eigen/Core</label>
+      </node>
+      <node id="200">
+        <label>rtff/buffer/ring_buffer.h</label>
+        <link refid="ring__buffer_8h_source"/>
+        <childnode refid="198" relation="include">
+        </childnode>
+        <childnode refid="195" relation="include">
+        </childnode>
+      </node>
+      <node id="195">
+        <label>vector</label>
+      </node>
+      <node id="197">
+        <label>rtff/buffer/audio_buffer.h</label>
+        <link refid="audio__buffer_8h_source"/>
+        <childnode refid="198" relation="include">
+        </childnode>
+        <childnode refid="195" relation="include">
+        </childnode>
+      </node>
+      <node id="199">
+        <label>rtff/buffer/buffer.h</label>
+        <link refid="buffer_8h_source"/>
+        <childnode refid="196" relation="include">
+        </childnode>
+      </node>
+      <node id="193">
+        <label>memory</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classrtff_1_1FilterImpl" prot="public">rtff::FilterImpl</innerclass>
+    <innernamespace refid="namespacertff">rtff</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>RTFF_FILTER_IMPL_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RTFF_FILTER_IMPL_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;memory&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;system_error&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Eigen/Core&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;rtff/buffer/audio_buffer.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;rtff/buffer/buffer.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;rtff/buffer/ring_buffer.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacertff" kindref="compound">rtff</ref><sp/>{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">Fft;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23" refid="classrtff_1_1FilterImpl" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classrtff_1_1FilterImpl" kindref="compound">FilterImpl</ref><sp/>{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classrtff_1_1FilterImpl_1ad204a56b1a90fd97463cf9fd9e103aa5" kindref="member">Init</ref>(uint32_t<sp/><ref refid="classrtff_1_1FilterImpl_1a271ed97d8c4ba0c6f46c12c23144451c" kindref="member">fft_size</ref>,<sp/>uint32_t<sp/><ref refid="classrtff_1_1FilterImpl_1a79aae76e30c58453b50bc76d8833ebb6" kindref="member">overlap</ref>,<sp/>uint8_t<sp/>channel_count,</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::error_code&amp;<sp/>err);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classrtff_1_1FilterImpl_1ad3a3938e507b17801213a3ea579bf9ac" kindref="member">Analyze</ref>(<ref refid="classrtff_1_1Buffer" kindref="compound">TimeAmplitudeBuffer</ref>&amp;<sp/>amplitude,</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classrtff_1_1Buffer" kindref="compound">TimeFrequencyBuffer</ref>*<sp/>frequential);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classrtff_1_1FilterImpl_1abaf359c7f41eb8de2d1df3448a47c478" kindref="member">Synthesize</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classrtff_1_1Buffer" kindref="compound">TimeFrequencyBuffer</ref>&amp;<sp/>frequential,</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classrtff_1_1Buffer" kindref="compound">TimeAmplitudeBuffer</ref>*<sp/>amplitude);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Eigen::VectorXf&amp;<sp/><ref refid="classrtff_1_1FilterImpl_1a9f8929577d8ec767cbe5d7f2f6c15852" kindref="member">analysis_window</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Eigen::VectorXf&amp;<sp/><ref refid="classrtff_1_1FilterImpl_1ac27df2b09806886c5f96ac75559510c4" kindref="member">synthesis_window</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/>uint32_t<sp/><ref refid="classrtff_1_1FilterImpl_1a79aae76e30c58453b50bc76d8833ebb6" kindref="member">overlap</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/>uint32_t<sp/><ref refid="classrtff_1_1FilterImpl_1a271ed97d8c4ba0c6f46c12c23144451c" kindref="member">fft_size</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/>uint32_t<sp/><ref refid="classrtff_1_1FilterImpl_1af736527d84e83b3836b5e1138e0b78e3" kindref="member">window_size</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/>uint32_t<sp/><ref refid="classrtff_1_1FilterImpl_1ad81014ad35a9d05d7fcf8a27ef685457" kindref="member">hop_size</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/>uint32_t<sp/>fft_size_,<sp/>overlap_;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/>Eigen::VectorXf<sp/>analysis_window_;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/>Eigen::VectorXf<sp/>synthesis_window_;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/>Eigen::VectorXf<sp/>unwindow_;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/>std::shared_ptr&lt;Fft&gt;<sp/>fft_;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/>std::vector&lt;Eigen::VectorXf&gt;<sp/>previous_buffer_;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/>std::vector&lt;Eigen::VectorXf&gt;<sp/>result_buffer_;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/>std::vector&lt;Eigen::VectorXf&gt;<sp/>post_ifft_buffer_;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>rtff</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/>//<sp/>RTFF_FILTER_IMPL_H_</highlight></codeline>
+    </programlisting>
+    <location file="/code/src/rtff/filter_impl.h"/>
+  </compounddef>
+</doxygen>

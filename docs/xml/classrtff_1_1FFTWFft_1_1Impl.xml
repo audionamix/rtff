@@ -1,0 +1,193 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classrtff_1_1FFTWFft_1_1Impl" kind="class" language="C++" prot="public">
+    <compoundname>rtff::FFTWFft::Impl</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classrtff_1_1FFTWFft_1_1Impl_1a86c72e2184276e64ee1b7873f33e59b2" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; float &gt;</type>
+        <definition>std::vector&lt;float&gt; rtff::FFTWFft::Impl::real_data_</definition>
+        <argsstring></argsstring>
+        <name>real_data_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/fft/fftw/fftw_fft.cc" line="66" column="1" bodyfile="/code/src/rtff/fft/fftw/fftw_fft.cc" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classrtff_1_1FFTWFft_1_1Impl_1accfc055457d009b50e9b19a3c10c778d" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::complex&lt; float &gt; &gt;</type>
+        <definition>std::vector&lt;std::complex&lt;float&gt; &gt; rtff::FFTWFft::Impl::complex_data_</definition>
+        <argsstring></argsstring>
+        <name>complex_data_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/fft/fftw/fftw_fft.cc" line="67" column="1" bodyfile="/code/src/rtff/fft/fftw/fftw_fft.cc" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classrtff_1_1FFTWFft_1_1Impl_1adae9eff553bb3d6e9cd7339a8498829b" prot="private" static="no" mutable="no">
+        <type>fftwf_plan</type>
+        <definition>fftwf_plan rtff::FFTWFft::Impl::real_to_complex_</definition>
+        <argsstring></argsstring>
+        <name>real_to_complex_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/fft/fftw/fftw_fft.cc" line="68" column="1" bodyfile="/code/src/rtff/fft/fftw/fftw_fft.cc" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classrtff_1_1FFTWFft_1_1Impl_1aaa28e6339c1647889399cd19b2bbc853" prot="private" static="no" mutable="no">
+        <type>fftwf_plan</type>
+        <definition>fftwf_plan rtff::FFTWFft::Impl::complex_to_real_</definition>
+        <argsstring></argsstring>
+        <name>complex_to_real_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/fft/fftw/fftw_fft.cc" line="69" column="1" bodyfile="/code/src/rtff/fft/fftw/fftw_fft.cc" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classrtff_1_1FFTWFft_1_1Impl_1a58b12ba88271dd7e0fdd856b7b651e0b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>rtff::FFTWFft::Impl::Impl</definition>
+        <argsstring>()</argsstring>
+        <name>Impl</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/fft/fftw/fftw_fft.cc" line="12" column="1" bodyfile="/code/src/rtff/fft/fftw/fftw_fft.cc" bodystart="12" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classrtff_1_1FFTWFft_1_1Impl_1a0103d4235b7fdbf0d2c6978f141c4257" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>rtff::FFTWFft::Impl::~Impl</definition>
+        <argsstring>()</argsstring>
+        <name>~Impl</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/fft/fftw/fftw_fft.cc" line="13" column="1" bodyfile="/code/src/rtff/fft/fftw/fftw_fft.cc" bodystart="13" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classrtff_1_1FFTWFft_1_1Impl_1a739b391fb038a22d292534ef0b2b8ce8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void rtff::FFTWFft::Impl::Init</definition>
+        <argsstring>(uint32_t nfft)</argsstring>
+        <name>Init</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>nfft</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/fft/fftw/fftw_fft.cc" line="15" column="1" bodyfile="/code/src/rtff/fft/fftw/fftw_fft.cc" bodystart="15" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classrtff_1_1FFTWFft_1_1Impl_1a211cbde9e95aeccd68e145957e3706d2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void rtff::FFTWFft::Impl::Forward</definition>
+        <argsstring>(const float *in, std::complex&lt; float &gt; *out)</argsstring>
+        <name>Forward</name>
+        <param>
+          <type>const float *</type>
+          <declname>in</declname>
+        </param>
+        <param>
+          <type>std::complex&lt; float &gt; *</type>
+          <declname>out</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/fft/fftw/fftw_fft.cc" line="31" column="1" bodyfile="/code/src/rtff/fft/fftw/fftw_fft.cc" bodystart="31" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="classrtff_1_1FFTWFft_1_1Impl_1a0b01e2890772813ecb0001eb184bd6f6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void rtff::FFTWFft::Impl::Backward</definition>
+        <argsstring>(const std::complex&lt; float &gt; *in, float *out)</argsstring>
+        <name>Backward</name>
+        <param>
+          <type>const std::complex&lt; float &gt; *</type>
+          <declname>in</declname>
+        </param>
+        <param>
+          <type>float *</type>
+          <declname>out</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/fft/fftw/fftw_fft.cc" line="40" column="1" bodyfile="/code/src/rtff/fft/fftw/fftw_fft.cc" bodystart="40" bodyend="52"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classrtff_1_1FFTWFft_1_1Impl_1a08a37400db977229840dbaef8cefab5f" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t rtff::FFTWFft::Impl::get_nfft</definition>
+        <argsstring>() const</argsstring>
+        <name>get_nfft</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/fft/fftw/fftw_fft.cc" line="55" column="1" bodyfile="/code/src/rtff/fft/fftw/fftw_fft.cc" bodystart="55" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="classrtff_1_1FFTWFft_1_1Impl_1a39b7706703881cc4d8b4639e3816ebae" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void rtff::FFTWFft::Impl::Cleanup</definition>
+        <argsstring>()</argsstring>
+        <name>Cleanup</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/fft/fftw/fftw_fft.cc" line="57" column="1" bodyfile="/code/src/rtff/fft/fftw/fftw_fft.cc" bodystart="57" bodyend="64"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/code/src/rtff/fft/fftw/fftw_fft.cc" line="10" column="1" bodyfile="/code/src/rtff/fft/fftw/fftw_fft.cc" bodystart="10" bodyend="70"/>
+    <listofallmembers>
+      <member refid="classrtff_1_1FFTWFft_1_1Impl_1a0b01e2890772813ecb0001eb184bd6f6" prot="public" virt="non-virtual"><scope>rtff::FFTWFft::Impl</scope><name>Backward</name></member>
+      <member refid="classrtff_1_1FFTWFft_1_1Impl_1a39b7706703881cc4d8b4639e3816ebae" prot="private" virt="non-virtual"><scope>rtff::FFTWFft::Impl</scope><name>Cleanup</name></member>
+      <member refid="classrtff_1_1FFTWFft_1_1Impl_1accfc055457d009b50e9b19a3c10c778d" prot="private" virt="non-virtual"><scope>rtff::FFTWFft::Impl</scope><name>complex_data_</name></member>
+      <member refid="classrtff_1_1FFTWFft_1_1Impl_1aaa28e6339c1647889399cd19b2bbc853" prot="private" virt="non-virtual"><scope>rtff::FFTWFft::Impl</scope><name>complex_to_real_</name></member>
+      <member refid="classrtff_1_1FFTWFft_1_1Impl_1a211cbde9e95aeccd68e145957e3706d2" prot="public" virt="non-virtual"><scope>rtff::FFTWFft::Impl</scope><name>Forward</name></member>
+      <member refid="classrtff_1_1FFTWFft_1_1Impl_1a08a37400db977229840dbaef8cefab5f" prot="private" virt="non-virtual"><scope>rtff::FFTWFft::Impl</scope><name>get_nfft</name></member>
+      <member refid="classrtff_1_1FFTWFft_1_1Impl_1a58b12ba88271dd7e0fdd856b7b651e0b" prot="public" virt="non-virtual"><scope>rtff::FFTWFft::Impl</scope><name>Impl</name></member>
+      <member refid="classrtff_1_1FFTWFft_1_1Impl_1a739b391fb038a22d292534ef0b2b8ce8" prot="public" virt="non-virtual"><scope>rtff::FFTWFft::Impl</scope><name>Init</name></member>
+      <member refid="classrtff_1_1FFTWFft_1_1Impl_1a86c72e2184276e64ee1b7873f33e59b2" prot="private" virt="non-virtual"><scope>rtff::FFTWFft::Impl</scope><name>real_data_</name></member>
+      <member refid="classrtff_1_1FFTWFft_1_1Impl_1adae9eff553bb3d6e9cd7339a8498829b" prot="private" virt="non-virtual"><scope>rtff::FFTWFft::Impl</scope><name>real_to_complex_</name></member>
+      <member refid="classrtff_1_1FFTWFft_1_1Impl_1a0103d4235b7fdbf0d2c6978f141c4257" prot="public" virt="non-virtual"><scope>rtff::FFTWFft::Impl</scope><name>~Impl</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

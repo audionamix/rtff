@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="dir_f92e90155a2dc9a8e04894f35b998068" kind="dir">
+    <compoundname>/code/src/rtff/fft/fftw</compoundname>
+    <innerfile refid="fftw__fft_8cc">fftw_fft.cc</innerfile>
+    <innerfile refid="fftw__fft_8h">fftw_fft.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/code/src/rtff/fft/fftw/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,230 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classrtff_1_1OverlapRingBuffer" kind="class" language="C++" prot="public">
+    <compoundname>rtff::OverlapRingBuffer</compoundname>
+    <includes refid="overlap__ring__buffer_8h" local="no">overlap_ring_buffer.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classrtff_1_1OverlapRingBuffer_1ac974571a9be5e310009b0ee61ae3f4c9" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t rtff::OverlapRingBuffer::read_size_</definition>
+        <argsstring></argsstring>
+        <name>read_size_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/buffer/overlap_ring_buffer.h" line="48" column="1" bodyfile="/code/src/rtff/buffer/overlap_ring_buffer.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classrtff_1_1OverlapRingBuffer_1a3509bc0f6d27a03b99627dc2ea6c83f0" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t rtff::OverlapRingBuffer::step_size_</definition>
+        <argsstring></argsstring>
+        <name>step_size_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/buffer/overlap_ring_buffer.h" line="49" column="1" bodyfile="/code/src/rtff/buffer/overlap_ring_buffer.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classrtff_1_1OverlapRingBuffer_1aaba2a636ea77af6bc901a9751b93201c" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t rtff::OverlapRingBuffer::write_index_</definition>
+        <argsstring></argsstring>
+        <name>write_index_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/buffer/overlap_ring_buffer.h" line="51" column="1" bodyfile="/code/src/rtff/buffer/overlap_ring_buffer.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classrtff_1_1OverlapRingBuffer_1a4b231a1096444f8f5dd4c54c1b61bc2e" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t rtff::OverlapRingBuffer::read_index_</definition>
+        <argsstring></argsstring>
+        <name>read_index_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/buffer/overlap_ring_buffer.h" line="52" column="1" bodyfile="/code/src/rtff/buffer/overlap_ring_buffer.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classrtff_1_1OverlapRingBuffer_1af8ea0884cdf51f48d4a7a07e8761f3ab" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t rtff::OverlapRingBuffer::available_data_size_</definition>
+        <argsstring></argsstring>
+        <name>available_data_size_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/buffer/overlap_ring_buffer.h" line="53" column="1" bodyfile="/code/src/rtff/buffer/overlap_ring_buffer.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classrtff_1_1OverlapRingBuffer_1a74a5d5a4a0f6d9f85a3bb3eaab4a74c8" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; float &gt;</type>
+        <definition>std::vector&lt;float&gt; rtff::OverlapRingBuffer::buffer_</definition>
+        <argsstring></argsstring>
+        <name>buffer_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/buffer/overlap_ring_buffer.h" line="54" column="1" bodyfile="/code/src/rtff/buffer/overlap_ring_buffer.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classrtff_1_1OverlapRingBuffer_1a4ce89076d1cf5ae4d1f8ea772a8ca223" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>rtff::OverlapRingBuffer::OverlapRingBuffer</definition>
+        <argsstring>(uint32_t read_size, uint32_t step_size)</argsstring>
+        <name>OverlapRingBuffer</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>read_size</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>step_size</declname>
+        </param>
+        <briefdescription>
+<para>Constructor. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>read_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the number of frames read when calling the Read function </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>step_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the number of frames to remove from the buffer after a call to the Read function </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/buffer/overlap_ring_buffer.h" line="28" column="1" bodyfile="/code/src/rtff/buffer/overlap_ring_buffer.cc" bodystart="13" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classrtff_1_1OverlapRingBuffer_1ad278685305f857c88852fbbaaa8ecb7b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void rtff::OverlapRingBuffer::InitWithZeros</definition>
+        <argsstring>(uint32_t count)</argsstring>
+        <name>InitWithZeros</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>count</declname>
+        </param>
+        <briefdescription>
+<para>fill the buffer with count zeros </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the number of zeros to add into the buffer </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/buffer/overlap_ring_buffer.h" line="33" column="1" bodyfile="/code/src/rtff/buffer/overlap_ring_buffer.cc" bodystart="26" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="classrtff_1_1OverlapRingBuffer_1a5f5402125648e5ebe8595d307bb4fe0e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void rtff::OverlapRingBuffer::Write</definition>
+        <argsstring>(const float *data, uint32_t frame_count)</argsstring>
+        <name>Write</name>
+        <param>
+          <type>const float *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>frame_count</declname>
+        </param>
+        <briefdescription>
+<para>write data to the buffer </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pointer to the data </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>frame_count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the number of samples available in the data array </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/buffer/overlap_ring_buffer.h" line="39" column="1" bodyfile="/code/src/rtff/buffer/overlap_ring_buffer.cc" bodystart="41" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="classrtff_1_1OverlapRingBuffer_1a9bb4f69f3c71e7bdfb1998314756bc2e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool rtff::OverlapRingBuffer::Read</definition>
+        <argsstring>(float *data)</argsstring>
+        <name>Read</name>
+        <param>
+          <type>float *</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+<para>read data from the buffer and remove step_size data </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a pre-allocated array of size read_size </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true is read was successful </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/buffer/overlap_ring_buffer.h" line="45" column="1" bodyfile="/code/src/rtff/buffer/overlap_ring_buffer.cc" bodystart="57" bodyend="81"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="classrtff_1_1OverlapRingBuffer" kindref="compound">OverlapRingBuffer</ref> represents a Ring buffer with an overlap concept at read time. </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="note"><para>after reading N samples of indexes [1, 2 ... N], the read index will be moved by a step size M that may be different to N (the read size) So the next read samples will be [M, M+1, ... N, ..., N + M] </para></simplesect>
+</para>    </detaileddescription>
+    <location file="/code/src/rtff/buffer/overlap_ring_buffer.h" line="20" column="1" bodyfile="/code/src/rtff/buffer/overlap_ring_buffer.h" bodystart="20" bodyend="55"/>
+    <listofallmembers>
+      <member refid="classrtff_1_1OverlapRingBuffer_1af8ea0884cdf51f48d4a7a07e8761f3ab" prot="private" virt="non-virtual"><scope>rtff::OverlapRingBuffer</scope><name>available_data_size_</name></member>
+      <member refid="classrtff_1_1OverlapRingBuffer_1a74a5d5a4a0f6d9f85a3bb3eaab4a74c8" prot="private" virt="non-virtual"><scope>rtff::OverlapRingBuffer</scope><name>buffer_</name></member>
+      <member refid="classrtff_1_1OverlapRingBuffer_1ad278685305f857c88852fbbaaa8ecb7b" prot="public" virt="non-virtual"><scope>rtff::OverlapRingBuffer</scope><name>InitWithZeros</name></member>
+      <member refid="classrtff_1_1OverlapRingBuffer_1a4ce89076d1cf5ae4d1f8ea772a8ca223" prot="public" virt="non-virtual"><scope>rtff::OverlapRingBuffer</scope><name>OverlapRingBuffer</name></member>
+      <member refid="classrtff_1_1OverlapRingBuffer_1a9bb4f69f3c71e7bdfb1998314756bc2e" prot="public" virt="non-virtual"><scope>rtff::OverlapRingBuffer</scope><name>Read</name></member>
+      <member refid="classrtff_1_1OverlapRingBuffer_1a4b231a1096444f8f5dd4c54c1b61bc2e" prot="private" virt="non-virtual"><scope>rtff::OverlapRingBuffer</scope><name>read_index_</name></member>
+      <member refid="classrtff_1_1OverlapRingBuffer_1ac974571a9be5e310009b0ee61ae3f4c9" prot="private" virt="non-virtual"><scope>rtff::OverlapRingBuffer</scope><name>read_size_</name></member>
+      <member refid="classrtff_1_1OverlapRingBuffer_1a3509bc0f6d27a03b99627dc2ea6c83f0" prot="private" virt="non-virtual"><scope>rtff::OverlapRingBuffer</scope><name>step_size_</name></member>
+      <member refid="classrtff_1_1OverlapRingBuffer_1a5f5402125648e5ebe8595d307bb4fe0e" prot="public" virt="non-virtual"><scope>rtff::OverlapRingBuffer</scope><name>Write</name></member>
+      <member refid="classrtff_1_1OverlapRingBuffer_1aaba2a636ea77af6bc901a9751b93201c" prot="private" virt="non-virtual"><scope>rtff::OverlapRingBuffer</scope><name>write_index_</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

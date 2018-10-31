@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="mkl__fft_8cc" kind="file" language="C++">
+    <compoundname>mkl_fft.cc</compoundname>
+    <includes refid="mkl__fft_8h" local="yes">rtff/fft/mkl/mkl_fft.h</includes>
+    <incdepgraph>
+      <node id="114">
+        <label>system_error</label>
+      </node>
+      <node id="110">
+        <label>rtff/fft/fft.h</label>
+        <link refid="fft_8h_source"/>
+        <childnode refid="111" relation="include">
+        </childnode>
+        <childnode refid="112" relation="include">
+        </childnode>
+        <childnode refid="113" relation="include">
+        </childnode>
+        <childnode refid="114" relation="include">
+        </childnode>
+      </node>
+      <node id="112">
+        <label>cstdint</label>
+      </node>
+      <node id="117">
+        <label>string</label>
+      </node>
+      <node id="118">
+        <label>mkl.h</label>
+      </node>
+      <node id="116">
+        <label>map</label>
+      </node>
+      <node id="109">
+        <label>rtff/fft/mkl/mkl_fft.h</label>
+        <link refid="mkl__fft_8h_source"/>
+        <childnode refid="110" relation="include">
+        </childnode>
+        <childnode refid="115" relation="include">
+        </childnode>
+      </node>
+      <node id="115">
+        <label>rtff/fft/mkl/mkl_fft_context.h</label>
+        <link refid="mkl__fft__context_8h_source"/>
+        <childnode refid="116" relation="include">
+        </childnode>
+        <childnode refid="113" relation="include">
+        </childnode>
+        <childnode refid="117" relation="include">
+        </childnode>
+        <childnode refid="114" relation="include">
+        </childnode>
+        <childnode refid="118" relation="include">
+        </childnode>
+      </node>
+      <node id="108">
+        <label>/code/src/rtff/fft/mkl/mkl_fft.cc</label>
+        <link refid="mkl__fft_8cc"/>
+        <childnode refid="109" relation="include">
+        </childnode>
+      </node>
+      <node id="111">
+        <label>complex</label>
+      </node>
+      <node id="113">
+        <label>memory</label>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespacertff">rtff</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;rtff/fft/mkl/mkl_fft.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacertff" kindref="compound">rtff</ref><sp/>{</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>MKLFft::Init(uint32_t<sp/>size,<sp/>std::error_code&amp;<sp/>err)<sp/>{</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/>context_.Init(size,<sp/>err);</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classrtff_1_1MKLFft_1a6a7b02cf0c72af815ece4625b76537aa" kindref="member">MKLFft::Forward</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/>real_data,</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::complex&lt;float&gt;*<sp/>complex_data)<sp/>{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>interleaved_complex_array<sp/>=<sp/></highlight><highlight class="keyword">reinterpret_cast&lt;</highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(complex_data);</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO(gvne):<sp/>find<sp/>a<sp/>way<sp/>to<sp/>avoid<sp/>casting<sp/>away<sp/>the<sp/>const<sp/>qualifier</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/>DftiComputeForward(context_.descriptor(),<sp/>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*)(real_data),</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>interleaved_complex_array);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classrtff_1_1MKLFft_1a8091f57dbba9f6ee81a253680d74fe8d" kindref="member">MKLFft::Backward</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::complex&lt;float&gt;*<sp/>complex_data,</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/>real_data)<sp/>{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO(gvne):<sp/>find<sp/>a<sp/>way<sp/>to<sp/>avoid<sp/>casting<sp/>away<sp/>the<sp/>const<sp/>qualifier</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/>DftiComputeBackward(context_.descriptor(),<sp/>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*)(complex_data),<sp/>real_data);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>rtff</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/code/src/rtff/fft/mkl/mkl_fft.cc"/>
+  </compounddef>
+</doxygen>

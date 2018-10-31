@@ -1,0 +1,171 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classrtff_1_1FFTWFft" kind="class" language="C++" prot="public">
+    <compoundname>rtff::FFTWFft</compoundname>
+    <basecompoundref refid="classrtff_1_1Fft" prot="public" virt="non-virtual">rtff::Fft</basecompoundref>
+    <includes refid="fftw__fft_8h" local="no">fftw_fft.h</includes>
+    <innerclass refid="classrtff_1_1FFTWFft_1_1Impl" prot="public">rtff::FFTWFft::Impl</innerclass>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classrtff_1_1FFTWFft_1a377374d71b2baf75114ac409d6155381" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="classrtff_1_1FFTWFft_1_1Impl" kindref="compound">Impl</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;Impl&gt; rtff::FFTWFft::impl_</definition>
+        <argsstring></argsstring>
+        <name>impl_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/fft/fftw/fftw_fft.h" line="27" column="1" bodyfile="/code/src/rtff/fft/fftw/fftw_fft.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classrtff_1_1FFTWFft_1aa1f4baf673746708932c6178ad34569d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>rtff::FFTWFft::FFTWFft</definition>
+        <argsstring>()</argsstring>
+        <name>FFTWFft</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/fft/fftw/fftw_fft.h" line="18" column="1" bodyfile="/code/src/rtff/fft/fftw/fftw_fft.cc" bodystart="72" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="classrtff_1_1FFTWFft_1a1e17b40b0c5b35b4248f7dc4db19309e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void rtff::FFTWFft::Init</definition>
+        <argsstring>(uint32_t size, std::error_code &amp;err)</argsstring>
+        <name>Init</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>std::error_code &amp;</type>
+          <declname>err</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/fft/fftw/fftw_fft.h" line="19" column="1" bodyfile="/code/src/rtff/fft/fftw/fftw_fft.cc" bodystart="74" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="classrtff_1_1FFTWFft_1af5a414545c2bc21dce082da915c67782" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void rtff::FFTWFft::Forward</definition>
+        <argsstring>(const float *real_data, std::complex&lt; float &gt; *complex_data) override</argsstring>
+        <name>Forward</name>
+        <reimplements refid="classrtff_1_1Fft_1ae93eb9d6e8c5f2d98716ad2e3daad5cd">Forward</reimplements>
+        <param>
+          <type>const float *</type>
+          <declname>real_data</declname>
+        </param>
+        <param>
+          <type>std::complex&lt; float &gt; *</type>
+          <declname>complex_data</declname>
+        </param>
+        <briefdescription>
+<para>transform a buffer of real signal data to its time frequency complex representation </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>real_data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the signal data </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>complex_data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the fourier transform of the real data </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/fft/fftw/fftw_fft.h" line="20" column="1" bodyfile="/code/src/rtff/fft/fftw/fftw_fft.cc" bodystart="76" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="classrtff_1_1FFTWFft_1aa1f883d6046179d26fbdc996168ee555" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void rtff::FFTWFft::Backward</definition>
+        <argsstring>(const std::complex&lt; float &gt; *complex_data, float *real_data) override</argsstring>
+        <name>Backward</name>
+        <reimplements refid="classrtff_1_1Fft_1a53292ab571f71b181d908d0b20e03061">Backward</reimplements>
+        <param>
+          <type>const std::complex&lt; float &gt; *</type>
+          <declname>complex_data</declname>
+        </param>
+        <param>
+          <type>float *</type>
+          <declname>real_data</declname>
+        </param>
+        <briefdescription>
+<para>transform the complex time frequency representation back to the time domain </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>complex_data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the time frequency data </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>real_data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the inverse fourier transform of the complex_data </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/fft/fftw/fftw_fft.h" line="22" column="1" bodyfile="/code/src/rtff/fft/fftw/fftw_fft.cc" bodystart="80" bodyend="82"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>the fftw3f Library implementation of the Fast Fourier Transform computer </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="17">
+        <label>rtff::Fft</label>
+        <link refid="classrtff_1_1Fft"/>
+      </node>
+      <node id="16">
+        <label>rtff::FFTWFft</label>
+        <link refid="classrtff_1_1FFTWFft"/>
+        <childnode refid="17" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="19">
+        <label>rtff::Fft</label>
+        <link refid="classrtff_1_1Fft"/>
+      </node>
+      <node id="18">
+        <label>rtff::FFTWFft</label>
+        <link refid="classrtff_1_1FFTWFft"/>
+        <childnode refid="19" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/code/src/rtff/fft/fftw/fftw_fft.h" line="16" column="1" bodyfile="/code/src/rtff/fft/fftw/fftw_fft.h" bodystart="16" bodyend="28"/>
+    <listofallmembers>
+      <member refid="classrtff_1_1FFTWFft_1aa1f883d6046179d26fbdc996168ee555" prot="public" virt="virtual"><scope>rtff::FFTWFft</scope><name>Backward</name></member>
+      <member refid="classrtff_1_1Fft_1aca023c41f0bbf267bccff7fc9d34d71f" prot="public" virt="non-virtual"><scope>rtff::FFTWFft</scope><name>Create</name></member>
+      <member refid="classrtff_1_1FFTWFft_1aa1f4baf673746708932c6178ad34569d" prot="public" virt="non-virtual"><scope>rtff::FFTWFft</scope><name>FFTWFft</name></member>
+      <member refid="classrtff_1_1FFTWFft_1af5a414545c2bc21dce082da915c67782" prot="public" virt="virtual"><scope>rtff::FFTWFft</scope><name>Forward</name></member>
+      <member refid="classrtff_1_1FFTWFft_1a377374d71b2baf75114ac409d6155381" prot="private" virt="non-virtual"><scope>rtff::FFTWFft</scope><name>impl_</name></member>
+      <member refid="classrtff_1_1FFTWFft_1a1e17b40b0c5b35b4248f7dc4db19309e" prot="public" virt="non-virtual"><scope>rtff::FFTWFft</scope><name>Init</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

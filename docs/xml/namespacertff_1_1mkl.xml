@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="namespacertff_1_1mkl" kind="namespace" language="C++">
+    <compoundname>rtff::mkl</compoundname>
+    <innerclass refid="classrtff_1_1mkl_1_1ErrorCategory" prot="public">rtff::mkl::ErrorCategory</innerclass>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="mkl__fft__context_8cc_1a7f2d3499468d24a3d139610f1b677b6a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::error_code</type>
+        <definition>std::error_code rtff::mkl::make_error_code</definition>
+        <argsstring>(MKL_LONG error)</argsstring>
+        <name>make_error_code</name>
+        <param>
+          <type>MKL_LONG</type>
+          <declname>error</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/fft/mkl/mkl_fft_context.cc" line="17" column="1" bodyfile="/code/src/rtff/fft/mkl/mkl_fft_context.cc" bodystart="17" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="mkl__fft__context_8cc_1a0e8d30759d91902d9515ebbbf9df3bef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::error_condition</type>
+        <definition>std::error_condition rtff::mkl::make_error_condition</definition>
+        <argsstring>(MKL_LONG error)</argsstring>
+        <name>make_error_condition</name>
+        <param>
+          <type>MKL_LONG</type>
+          <declname>error</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/fft/mkl/mkl_fft_context.cc" line="21" column="1" bodyfile="/code/src/rtff/fft/mkl/mkl_fft_context.cc" bodystart="21" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="mkl__fft__context_8cc_1acba56b2f1720d0177fb2cf4790c26c89" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::error_code</type>
+        <definition>std::error_code rtff::mkl::make_error</definition>
+        <argsstring>(MKL_LONG status)</argsstring>
+        <name>make_error</name>
+        <param>
+          <type>MKL_LONG</type>
+          <declname>status</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/fft/mkl/mkl_fft_context.cc" line="25" column="1" bodyfile="/code/src/rtff/fft/mkl/mkl_fft_context.cc" bodystart="25" bodyend="31"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/code/src/rtff/fft/mkl/mkl_fft_context.cc" line="5" column="1"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,267 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.13">
+  <compound refid="classrtff_1_1AbstractFilter" kind="class"><name>rtff::AbstractFilter</name>
+    <member refid="classrtff_1_1AbstractFilter_1af6a80fdad0569c2e1e341e4409554835" kind="variable"><name>fft_size_</name></member>
+    <member refid="classrtff_1_1AbstractFilter_1a44ec02c48d8e0cab832988d6e6e02138" kind="variable"><name>overlap_</name></member>
+    <member refid="classrtff_1_1AbstractFilter_1aa32595c2e24724d4cbb7d7426ee0d631" kind="variable"><name>block_size_</name></member>
+    <member refid="classrtff_1_1AbstractFilter_1a6ce0d0967cc875c1b8b36496afbe0127" kind="variable"><name>channel_count_</name></member>
+    <member refid="classrtff_1_1AbstractFilter_1a33433931fd078d040f0c47e3fbd20e05" kind="variable"><name>input_buffer_</name></member>
+    <member refid="classrtff_1_1AbstractFilter_1ab4f47b0742b4caafb4b1326c76055f1e" kind="variable"><name>output_buffer_</name></member>
+    <member refid="classrtff_1_1AbstractFilter_1a4350b4dc31624d4071bf56491bdb30da" kind="variable"><name>impl_</name></member>
+    <member refid="classrtff_1_1AbstractFilter_1a42fdb3e2e27324ac58af43ebcd5aa214" kind="variable"><name>buffers_</name></member>
+    <member refid="classrtff_1_1AbstractFilter_1a0b2338d763b7990c74427ac9cff831fe" kind="function"><name>AbstractFilter</name></member>
+    <member refid="classrtff_1_1AbstractFilter_1ad1548ae471fc315323a4e61d57c7e543" kind="function"><name>~AbstractFilter</name></member>
+    <member refid="classrtff_1_1AbstractFilter_1a185245f9c36468ccec762de9fb7444d1" kind="function"><name>Init</name></member>
+    <member refid="classrtff_1_1AbstractFilter_1a1c18d98db01345a3243fb86f978501e6" kind="function"><name>Init</name></member>
+    <member refid="classrtff_1_1AbstractFilter_1a67ce341229f3b4b1a1d9fc76d88168cd" kind="function"><name>set_block_size</name></member>
+    <member refid="classrtff_1_1AbstractFilter_1aa1d927fcd284e0af110c0c08e2fcee0d" kind="function"><name>ProcessBlock</name></member>
+    <member refid="classrtff_1_1AbstractFilter_1afe3d19b9c3d5afd0ab5a5462954c0149" kind="function"><name>FrameLatency</name></member>
+    <member refid="classrtff_1_1AbstractFilter_1af97e4572db76473343eb4716ad7a9b55" kind="function"><name>fft_size</name></member>
+    <member refid="classrtff_1_1AbstractFilter_1a1b946cc576936888a6708dd561fea101" kind="function"><name>overlap</name></member>
+    <member refid="classrtff_1_1AbstractFilter_1a23a71356d7887feb757f289d6b5833d5" kind="function"><name>hop_size</name></member>
+    <member refid="classrtff_1_1AbstractFilter_1a879a3d4f23819048234c4cf5427e1dec" kind="function"><name>window_size</name></member>
+    <member refid="classrtff_1_1AbstractFilter_1a85575f0682289eedba27163687efe71e" kind="function"><name>block_size</name></member>
+    <member refid="classrtff_1_1AbstractFilter_1a59f3ac6a366916737594253dde6e51ac" kind="function"><name>channel_count</name></member>
+    <member refid="classrtff_1_1AbstractFilter_1a1b15b7ee20f27f0782f19bfd05fa8a94" kind="function"><name>PrepareToPlay</name></member>
+    <member refid="classrtff_1_1AbstractFilter_1a6393f65d8ffdbef96a61d8bdd010ede4" kind="function"><name>ProcessTransformedBlock</name></member>
+    <member refid="classrtff_1_1AbstractFilter_1a172241acd79e242556b8ad7d6a41d8ce" kind="function"><name>InitBuffers</name></member>
+  </compound>
+  <compound refid="classrtff_1_1AudioBuffer" kind="class"><name>rtff::AudioBuffer</name>
+    <member refid="classrtff_1_1AudioBuffer_1a9153507601f80268597983e44f01d126" kind="variable"><name>data_</name></member>
+    <member refid="classrtff_1_1AudioBuffer_1aedaa446ef6d948aac09c874f3d93d88e" kind="function"><name>AudioBuffer</name></member>
+    <member refid="classrtff_1_1AudioBuffer_1aaca4637f12fc2ec6885837771b73eb0d" kind="function"><name>fromInterleaved</name></member>
+    <member refid="classrtff_1_1AudioBuffer_1a8b99bfbebbc2c014070dd8c84a74369f" kind="function"><name>toInterleaved</name></member>
+    <member refid="classrtff_1_1AudioBuffer_1a616c030e6ed4ee6765d1b5461d725e75" kind="function"><name>data</name></member>
+    <member refid="classrtff_1_1AudioBuffer_1aeadc38130ffd39140a1714b1e867a4f0" kind="function"><name>data</name></member>
+    <member refid="classrtff_1_1AudioBuffer_1a1cfbb4fb851ec5ec123cd89fc4c6a23d" kind="function"><name>frame_count</name></member>
+    <member refid="classrtff_1_1AudioBuffer_1a5b1defafc1a1d409f5ccab5f29bc09fd" kind="function"><name>channel_count</name></member>
+  </compound>
+  <compound refid="classrtff_1_1Buffer" kind="class"><name>rtff::Buffer</name>
+    <member refid="classrtff_1_1Buffer_1acd4ee3e17795f20033eff05997dcb71b" kind="typedef"><name>Vector</name></member>
+    <member refid="classrtff_1_1Buffer_1a1f30f30ddf3c7fe8d464ce723c1069ef" kind="variable"><name>data_</name></member>
+    <member refid="classrtff_1_1Buffer_1a134881532cd7b78eed974736042bdd1d" kind="function"><name>Init</name></member>
+    <member refid="classrtff_1_1Buffer_1a911ac1515779c812f2c2486af72bd10b" kind="function"><name>channel</name></member>
+    <member refid="classrtff_1_1Buffer_1a1a5acb08f0e1ba3351f1ae1238f16f7b" kind="function"><name>channel</name></member>
+    <member refid="classrtff_1_1Buffer_1a32a99b8c67f7b618a8bb7aeb771dcc70" kind="function"><name>channel_count</name></member>
+    <member refid="classrtff_1_1Buffer_1a4a9b9465dc09b7901a31958105ac998a" kind="function"><name>data_ptr</name></member>
+    <member refid="classrtff_1_1Buffer_1a83f5ac85d48fa1943815d39e412b7b4b" kind="function"><name>size</name></member>
+  </compound>
+  <compound refid="classrtff_1_1mkl_1_1ErrorCategory" kind="class"><name>rtff::mkl::ErrorCategory</name>
+    <member refid="classrtff_1_1mkl_1_1ErrorCategory_1acbf97643ded19b7fcf0bc04192d70a32" kind="function"><name>name</name></member>
+    <member refid="classrtff_1_1mkl_1_1ErrorCategory_1a2345d25bcf03c72497d7c9d3c089aefc" kind="function"><name>message</name></member>
+    <member refid="classrtff_1_1mkl_1_1ErrorCategory_1af42a6ec1426a63430e19d9bc0e5371c2" kind="function"><name>equivalent</name></member>
+  </compound>
+  <compound refid="classrtff_1_1Fft" kind="class"><name>rtff::Fft</name>
+    <member refid="classrtff_1_1Fft_1aca023c41f0bbf267bccff7fc9d34d71f" kind="function"><name>Create</name></member>
+    <member refid="classrtff_1_1Fft_1ae93eb9d6e8c5f2d98716ad2e3daad5cd" kind="function"><name>Forward</name></member>
+    <member refid="classrtff_1_1Fft_1a53292ab571f71b181d908d0b20e03061" kind="function"><name>Backward</name></member>
+  </compound>
+  <compound refid="classrtff_1_1FFTWFft" kind="class"><name>rtff::FFTWFft</name>
+    <member refid="classrtff_1_1FFTWFft_1a377374d71b2baf75114ac409d6155381" kind="variable"><name>impl_</name></member>
+    <member refid="classrtff_1_1FFTWFft_1aa1f4baf673746708932c6178ad34569d" kind="function"><name>FFTWFft</name></member>
+    <member refid="classrtff_1_1FFTWFft_1a1e17b40b0c5b35b4248f7dc4db19309e" kind="function"><name>Init</name></member>
+    <member refid="classrtff_1_1FFTWFft_1af5a414545c2bc21dce082da915c67782" kind="function"><name>Forward</name></member>
+    <member refid="classrtff_1_1FFTWFft_1aa1f883d6046179d26fbdc996168ee555" kind="function"><name>Backward</name></member>
+  </compound>
+  <compound refid="classrtff_1_1Filter" kind="class"><name>rtff::Filter</name>
+    <member refid="classrtff_1_1Filter_1ac578e43c43eaf0cac114a710908c77d6" kind="variable"><name>execute</name></member>
+    <member refid="classrtff_1_1Filter_1a6d744ae1bb63ad4151c160ed083bd8cc" kind="function"><name>Filter</name></member>
+    <member refid="classrtff_1_1Filter_1aa2912f76e833fd81b790abb580003447" kind="function"><name>~Filter</name></member>
+    <member refid="classrtff_1_1Filter_1a0aa7657161cce126ba0511de5acdfb89" kind="function"><name>ProcessTransformedBlock</name></member>
+  </compound>
+  <compound refid="classrtff_1_1FilterImpl" kind="class"><name>rtff::FilterImpl</name>
+    <member refid="classrtff_1_1FilterImpl_1a50b77d2f2d231aaed8fa186c99952edc" kind="variable"><name>fft_size_</name></member>
+    <member refid="classrtff_1_1FilterImpl_1a213eaff3b17a09d6c0cfa60ef3ddba6f" kind="variable"><name>overlap_</name></member>
+    <member refid="classrtff_1_1FilterImpl_1a439f420c9dc8e939b48670a4fa425d9c" kind="variable"><name>analysis_window_</name></member>
+    <member refid="classrtff_1_1FilterImpl_1abb191a55e06780442141243cb5616f7a" kind="variable"><name>synthesis_window_</name></member>
+    <member refid="classrtff_1_1FilterImpl_1a2db8bf04ce142449e83dab2b43899e7c" kind="variable"><name>unwindow_</name></member>
+    <member refid="classrtff_1_1FilterImpl_1acff104008b2b93866ac9e4de04dbd16c" kind="variable"><name>fft_</name></member>
+    <member refid="classrtff_1_1FilterImpl_1af8f57c52243cc04d5ff42117a6cc0326" kind="variable"><name>previous_buffer_</name></member>
+    <member refid="classrtff_1_1FilterImpl_1ac66999b662eebc4519b51477613d7b0f" kind="variable"><name>result_buffer_</name></member>
+    <member refid="classrtff_1_1FilterImpl_1ae0df0aa657d834c2940ebf8df40d5057" kind="variable"><name>post_ifft_buffer_</name></member>
+    <member refid="classrtff_1_1FilterImpl_1ad204a56b1a90fd97463cf9fd9e103aa5" kind="function"><name>Init</name></member>
+    <member refid="classrtff_1_1FilterImpl_1ad3a3938e507b17801213a3ea579bf9ac" kind="function"><name>Analyze</name></member>
+    <member refid="classrtff_1_1FilterImpl_1abaf359c7f41eb8de2d1df3448a47c478" kind="function"><name>Synthesize</name></member>
+    <member refid="classrtff_1_1FilterImpl_1a9f8929577d8ec767cbe5d7f2f6c15852" kind="function"><name>analysis_window</name></member>
+    <member refid="classrtff_1_1FilterImpl_1ac27df2b09806886c5f96ac75559510c4" kind="function"><name>synthesis_window</name></member>
+    <member refid="classrtff_1_1FilterImpl_1a79aae76e30c58453b50bc76d8833ebb6" kind="function"><name>overlap</name></member>
+    <member refid="classrtff_1_1FilterImpl_1a271ed97d8c4ba0c6f46c12c23144451c" kind="function"><name>fft_size</name></member>
+    <member refid="classrtff_1_1FilterImpl_1af736527d84e83b3836b5e1138e0b78e3" kind="function"><name>window_size</name></member>
+    <member refid="classrtff_1_1FilterImpl_1ad81014ad35a9d05d7fcf8a27ef685457" kind="function"><name>hop_size</name></member>
+  </compound>
+  <compound refid="classrtff_1_1AbstractFilter_1_1Impl" kind="class"><name>rtff::AbstractFilter::Impl</name>
+    <member refid="classrtff_1_1AbstractFilter_1_1Impl_1ae2bf06c09b3f4140d007142c67fe180b" kind="variable"><name>amplitude_block</name></member>
+    <member refid="classrtff_1_1AbstractFilter_1_1Impl_1a634b69a8d28a2fadeffaba23ad2c8b86" kind="variable"><name>output_amplitude_block</name></member>
+    <member refid="classrtff_1_1AbstractFilter_1_1Impl_1a1873a42446cd12d9834d3db4972f4411" kind="variable"><name>frequential_block</name></member>
+  </compound>
+  <compound refid="classrtff_1_1FFTWFft_1_1Impl" kind="class"><name>rtff::FFTWFft::Impl</name>
+    <member refid="classrtff_1_1FFTWFft_1_1Impl_1a86c72e2184276e64ee1b7873f33e59b2" kind="variable"><name>real_data_</name></member>
+    <member refid="classrtff_1_1FFTWFft_1_1Impl_1accfc055457d009b50e9b19a3c10c778d" kind="variable"><name>complex_data_</name></member>
+    <member refid="classrtff_1_1FFTWFft_1_1Impl_1adae9eff553bb3d6e9cd7339a8498829b" kind="variable"><name>real_to_complex_</name></member>
+    <member refid="classrtff_1_1FFTWFft_1_1Impl_1aaa28e6339c1647889399cd19b2bbc853" kind="variable"><name>complex_to_real_</name></member>
+    <member refid="classrtff_1_1FFTWFft_1_1Impl_1a58b12ba88271dd7e0fdd856b7b651e0b" kind="function"><name>Impl</name></member>
+    <member refid="classrtff_1_1FFTWFft_1_1Impl_1a0103d4235b7fdbf0d2c6978f141c4257" kind="function"><name>~Impl</name></member>
+    <member refid="classrtff_1_1FFTWFft_1_1Impl_1a739b391fb038a22d292534ef0b2b8ce8" kind="function"><name>Init</name></member>
+    <member refid="classrtff_1_1FFTWFft_1_1Impl_1a211cbde9e95aeccd68e145957e3706d2" kind="function"><name>Forward</name></member>
+    <member refid="classrtff_1_1FFTWFft_1_1Impl_1a0b01e2890772813ecb0001eb184bd6f6" kind="function"><name>Backward</name></member>
+    <member refid="classrtff_1_1FFTWFft_1_1Impl_1a08a37400db977229840dbaef8cefab5f" kind="function"><name>get_nfft</name></member>
+    <member refid="classrtff_1_1FFTWFft_1_1Impl_1a39b7706703881cc4d8b4639e3816ebae" kind="function"><name>Cleanup</name></member>
+  </compound>
+  <compound refid="classrtff_1_1MKLFft" kind="class"><name>rtff::MKLFft</name>
+    <member refid="classrtff_1_1MKLFft_1a478c2d0d377442bd73e15d6bac3a812a" kind="variable"><name>context_</name></member>
+    <member refid="classrtff_1_1MKLFft_1a5b36a5012e0f868a94643ef99021a0af" kind="function"><name>Init</name></member>
+    <member refid="classrtff_1_1MKLFft_1a6a7b02cf0c72af815ece4625b76537aa" kind="function"><name>Forward</name></member>
+    <member refid="classrtff_1_1MKLFft_1a8091f57dbba9f6ee81a253680d74fe8d" kind="function"><name>Backward</name></member>
+  </compound>
+  <compound refid="classrtff_1_1MKLFftContext" kind="class"><name>rtff::MKLFftContext</name>
+    <member refid="classrtff_1_1MKLFftContext_1ac188868d0dcce1cd3e4b0201c79f8dad" kind="variable"><name>initialized_</name></member>
+    <member refid="classrtff_1_1MKLFftContext_1ae60fc2efebf5b6abd2136a130c23caa2" kind="variable"><name>size_</name></member>
+    <member refid="classrtff_1_1MKLFftContext_1a78f800cc96d97938739412e81aba90b4" kind="variable"><name>descriptor_</name></member>
+    <member refid="classrtff_1_1MKLFftContext_1aa089c1a5acfbe76c84c734451640745d" kind="function"><name>MKLFftContext</name></member>
+    <member refid="classrtff_1_1MKLFftContext_1a736986de41c86796af8b9c4f7141809f" kind="function"><name>~MKLFftContext</name></member>
+    <member refid="classrtff_1_1MKLFftContext_1a6864cdfe379cfeddd00653949cc42962" kind="function"><name>Init</name></member>
+    <member refid="classrtff_1_1MKLFftContext_1a757144cc7c0b02211d93c6fcda27b8c2" kind="function"><name>size</name></member>
+    <member refid="classrtff_1_1MKLFftContext_1a879534cc06bbdbb923772990db6253b8" kind="function"><name>descriptor</name></member>
+    <member refid="classrtff_1_1MKLFftContext_1a9e2f5323ead1d1ff77090e3f2abff938" kind="function"><name>InitDescriptor</name></member>
+    <member refid="classrtff_1_1MKLFftContext_1ab4541057dcf41790600137694a1a7540" kind="function"><name>set_descriptor</name></member>
+  </compound>
+  <compound refid="classrtff_1_1MultichannelOverlapRingBuffer" kind="class"><name>rtff::MultichannelOverlapRingBuffer</name>
+    <member refid="classrtff_1_1MultichannelOverlapRingBuffer_1ae7e5b20538578eaa85ad3c4c3f426170" kind="variable"><name>buffers_</name></member>
+    <member refid="classrtff_1_1MultichannelOverlapRingBuffer_1a0347a353873ee9b4bc158808a1878b09" kind="function"><name>MultichannelOverlapRingBuffer</name></member>
+    <member refid="classrtff_1_1MultichannelOverlapRingBuffer_1a96e36073a531eddf4f23730fc6d844bd" kind="function"><name>InitWithZeros</name></member>
+    <member refid="classrtff_1_1MultichannelOverlapRingBuffer_1a9dc6ef733d74359f36b6c2707983cded" kind="function"><name>operator[]</name></member>
+    <member refid="classrtff_1_1MultichannelOverlapRingBuffer_1ac4404be8492379b66a4024b3584180cc" kind="function"><name>operator[]</name></member>
+    <member refid="classrtff_1_1MultichannelOverlapRingBuffer_1acc0e0f2aa59e764f62442c9cb5246c4c" kind="function"><name>Write</name></member>
+    <member refid="classrtff_1_1MultichannelOverlapRingBuffer_1a93ddf61d7f185018c1cefe00102406c7" kind="function"><name>Read</name></member>
+    <member refid="classrtff_1_1MultichannelOverlapRingBuffer_1aa45267817ce4ea9acff5324aa1180f5d" kind="function"><name>Write</name></member>
+    <member refid="classrtff_1_1MultichannelOverlapRingBuffer_1a5667c712fd0a6fdc9c6cb0920d29ee06" kind="function"><name>Read</name></member>
+  </compound>
+  <compound refid="classrtff_1_1MultichannelRingBuffer" kind="class"><name>rtff::MultichannelRingBuffer</name>
+    <member refid="classrtff_1_1MultichannelRingBuffer_1ac4d299a8a84c11f349cf819c991d7e51" kind="variable"><name>buffers_</name></member>
+    <member refid="classrtff_1_1MultichannelRingBuffer_1a5980d41223bb1cc64b1a1b3ba28de84a" kind="function"><name>MultichannelRingBuffer</name></member>
+    <member refid="classrtff_1_1MultichannelRingBuffer_1ada3b38a78cf37bfb1d2cbbef075bb7ca" kind="function"><name>InitWithZeros</name></member>
+    <member refid="classrtff_1_1MultichannelRingBuffer_1a3b13ecd4c163614bddab368979567fa1" kind="function"><name>operator[]</name></member>
+    <member refid="classrtff_1_1MultichannelRingBuffer_1a1f09a8154e42d4366fc99e4f8efab6f2" kind="function"><name>operator[]</name></member>
+    <member refid="classrtff_1_1MultichannelRingBuffer_1aa633e2e6a50ca01ec63c2e1368d4308b" kind="function"><name>Write</name></member>
+    <member refid="classrtff_1_1MultichannelRingBuffer_1abf7db54cbcee3be296873b67f95a3159" kind="function"><name>Read</name></member>
+    <member refid="classrtff_1_1MultichannelRingBuffer_1a82c02eb619fbe20b44562e16554b0c7b" kind="function"><name>Write</name></member>
+    <member refid="classrtff_1_1MultichannelRingBuffer_1ac8373e0157414c5b2b08255fbce3ca58" kind="function"><name>Read</name></member>
+  </compound>
+  <compound refid="classMyFilter" kind="class"><name>MyFilter</name>
+    <member refid="classMyFilter_1a284b8e49d27a3c2c4f4ac8bc3417dd3d" kind="function"><name>ProcessTransformedBlock</name></member>
+  </compound>
+  <compound refid="classrtff_1_1OverlapRingBuffer" kind="class"><name>rtff::OverlapRingBuffer</name>
+    <member refid="classrtff_1_1OverlapRingBuffer_1ac974571a9be5e310009b0ee61ae3f4c9" kind="variable"><name>read_size_</name></member>
+    <member refid="classrtff_1_1OverlapRingBuffer_1a3509bc0f6d27a03b99627dc2ea6c83f0" kind="variable"><name>step_size_</name></member>
+    <member refid="classrtff_1_1OverlapRingBuffer_1aaba2a636ea77af6bc901a9751b93201c" kind="variable"><name>write_index_</name></member>
+    <member refid="classrtff_1_1OverlapRingBuffer_1a4b231a1096444f8f5dd4c54c1b61bc2e" kind="variable"><name>read_index_</name></member>
+    <member refid="classrtff_1_1OverlapRingBuffer_1af8ea0884cdf51f48d4a7a07e8761f3ab" kind="variable"><name>available_data_size_</name></member>
+    <member refid="classrtff_1_1OverlapRingBuffer_1a74a5d5a4a0f6d9f85a3bb3eaab4a74c8" kind="variable"><name>buffer_</name></member>
+    <member refid="classrtff_1_1OverlapRingBuffer_1a4ce89076d1cf5ae4d1f8ea772a8ca223" kind="function"><name>OverlapRingBuffer</name></member>
+    <member refid="classrtff_1_1OverlapRingBuffer_1ad278685305f857c88852fbbaaa8ecb7b" kind="function"><name>InitWithZeros</name></member>
+    <member refid="classrtff_1_1OverlapRingBuffer_1a5f5402125648e5ebe8595d307bb4fe0e" kind="function"><name>Write</name></member>
+    <member refid="classrtff_1_1OverlapRingBuffer_1a9bb4f69f3c71e7bdfb1998314756bc2e" kind="function"><name>Read</name></member>
+  </compound>
+  <compound refid="classrtff_1_1RingBuffer" kind="class"><name>rtff::RingBuffer</name>
+    <member refid="classrtff_1_1RingBuffer_1a53a6f79062c9ccb0ef0c2fba691f1e30" kind="variable"><name>write_index_</name></member>
+    <member refid="classrtff_1_1RingBuffer_1a09ebf1d8c31a1a39b08777bba447b5e4" kind="variable"><name>read_index_</name></member>
+    <member refid="classrtff_1_1RingBuffer_1a78603235e270b93debb7c106fa5a339d" kind="variable"><name>available_data_size_</name></member>
+    <member refid="classrtff_1_1RingBuffer_1ab35c1fa7cede810270fc033c83f68f5f" kind="variable"><name>buffer_</name></member>
+    <member refid="classrtff_1_1RingBuffer_1ab4871ad9a00835c2ab2f3989a85d87f8" kind="function"><name>RingBuffer</name></member>
+    <member refid="classrtff_1_1RingBuffer_1aecf717c308ad767a5c21d41dbe5f3257" kind="function"><name>InitWithZeros</name></member>
+    <member refid="classrtff_1_1RingBuffer_1aa42a3c4435401f80cd8b4ec148117698" kind="function"><name>Write</name></member>
+    <member refid="classrtff_1_1RingBuffer_1afd54a4505471f07ee14cc70d4079312d" kind="function"><name>Read</name></member>
+  </compound>
+  <compound refid="classrtff_1_1Window" kind="class"><name>rtff::Window</name>
+    <member refid="classrtff_1_1Window_1ae19113ca2b4df789f61da90ce26c6bf9" kind="enum"><name>Type</name></member>
+    <member refid="classrtff_1_1Window_1ae19113ca2b4df789f61da90ce26c6bf9a718179b3bcff69a9d3f010aca0e9901a" kind="enumvalue"><name>Hamming</name></member>
+    <member refid="classrtff_1_1Window_1ac71e601e481f770395f7e378f8d8baad" kind="function"><name>Make</name></member>
+    <member refid="classrtff_1_1Window_1a82de398a439fc2c0665d371760a29a5d" kind="function"><name>MakeInverse</name></member>
+  </compound>
+  <compound refid="namespacertff" kind="namespace"><name>rtff</name>
+    <member refid="buffer_8h_1a4a86525b3afff28302a47da3867493ef" kind="typedef"><name>TimeAmplitudeBuffer</name></member>
+    <member refid="buffer_8h_1a7c498045248b8a558c29d4ec181b3f9b" kind="typedef"><name>TimeFrequencyBuffer</name></member>
+  </compound>
+  <compound refid="namespacertff_1_1mkl" kind="namespace"><name>rtff::mkl</name>
+    <member refid="mkl__fft__context_8cc_1a7f2d3499468d24a3d139610f1b677b6a" kind="function"><name>make_error_code</name></member>
+    <member refid="mkl__fft__context_8cc_1a0e8d30759d91902d9515ebbbf9df3bef" kind="function"><name>make_error_condition</name></member>
+    <member refid="mkl__fft__context_8cc_1acba56b2f1720d0177fb2cf4790c26c89" kind="function"><name>make_error</name></member>
+  </compound>
+  <compound refid="abstract__filter_8cc" kind="file"><name>abstract_filter.cc</name>
+  </compound>
+  <compound refid="abstract__filter_8h" kind="file"><name>abstract_filter.h</name>
+  </compound>
+  <compound refid="audio__buffer_8cc" kind="file"><name>audio_buffer.cc</name>
+  </compound>
+  <compound refid="audio__buffer_8h" kind="file"><name>audio_buffer.h</name>
+  </compound>
+  <compound refid="buffer_8h" kind="file"><name>buffer.h</name>
+  </compound>
+  <compound refid="buffer__test_8cc" kind="file"><name>buffer_test.cc</name>
+    <member refid="buffer__test_8cc_1a4f526e7608955dd865893b10d651893c" kind="function"><name>TEST</name></member>
+    <member refid="buffer__test_8cc_1a78977a5bca8389a62b47019022dffeac" kind="function"><name>TEST</name></member>
+    <member refid="buffer__test_8cc_1a04c654b803eb41b3e936e0037c7d5e7c" kind="function"><name>TEST</name></member>
+    <member refid="buffer__test_8cc_1a0e0b2488925442a797c5a5ca210757b1" kind="function"><name>TEST</name></member>
+    <member refid="buffer__test_8cc_1a5fd6f0142de0678174900d81a09f700a" kind="function"><name>TEST</name></member>
+    <member refid="buffer__test_8cc_1ac045931f216765ec21f5389153402d20" kind="function"><name>TEST</name></member>
+  </compound>
+  <compound refid="overlap__ring__buffer_8cc" kind="file"><name>overlap_ring_buffer.cc</name>
+  </compound>
+  <compound refid="overlap__ring__buffer_8h" kind="file"><name>overlap_ring_buffer.h</name>
+  </compound>
+  <compound refid="ring__buffer_8cc" kind="file"><name>ring_buffer.cc</name>
+  </compound>
+  <compound refid="ring__buffer_8h" kind="file"><name>ring_buffer.h</name>
+  </compound>
+  <compound refid="fft_8cc" kind="file"><name>fft.cc</name>
+    <member refid="fft_8cc_1a234d4d686403bf51e5a3b8b9c2ef2a8e" kind="typedef"><name>FFTType</name></member>
+  </compound>
+  <compound refid="fft_8h" kind="file"><name>fft.h</name>
+  </compound>
+  <compound refid="fftw__fft_8cc" kind="file"><name>fftw_fft.cc</name>
+  </compound>
+  <compound refid="fftw__fft_8h" kind="file"><name>fftw_fft.h</name>
+  </compound>
+  <compound refid="mkl__fft_8cc" kind="file"><name>mkl_fft.cc</name>
+  </compound>
+  <compound refid="mkl__fft_8h" kind="file"><name>mkl_fft.h</name>
+  </compound>
+  <compound refid="mkl__fft__context_8cc" kind="file"><name>mkl_fft_context.cc</name>
+  </compound>
+  <compound refid="mkl__fft__context_8h" kind="file"><name>mkl_fft_context.h</name>
+  </compound>
+  <compound refid="window_8cc" kind="file"><name>window.cc</name>
+  </compound>
+  <compound refid="window_8h" kind="file"><name>window.h</name>
+  </compound>
+  <compound refid="filter_8cc" kind="file"><name>filter.cc</name>
+  </compound>
+  <compound refid="filter_8h" kind="file"><name>filter.h</name>
+  </compound>
+  <compound refid="filter__impl_8cc" kind="file"><name>filter_impl.cc</name>
+  </compound>
+  <compound refid="filter__impl_8h" kind="file"><name>filter_impl.h</name>
+  </compound>
+  <compound refid="test_8cc" kind="file"><name>test.cc</name>
+    <member refid="test_8cc_1a9e3d7c3383863d17c986a7c9173f14e6" kind="function"><name>gResourcePath</name></member>
+    <member refid="test_8cc_1a2e3fa6148d6172610d00d8b0eea35a24" kind="function"><name>TEST</name></member>
+    <member refid="test_8cc_1a5461a596c0ed18e4f82d447353e2e41d" kind="function"><name>TEST</name></member>
+    <member refid="test_8cc_1ae0315ff65a6e16f66e893225190f579c" kind="function"><name>TEST</name></member>
+    <member refid="test_8cc_1a2f1a230f746ea35650e1c6ae5df02f94" kind="function"><name>GetLatency</name></member>
+    <member refid="test_8cc_1a4d17ee4bef804163739ecd745a8c0ea8" kind="function"><name>TEST</name></member>
+    <member refid="test_8cc_1a6c93a25823fc520dcaeab8715ca21129" kind="function"><name>TEST</name></member>
+    <member refid="test_8cc_1aa5f6834fdc13b22984846fccfcb1cc02" kind="function"><name>TEST</name></member>
+  </compound>
+  <compound refid="dir_43fd8912587396f99d69866c7c8bede2" kind="dir"><name>/code/src/rtff/buffer</name>
+  </compound>
+  <compound refid="dir_011523eb9d028c47d52051420604c624" kind="dir"><name>/code/src/rtff/fft</name>
+  </compound>
+  <compound refid="dir_f92e90155a2dc9a8e04894f35b998068" kind="dir"><name>/code/src/rtff/fft/fftw</name>
+  </compound>
+  <compound refid="dir_3a33cc8f6cfadb6d35ed7379ee50b297" kind="dir"><name>/code/src/rtff/fft/mkl</name>
+  </compound>
+  <compound refid="dir_388879d3807e6496f8f071e81d43f9bf" kind="dir"><name>/code/src/rtff</name>
+  </compound>
+  <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>/code/src</name>
+  </compound>
+</doxygenindex>

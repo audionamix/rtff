@@ -1,0 +1,137 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="abstract__filter_8h" kind="file" language="C++">
+    <compoundname>abstract_filter.h</compoundname>
+    <includes local="no">complex</includes>
+    <includes local="no">memory</includes>
+    <includes local="no">system_error</includes>
+    <includes local="no">vector</includes>
+    <includes refid="audio__buffer_8h" local="yes">rtff/buffer/audio_buffer.h</includes>
+    <includedby refid="abstract__filter_8cc" local="yes">/code/src/rtff/abstract_filter.cc</includedby>
+    <includedby refid="filter_8h" local="yes">/code/src/rtff/filter.h</includedby>
+    <includedby refid="test_8cc" local="yes">/code/src/rtff/test.cc</includedby>
+    <incdepgraph>
+      <node id="17">
+        <label>system_error</label>
+      </node>
+      <node id="20">
+        <label>cstdint</label>
+      </node>
+      <node id="18">
+        <label>vector</label>
+      </node>
+      <node id="19">
+        <label>rtff/buffer/audio_buffer.h</label>
+        <link refid="audio__buffer_8h_source"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>complex</label>
+      </node>
+      <node id="14">
+        <label>/code/src/rtff/abstract_filter.h</label>
+        <link refid="abstract__filter_8h"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>memory</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="22">
+        <label>/code/src/rtff/filter.h</label>
+        <link refid="filter_8h_source"/>
+      </node>
+      <node id="21">
+        <label>/code/src/rtff/abstract_filter.h</label>
+        <link refid="abstract__filter_8h"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classrtff_1_1AbstractFilter" prot="public">rtff::AbstractFilter</innerclass>
+    <innernamespace refid="namespacertff">rtff</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>RTFF_ABSTRACT_FILTER_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RTFF_ABSTRACT_FILTER_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;complex&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;memory&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;system_error&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;rtff/buffer/audio_buffer.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacertff" kindref="compound">rtff</ref><sp/>{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">MultichannelOverlapRingBuffer;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">MultichannelRingBuffer;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">FilterImpl;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21" refid="classrtff_1_1AbstractFilter" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classrtff_1_1AbstractFilter" kindref="compound">AbstractFilter</ref><sp/>{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><ref refid="classrtff_1_1AbstractFilter" kindref="compound">AbstractFilter</ref>();</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>~<ref refid="classrtff_1_1AbstractFilter" kindref="compound">AbstractFilter</ref>();</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classrtff_1_1AbstractFilter_1a185245f9c36468ccec762de9fb7444d1" kindref="member">Init</ref>(uint8_t<sp/><ref refid="classrtff_1_1AbstractFilter_1a59f3ac6a366916737594253dde6e51ac" kindref="member">channel_count</ref>,<sp/>uint32_t<sp/><ref refid="classrtff_1_1AbstractFilter_1af97e4572db76473343eb4716ad7a9b55" kindref="member">fft_size</ref>,<sp/>uint32_t<sp/><ref refid="classrtff_1_1AbstractFilter_1a1b946cc576936888a6708dd561fea101" kindref="member">overlap</ref>,</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::error_code&amp;<sp/>err);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classrtff_1_1AbstractFilter_1a185245f9c36468ccec762de9fb7444d1" kindref="member">Init</ref>(uint8_t<sp/>channel_count,<sp/>std::error_code&amp;<sp/>err);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classrtff_1_1AbstractFilter_1a67ce341229f3b4b1a1d9fc76d88168cd" kindref="member">set_block_size</ref>(uint32_t<sp/>value);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classrtff_1_1AbstractFilter_1aa1d927fcd284e0af110c0c08e2fcee0d" kindref="member">ProcessBlock</ref>(<ref refid="classrtff_1_1AudioBuffer" kindref="compound">AudioBuffer</ref>*<sp/>buffer);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>uint32_t<sp/><ref refid="classrtff_1_1AbstractFilter_1afe3d19b9c3d5afd0ab5a5462954c0149" kindref="member">FrameLatency</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/>uint32_t<sp/><ref refid="classrtff_1_1AbstractFilter_1af97e4572db76473343eb4716ad7a9b55" kindref="member">fft_size</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/>uint32_t<sp/><ref refid="classrtff_1_1AbstractFilter_1a1b946cc576936888a6708dd561fea101" kindref="member">overlap</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/>uint32_t<sp/><ref refid="classrtff_1_1AbstractFilter_1a23a71356d7887feb757f289d6b5833d5" kindref="member">hop_size</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/>uint32_t<sp/><ref refid="classrtff_1_1AbstractFilter_1a879a3d4f23819048234c4cf5427e1dec" kindref="member">window_size</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/>uint32_t<sp/><ref refid="classrtff_1_1AbstractFilter_1a85575f0682289eedba27163687efe71e" kindref="member">block_size</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/>uint8_t<sp/><ref refid="classrtff_1_1AbstractFilter_1a59f3ac6a366916737594253dde6e51ac" kindref="member">channel_count</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classrtff_1_1AbstractFilter_1a1b15b7ee20f27f0782f19bfd05fa8a94" kindref="member">PrepareToPlay</ref>();</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classrtff_1_1AbstractFilter_1a6393f65d8ffdbef96a61d8bdd010ede4" kindref="member">ProcessTransformedBlock</ref>(std::vector&lt;std::complex&lt;float&gt;*&gt;<sp/>data,</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/>size)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>InitBuffers();</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/>uint32_t<sp/>fft_size_;</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/>uint32_t<sp/>overlap_;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/>uint32_t<sp/>block_size_;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/>uint8_t<sp/>channel_count_;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/>std::shared_ptr&lt;MultichannelOverlapRingBuffer&gt;<sp/>input_buffer_;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/>std::shared_ptr&lt;MultichannelRingBuffer&gt;<sp/>output_buffer_;</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/>std::shared_ptr&lt;FilterImpl&gt;<sp/>impl_;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classrtff_1_1AbstractFilter_1_1Impl" kindref="compound">Impl</ref>;</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/>std::shared_ptr&lt;Impl&gt;<sp/>buffers_;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>rtff</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/>//<sp/>RTFF_ABSTRACT_FILTER_H_</highlight></codeline>
+    </programlisting>
+    <location file="/code/src/rtff/abstract_filter.h"/>
+  </compounddef>
+</doxygen>

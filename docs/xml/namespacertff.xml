@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="namespacertff" kind="namespace" language="C++">
+    <compoundname>rtff</compoundname>
+    <innerclass refid="classrtff_1_1AbstractFilter" prot="public">rtff::AbstractFilter</innerclass>
+    <innerclass refid="classrtff_1_1AudioBuffer" prot="public">rtff::AudioBuffer</innerclass>
+    <innerclass refid="classrtff_1_1Buffer" prot="public">rtff::Buffer</innerclass>
+    <innerclass refid="classrtff_1_1Fft" prot="public">rtff::Fft</innerclass>
+    <innerclass refid="classrtff_1_1FFTWFft" prot="public">rtff::FFTWFft</innerclass>
+    <innerclass refid="classrtff_1_1Filter" prot="public">rtff::Filter</innerclass>
+    <innerclass refid="classrtff_1_1FilterImpl" prot="public">rtff::FilterImpl</innerclass>
+    <innerclass refid="classrtff_1_1MKLFft" prot="public">rtff::MKLFft</innerclass>
+    <innerclass refid="classrtff_1_1MKLFftContext" prot="public">rtff::MKLFftContext</innerclass>
+    <innerclass refid="classrtff_1_1MultichannelOverlapRingBuffer" prot="public">rtff::MultichannelOverlapRingBuffer</innerclass>
+    <innerclass refid="classrtff_1_1MultichannelRingBuffer" prot="public">rtff::MultichannelRingBuffer</innerclass>
+    <innerclass refid="classrtff_1_1OverlapRingBuffer" prot="public">rtff::OverlapRingBuffer</innerclass>
+    <innerclass refid="classrtff_1_1RingBuffer" prot="public">rtff::RingBuffer</innerclass>
+    <innerclass refid="classrtff_1_1Window" prot="public">rtff::Window</innerclass>
+    <innernamespace refid="namespacertff_1_1mkl">rtff::mkl</innernamespace>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="buffer_8h_1a4a86525b3afff28302a47da3867493ef" prot="public" static="no">
+        <type><ref refid="classrtff_1_1Buffer" kindref="compound">Buffer</ref>&lt; float &gt;</type>
+        <definition>using rtff::TimeAmplitudeBuffer = typedef Buffer&lt;float&gt;</definition>
+        <argsstring></argsstring>
+        <name>TimeAmplitudeBuffer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/buffer/buffer.h" line="61" column="1" bodyfile="/code/src/rtff/buffer/buffer.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="buffer_8h_1a7c498045248b8a558c29d4ec181b3f9b" prot="public" static="no">
+        <type><ref refid="classrtff_1_1Buffer" kindref="compound">Buffer</ref>&lt; std::complex&lt; float &gt; &gt;</type>
+        <definition>using rtff::TimeFrequencyBuffer = typedef Buffer&lt;std::complex&lt;float&gt; &gt;</definition>
+        <argsstring></argsstring>
+        <name>TimeFrequencyBuffer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/buffer/buffer.h" line="62" column="1" bodyfile="/code/src/rtff/buffer/buffer.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/code/src/rtff/abstract_filter.cc" line="8" column="1"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,179 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classrtff_1_1MKLFftContext" kind="class" language="C++" prot="public">
+    <compoundname>rtff::MKLFftContext</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classrtff_1_1MKLFftContext_1ac188868d0dcce1cd3e4b0201c79f8dad" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool rtff::MKLFftContext::initialized_</definition>
+        <argsstring></argsstring>
+        <name>initialized_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/fft/mkl/mkl_fft_context.h" line="41" column="1" bodyfile="/code/src/rtff/fft/mkl/mkl_fft_context.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classrtff_1_1MKLFftContext_1ae60fc2efebf5b6abd2136a130c23caa2" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t rtff::MKLFftContext::size_</definition>
+        <argsstring></argsstring>
+        <name>size_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/fft/mkl/mkl_fft_context.h" line="42" column="1" bodyfile="/code/src/rtff/fft/mkl/mkl_fft_context.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classrtff_1_1MKLFftContext_1a78f800cc96d97938739412e81aba90b4" prot="private" static="no" mutable="no">
+        <type>DFTI_DESCRIPTOR_HANDLE</type>
+        <definition>DFTI_DESCRIPTOR_HANDLE rtff::MKLFftContext::descriptor_</definition>
+        <argsstring></argsstring>
+        <name>descriptor_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/fft/mkl/mkl_fft_context.h" line="43" column="1" bodyfile="/code/src/rtff/fft/mkl/mkl_fft_context.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classrtff_1_1MKLFftContext_1aa089c1a5acfbe76c84c734451640745d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>rtff::MKLFftContext::MKLFftContext</definition>
+        <argsstring>()</argsstring>
+        <name>MKLFftContext</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/fft/mkl/mkl_fft_context.h" line="30" column="1" bodyfile="/code/src/rtff/fft/mkl/mkl_fft_context.cc" bodystart="35" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classrtff_1_1MKLFftContext_1a736986de41c86796af8b9c4f7141809f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>rtff::MKLFftContext::~MKLFftContext</definition>
+        <argsstring>()</argsstring>
+        <name>~MKLFftContext</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/fft/mkl/mkl_fft_context.h" line="31" column="1" bodyfile="/code/src/rtff/fft/mkl/mkl_fft_context.cc" bodystart="36" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="classrtff_1_1MKLFftContext_1a6864cdfe379cfeddd00653949cc42962" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void rtff::MKLFftContext::Init</definition>
+        <argsstring>(uint32_t size, std::error_code &amp;err)</argsstring>
+        <name>Init</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>std::error_code &amp;</type>
+          <declname>err</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/fft/mkl/mkl_fft_context.h" line="32" column="1" bodyfile="/code/src/rtff/fft/mkl/mkl_fft_context.cc" bodystart="41" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="classrtff_1_1MKLFftContext_1a757144cc7c0b02211d93c6fcda27b8c2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t rtff::MKLFftContext::size</definition>
+        <argsstring>() const</argsstring>
+        <name>size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/fft/mkl/mkl_fft_context.h" line="33" column="1" bodyfile="/code/src/rtff/fft/mkl/mkl_fft_context.cc" bodystart="49" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="classrtff_1_1MKLFftContext_1a879534cc06bbdbb923772990db6253b8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>DFTI_DESCRIPTOR_HANDLE</type>
+        <definition>DFTI_DESCRIPTOR_HANDLE rtff::MKLFftContext::descriptor</definition>
+        <argsstring>()</argsstring>
+        <name>descriptor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/fft/mkl/mkl_fft_context.h" line="34" column="1" bodyfile="/code/src/rtff/fft/mkl/mkl_fft_context.cc" bodystart="50" bodyend="50"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classrtff_1_1MKLFftContext_1a9e2f5323ead1d1ff77090e3f2abff938" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void rtff::MKLFftContext::InitDescriptor</definition>
+        <argsstring>(std::error_code &amp;err)</argsstring>
+        <name>InitDescriptor</name>
+        <param>
+          <type>std::error_code &amp;</type>
+          <declname>err</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/fft/mkl/mkl_fft_context.h" line="37" column="1" bodyfile="/code/src/rtff/fft/mkl/mkl_fft_context.cc" bodystart="52" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="classrtff_1_1MKLFftContext_1ab4541057dcf41790600137694a1a7540" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void rtff::MKLFftContext::set_descriptor</definition>
+        <argsstring>(std::map&lt; DFTI_CONFIG_PARAM, DFTI_CONFIG_VALUE &gt; settings, std::error_code &amp;err)</argsstring>
+        <name>set_descriptor</name>
+        <param>
+          <type>std::map&lt; DFTI_CONFIG_PARAM, DFTI_CONFIG_VALUE &gt;</type>
+          <declname>settings</declname>
+        </param>
+        <param>
+          <type>std::error_code &amp;</type>
+          <declname>err</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/fft/mkl/mkl_fft_context.h" line="38" column="1" bodyfile="/code/src/rtff/fft/mkl/mkl_fft_context.cc" bodystart="86" bodyend="98"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/code/src/rtff/fft/mkl/mkl_fft_context.h" line="28" column="1" bodyfile="/code/src/rtff/fft/mkl/mkl_fft_context.h" bodystart="28" bodyend="44"/>
+    <listofallmembers>
+      <member refid="classrtff_1_1MKLFftContext_1a879534cc06bbdbb923772990db6253b8" prot="public" virt="non-virtual"><scope>rtff::MKLFftContext</scope><name>descriptor</name></member>
+      <member refid="classrtff_1_1MKLFftContext_1a78f800cc96d97938739412e81aba90b4" prot="private" virt="non-virtual"><scope>rtff::MKLFftContext</scope><name>descriptor_</name></member>
+      <member refid="classrtff_1_1MKLFftContext_1a6864cdfe379cfeddd00653949cc42962" prot="public" virt="non-virtual"><scope>rtff::MKLFftContext</scope><name>Init</name></member>
+      <member refid="classrtff_1_1MKLFftContext_1a9e2f5323ead1d1ff77090e3f2abff938" prot="private" virt="non-virtual"><scope>rtff::MKLFftContext</scope><name>InitDescriptor</name></member>
+      <member refid="classrtff_1_1MKLFftContext_1ac188868d0dcce1cd3e4b0201c79f8dad" prot="private" virt="non-virtual"><scope>rtff::MKLFftContext</scope><name>initialized_</name></member>
+      <member refid="classrtff_1_1MKLFftContext_1aa089c1a5acfbe76c84c734451640745d" prot="public" virt="non-virtual"><scope>rtff::MKLFftContext</scope><name>MKLFftContext</name></member>
+      <member refid="classrtff_1_1MKLFftContext_1ab4541057dcf41790600137694a1a7540" prot="private" virt="non-virtual"><scope>rtff::MKLFftContext</scope><name>set_descriptor</name></member>
+      <member refid="classrtff_1_1MKLFftContext_1a757144cc7c0b02211d93c6fcda27b8c2" prot="public" virt="non-virtual"><scope>rtff::MKLFftContext</scope><name>size</name></member>
+      <member refid="classrtff_1_1MKLFftContext_1ae60fc2efebf5b6abd2136a130c23caa2" prot="private" virt="non-virtual"><scope>rtff::MKLFftContext</scope><name>size_</name></member>
+      <member refid="classrtff_1_1MKLFftContext_1a736986de41c86796af8b9c4f7141809f" prot="public" virt="non-virtual"><scope>rtff::MKLFftContext</scope><name>~MKLFftContext</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

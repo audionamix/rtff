@@ -1,0 +1,450 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="buffer__test_8cc" kind="file" language="C++">
+    <compoundname>buffer_test.cc</compoundname>
+    <includes local="no">gtest/gtest.h</includes>
+    <includes local="no">random</includes>
+    <includes local="no">Eigen/Core</includes>
+    <includes refid="audio__buffer_8h" local="yes">rtff/buffer/audio_buffer.h</includes>
+    <includes refid="overlap__ring__buffer_8h" local="yes">rtff/buffer/overlap_ring_buffer.h</includes>
+    <includes refid="ring__buffer_8h" local="yes">rtff/buffer/ring_buffer.h</includes>
+    <incdepgraph>
+      <node id="44">
+        <label>cstdint</label>
+      </node>
+      <node id="42">
+        <label>Eigen/Core</label>
+      </node>
+      <node id="46">
+        <label>rtff/buffer/overlap_ring_buffer.h</label>
+        <link refid="overlap__ring__buffer_8h_source"/>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+      </node>
+      <node id="39">
+        <label>/code/src/rtff/buffer/buffer_test.cc</label>
+        <link refid="buffer__test_8cc"/>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+      </node>
+      <node id="47">
+        <label>rtff/buffer/ring_buffer.h</label>
+        <link refid="ring__buffer_8h_source"/>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+      </node>
+      <node id="41">
+        <label>random</label>
+      </node>
+      <node id="45">
+        <label>vector</label>
+      </node>
+      <node id="40">
+        <label>gtest/gtest.h</label>
+      </node>
+      <node id="43">
+        <label>rtff/buffer/audio_buffer.h</label>
+        <link refid="audio__buffer_8h_source"/>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="buffer__test_8cc_1a4f526e7608955dd865893b10d651893c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TEST</definition>
+        <argsstring>(Buffer, AudioBuffer)</argsstring>
+        <name>TEST</name>
+        <param>
+          <type>Buffer</type>
+        </param>
+        <param>
+          <type>AudioBuffer</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/buffer/buffer_test.cc" line="11" column="1" bodyfile="/code/src/rtff/buffer/buffer_test.cc" bodystart="11" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="buffer__test_8cc_1a78977a5bca8389a62b47019022dffeac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TEST</definition>
+        <argsstring>(Buffer, OverlapRingBuffer)</argsstring>
+        <name>TEST</name>
+        <param>
+          <type>Buffer</type>
+        </param>
+        <param>
+          <type>OverlapRingBuffer</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/buffer/buffer_test.cc" line="48" column="1" bodyfile="/code/src/rtff/buffer/buffer_test.cc" bodystart="48" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="buffer__test_8cc_1a04c654b803eb41b3e936e0037c7d5e7c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TEST</definition>
+        <argsstring>(Buffer, MultichannelOverlapRingBuffer)</argsstring>
+        <name>TEST</name>
+        <param>
+          <type>Buffer</type>
+        </param>
+        <param>
+          <type>MultichannelOverlapRingBuffer</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/buffer/buffer_test.cc" line="112" column="1" bodyfile="/code/src/rtff/buffer/buffer_test.cc" bodystart="112" bodyend="163"/>
+      </memberdef>
+      <memberdef kind="function" id="buffer__test_8cc_1a0e0b2488925442a797c5a5ca210757b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TEST</definition>
+        <argsstring>(Buffer, OverlapRingBufferRandomWriteSize)</argsstring>
+        <name>TEST</name>
+        <param>
+          <type>Buffer</type>
+        </param>
+        <param>
+          <type>OverlapRingBufferRandomWriteSize</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/buffer/buffer_test.cc" line="165" column="1" bodyfile="/code/src/rtff/buffer/buffer_test.cc" bodystart="165" bodyend="200"/>
+      </memberdef>
+      <memberdef kind="function" id="buffer__test_8cc_1a5fd6f0142de0678174900d81a09f700a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TEST</definition>
+        <argsstring>(Buffer, RingBuffer)</argsstring>
+        <name>TEST</name>
+        <param>
+          <type>Buffer</type>
+        </param>
+        <param>
+          <type>RingBuffer</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/buffer/buffer_test.cc" line="202" column="1" bodyfile="/code/src/rtff/buffer/buffer_test.cc" bodystart="202" bodyend="229"/>
+      </memberdef>
+      <memberdef kind="function" id="buffer__test_8cc_1ac045931f216765ec21f5389153402d20" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TEST</definition>
+        <argsstring>(Buffer, MultichannelRingBuffer)</argsstring>
+        <name>TEST</name>
+        <param>
+          <type>Buffer</type>
+        </param>
+        <param>
+          <type>MultichannelRingBuffer</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/buffer/buffer_test.cc" line="231" column="1" bodyfile="/code/src/rtff/buffer/buffer_test.cc" bodystart="231" bodyend="258"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;gtest/gtest.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;random&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Eigen/Core&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;rtff/buffer/audio_buffer.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;rtff/buffer/overlap_ring_buffer.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;rtff/buffer/ring_buffer.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal">TEST(Buffer,<sp/>AudioBuffer)<sp/>{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Test<sp/>convertion<sp/>split<sp/>channel<sp/>to<sp/>interleaved<sp/>and<sp/>interleaved<sp/>to<sp/>split</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>channel</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacertff" kindref="compound">rtff</ref>;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>frame_number<sp/>=<sp/>44100;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>channel_count<sp/>=<sp/>2;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><ref refid="classrtff_1_1AudioBuffer" kindref="compound">AudioBuffer</ref><sp/>buffer_from_split(frame_number,<sp/>channel_count);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><ref refid="classrtff_1_1AudioBuffer" kindref="compound">AudioBuffer</ref><sp/>buffer_from_interleaved(frame_number,<sp/>channel_count);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/>Eigen::VectorXf<sp/>left_channel<sp/>=<sp/>Eigen::VectorXf::Random(frame_number);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/>Eigen::VectorXf<sp/>right_channel<sp/>=<sp/>Eigen::VectorXf::Random(frame_number);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/>Eigen::MatrixXf<sp/>interleaved(channel_count,<sp/>frame_number);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/>interleaved.row(0)<sp/>=<sp/>left_channel;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/>interleaved.row(1)<sp/>=<sp/>right_channel;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>write<sp/>data</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/>std::copy(left_channel.data(),<sp/>left_channel.data()<sp/>+<sp/>frame_number,</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>buffer_from_split.data(0));</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/>std::copy(right_channel.data(),<sp/>right_channel.data()<sp/>+<sp/>frame_number,</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>buffer_from_split.data(1));</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/>buffer_from_interleaved.fromInterleaved(interleaved.data());</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>read</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/>Eigen::VectorXf<sp/>read_left<sp/>=<sp/>Eigen::Map&lt;Eigen::VectorXf&gt;(</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>buffer_from_interleaved.data(0),<sp/>frame_number);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/>Eigen::VectorXf<sp/>read_right<sp/>=<sp/>Eigen::Map&lt;Eigen::VectorXf&gt;(</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>buffer_from_interleaved.data(1),<sp/>frame_number);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/>Eigen::MatrixXf<sp/>read_interleaved(channel_count,<sp/>frame_number);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/>buffer_from_split.toInterleaved(read_interleaved.data());</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>make<sp/>sure<sp/>it<sp/>is<sp/>the<sp/>same</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/>ASSERT_EQ(read_left,<sp/>left_channel);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/>ASSERT_EQ(read_right,<sp/>right_channel);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/>ASSERT_EQ(interleaved,<sp/>read_interleaved);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal">TEST(<ref refid="classrtff_1_1Buffer" kindref="compound">Buffer</ref>,<sp/><ref refid="classrtff_1_1OverlapRingBuffer" kindref="compound">OverlapRingBuffer</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacertff" kindref="compound">rtff</ref>;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>frame_number<sp/>=<sp/>44100;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/>Eigen::VectorXf<sp/>data<sp/>=<sp/>Eigen::VectorXf::Random(frame_number);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>write_size<sp/>=<sp/>512;<sp/><sp/></highlight><highlight class="comment">//<sp/>write<sp/>one<sp/>block<sp/>at<sp/>a<sp/>time</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>read_size<sp/>=<sp/>2048;<sp/><sp/></highlight><highlight class="comment">//<sp/>read<sp/>fft_size<sp/>data</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>step_size<sp/>=<sp/>1024;<sp/><sp/></highlight><highlight class="comment">//<sp/>overlap</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>current_frame<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>successful_read_count<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/>Eigen::VectorXf<sp/>output_data(read_size);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><ref refid="classrtff_1_1OverlapRingBuffer" kindref="compound">OverlapRingBuffer</ref><sp/>buffer(read_size,<sp/>step_size);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>write<sp/>first<sp/>3<sp/>parts</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>=&gt;<sp/>we<sp/>shouldn&apos;t<sp/>be<sp/>able<sp/>to<sp/>read<sp/>as<sp/>we<sp/>don&apos;t<sp/>have<sp/>enough<sp/>data</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/>buffer.Write(data.segment(current_frame,<sp/>write_size).data(),<sp/>write_size);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/>ASSERT_FALSE(buffer.Read(output_data.data()));</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/>current_frame<sp/>+=<sp/>write_size;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/>buffer.Write(data.segment(current_frame,<sp/>write_size).data(),<sp/>write_size);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/>ASSERT_FALSE(buffer.Read(output_data.data()));</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/>current_frame<sp/>+=<sp/>write_size;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/>buffer.Write(data.segment(current_frame,<sp/>write_size).data(),<sp/>write_size);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/>ASSERT_FALSE(buffer.Read(output_data.data()));</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/>current_frame<sp/>+=<sp/>write_size;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>write<sp/>4th<sp/>part</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>=&gt;<sp/>we<sp/>have<sp/>enough<sp/>data.<sp/>outut<sp/>should<sp/>be<sp/>the<sp/>first<sp/>read_size<sp/>frames<sp/>of<sp/>the</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>input<sp/>signal</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/>buffer.Write(data.segment(current_frame,<sp/>write_size).data(),<sp/>write_size);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/>ASSERT_TRUE(buffer.Read(output_data.data()));</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/>ASSERT_EQ(output_data,<sp/>data.segment(0,<sp/>read_size));</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/>current_frame<sp/>+=<sp/>write_size;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/>successful_read_count++;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>write<sp/>5th<sp/>part</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>can&apos;t<sp/>read<sp/>as<sp/>we<sp/>don&apos;t<sp/>have<sp/>enough<sp/>data</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/>buffer.Write(data.segment(current_frame,<sp/>write_size).data(),<sp/>write_size);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/>ASSERT_FALSE(buffer.Read(output_data.data()));</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/>current_frame<sp/>+=<sp/>write_size;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>write<sp/>6th<sp/>part</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>=&gt;<sp/>read<sp/>should<sp/>work<sp/>and<sp/>read<sp/>data<sp/>should<sp/>be<sp/>the<sp/>input<sp/>skipped<sp/>by<sp/>step_size</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/>buffer.Write(data.segment(current_frame,<sp/>write_size).data(),<sp/>write_size);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/>ASSERT_TRUE(buffer.Read(output_data.data()));</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/>ASSERT_EQ(output_data,<sp/>data.segment(step_size,<sp/>read_size));</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/>current_frame<sp/>+=<sp/>write_size;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/>successful_read_count++;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>keep<sp/>on<sp/>doing<sp/>this<sp/>until<sp/>the<sp/>end<sp/>of<sp/>the<sp/>signal</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(current_frame<sp/>&lt;<sp/>frame_number<sp/>-<sp/>read_size)<sp/>{</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>can&apos;t<sp/>read<sp/>the<sp/>first<sp/>time</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>buffer.Write(data.segment(current_frame,<sp/>write_size).data(),<sp/>write_size);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>ASSERT_FALSE(buffer.Read(output_data.data()));</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>current_frame<sp/>+=<sp/>write_size;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>can<sp/>read<sp/>the<sp/>second</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>buffer.Write(data.segment(current_frame,<sp/>write_size).data(),<sp/>write_size);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>ASSERT_TRUE(buffer.Read(output_data.data()));</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>ASSERT_EQ(output_data,</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data.segment(successful_read_count<sp/>*<sp/>step_size,<sp/>read_size));</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>current_frame<sp/>+=<sp/>write_size;</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>successful_read_count++;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="110"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal">TEST(<ref refid="classrtff_1_1Buffer" kindref="compound">Buffer</ref>,<sp/><ref refid="classrtff_1_1MultichannelOverlapRingBuffer" kindref="compound">MultichannelOverlapRingBuffer</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacertff" kindref="compound">rtff</ref>;</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>frame_number<sp/>=<sp/>44100;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>channel_number<sp/>=<sp/>2;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/>Eigen::MatrixXf<sp/>data<sp/>=<sp/>Eigen::MatrixXf::Random(channel_number,<sp/>frame_number);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>write_size<sp/>=<sp/>512;<sp/><sp/></highlight><highlight class="comment">//<sp/>write<sp/>one<sp/>block<sp/>at<sp/>a<sp/>time</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>read_size<sp/>=<sp/>2048;<sp/><sp/></highlight><highlight class="comment">//<sp/>read<sp/>fft_size<sp/>data</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>step_size<sp/>=<sp/>1024;<sp/><sp/></highlight><highlight class="comment">//<sp/>overlap</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>current_frame<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>successful_read_count<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/>Eigen::MatrixXf<sp/>output_data(channel_number,<sp/>read_size);</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/>Eigen::MatrixXf<sp/>input_data(channel_number,<sp/>write_size);</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><ref refid="classrtff_1_1MultichannelOverlapRingBuffer" kindref="compound">MultichannelOverlapRingBuffer</ref><sp/>buffer(read_size,<sp/>step_size,<sp/>channel_number);</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><ref refid="classrtff_1_1AudioBuffer" kindref="compound">AudioBuffer</ref><sp/>input_buffer(write_size,<sp/>channel_number);</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><ref refid="classrtff_1_1AudioBuffer" kindref="compound">AudioBuffer</ref><sp/>output_buffer(read_size,<sp/>channel_number);</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>write<sp/>first<sp/>2<sp/>can&apos;t<sp/>read</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/>input_data<sp/>=<sp/>data.block(0,<sp/>current_frame,<sp/>channel_number,<sp/>write_size);</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/>input_buffer.fromInterleaved(input_data.data());</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/>buffer.Write(input_buffer,<sp/>input_buffer.frame_count());</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/>ASSERT_FALSE(buffer.Read(&amp;output_buffer));</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/>current_frame<sp/>+=<sp/>write_size;</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/>input_data<sp/>=<sp/>data.block(0,<sp/>current_frame,<sp/>channel_number,<sp/>write_size);</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/>input_buffer.fromInterleaved(input_data.data());</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/>buffer.Write(input_buffer,<sp/>input_buffer.frame_count());</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/>ASSERT_FALSE(buffer.Read(&amp;output_buffer));</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/>current_frame<sp/>+=<sp/>write_size;</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>then<sp/>each<sp/>time<sp/>we<sp/>add<sp/>2<sp/>we<sp/>can<sp/>read<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(current_frame<sp/>&lt;<sp/>frame_number<sp/>-<sp/>read_size)<sp/>{</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/>input_data<sp/>=<sp/>data.block(0,<sp/>current_frame,<sp/>channel_number,<sp/>write_size);</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/>input_buffer.fromInterleaved(input_data.data());</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>buffer.Write(input_buffer,<sp/>input_buffer.frame_count());</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/>ASSERT_FALSE(buffer.Read(&amp;output_buffer));</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/>current_frame<sp/>+=<sp/>write_size;</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/>input_data<sp/>=<sp/>data.block(0,<sp/>current_frame,<sp/>channel_number,<sp/>write_size);</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/>input_buffer.fromInterleaved(input_data.data());</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/>buffer.Write(input_buffer,<sp/>input_buffer.frame_count());</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/>ASSERT_TRUE(buffer.Read(&amp;output_buffer));</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/>output_buffer.toInterleaved(output_data.data());</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/>ASSERT_EQ(output_data,<sp/>data.block(0,<sp/>successful_read_count<sp/>*<sp/>step_size,</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>channel_number,<sp/>read_size));</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/>current_frame<sp/>+=<sp/>write_size;</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/>successful_read_count++;</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="163"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal">TEST(<ref refid="classrtff_1_1Buffer" kindref="compound">Buffer</ref>,<sp/>OverlapRingBufferRandomWriteSize)<sp/>{</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacertff" kindref="compound">rtff</ref>;</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/>std::random_device</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>rd;<sp/><sp/></highlight><highlight class="comment">//<sp/>Will<sp/>be<sp/>used<sp/>to<sp/>obtain<sp/>a<sp/>seed<sp/>for<sp/>the<sp/>random<sp/>number<sp/>engine</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/>std::mt19937<sp/>gen(rd());<sp/><sp/></highlight><highlight class="comment">//<sp/>Standard<sp/>mersenne_twister_engine<sp/>seeded<sp/>with<sp/>rd()</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>frame_number<sp/>=<sp/>44100;</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/>Eigen::VectorXf<sp/>data<sp/>=<sp/>Eigen::VectorXf::Random(frame_number);</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>max_write_size<sp/>=<sp/>512;</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>read_size<sp/>=<sp/>2048;<sp/><sp/></highlight><highlight class="comment">//<sp/>read<sp/>fft_size<sp/>data</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>step_size<sp/>=<sp/>1024;<sp/><sp/></highlight><highlight class="comment">//<sp/>overlap</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>current_frame<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>successful_read_count<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/>Eigen::VectorXf<sp/>output_data(read_size);</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><ref refid="classrtff_1_1OverlapRingBuffer" kindref="compound">OverlapRingBuffer</ref><sp/>buffer(read_size,<sp/>step_size);</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/>std::uniform_int_distribution&lt;&gt;<sp/>dis(1,<sp/>max_write_size);</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>written_size<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(written_size<sp/>&lt;<sp/>frame_number)<sp/>{</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>write_size<sp/>=<sp/>dis(gen);</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/>buffer.Write(data.segment(current_frame,<sp/>write_size).data(),<sp/>write_size);</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/>written_size<sp/>+=<sp/>write_size;</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(written_size<sp/>&lt;<sp/>read_size)<sp/>{</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ASSERT_FALSE(buffer.Read(output_data.data()));</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(written_size<sp/>-<sp/>successful_read_count<sp/>&gt;=<sp/>read_size)<sp/>{</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ASSERT_TRUE(buffer.Read(output_data.data()));</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>successful_read_count<sp/>+=<sp/>step_size;</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ASSERT_FALSE(buffer.Read(output_data.data()));</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="200"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal">TEST(<ref refid="classrtff_1_1Buffer" kindref="compound">Buffer</ref>,<sp/><ref refid="classrtff_1_1RingBuffer" kindref="compound">RingBuffer</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacertff" kindref="compound">rtff</ref>;</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>frame_number<sp/>=<sp/>44100;</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><ref refid="classrtff_1_1RingBuffer" kindref="compound">RingBuffer</ref><sp/>buffer(2048<sp/>*<sp/>8);</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/>Eigen::VectorXf<sp/>data<sp/>=<sp/>Eigen::VectorXf::Random(frame_number);</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/>Eigen::VectorXf<sp/>output_data(frame_number);</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>written_size<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/>buffer.Write(data.data(),<sp/>256);</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/>written_size<sp/>+=<sp/>256;</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>we<sp/>can&apos;t<sp/>read<sp/>more<sp/>data<sp/>than<sp/>what<sp/>we<sp/>input</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/>ASSERT_FALSE(buffer.Read(output_data.data(),<sp/>written_size<sp/>+<sp/>1));</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>we<sp/>can<sp/>read<sp/>less</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/>ASSERT_TRUE(buffer.Read(output_data.data(),<sp/>written_size<sp/>-<sp/>20));</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>but<sp/>we<sp/>won&apos;t<sp/>have<sp/>any<sp/>left</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/>ASSERT_FALSE(buffer.Read(output_data.data(),<sp/>written_size));</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/>ASSERT_FALSE(buffer.Read(output_data.data(),<sp/>21));</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/>ASSERT_TRUE(buffer.Read(output_data.data(),<sp/>20));</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>we<sp/>can<sp/>also<sp/>write<sp/>in<sp/>several<sp/>times</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/>buffer.Write(data.data(),<sp/>256);</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/>ASSERT_FALSE(buffer.Read(output_data.data(),<sp/>512));</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/>buffer.Write(data.data(),<sp/>256);</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/>ASSERT_TRUE(buffer.Read(output_data.data(),<sp/>512));</highlight></codeline>
+<codeline lineno="229"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"></highlight></codeline>
+<codeline lineno="231"><highlight class="normal">TEST(<ref refid="classrtff_1_1Buffer" kindref="compound">Buffer</ref>,<sp/><ref refid="classrtff_1_1MultichannelRingBuffer" kindref="compound">MultichannelRingBuffer</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespacertff" kindref="compound">rtff</ref>;</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>channel_number<sp/>=<sp/>2;</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"></highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><ref refid="classrtff_1_1AudioBuffer" kindref="compound">AudioBuffer</ref><sp/>input_buffer(2048,<sp/>channel_number);</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><ref refid="classrtff_1_1AudioBuffer" kindref="compound">AudioBuffer</ref><sp/>output_buffer(2048,<sp/>channel_number);</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><ref refid="classrtff_1_1MultichannelRingBuffer" kindref="compound">MultichannelRingBuffer</ref><sp/>buffer(2048<sp/>*<sp/>8,<sp/>2);</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>written_size<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/>buffer.Write(input_buffer,<sp/>256);</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/>written_size<sp/>+=<sp/>256;</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>we<sp/>can&apos;t<sp/>read<sp/>more<sp/>data<sp/>than<sp/>what<sp/>we<sp/>input</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/>ASSERT_FALSE(buffer.Read(&amp;output_buffer,<sp/>written_size<sp/>+<sp/>1));</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>we<sp/>can<sp/>read<sp/>less</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/>ASSERT_TRUE(buffer.Read(&amp;output_buffer,<sp/>written_size<sp/>-<sp/>20));</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>but<sp/>we<sp/>won&apos;t<sp/>have<sp/>any<sp/>left</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/>ASSERT_FALSE(buffer.Read(&amp;output_buffer,<sp/>written_size));</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/>ASSERT_FALSE(buffer.Read(&amp;output_buffer,<sp/>21));</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/>ASSERT_TRUE(buffer.Read(&amp;output_buffer,<sp/>20));</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>we<sp/>can<sp/>also<sp/>write<sp/>in<sp/>several<sp/>times</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/>buffer.Write(input_buffer,<sp/>256);</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/>ASSERT_FALSE(buffer.Read(&amp;output_buffer,<sp/>512));</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/>buffer.Write(input_buffer,<sp/>256);</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/>ASSERT_TRUE(buffer.Read(&amp;output_buffer,<sp/>512));</highlight></codeline>
+<codeline lineno="258"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/code/src/rtff/buffer/buffer_test.cc"/>
+  </compounddef>
+</doxygen>

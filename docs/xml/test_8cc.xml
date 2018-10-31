@@ -1,0 +1,487 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="test_8cc" kind="file" language="C++">
+    <compoundname>test.cc</compoundname>
+    <includes local="no">gtest/gtest.h</includes>
+    <includes local="no">iostream</includes>
+    <includes local="no">Eigen/Core</includes>
+    <includes refid="abstract__filter_8h" local="yes">rtff/abstract_filter.h</includes>
+    <includes refid="filter_8h" local="yes">rtff/filter.h</includes>
+    <includes local="yes">wave/file.h</includes>
+    <incdepgraph>
+      <node id="209">
+        <label>system_error</label>
+      </node>
+      <node id="214">
+        <label>functional</label>
+      </node>
+      <node id="212">
+        <label>cstdint</label>
+      </node>
+      <node id="205">
+        <label>Eigen/Core</label>
+      </node>
+      <node id="202">
+        <label>/code/src/rtff/test.cc</label>
+        <link refid="test_8cc"/>
+        <childnode refid="203" relation="include">
+        </childnode>
+        <childnode refid="204" relation="include">
+        </childnode>
+        <childnode refid="205" relation="include">
+        </childnode>
+        <childnode refid="206" relation="include">
+        </childnode>
+        <childnode refid="213" relation="include">
+        </childnode>
+        <childnode refid="215" relation="include">
+        </childnode>
+      </node>
+      <node id="213">
+        <label>rtff/filter.h</label>
+        <link refid="filter_8h_source"/>
+        <childnode refid="214" relation="include">
+        </childnode>
+        <childnode refid="206" relation="include">
+        </childnode>
+      </node>
+      <node id="210">
+        <label>vector</label>
+      </node>
+      <node id="203">
+        <label>gtest/gtest.h</label>
+      </node>
+      <node id="204">
+        <label>iostream</label>
+      </node>
+      <node id="211">
+        <label>rtff/buffer/audio_buffer.h</label>
+        <link refid="audio__buffer_8h_source"/>
+        <childnode refid="212" relation="include">
+        </childnode>
+        <childnode refid="210" relation="include">
+        </childnode>
+      </node>
+      <node id="207">
+        <label>complex</label>
+      </node>
+      <node id="206">
+        <label>rtff/abstract_filter.h</label>
+        <link refid="abstract__filter_8h_source"/>
+        <childnode refid="207" relation="include">
+        </childnode>
+        <childnode refid="208" relation="include">
+        </childnode>
+        <childnode refid="209" relation="include">
+        </childnode>
+        <childnode refid="210" relation="include">
+        </childnode>
+        <childnode refid="211" relation="include">
+        </childnode>
+      </node>
+      <node id="208">
+        <label>memory</label>
+      </node>
+      <node id="215">
+        <label>wave/file.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classMyFilter" prot="public">MyFilter</innerclass>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="test_8cc_1a9e3d7c3383863d17c986a7c9173f14e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const std::string</type>
+        <definition>const std::string gResourcePath</definition>
+        <argsstring>(TEST_RESOURCES_PATH)</argsstring>
+        <name>gResourcePath</name>
+        <param>
+          <type>TEST_RESOURCES_PATH</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/test.cc" line="11" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="test_8cc_1a2e3fa6148d6172610d00d8b0eea35a24" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TEST</definition>
+        <argsstring>(RTFF, Basis)</argsstring>
+        <name>TEST</name>
+        <param>
+          <type>RTFF</type>
+        </param>
+        <param>
+          <type>Basis</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/test.cc" line="25" column="1" bodyfile="/code/src/rtff/test.cc" bodystart="25" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="test_8cc_1a5461a596c0ed18e4f82d447353e2e41d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TEST</definition>
+        <argsstring>(RTFF, ChangeBlockSize)</argsstring>
+        <name>TEST</name>
+        <param>
+          <type>RTFF</type>
+        </param>
+        <param>
+          <type>ChangeBlockSize</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/test.cc" line="98" column="1" bodyfile="/code/src/rtff/test.cc" bodystart="98" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="function" id="test_8cc_1ae0315ff65a6e16f66e893225190f579c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TEST</definition>
+        <argsstring>(RTFF, Filter)</argsstring>
+        <name>TEST</name>
+        <param>
+          <type>RTFF</type>
+        </param>
+        <param>
+          <type>Filter</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/test.cc" line="125" column="1" bodyfile="/code/src/rtff/test.cc" bodystart="125" bodyend="147"/>
+      </memberdef>
+      <memberdef kind="function" id="test_8cc_1a2f1a230f746ea35650e1c6ae5df02f94" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t GetLatency</definition>
+        <argsstring>(rtff::Filter &amp;filter)</argsstring>
+        <name>GetLatency</name>
+        <param>
+          <type><ref refid="classrtff_1_1Filter" kindref="compound">rtff::Filter</ref> &amp;</type>
+          <declname>filter</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/test.cc" line="149" column="1" bodyfile="/code/src/rtff/test.cc" bodystart="213" bodyend="239"/>
+      </memberdef>
+      <memberdef kind="function" id="test_8cc_1a4d17ee4bef804163739ecd745a8c0ea8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TEST</definition>
+        <argsstring>(RTFF, Latency)</argsstring>
+        <name>TEST</name>
+        <param>
+          <type>RTFF</type>
+        </param>
+        <param>
+          <type>Latency</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/test.cc" line="151" column="1" bodyfile="/code/src/rtff/test.cc" bodystart="151" bodyend="168"/>
+      </memberdef>
+      <memberdef kind="function" id="test_8cc_1a6c93a25823fc520dcaeab8715ca21129" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TEST</definition>
+        <argsstring>(RTFF, Latency4096)</argsstring>
+        <name>TEST</name>
+        <param>
+          <type>RTFF</type>
+        </param>
+        <param>
+          <type>Latency4096</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/test.cc" line="170" column="1" bodyfile="/code/src/rtff/test.cc" bodystart="170" bodyend="187"/>
+      </memberdef>
+      <memberdef kind="function" id="test_8cc_1aa5f6834fdc13b22984846fccfcb1cc02" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TEST</definition>
+        <argsstring>(RTFF, Latency0Overlap)</argsstring>
+        <name>TEST</name>
+        <param>
+          <type>RTFF</type>
+        </param>
+        <param>
+          <type>Latency0Overlap</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/test.cc" line="189" column="1" bodyfile="/code/src/rtff/test.cc" bodystart="189" bodyend="210"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;gtest/gtest.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Eigen/Core&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;rtff/abstract_filter.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;rtff/filter.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;wave/file.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>gResourcePath(TEST_RESOURCES_PATH);</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13" refid="classMyFilter" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classMyFilter" kindref="compound">MyFilter</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classrtff_1_1AbstractFilter" kindref="compound">rtff::AbstractFilter</ref><sp/>{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ProcessTransformedBlock(std::vector&lt;std::complex&lt;float&gt;*&gt;<sp/>data,</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/>size)</highlight><highlight class="keyword"><sp/>override<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(uint8_t<sp/>channel_idx<sp/>=<sp/>0;<sp/>channel_idx<sp/>&lt;<sp/>data.size();<sp/>channel_idx++)<sp/>{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>buffer<sp/>=<sp/>Eigen::Map&lt;Eigen::VectorXcf&gt;(data[channel_idx],<sp/>size);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ASSERT_EQ(size,<sp/><ref refid="classrtff_1_1AbstractFilter_1af97e4572db76473343eb4716ad7a9b55" kindref="member">fft_size</ref>()<sp/>/<sp/>2<sp/>+<sp/>1);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>buffer.block(20,<sp/>0,<sp/>50,<sp/>1)<sp/>*=<sp/>0;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal">TEST(RTFF,<sp/>Basis)<sp/>{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Read<sp/>input<sp/>file<sp/>content</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/>wave::File<sp/>file;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/>file.Open(gResourcePath<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;/Untitled3.wav&quot;</highlight><highlight class="normal">,<sp/>wave::OpenMode::kIn);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/>std::vector&lt;float&gt;<sp/>content(file.frame_number()<sp/>*<sp/>file.channel_number());</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/>ASSERT_EQ(file.Read(&amp;content),<sp/>wave::Error::kNoError);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Initialize<sp/>filter</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/><ref refid="classrtff_1_1AbstractFilter_1a85575f0682289eedba27163687efe71e" kindref="member">block_size</ref><sp/>=<sp/>2048;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>channel_number<sp/>=<sp/>file.channel_number();</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><ref refid="classMyFilter" kindref="compound">MyFilter</ref><sp/>filter;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/>std::error_code<sp/>err;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/>filter.<ref refid="classrtff_1_1AbstractFilter_1a185245f9c36468ccec762de9fb7444d1" kindref="member">Init</ref>(channel_number,<sp/>err);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/>ASSERT_FALSE(err);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/>filter.<ref refid="classrtff_1_1AbstractFilter_1a67ce341229f3b4b1a1d9fc76d88168cd" kindref="member">set_block_size</ref>(block_size);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><ref refid="classrtff_1_1AudioBuffer" kindref="compound">rtff::AudioBuffer</ref><sp/>buffer(block_size,<sp/>channel_number);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>For<sp/>debug.<sp/>From<sp/>this<sp/>point,<sp/>the<sp/>application<sp/>shouldn&apos;t<sp/>allocate<sp/>any<sp/>memory.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/>Eigen::internal::set_is_malloc_allowed(</highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Extract<sp/>each<sp/>frames<sp/>(add<sp/>latency)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>multichannel_buffer_size<sp/>=<sp/>block_size<sp/>*<sp/>channel_number;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(uint32_t<sp/>sample_idx<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sample_idx<sp/>&lt;<sp/>content.size()<sp/>-<sp/>multichannel_buffer_size;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sample_idx<sp/>+=<sp/>multichannel_buffer_size)<sp/>{</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>process<sp/>the<sp/>input<sp/>buffer</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/>sample_ptr<sp/>=<sp/>content.data()<sp/>+<sp/>sample_idx;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>buffer.<ref refid="classrtff_1_1AudioBuffer_1aaca4637f12fc2ec6885837771b73eb0d" kindref="member">fromInterleaved</ref>(sample_ptr);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>filter.<ref refid="classrtff_1_1AbstractFilter_1aa1d927fcd284e0af110c0c08e2fcee0d" kindref="member">ProcessBlock</ref>(&amp;buffer);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>buffer.<ref refid="classrtff_1_1AudioBuffer_1a8b99bfbebbc2c014070dd8c84a74369f" kindref="member">toInterleaved</ref>(sample_ptr);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>to<sp/>write,<sp/>we<sp/>compensate<sp/>the<sp/>latency</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>output_sample_idx<sp/>=</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>sample_idx<sp/>-<sp/>(filter.<ref refid="classrtff_1_1AbstractFilter_1afe3d19b9c3d5afd0ab5a5462954c0149" kindref="member">FrameLatency</ref>()<sp/>*<sp/>channel_number);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(output_sample_idx<sp/>&lt;<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>begining<sp/>of<sp/>the<sp/>file.<sp/>As<sp/>we<sp/>create<sp/>latency,<sp/>the<sp/>first<sp/>few<sp/>samples<sp/>will</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>be<sp/>zeros.<sp/>To<sp/>compensate,<sp/>we<sp/>just<sp/>remove<sp/>them</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/>output_sample_ptr<sp/>=<sp/>content.data();</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/>processed_sample_ptr<sp/>=<sp/>sample_ptr<sp/>+<sp/>abs(output_sample_idx);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>size_to_copy<sp/>=<sp/>block_size<sp/>-<sp/>filter.<ref refid="classrtff_1_1AbstractFilter_1afe3d19b9c3d5afd0ab5a5462954c0149" kindref="member">FrameLatency</ref>();</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>memcpy(output_sample_ptr,<sp/>processed_sample_ptr,</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>size_to_copy<sp/>*<sp/>channel_number<sp/>*<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>after<sp/>the<sp/>first<sp/>few<sp/>buffers,<sp/>we<sp/>are<sp/>on<sp/>general<sp/>case.<sp/>We<sp/>just<sp/>have<sp/>the</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>write<sp/>taking<sp/>the<sp/>latency<sp/>into<sp/>consideration</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/>output_sample_ptr<sp/>=<sp/>content.data()<sp/>+<sp/>output_sample_idx;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>memcpy(output_sample_ptr,<sp/>sample_ptr,</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>block_size<sp/>*<sp/>channel_number<sp/>*<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>display<sp/>the<sp/>current<sp/>status</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/>round(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">(sample_idx<sp/>*<sp/>100)<sp/>/</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(file.frame_number()<sp/>*<sp/>file.channel_number()))</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;%&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>For<sp/>debug.<sp/>From<sp/>this<sp/>point,<sp/>the<sp/>application<sp/>can<sp/>allocate<sp/>memory</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/>Eigen::internal::set_is_malloc_allowed(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Write<sp/>the<sp/>output<sp/>file<sp/>content</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/>wave::File<sp/>output;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/>output.Open(</highlight><highlight class="stringliteral">&quot;/tmp/rtff_res.wav&quot;</highlight><highlight class="normal">,<sp/>wave::OpenMode::kOut);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/>output.set_sample_rate(file.sample_rate());</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/>output.set_channel_number(file.channel_number());</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/>output.set_bits_per_sample(file.bits_per_sample());</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/>output.Write(content);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight><highlight class="comment">//<sp/>This<sp/>test<sp/>makes<sp/>sure<sp/>that<sp/>changing<sp/>the<sp/>block<sp/>size<sp/>doesn&apos;t<sp/>crash<sp/>the<sp/>process</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal">TEST(RTFF,<sp/>ChangeBlockSize)<sp/>{</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><ref refid="classMyFilter" kindref="compound">MyFilter</ref><sp/>filter;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/>std::error_code<sp/>err;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>channel_number<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/>filter.<ref refid="classrtff_1_1AbstractFilter_1a185245f9c36468ccec762de9fb7444d1" kindref="member">Init</ref>(channel_number,<sp/>err);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/>ASSERT_FALSE(err);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/><ref refid="classrtff_1_1AbstractFilter_1a85575f0682289eedba27163687efe71e" kindref="member">block_size</ref><sp/>=<sp/>512;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/>filter.<ref refid="classrtff_1_1AbstractFilter_1a67ce341229f3b4b1a1d9fc76d88168cd" kindref="member">set_block_size</ref>(<ref refid="classrtff_1_1AbstractFilter_1a85575f0682289eedba27163687efe71e" kindref="member">block_size</ref>);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>buffer<sp/>=<sp/>std::make_shared&lt;rtff::AudioBuffer&gt;(<ref refid="classrtff_1_1AbstractFilter_1a85575f0682289eedba27163687efe71e" kindref="member">block_size</ref>,<sp/>channel_number);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>queue<sp/>50<sp/>buffer</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>index<sp/>=<sp/>0;<sp/>index<sp/>&lt;<sp/>50;<sp/>index++)<sp/>{</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>memset(buffer-&gt;data(0),<sp/>0,<sp/><ref refid="classrtff_1_1AbstractFilter_1a85575f0682289eedba27163687efe71e" kindref="member">block_size</ref>);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>filter.<ref refid="classrtff_1_1AbstractFilter_1aa1d927fcd284e0af110c0c08e2fcee0d" kindref="member">ProcessBlock</ref>(buffer.get());</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/>block_size<sp/>=<sp/>1024;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/>filter.<ref refid="classrtff_1_1AbstractFilter_1a67ce341229f3b4b1a1d9fc76d88168cd" kindref="member">set_block_size</ref>(block_size);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/>buffer<sp/>=<sp/>std::make_shared&lt;rtff::AudioBuffer&gt;(<ref refid="classrtff_1_1AbstractFilter_1a85575f0682289eedba27163687efe71e" kindref="member">block_size</ref>,<sp/>channel_number);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>queue<sp/>50<sp/>other<sp/>buffer</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>index<sp/>=<sp/>0;<sp/>index<sp/>&lt;<sp/>50;<sp/>index++)<sp/>{</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>memset(buffer-&gt;data(0),<sp/>0,<sp/><ref refid="classrtff_1_1AbstractFilter_1a85575f0682289eedba27163687efe71e" kindref="member">block_size</ref>);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>filter.<ref refid="classrtff_1_1AbstractFilter_1aa1d927fcd284e0af110c0c08e2fcee0d" kindref="member">ProcessBlock</ref>(buffer.get());</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="122"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight><highlight class="comment">//<sp/>this<sp/>test<sp/>makes<sp/>sure<sp/>that<sp/>filter<sp/>class<sp/>syntax<sp/>is<sp/>functionnal</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal">TEST(RTFF,<sp/>Filter)<sp/>{</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><ref refid="classrtff_1_1Filter" kindref="compound">rtff::Filter</ref><sp/>filter;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/>std::error_code<sp/>err;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>channel_number<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/>filter.<ref refid="classrtff_1_1AbstractFilter_1a185245f9c36468ccec762de9fb7444d1" kindref="member">Init</ref>(channel_number,<sp/>err);</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/>filter.<ref refid="classrtff_1_1Filter_1ac578e43c43eaf0cac114a710908c77d6" kindref="member">execute</ref><sp/>=<sp/>[](std::vector&lt;std::complex&lt;float&gt;*&gt;<sp/>data,<sp/>uint32_t<sp/>size)<sp/>{</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(uint8_t<sp/>channel_idx<sp/>=<sp/>0;<sp/>channel_idx<sp/>&lt;<sp/>data.size();<sp/>channel_idx++)<sp/>{</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>buffer<sp/>=<sp/>Eigen::Map&lt;Eigen::VectorXcf&gt;(data[channel_idx],<sp/>size);</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>buffer<sp/>=<sp/>Eigen::VectorXcf::Random(size);</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/>ASSERT_FALSE(err);</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/><ref refid="classrtff_1_1AbstractFilter_1a85575f0682289eedba27163687efe71e" kindref="member">block_size</ref><sp/>=<sp/>512;</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/>filter.<ref refid="classrtff_1_1AbstractFilter_1a67ce341229f3b4b1a1d9fc76d88168cd" kindref="member">set_block_size</ref>(<ref refid="classrtff_1_1AbstractFilter_1a85575f0682289eedba27163687efe71e" kindref="member">block_size</ref>);</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><ref refid="classrtff_1_1AudioBuffer" kindref="compound">rtff::AudioBuffer</ref><sp/>buffer(<ref refid="classrtff_1_1AbstractFilter_1a85575f0682289eedba27163687efe71e" kindref="member">block_size</ref>,<sp/>channel_number);</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>queue<sp/>50<sp/>buffer</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>index<sp/>=<sp/>0;<sp/>index<sp/>&lt;<sp/>50;<sp/>index++)<sp/>{</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/>memset(buffer.<ref refid="classrtff_1_1AudioBuffer_1a616c030e6ed4ee6765d1b5461d725e75" kindref="member">data</ref>(0),<sp/>0,<sp/><ref refid="classrtff_1_1AbstractFilter_1a85575f0682289eedba27163687efe71e" kindref="member">block_size</ref>);</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/>filter.<ref refid="classrtff_1_1AbstractFilter_1aa1d927fcd284e0af110c0c08e2fcee0d" kindref="member">ProcessBlock</ref>(&amp;buffer);</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="147"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal">uint32_t<sp/>GetLatency(<ref refid="classrtff_1_1Filter" kindref="compound">rtff::Filter</ref>&amp;<sp/>filter);</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal">TEST(RTFF,<sp/>Latency)<sp/>{</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><ref refid="classrtff_1_1Filter" kindref="compound">rtff::Filter</ref><sp/>filter;</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/>std::error_code<sp/>err;</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/>filter.<ref refid="classrtff_1_1AbstractFilter_1a185245f9c36468ccec762de9fb7444d1" kindref="member">Init</ref>(1,<sp/>err);</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/>ASSERT_FALSE(err);</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>case<sp/>blocksize<sp/>%<sp/>fftsize<sp/>==<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/>filter.<ref refid="classrtff_1_1AbstractFilter_1a67ce341229f3b4b1a1d9fc76d88168cd" kindref="member">set_block_size</ref>(512);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/>ASSERT_EQ(filter.<ref refid="classrtff_1_1AbstractFilter_1afe3d19b9c3d5afd0ab5a5462954c0149" kindref="member">FrameLatency</ref>(),<sp/>GetLatency(filter));</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>case<sp/>block<sp/>size<sp/>&gt;<sp/>fft<sp/>size</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/>filter.<ref refid="classrtff_1_1AbstractFilter_1a67ce341229f3b4b1a1d9fc76d88168cd" kindref="member">set_block_size</ref>(filter.<ref refid="classrtff_1_1AbstractFilter_1af97e4572db76473343eb4716ad7a9b55" kindref="member">fft_size</ref>()<sp/>+<sp/>100);</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/>ASSERT_EQ(filter.<ref refid="classrtff_1_1AbstractFilter_1afe3d19b9c3d5afd0ab5a5462954c0149" kindref="member">FrameLatency</ref>(),<sp/>GetLatency(filter));</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>case<sp/>block_size<sp/>&lt;<sp/>fft_size<sp/>and<sp/>blocksize<sp/>%<sp/>fftsize<sp/>!=<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/>filter.<ref refid="classrtff_1_1AbstractFilter_1a67ce341229f3b4b1a1d9fc76d88168cd" kindref="member">set_block_size</ref>(filter.<ref refid="classrtff_1_1AbstractFilter_1af97e4572db76473343eb4716ad7a9b55" kindref="member">fft_size</ref>()<sp/>-<sp/>100);</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/>ASSERT_EQ(filter.<ref refid="classrtff_1_1AbstractFilter_1afe3d19b9c3d5afd0ab5a5462954c0149" kindref="member">FrameLatency</ref>(),<sp/>GetLatency(filter));</highlight></codeline>
+<codeline lineno="168"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal">TEST(RTFF,<sp/>Latency4096)<sp/>{</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><ref refid="classrtff_1_1Filter" kindref="compound">rtff::Filter</ref><sp/>filter;</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/>std::error_code<sp/>err;</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/>filter.<ref refid="classrtff_1_1AbstractFilter_1a185245f9c36468ccec762de9fb7444d1" kindref="member">Init</ref>(1,<sp/>4096,<sp/>4096<sp/>*<sp/>0.75,<sp/>err);</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/>ASSERT_FALSE(err);</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>case<sp/>blocksize<sp/>%<sp/>fftsize<sp/>==<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/>filter.<ref refid="classrtff_1_1AbstractFilter_1a67ce341229f3b4b1a1d9fc76d88168cd" kindref="member">set_block_size</ref>(512);</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/>ASSERT_EQ(filter.<ref refid="classrtff_1_1AbstractFilter_1afe3d19b9c3d5afd0ab5a5462954c0149" kindref="member">FrameLatency</ref>(),<sp/>GetLatency(filter));</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>case<sp/>block<sp/>size<sp/>&gt;<sp/>fft<sp/>size</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/>filter.<ref refid="classrtff_1_1AbstractFilter_1a67ce341229f3b4b1a1d9fc76d88168cd" kindref="member">set_block_size</ref>(filter.<ref refid="classrtff_1_1AbstractFilter_1af97e4572db76473343eb4716ad7a9b55" kindref="member">fft_size</ref>()<sp/>+<sp/>100);</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/>ASSERT_EQ(filter.<ref refid="classrtff_1_1AbstractFilter_1afe3d19b9c3d5afd0ab5a5462954c0149" kindref="member">FrameLatency</ref>(),<sp/>GetLatency(filter));</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>case<sp/>block_size<sp/>&lt;<sp/>fft_size<sp/>and<sp/>blocksize<sp/>%<sp/>fftsize<sp/>!=<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/>filter.<ref refid="classrtff_1_1AbstractFilter_1a67ce341229f3b4b1a1d9fc76d88168cd" kindref="member">set_block_size</ref>(filter.<ref refid="classrtff_1_1AbstractFilter_1af97e4572db76473343eb4716ad7a9b55" kindref="member">fft_size</ref>()<sp/>-<sp/>100);</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/>ASSERT_EQ(filter.<ref refid="classrtff_1_1AbstractFilter_1afe3d19b9c3d5afd0ab5a5462954c0149" kindref="member">FrameLatency</ref>(),<sp/>GetLatency(filter));</highlight></codeline>
+<codeline lineno="187"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal">TEST(RTFF,<sp/>Latency0Overlap)<sp/>{</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><ref refid="classrtff_1_1Filter" kindref="compound">rtff::Filter</ref><sp/>filter;</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/>std::error_code<sp/>err;</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/>filter.<ref refid="classrtff_1_1AbstractFilter_1a185245f9c36468ccec762de9fb7444d1" kindref="member">Init</ref>(1,<sp/>4096,<sp/>0,<sp/>err);</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/>ASSERT_FALSE(err);</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>case<sp/>blocksize<sp/>%<sp/>fftsize<sp/>==<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/>filter.<ref refid="classrtff_1_1AbstractFilter_1a67ce341229f3b4b1a1d9fc76d88168cd" kindref="member">set_block_size</ref>(512);</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/>ASSERT_EQ(filter.<ref refid="classrtff_1_1AbstractFilter_1afe3d19b9c3d5afd0ab5a5462954c0149" kindref="member">FrameLatency</ref>(),<sp/>GetLatency(filter));</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>case<sp/>blocksize<sp/>%<sp/>fftsize<sp/>==<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/>filter.<ref refid="classrtff_1_1AbstractFilter_1a67ce341229f3b4b1a1d9fc76d88168cd" kindref="member">set_block_size</ref>(filter.<ref refid="classrtff_1_1AbstractFilter_1af97e4572db76473343eb4716ad7a9b55" kindref="member">fft_size</ref>());</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/>ASSERT_EQ(filter.<ref refid="classrtff_1_1AbstractFilter_1afe3d19b9c3d5afd0ab5a5462954c0149" kindref="member">FrameLatency</ref>(),<sp/>GetLatency(filter));</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>case<sp/>block<sp/>size<sp/>&gt;<sp/>fft<sp/>size</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/>filter.<ref refid="classrtff_1_1AbstractFilter_1a67ce341229f3b4b1a1d9fc76d88168cd" kindref="member">set_block_size</ref>(filter.<ref refid="classrtff_1_1AbstractFilter_1af97e4572db76473343eb4716ad7a9b55" kindref="member">fft_size</ref>()<sp/>+<sp/>100);</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/>ASSERT_EQ(filter.<ref refid="classrtff_1_1AbstractFilter_1afe3d19b9c3d5afd0ab5a5462954c0149" kindref="member">FrameLatency</ref>(),<sp/>GetLatency(filter));</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>case<sp/>block_size<sp/>&lt;<sp/>fft_size<sp/>and<sp/>blocksize<sp/>%<sp/>fftsize<sp/>!=<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/>filter.<ref refid="classrtff_1_1AbstractFilter_1a67ce341229f3b4b1a1d9fc76d88168cd" kindref="member">set_block_size</ref>(filter.<ref refid="classrtff_1_1AbstractFilter_1af97e4572db76473343eb4716ad7a9b55" kindref="member">fft_size</ref>()<sp/>-<sp/>100);</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/>ASSERT_EQ(filter.<ref refid="classrtff_1_1AbstractFilter_1afe3d19b9c3d5afd0ab5a5462954c0149" kindref="member">FrameLatency</ref>(),<sp/>GetLatency(filter));</highlight></codeline>
+<codeline lineno="210"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Compute<sp/>the<sp/>filter<sp/>latency<sp/>by<sp/>sending<sp/>a<sp/>Dirac<sp/>and<sp/>checking<sp/>the<sp/>filter<sp/>output</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="213"><highlight class="normal">uint32_t<sp/>GetLatency(<ref refid="classrtff_1_1Filter" kindref="compound">rtff::Filter</ref>&amp;<sp/>filter)<sp/>{</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><ref refid="classrtff_1_1AudioBuffer" kindref="compound">rtff::AudioBuffer</ref><sp/>buffer(filter.<ref refid="classrtff_1_1AbstractFilter_1a85575f0682289eedba27163687efe71e" kindref="member">block_size</ref>(),<sp/>filter.<ref refid="classrtff_1_1AbstractFilter_1a59f3ac6a366916737594253dde6e51ac" kindref="member">channel_count</ref>());</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/><ref refid="classrtff_1_1AbstractFilter_1a85575f0682289eedba27163687efe71e" kindref="member">block_size</ref><sp/>=<sp/>filter.<ref refid="classrtff_1_1AbstractFilter_1a85575f0682289eedba27163687efe71e" kindref="member">block_size</ref>();</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"></highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>generate<sp/>a<sp/>dirac</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>sample_rate<sp/>=<sp/>44100;</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>pre_dirac_samples<sp/>=<sp/>sample_rate<sp/>*<sp/>1;</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/>std::vector&lt;float&gt;<sp/>content(pre_dirac_samples<sp/>*<sp/>2<sp/>+<sp/>1,<sp/>0);</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/>content[pre_dirac_samples]<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"></highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>run<sp/>data<sp/>into<sp/>the<sp/>filter</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(uint32_t<sp/>sample_idx<sp/>=<sp/>0;<sp/>sample_idx<sp/>&lt;<sp/>content.size()<sp/>-<sp/><ref refid="classrtff_1_1AbstractFilter_1a85575f0682289eedba27163687efe71e" kindref="member">block_size</ref>;</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sample_idx<sp/>+=<sp/><ref refid="classrtff_1_1AbstractFilter_1a85575f0682289eedba27163687efe71e" kindref="member">block_size</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/>sample_ptr<sp/>=<sp/>content.data()<sp/>+<sp/>sample_idx;</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/>memcpy(buffer.data(0),<sp/>sample_ptr,<sp/>block_size<sp/>*<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(float));</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"></highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/>filter.<ref refid="classrtff_1_1AbstractFilter_1aa1d927fcd284e0af110c0c08e2fcee0d" kindref="member">ProcessBlock</ref>(&amp;buffer);</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"></highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/>memcpy(sample_ptr,<sp/>buffer.data(0),<sp/>block_size<sp/>*<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(float));</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/>uint32_t<sp/>max_index<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/>Eigen::Map&lt;const<sp/>Eigen::Matrix&lt;float,<sp/>Eigen::Dynamic,<sp/>1&gt;&gt;(content.data(),</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>content.size())</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/>.maxCoeff(&amp;max_index);</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>latency<sp/>=<sp/>max_index<sp/>-<sp/>pre_dirac_samples;</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>latency;</highlight></codeline>
+<codeline lineno="239"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/code/src/rtff/test.cc"/>
+  </compounddef>
+</doxygen>

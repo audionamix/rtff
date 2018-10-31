@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classrtff_1_1Filter" kind="class" language="C++" prot="public">
+    <compoundname>rtff::Filter</compoundname>
+    <basecompoundref refid="classrtff_1_1AbstractFilter" prot="public" virt="non-virtual">rtff::AbstractFilter</basecompoundref>
+    <includes refid="filter_8h" local="no">filter.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classrtff_1_1Filter_1ac578e43c43eaf0cac114a710908c77d6" prot="public" static="no" mutable="no">
+        <type>std::function&lt; void(std::vector&lt; std::complex&lt; float &gt; * &gt;, uint32_t)&gt;</type>
+        <definition>std::function&lt;void(std::vector&lt;std::complex&lt;float&gt;*&gt;, uint32_t)&gt; rtff::Filter::execute</definition>
+        <argsstring></argsstring>
+        <name>execute</name>
+        <briefdescription>
+<para>the function to be executed on each time frequency block </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="classrtff_1_1AbstractFilter_1a6393f65d8ffdbef96a61d8bdd010ede4" kindref="member">rtff::AbstractFilter::ProcessTransformedBlock</ref> for more. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/filter.h" line="23" column="1" bodyfile="/code/src/rtff/filter.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classrtff_1_1Filter_1a6d744ae1bb63ad4151c160ed083bd8cc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>rtff::Filter::Filter</definition>
+        <argsstring>()</argsstring>
+        <name>Filter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/filter.h" line="16" column="1" bodyfile="/code/src/rtff/filter.cc" bodystart="5" bodyend="7"/>
+      </memberdef>
+      <memberdef kind="function" id="classrtff_1_1Filter_1aa2912f76e833fd81b790abb580003447" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>rtff::Filter::~Filter</definition>
+        <argsstring>()</argsstring>
+        <name>~Filter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/filter.h" line="17" column="1" bodyfile="/code/src/rtff/filter.cc" bodystart="9" bodyend="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classrtff_1_1Filter_1a0aa7657161cce126ba0511de5acdfb89" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void rtff::Filter::ProcessTransformedBlock</definition>
+        <argsstring>(std::vector&lt; std::complex&lt; float &gt; *&gt; data, uint32_t size) override</argsstring>
+        <name>ProcessTransformedBlock</name>
+        <reimplements refid="classrtff_1_1AbstractFilter_1a6393f65d8ffdbef96a61d8bdd010ede4">ProcessTransformedBlock</reimplements>
+        <param>
+          <type>std::vector&lt; std::complex&lt; float &gt; *&gt;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Process a frequential buffer. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>that function is called by the ProcessBlock function. It shouldn&apos;t be called on its own Override this function to design your filter </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/code/src/rtff/filter.h" line="26" column="1" bodyfile="/code/src/rtff/filter.cc" bodystart="11" bodyend="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Simple frequential filter that applies the execute function on each frame. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="21">
+        <label>rtff::AbstractFilter</label>
+        <link refid="classrtff_1_1AbstractFilter"/>
+      </node>
+      <node id="20">
+        <label>rtff::Filter</label>
+        <link refid="classrtff_1_1Filter"/>
+        <childnode refid="21" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="23">
+        <label>rtff::AbstractFilter</label>
+        <link refid="classrtff_1_1AbstractFilter"/>
+      </node>
+      <node id="22">
+        <label>rtff::Filter</label>
+        <link refid="classrtff_1_1Filter"/>
+        <childnode refid="23" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/code/src/rtff/filter.h" line="14" column="1" bodyfile="/code/src/rtff/filter.h" bodystart="14" bodyend="28"/>
+    <listofallmembers>
+      <member refid="classrtff_1_1AbstractFilter_1a0b2338d763b7990c74427ac9cff831fe" prot="public" virt="non-virtual"><scope>rtff::Filter</scope><name>AbstractFilter</name></member>
+      <member refid="classrtff_1_1AbstractFilter_1a85575f0682289eedba27163687efe71e" prot="public" virt="non-virtual"><scope>rtff::Filter</scope><name>block_size</name></member>
+      <member refid="classrtff_1_1AbstractFilter_1a59f3ac6a366916737594253dde6e51ac" prot="public" virt="non-virtual"><scope>rtff::Filter</scope><name>channel_count</name></member>
+      <member refid="classrtff_1_1Filter_1ac578e43c43eaf0cac114a710908c77d6" prot="public" virt="non-virtual"><scope>rtff::Filter</scope><name>execute</name></member>
+      <member refid="classrtff_1_1AbstractFilter_1af97e4572db76473343eb4716ad7a9b55" prot="public" virt="non-virtual"><scope>rtff::Filter</scope><name>fft_size</name></member>
+      <member refid="classrtff_1_1Filter_1a6d744ae1bb63ad4151c160ed083bd8cc" prot="public" virt="non-virtual"><scope>rtff::Filter</scope><name>Filter</name></member>
+      <member refid="classrtff_1_1AbstractFilter_1afe3d19b9c3d5afd0ab5a5462954c0149" prot="public" virt="virtual"><scope>rtff::Filter</scope><name>FrameLatency</name></member>
+      <member refid="classrtff_1_1AbstractFilter_1a23a71356d7887feb757f289d6b5833d5" prot="public" virt="non-virtual"><scope>rtff::Filter</scope><name>hop_size</name></member>
+      <member refid="classrtff_1_1AbstractFilter_1a185245f9c36468ccec762de9fb7444d1" prot="public" virt="non-virtual"><scope>rtff::Filter</scope><name>Init</name></member>
+      <member refid="classrtff_1_1AbstractFilter_1a1c18d98db01345a3243fb86f978501e6" prot="public" virt="non-virtual"><scope>rtff::Filter</scope><name>Init</name></member>
+      <member refid="classrtff_1_1AbstractFilter_1a1b946cc576936888a6708dd561fea101" prot="public" virt="non-virtual"><scope>rtff::Filter</scope><name>overlap</name></member>
+      <member refid="classrtff_1_1AbstractFilter_1a1b15b7ee20f27f0782f19bfd05fa8a94" prot="protected" virt="virtual"><scope>rtff::Filter</scope><name>PrepareToPlay</name></member>
+      <member refid="classrtff_1_1AbstractFilter_1aa1d927fcd284e0af110c0c08e2fcee0d" prot="public" virt="virtual"><scope>rtff::Filter</scope><name>ProcessBlock</name></member>
+      <member refid="classrtff_1_1Filter_1a0aa7657161cce126ba0511de5acdfb89" prot="protected" virt="virtual"><scope>rtff::Filter</scope><name>ProcessTransformedBlock</name></member>
+      <member refid="classrtff_1_1AbstractFilter_1a67ce341229f3b4b1a1d9fc76d88168cd" prot="public" virt="non-virtual"><scope>rtff::Filter</scope><name>set_block_size</name></member>
+      <member refid="classrtff_1_1AbstractFilter_1a879a3d4f23819048234c4cf5427e1dec" prot="public" virt="non-virtual"><scope>rtff::Filter</scope><name>window_size</name></member>
+      <member refid="classrtff_1_1AbstractFilter_1ad1548ae471fc315323a4e61d57c7e543" prot="public" virt="virtual"><scope>rtff::Filter</scope><name>~AbstractFilter</name></member>
+      <member refid="classrtff_1_1Filter_1aa2912f76e833fd81b790abb580003447" prot="public" virt="virtual"><scope>rtff::Filter</scope><name>~Filter</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="dir_388879d3807e6496f8f071e81d43f9bf" kind="dir">
+    <compoundname>/code/src/rtff</compoundname>
+    <innerdir refid="dir_43fd8912587396f99d69866c7c8bede2">/code/src/rtff/buffer</innerdir>
+    <innerdir refid="dir_011523eb9d028c47d52051420604c624">/code/src/rtff/fft</innerdir>
+    <innerfile refid="abstract__filter_8cc">abstract_filter.cc</innerfile>
+    <innerfile refid="abstract__filter_8h">abstract_filter.h</innerfile>
+    <innerfile refid="filter_8cc">filter.cc</innerfile>
+    <innerfile refid="filter_8h">filter.h</innerfile>
+    <innerfile refid="filter__impl_8cc">filter_impl.cc</innerfile>
+    <innerfile refid="filter__impl_8h">filter_impl.h</innerfile>
+    <innerfile refid="test_8cc">test.cc</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/code/src/rtff/"/>
+  </compounddef>
+</doxygen>

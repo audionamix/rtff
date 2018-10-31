@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="dir_3a33cc8f6cfadb6d35ed7379ee50b297" kind="dir">
+    <compoundname>/code/src/rtff/fft/mkl</compoundname>
+    <innerfile refid="mkl__fft_8cc">mkl_fft.cc</innerfile>
+    <innerfile refid="mkl__fft_8h">mkl_fft.h</innerfile>
+    <innerfile refid="mkl__fft__context_8cc">mkl_fft_context.cc</innerfile>
+    <innerfile refid="mkl__fft__context_8h">mkl_fft_context.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/code/src/rtff/fft/mkl/"/>
+  </compounddef>
+</doxygen>
