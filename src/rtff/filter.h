@@ -15,6 +15,11 @@ class Filter : public AbstractFilter {
  public:
   Filter();
   virtual ~Filter();
+
+  /**
+   * @brief the function to be executed on each time frequency block
+   * @see rtff::AbstractFilter::ProcessTransformedBlock for more.
+   */
   std::function<void(std::vector<std::complex<float>*>, uint32_t)> execute;
 
  protected:

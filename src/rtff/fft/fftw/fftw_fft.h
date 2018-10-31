@@ -9,7 +9,10 @@
 
 namespace rtff {
 
-// FFTWFft a fast fourier computer base on the FFTW Library
+/**
+ * @brief the fftw3f Library implementation of the Fast Fourier Transform
+ * computer
+ */
 class FFTWFft : public Fft {
  public:
   FFTWFft();

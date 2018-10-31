@@ -6,7 +6,10 @@
 
 namespace rtff {
 
-// MKLFft a fast fourier computer base on the MKL Library
+/**
+ * @brief the Intel Math Kernel Library implementation of the Fast Fourier
+ * Transform computer
+ */
 class MKLFft : public Fft {
  public:
   void Init(uint32_t size, std::error_code& err);
