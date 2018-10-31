@@ -43,3 +43,18 @@ Computing the short time fourier transform implies a latency. If you want to
 develop a plug-in, you need to inform the DAW about the number of frames of
 latency produced by your filter.  
 The `AbstractFilter::FrameLatency()` function gives you exactly what you need.
+
+# Documentation
+
+The documentation is based on [sphinx](http://www.sphinx-doc.org/en/master/),
+[breathe](https://github.com/michaeljones/breathe) and
+[readthedocs](https://readthedocs.org/)  
+
+If you ever want to build it, we provide Dockerfile
+```bash
+docker build -t rtff-docs -f docs/Dockerfile .
+# Generate doxygen xmls
+docker run -it --rm -v$(pwd):/code rtff-docs doxygen
+# make sphinx documentation
+docker run -it --rm -v$(pwd):/code rtff-docs make html
+```
