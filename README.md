@@ -16,9 +16,6 @@ A framework to design audio filters in the time frequency domain.
 #include "rtff/filter.h"
 
 ...
-rtff::AudioBuffer buffer;
-buffer.Init(filter.block_size(), channel_number);
-
 std::error_code err;
 rtff::Filter filter;
 filter.Init(channel_number, err);
@@ -34,6 +31,8 @@ filter.execute = [](std::vector<std::complex<float>*> data, uint32_t size) {
 
   }
 }
+rtff::AudioBuffer buffer(filter.block_size(), channel_number);
+
 ...
 filter.ProcessBlock(&buffer);
 ```
