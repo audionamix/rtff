@@ -24,6 +24,7 @@ else ()
   if (WIN32)
     message(FATAL_ERROR "The fftw backend is not supported on Windows. Please use the mkl.")
   endif ()
+  option(rtff_fftw_use_wisdom "Use the fftw wisdom mechanism. WARNING: first computation may take up to a couple of minutes" OFF)
   set(fftw_source_dir ${CMAKE_BINARY_DIR}/fftw-source)
   set(fftw_install_dir ${CMAKE_BINARY_DIR}/fftw-install)
 

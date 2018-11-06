@@ -1,5 +1,6 @@
 #include "rtff/fft/fftw/fftw_fft.h"
 
+#include <iostream>
 #include <vector>
 #include "fftw3.h"
 
@@ -21,11 +22,36 @@ class FFTWFft::Impl {
     auto fftw_complex_data_ptr =
         reinterpret_cast<fftwf_complex*>(complex_data_ptr);
     auto real_data_ptr = real_data_.data();
+    auto fftw_flags = FFTW_ESTIMATE;
 
+#ifdef RTFF_FFTW_USE_WISDOM
+    fftw_flags = FFTW_EXHAUSTIVE;
+    // make the wisdom filename
+    std::string wisdom_filename("rtff_" + std::to_string(nfft) + ".fftw");
+    auto export_wisdom = true;
+
+    // if the wisdom file exists
+    FILE* wisdom = fopen(wisdom_filename.c_str(), "r");
+    if (wisdom) {
+      export_wisdom = false;
+      fftw_flags = FFTW_WISDOM_ONLY | FFTW_EXHAUSTIVE;
+      fftwf_import_wisdom_from_file(wisdom);
+      fclose(wisdom);
+    }
+#endif  // RTFF_FFTW_USE_WISDOM
+
+    // create the plan
     real_to_complex_ = fftwf_plan_dft_r2c_1d(
-        nfft, real_data_ptr, fftw_complex_data_ptr, FFTW_ESTIMATE);
+        nfft, real_data_ptr, fftw_complex_data_ptr, fftw_flags);
     complex_to_real_ = fftwf_plan_dft_c2r_1d(nfft, fftw_complex_data_ptr,
-                                             real_data_ptr, FFTW_ESTIMATE);
+                                             real_data_ptr, fftw_flags);
+
+#ifdef RTFF_FFTW_USE_WISDOM
+    // export the wisdom if it didn't exist
+    if (export_wisdom) {
+      fftwf_export_wisdom_to_filename(wisdom_filename.c_str());
+    }
+#endif  // RTFF_FFTW_USE_WISDOM
   }
 
   void Forward(const float* in, std::complex<float>* out) {

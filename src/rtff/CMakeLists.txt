@@ -62,6 +62,13 @@ else()
     external_eigen
     external_fftw
   )
+  if (${rtff_fftw_use_wisdom})
+    message(STATUS "Using fftw wisdom files")
+    target_compile_definitions(rtff
+      PUBLIC
+        -DRTFF_FFTW_USE_WISDOM=ON
+    )
+  endif()
 endif()
 
 # install rules
