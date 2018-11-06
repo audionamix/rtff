@@ -37,8 +37,8 @@ else ()
   endif()
 
   ExternalProject_Add(external_fftw
-    URL "http://www.fftw.org/fftw-3.3.5.tar.gz"
-    URL_MD5 6cc08a3b9c7ee06fdd5b9eb02e06f569
+    URL "http://www.fftw.org/fftw-3.3.7.tar.gz"
+    URL_MD5 0d5915d7d39b3253c1cc05030d79ac47
     SOURCE_DIR ${fftw_source_dir}
     BINARY_DIR ${fftw_source_dir}
     INSTALL_DIR ${fftw_install_dir}
