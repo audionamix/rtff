@@ -25,6 +25,8 @@ else ()
     message(FATAL_ERROR "The fftw backend is not supported on Windows. Please use the mkl.")
   endif ()
   option(rtff_fftw_use_wisdom "Use the fftw wisdom mechanism. WARNING: first computation may take up to a couple of minutes" OFF)
+  set(rtff_fftw_extra_configure_flags "" CACHE STRING "Extra flags used in fftw configure step")
+
   set(fftw_source_dir ${CMAKE_BINARY_DIR}/fftw-source)
   set(fftw_install_dir ${CMAKE_BINARY_DIR}/fftw-install)
 
@@ -35,6 +37,9 @@ else ()
   endif()
   if (CMAKE_C_FLAGS)
     set(fftw_configure_command ${fftw_configure_command} CFLAGS=${CMAKE_C_FLAGS})
+  endif()
+  if (rtff_fftw_extra_configure_flags)
+    set(fftw_configure_command ${fftw_configure_command} ${rtff_fftw_extra_configure_flags})
   endif()
 
   ExternalProject_Add(external_fftw

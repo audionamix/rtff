@@ -58,3 +58,18 @@ docker run -it --rm -v$(pwd):/code rtff-docs doxygen
 # make sphinx documentation
 docker run -it --rm -v$(pwd):/code rtff-docs make html
 ```
+
+## Cross compile
+
+You can use the [dockcross](https://github.com/dockcross/dockcross) project to
+cross compile the library.  
+For example to build an `arm64` cross compiled version do:
+
+```bash
+docker run --rm dockcross/linux-arm64 > dockcross
+chmod +x dockcross
+./dockcross cmake -H. -Bbuild -GNinja -Drtff_use_mkl=OFF -Drtff_fftw_extra_configure_flags=--host=arm-linux-gnueabi
+./dockcross ninja -Cbuild
+```
+Note that we disable the use of the `mkl` and force a cross compile flag on the
+`fftw`.
