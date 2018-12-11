@@ -1,8 +1,8 @@
 # Eigen
 set(eigen_install_dir ${CMAKE_BINARY_DIR}/eigen-install)
 ExternalProject_Add(external_eigen
-  HG_REPOSITORY "https://bitbucket.org/eigen/eigen/"
-  HG_TAG "3.3.4"
+  GIT_REPOSITORY "https://github.com/eigenteam/eigen-git-mirror.git"
+  GIT_TAG "3.3.6"
   SOURCE_DIR ${eigen_install_dir}
   UPDATE_COMMAND ""
   CONFIGURE_COMMAND ""
