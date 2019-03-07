@@ -42,7 +42,7 @@ function(FindMkl)
   set(MKLROOT ${FindMkl_PATH})
   if (UNIX AND APPLE)
     set(mkl_libraries
-      "${MKLROOT}/lib/libmkl_intel.a"
+      "${MKLROOT}/lib/libmkl_intel_lp64.a"
       "${MKLROOT}/lib/libmkl_core.a"
       "-lpthread"
       "-lm"
