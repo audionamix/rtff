@@ -170,7 +170,7 @@ TEST(RTFF, Latency) {
 TEST(RTFF, Latency4096) {
   rtff::Filter filter;
   std::error_code err;
-  filter.Init(1, 4096, 4096 * 0.75, err);
+  filter.Init(1, 4096, 4096 * 0.75, rtff::Window::Type::Hamming, err);
   ASSERT_FALSE(err);
 
   // case blocksize % fftsize == 0
@@ -189,7 +189,7 @@ TEST(RTFF, Latency4096) {
 TEST(RTFF, Latency0Overlap) {
   rtff::Filter filter;
   std::error_code err;
-  filter.Init(1, 4096, 0, err);
+  filter.Init(1, 4096, 0, rtff::Window::Type::Hamming, err);
   ASSERT_FALSE(err);
 
   // case blocksize % fftsize == 0
@@ -214,7 +214,7 @@ TEST(RTFF, LittleBlockSize) {
   rtff::Filter filter;
   std::error_code err;
   auto channel_number = 1;
-  filter.Init(channel_number, 2048, 2048*0.75, err);
+  filter.Init(channel_number, 2048, 2048*0.75, rtff::Window::Type::Hamming, err);
   ASSERT_FALSE(err);
   
   filter.execute = [](std::vector<std::complex<float>*> data, uint32_t size) {
