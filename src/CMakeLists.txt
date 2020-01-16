@@ -1,7 +1,7 @@
 # Eigen
 set(eigen_install_dir ${CMAKE_BINARY_DIR}/eigen-install)
 ExternalProject_Add(external_eigen
-  GIT_REPOSITORY "https://github.com/eigenteam/eigen-git-mirror.git"
+  GIT_REPOSITORY "https://gitlab.com/libeigen/eigen.git"
   GIT_TAG "3.3.6"
   SOURCE_DIR ${eigen_install_dir}
   UPDATE_COMMAND ""
