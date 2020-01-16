@@ -8,18 +8,28 @@ Eigen::VectorXf Window::Make(Type type, uint32_t size) {
   // TODO(gvincke): move this to a constant definition file
   const static double pi = 3.14159265358979323846264338327950288419;
 
-  if (type != Type::Hamming) {
-    std::cerr << "Unkown window type" << std::endl;
-    return Eigen::VectorXf::Ones(size);
-  }
-
   Eigen::VectorXf window = Eigen::VectorXf::Zero(size);
-  auto alpha = 0.54;
-  auto beta = 1 - alpha;
-  for (uint32_t window_idx = 0; window_idx < window.size(); window_idx++) {
-    window[window_idx] =
-        alpha - beta * cos((2 * pi * window_idx) / (window.size() - 1));
+  if (type == Type::Hamming) {
+    auto alpha = 0.54;
+    auto beta = 1 - alpha;
+    for (uint32_t window_idx = 0; window_idx < window.size(); window_idx++) {
+      window[window_idx] =
+          alpha - beta * cos((2 * pi * window_idx) / (window.size() - 1));
+    }
+  } else if (type == Type::Blackman) {
+    auto alpha = 0.42;
+    auto beta = 0.5;
+    auto gamma = 0.08;
+    for (uint32_t window_idx = 0; window_idx < window.size(); window_idx++) {
+      window[window_idx] =
+          alpha - beta * cos((2 * pi * window_idx) / (window.size() - 1))
+                + gamma * cos((4 * pi * window_idx) / (window.size() - 1));
+    }
+  } else {
+    std::cerr << "Unkown window type" << std::endl;
+    window = Eigen::VectorXf::Ones(size);
   }
+  
   return window;
 }
 

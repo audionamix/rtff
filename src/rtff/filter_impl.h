@@ -11,6 +11,8 @@
 #include "rtff/buffer/buffer.h"
 #include "rtff/buffer/ring_buffer.h"
 
+#include "rtff/fft/window.h"
+
 namespace rtff {
 
 class Fft;
@@ -26,11 +28,12 @@ class FilterImpl {
    * @brief Initialize
    * @param fft_size: the length in samples of the fourier transform window.
    * @param overlap: the number of samples that will be kept between each
+   * @param windows_type: type of analysis and synthesis window for FFT
    * @param channel_count: the number of channel of the input signal
    * @param err: an error code that gets set if something goes wrong
    */
-  void Init(uint32_t fft_size, uint32_t overlap, uint8_t channel_count,
-            std::error_code& err);
+  void Init(uint32_t fft_size, uint32_t overlap, Window::Type windows_type,
+            uint8_t channel_count, std::error_code& err);
 
   /**
    * @brief convert a signal to its time frequency representation

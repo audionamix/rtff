@@ -1,19 +1,18 @@
 #include "rtff/filter_impl.h"
 
 #include "rtff/fft/fft.h"
-#include "rtff/fft/window.h"
 
 namespace rtff {
 
-void FilterImpl::Init(uint32_t fft_size, uint32_t overlap,
+void FilterImpl::Init(uint32_t fft_size, uint32_t overlap, Window::Type windows_type,
                       uint8_t channel_count, std::error_code& err) {
   fft_size_ = fft_size;
   overlap_ = overlap;
 
   // init the window to an hamming
-  analysis_window_ = Window::Make(Window::Type::Hamming, fft_size);
-  synthesis_window_ = Window::Make(Window::Type::Hamming, fft_size);
-  unwindow_ = Window::MakeInverse(Window::Type::Hamming, Window::Type::Hamming,
+  analysis_window_ = Window::Make(windows_type, fft_size);
+  synthesis_window_ = Window::Make(windows_type, fft_size);
+  unwindow_ = Window::MakeInverse(windows_type, windows_type,
                                   fft_size, hop_size());
 
   // init the fft

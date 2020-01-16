@@ -8,6 +8,8 @@
 
 #include "rtff/buffer/audio_buffer.h"
 
+#include "rtff/fft/window.h"
+
 namespace rtff {
 
 class MultichannelOverlapRingBuffer;
@@ -28,10 +30,11 @@ class AbstractFilter {
    * @param fft_size: the length in samples of the fourier transform window.
    * @param overlap: the number of samples that will be kept between each
    * window.
+   * @param windows_type: type of analysis and synthesis window for FFT
    * @param err: an error code that gets set if something goes wrong
    */
   void Init(uint8_t channel_count, uint32_t fft_size, uint32_t overlap,
-            std::error_code& err);
+            Window::Type windows_type, std::error_code& err);
 
   /**
    * @brief Initialize the filter with default stft parameters
@@ -73,6 +76,10 @@ class AbstractFilter {
    */
   uint32_t overlap() const;
   /**
+   * @return the windows type
+   */
+  Window::Type windows_type() const;
+  /**
    * @return the hop size in sample
    */
   uint32_t hop_size() const;
@@ -112,6 +119,7 @@ class AbstractFilter {
 
   uint32_t fft_size_;
   uint32_t overlap_;
+  Window::Type windows_type_;
   uint32_t block_size_;
   uint8_t channel_count_;
   std::shared_ptr<MultichannelOverlapRingBuffer> input_buffer_;

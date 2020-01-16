@@ -88,6 +88,10 @@ install(FILES
   ${src}/rtff/buffer/audio_buffer.h
   DESTINATION include/rtff/buffer
 )
+install(FILES
+  ${src}/rtff/fft/window.h
+  DESTINATION include/rtff/fft
+)
 # - external libraries
 set(external_libraries "")
 set(external_includes "")

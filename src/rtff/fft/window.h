@@ -15,7 +15,7 @@ class Window {
   /**
    * @brief enumerate representing the analysis window type.
    */
-  enum class Type : uint8_t { Hamming };
+  enum class Type : uint8_t { Hamming, Blackman };
 
   /**
    * @brief generate an analysis window
