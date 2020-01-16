@@ -47,8 +47,15 @@ void AbstractFilter::Init(uint8_t channel_count, std::error_code& err) {
 void AbstractFilter::InitBuffers() {
   input_buffer_ = std::make_shared<MultichannelOverlapRingBuffer>(
       fft_size(), hop_size(), channel_count());
-  output_buffer_ = std::make_shared<MultichannelRingBuffer>(block_size() * 8,
-                                                            channel_count());
+  
+  // We must make sure the ring buffer is not smaller than the hop size, because
+  // the output amplitude buffer will try to write blocks of hop size into it
+  uint32_t arbitrary_buffer_size = block_size() * 8;
+  if (arbitrary_buffer_size <= hop_size()) {
+    arbitrary_buffer_size = hop_size() * 2;
+  }
+  output_buffer_ = std::make_shared<MultichannelRingBuffer>(
+      arbitrary_buffer_size, channel_count());
 
   // initialize the intput_buffer_ with hop_size frames of zeros
   if (fft_size() > block_size()) {

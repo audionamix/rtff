@@ -209,6 +209,43 @@ TEST(RTFF, Latency0Overlap) {
   ASSERT_EQ(filter.FrameLatency(), GetLatency(filter));
 }
 
+// This class make sure processing little block size does not crash
+TEST(RTFF, LittleBlockSize) {
+  rtff::Filter filter;
+  std::error_code err;
+  auto channel_number = 1;
+  filter.Init(channel_number, 2048, 2048*0.75, err);
+  ASSERT_FALSE(err);
+  
+  filter.execute = [](std::vector<std::complex<float>*> data, uint32_t size) {
+    for (uint8_t channel_idx = 0; channel_idx < data.size(); channel_idx++) {
+      auto buffer = Eigen::Map<Eigen::VectorXcf>(data[channel_idx], size);
+      buffer = Eigen::VectorXcf::Random(size);
+    }
+  };
+  
+  // Testing 64 bytes block
+  auto block_size = 64;
+  rtff::AudioBuffer buffer(block_size, channel_number);
+  filter.set_block_size(block_size);
+  // queue 50 buffer
+  for (auto index = 0; index < 50; index++) {
+    memset(buffer.data(0), 0, block_size);
+    filter.ProcessBlock(&buffer);
+  }
+
+  // Testing 43 bytes block
+  block_size = 43;
+  buffer = rtff::AudioBuffer(block_size, channel_number);
+  filter.set_block_size(block_size);
+  // queue 50 buffer
+  for (auto index = 0; index < 50; index++) {
+    memset(buffer.data(0), 0, block_size);
+    filter.ProcessBlock(&buffer);
+  }
+  
+}
+
 // Compute the filter latency by sending a Dirac and checking the filter output
 uint32_t GetLatency(rtff::Filter& filter) {
   rtff::AudioBuffer buffer(filter.block_size(), filter.channel_count());
