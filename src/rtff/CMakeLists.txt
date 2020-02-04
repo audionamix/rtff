@@ -90,7 +90,7 @@ install(FILES
   DESTINATION include/rtff/buffer
 )
 install(FILES
-  ${src}/rtff/fft/window.h
+  ${src}/rtff/fft/window_type.h
   DESTINATION include/rtff/fft
 )
 # - external libraries
