@@ -30,11 +30,13 @@ class AbstractFilter {
    * @param fft_size: the length in samples of the fourier transform window.
    * @param overlap: the number of samples that will be kept between each
    * window.
-   * @param windows_type: type of analysis and synthesis window for FFT
    * @param err: an error code that gets set if something goes wrong
+   * @param windows_type: type of analysis and synthesis window for FFT, default
+   * to Hamming to ensure backward compatibility
    */
   void Init(uint8_t channel_count, uint32_t fft_size, uint32_t overlap,
-            Window::Type windows_type, std::error_code& err);
+            std::error_code& err,
+            Window::Type windows_type = Window::Type::Hamming);
 
   /**
    * @brief Initialize the filter with default stft parameters

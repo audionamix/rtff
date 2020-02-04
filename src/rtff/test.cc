@@ -52,7 +52,7 @@ TEST(RTFF, Basis) {
        sample_idx += multichannel_buffer_size) {
     // process the input buffer
     float* sample_ptr = content.data() + sample_idx;
-    
+
     buffer.fromInterleaved(sample_ptr);
     filter.ProcessBlock(&buffer);
     buffer.toInterleaved(sample_ptr);
@@ -170,7 +170,7 @@ TEST(RTFF, Latency) {
 TEST(RTFF, Latency4096) {
   rtff::Filter filter;
   std::error_code err;
-  filter.Init(1, 4096, 4096 * 0.75, rtff::Window::Type::Hamming, err);
+  filter.Init(1, 4096, 4096 * 0.75, err);
   ASSERT_FALSE(err);
 
   // case blocksize % fftsize == 0
@@ -189,7 +189,7 @@ TEST(RTFF, Latency4096) {
 TEST(RTFF, Latency0Overlap) {
   rtff::Filter filter;
   std::error_code err;
-  filter.Init(1, 4096, 0, rtff::Window::Type::Hamming, err);
+  filter.Init(1, 4096, 0, err);
   ASSERT_FALSE(err);
 
   // case blocksize % fftsize == 0
@@ -214,16 +214,16 @@ TEST(RTFF, LittleBlockSize) {
   rtff::Filter filter;
   std::error_code err;
   auto channel_number = 1;
-  filter.Init(channel_number, 2048, 2048*0.75, rtff::Window::Type::Hamming, err);
+  filter.Init(channel_number, 2048, 2048*0.75, err);
   ASSERT_FALSE(err);
-  
+
   filter.execute = [](std::vector<std::complex<float>*> data, uint32_t size) {
     for (uint8_t channel_idx = 0; channel_idx < data.size(); channel_idx++) {
       auto buffer = Eigen::Map<Eigen::VectorXcf>(data[channel_idx], size);
       buffer = Eigen::VectorXcf::Random(size);
     }
   };
-  
+
   // Testing 64 bytes block
   auto block_size = 64;
   rtff::AudioBuffer buffer(block_size, channel_number);
@@ -243,7 +243,7 @@ TEST(RTFF, LittleBlockSize) {
     memset(buffer.data(0), 0, block_size);
     filter.ProcessBlock(&buffer);
   }
-  
+
 }
 
 // Compute the filter latency by sending a Dirac and checking the filter output
@@ -274,4 +274,3 @@ uint32_t GetLatency(rtff::Filter& filter) {
   auto latency = max_index - pre_dirac_samples;
   return latency;
 }
-

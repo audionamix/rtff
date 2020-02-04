@@ -20,8 +20,8 @@ AbstractFilter::AbstractFilter()
 AbstractFilter::~AbstractFilter() {}
 
 void AbstractFilter::Init(uint8_t channel_count, uint32_t fft_size,
-                          uint32_t overlap, Window::Type windows_type,
-                          std::error_code& err) {
+                          uint32_t overlap, std::error_code& err,
+                          Window::Type windows_type) {
   fft_size_ = fft_size;
   overlap_ = overlap;
   windows_type_ = windows_type;
@@ -49,7 +49,7 @@ void AbstractFilter::Init(uint8_t channel_count, std::error_code& err) {
 void AbstractFilter::InitBuffers() {
   input_buffer_ = std::make_shared<MultichannelOverlapRingBuffer>(
       fft_size(), hop_size(), channel_count());
-  
+
   // We must make sure the ring buffer is not smaller than the hop size, because
   // the output amplitude buffer will try to write blocks of hop size into it
   uint32_t arbitrary_buffer_size = block_size() * 8;
