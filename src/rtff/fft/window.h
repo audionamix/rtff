@@ -3,6 +3,7 @@
 
 #include <Eigen/Core>
 #include <cstdint>
+#include "rtff/fft/window_type.h"
 
 namespace rtff {
 
@@ -12,17 +13,13 @@ namespace rtff {
  */
 class Window {
  public:
-  /**
-   * @brief enumerate representing the analysis window type.
-   */
-  enum class Type : uint8_t { Hamming, Blackman };
 
   /**
    * @brief generate an analysis window
    * @param type: the type of the window
    * @param size: the window size in sample
    */
-  static Eigen::VectorXf Make(Type type, uint32_t size);
+  static Eigen::VectorXf Make(fft_window::Type type, uint32_t size);
   /**
    * @brief generate an unwindow used in the inverse fft step
    * @param analysis_type: the type of the window used in the analysis step
@@ -30,7 +27,8 @@ class Window {
    * @param size: the window size in sample
    * @param step_size: the hop size used by the filter
    */
-  static Eigen::VectorXf MakeInverse(Type analysis_type, Type sythesis_type,
+  static Eigen::VectorXf MakeInverse(fft_window::Type analysis_type,
+                                     fft_window::Type sythesis_type,
                                      uint32_t size, uint32_t step_size);
 };
 }  // namespace rtff

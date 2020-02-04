@@ -17,6 +17,7 @@ set(rtff_sources
 
   ${src}/rtff/fft/window.cc
   ${src}/rtff/fft/window.h
+  ${src}/rtff/fft/window_type.h
   ${src}/rtff/fft/fft.cc
   ${src}/rtff/fft/fft.h
 )

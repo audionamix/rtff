@@ -32,7 +32,7 @@ class FilterImpl {
    * @param channel_count: the number of channel of the input signal
    * @param err: an error code that gets set if something goes wrong
    */
-  void Init(uint32_t fft_size, uint32_t overlap, Window::Type windows_type,
+  void Init(uint32_t fft_size, uint32_t overlap, fft_window::Type windows_type,
             uint8_t channel_count, std::error_code& err);
 
   /**

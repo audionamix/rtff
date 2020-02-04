@@ -21,7 +21,7 @@ AbstractFilter::~AbstractFilter() {}
 
 void AbstractFilter::Init(uint8_t channel_count, uint32_t fft_size,
                           uint32_t overlap, std::error_code& err,
-                          Window::Type windows_type) {
+                          fft_window::Type windows_type) {
   fft_size_ = fft_size;
   overlap_ = overlap;
   windows_type_ = windows_type;
@@ -76,7 +76,7 @@ uint8_t AbstractFilter::channel_count() const { return channel_count_; }
 uint32_t AbstractFilter::window_size() const { return impl_->window_size(); }
 uint32_t AbstractFilter::fft_size() const { return fft_size_; }
 uint32_t AbstractFilter::overlap() const { return overlap_; }
-Window::Type AbstractFilter::windows_type() const { return windows_type_; }
+fft_window::Type AbstractFilter::windows_type() const { return windows_type_; }
 uint32_t AbstractFilter::hop_size() const { return fft_size_ - overlap_; }
 
 uint32_t AbstractFilter::FrameLatency() const {

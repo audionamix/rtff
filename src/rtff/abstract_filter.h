@@ -8,7 +8,7 @@
 
 #include "rtff/buffer/audio_buffer.h"
 
-#include "rtff/fft/window.h"
+#include "rtff/fft/window_type.h"
 
 namespace rtff {
 
@@ -36,7 +36,7 @@ class AbstractFilter {
    */
   void Init(uint8_t channel_count, uint32_t fft_size, uint32_t overlap,
             std::error_code& err,
-            Window::Type windows_type = Window::Type::Hamming);
+            fft_window::Type windows_type = fft_window::Type::Hamming);
 
   /**
    * @brief Initialize the filter with default stft parameters
@@ -80,7 +80,7 @@ class AbstractFilter {
   /**
    * @return the windows type
    */
-  Window::Type windows_type() const;
+  fft_window::Type windows_type() const;
   /**
    * @return the hop size in sample
    */
@@ -121,7 +121,7 @@ class AbstractFilter {
 
   uint32_t fft_size_;
   uint32_t overlap_;
-  Window::Type windows_type_;
+  fft_window::Type windows_type_;
   uint32_t block_size_;
   uint8_t channel_count_;
   std::shared_ptr<MultichannelOverlapRingBuffer> input_buffer_;

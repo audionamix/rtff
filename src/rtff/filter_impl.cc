@@ -4,7 +4,8 @@
 
 namespace rtff {
 
-void FilterImpl::Init(uint32_t fft_size, uint32_t overlap, Window::Type windows_type,
+void FilterImpl::Init(uint32_t fft_size, uint32_t overlap,
+                      fft_window::Type windows_type,
                       uint8_t channel_count, std::error_code& err) {
   fft_size_ = fft_size;
   overlap_ = overlap;
