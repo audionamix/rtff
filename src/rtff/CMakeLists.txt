@@ -36,9 +36,7 @@ else()
 endif()
 
 add_library(rtff ${rtff_sources})
-target_link_libraries(rtff
-  eigen
-)
+
 target_include_directories(rtff PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/..>
   $<INSTALL_INTERFACE:include>
@@ -48,9 +46,9 @@ OrganizeSources(SOURCES ${rtff_sources})
 
 # Add fftw if we don't want to use the mkl
 if (${rtff_use_mkl})
-  target_include_directories(rtff
-    PUBLIC
-      ${mkl_include_dir}
+  target_link_libraries(rtff
+    eigen
+    mkl
   )
   target_compile_definitions(rtff
     PUBLIC
@@ -95,6 +93,7 @@ install(FILES
 set(external_libraries "")
 set(external_includes "")
 if (${rtff_use_mkl})
+  message(${mkl_libraries})
   set(external_libraries ${mkl_libraries})
   set(mkl_dependencies "")
   foreach (lib ${external_libraries})

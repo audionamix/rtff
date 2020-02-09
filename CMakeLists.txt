@@ -4,7 +4,6 @@ include(ExternalProject)
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 include(organize_sources)
-include(mkl)
 
 project(rtff)
 
@@ -17,8 +16,7 @@ set(CMAKE_DEBUG_POSTFIX d)  # add the d postfix to generated libraries
 
 include(add_eigen)
 if (${rtff_use_mkl})
-  # Intel Mkl
-  FindMkl()
+  include(add_mkl)
 else ()
   # Default to fftw
   if (WIN32)
