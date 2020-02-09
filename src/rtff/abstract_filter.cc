@@ -20,8 +20,13 @@ AbstractFilter::AbstractFilter()
 AbstractFilter::~AbstractFilter() {}
 
 void AbstractFilter::Init(uint8_t channel_count, uint32_t fft_size,
-                          uint32_t overlap, std::error_code& err,
-                          fft_window::Type windows_type) {
+                          uint32_t overlap, std::error_code& err) {
+  Init(channel_count, fft_size, overlap, fft_window::Type::Hamming, err);
+}
+
+void AbstractFilter::Init(uint8_t channel_count, uint32_t fft_size,
+                          uint32_t overlap, fft_window::Type windows_type,
+                          std::error_code& err) {
   fft_size_ = fft_size;
   overlap_ = overlap;
   windows_type_ = windows_type;
