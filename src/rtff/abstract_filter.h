@@ -131,7 +131,7 @@ class AbstractFilter {
 
   uint32_t fft_size_;
   uint32_t overlap_;
-  fft_window::Type windows_type_;
+  fft_window::Type window_type_;
   uint32_t block_size_;
   uint8_t channel_count_;
   std::shared_ptr<MultichannelOverlapRingBuffer> input_buffer_;
