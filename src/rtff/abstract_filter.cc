@@ -14,8 +14,11 @@ class AbstractFilter::Impl {
   TimeFrequencyBuffer frequential_block;
 };
 
-AbstractFilter::AbstractFilter()
-    : fft_size_(2048), overlap_(2048 * 0.5), block_size_(512) {}
+AbstractFilter::AbstractFilter() :
+  fft_size_(2048),
+  overlap_(2048 * 0.5),
+  windows_type_(fft_window::Type::Hamming),
+  block_size_(512) {}
 
 AbstractFilter::~AbstractFilter() {}
 
