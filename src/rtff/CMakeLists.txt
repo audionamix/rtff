@@ -39,6 +39,10 @@ add_library(rtff ${rtff_sources})
 target_link_libraries(rtff
   eigen
 )
+target_include_directories(rtff PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/..>
+  $<INSTALL_INTERFACE:include>
+)
 
 OrganizeSources(SOURCES ${rtff_sources})
 
