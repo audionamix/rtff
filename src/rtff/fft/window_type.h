@@ -8,7 +8,7 @@ namespace fft_window {
   /**
    * @brief enumerate representing the analysis window type.
    */
-  enum class Type : uint8_t { Hamming, Blackman };
+  enum class Type : uint8_t { Hamming, Blackman, Hann };
 } // namespace fft_window
 } // namespace rtff
 
