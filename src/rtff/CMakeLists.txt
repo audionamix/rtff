@@ -55,6 +55,9 @@ if (${rtff_use_mkl})
       -DRTFF_USE_MKL
   )
 else()
+  target_link_libraries(rtff
+    eigen
+  )
   target_include_directories(rtff
     PUBLIC
       ${fftw_include_dir}
