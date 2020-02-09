@@ -1,7 +1,5 @@
 cmake_minimum_required(VERSION 3.0)
 
-list(APPEND CMAKE_PREFIX_PATH ${PROJECT_SOURCE_DIR}/tbb/cmake)
-
 include(ExternalProject)
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
@@ -61,31 +59,7 @@ endif()
 
 # Intel TBB
 if (${rtff_enable_multithread})
-  set(tbb_install_dir ${CMAKE_BINARY_DIR}/tbb-install)
-  ExternalProject_Add(external_tbb
-    GIT_REPOSITORY "https://github.com/wjakob/tbb.git"
-    GIT_TAG "tbb44u4"
-    # to avoid long paths on windows, build in the binary folder
-    SOURCE_DIR ${CMAKE_BINARY_DIR}/tbb-sources
-    BUILD_IN_SOURCE 1
-    CMAKE_ARGS
-      "-DTBB_BUILD_STATIC=OFF"
-      "-DTBB_BUILD_TBBMALLOC=OFF"
-      "-DTBB_BUILD_TBBMALLOC_PROXY=OFF"
-      "-DTBB_BUILD_TESTS=OFF"
-      "-DCMAKE_INSTALL_PREFIX=${tbb_install_dir}"
-  )
-  link_directories(${tbb_install_dir}/lib)
-  if (WIN32)
-    install(DIRECTORY
-      ${tbb_install_dir}/bin
-      DESTINATION .
-    )
-  endif()
-  install(DIRECTORY
-    ${tbb_install_dir}/lib
-    DESTINATION .
-  )
+  include(add_tbb)
 endif()
 
 if (${rtff_enable_tests})
@@ -94,7 +68,7 @@ if (${rtff_enable_tests})
   include(add_googletest)
 
   # download test resource from https://archive.org/details/test_wav
-  set(test_resource_path "${CMAKE_BINARY_DIR}/test_resource")
+  set(test_resource_path "${CMAKE_CURRENT_BINARY_DIR}/test_resource")
   file(MAKE_DIRECTORY "${test_resource_path}")
   file(DOWNLOAD
     "https://archive.org/download/test_wav/Untitled3.wav"
@@ -102,7 +76,7 @@ if (${rtff_enable_tests})
   )
 endif ()
 
-set(src "${CMAKE_SOURCE_DIR}/src")
+set(src "${CMAKE_CURRENT_SOURCE_DIR}/src")
 include_directories(${src})
 
 add_subdirectory("./src")

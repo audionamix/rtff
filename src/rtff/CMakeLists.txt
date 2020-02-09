@@ -122,7 +122,7 @@ if (${rtff_enable_tests})
   )
 
   if (${rtff_enable_multithread})
-    add_dependencies(rtff_test external_tbb)
+    set(external_libraries ${external_libraries} tbb)
   endif()
 
   target_link_libraries(rtff_test
