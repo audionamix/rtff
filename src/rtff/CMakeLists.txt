@@ -36,6 +36,9 @@ else()
 endif()
 
 add_library(rtff ${rtff_sources})
+target_link_libraries(rtff
+  eigen
+)
 
 OrganizeSources(SOURCES ${rtff_sources})
 
@@ -43,11 +46,7 @@ OrganizeSources(SOURCES ${rtff_sources})
 if (${rtff_use_mkl})
   target_include_directories(rtff
     PUBLIC
-      ${eigen_install_dir}
       ${mkl_include_dir}
-  )
-  add_dependencies(rtff
-    external_eigen
   )
   target_compile_definitions(rtff
     PUBLIC
@@ -56,12 +55,7 @@ if (${rtff_use_mkl})
 else()
   target_include_directories(rtff
     PUBLIC
-      ${eigen_install_dir}
       ${fftw_include_dir}
-  )
-  add_dependencies(rtff
-    external_eigen
-    external_fftw
   )
   if (${rtff_fftw_use_wisdom})
     message(STATUS "Using fftw wisdom files")
@@ -122,56 +116,25 @@ else()
 endif()
 
 if (${rtff_enable_tests})
-  # libwave
-  set(wave_install_dir ${CMAKE_BINARY_DIR}/wave-install)
-  ExternalProject_Add(external_wave
-    GIT_REPOSITORY "https://github.com/audionamix/wave"
-    GIT_TAG "a782663d90b5a199e51ef59fc64bbe5a4aa02c38"
-    # don't update so that we don't rebuild every time
-    UPDATE_COMMAND ""
-    CMAKE_ARGS
-      "-DCMAKE_INSTALL_PREFIX=${wave_install_dir}"
-      "-Dwave_enable_tests=OFF"
-  )
-  link_directories("${wave_install_dir}/lib")
-
   add_executable(rtff_test
     ${src}/rtff/test.cc
     ${src}/rtff/buffer/buffer_test.cc
   )
-  add_dependencies(rtff_test
-    external_wave
-    external_googletest
-  )
+
   if (${rtff_enable_multithread})
     add_dependencies(rtff_test external_tbb)
   endif()
-  if (UNIX AND NOT APPLE)
-    target_link_libraries(rtff_test
-      gtest
-      gtest_main
-      rtff
-      debug waved
-      optimized wave
-      ${external_libraries}
-    )
-  else ()
-    target_link_libraries(rtff_test
-      optimized gtest
-      optimized gtest_main
-      debug gtestd
-      debug gtest_maind
-      rtff
-      debug waved
-      optimized wave
-      ${external_libraries}
-    )
-  endif()
+
+  target_link_libraries(rtff_test
+    gtest
+    gtest_main
+    rtff
+    wave
+    eigen
+    ${external_libraries}
+  )
   target_include_directories(rtff_test
     PUBLIC
-      ${gtest_install_dir}/include
-      ${eigen_install_dir}
-      ${wave_install_dir}/include
       ${external_includes}
   )
   target_compile_definitions(rtff_test
