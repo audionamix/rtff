@@ -93,7 +93,6 @@ install(FILES
 set(external_libraries "")
 set(external_includes "")
 if (${rtff_use_mkl})
-  message(${mkl_libraries})
   set(external_libraries ${mkl_libraries})
   set(mkl_dependencies "")
   foreach (lib ${external_libraries})

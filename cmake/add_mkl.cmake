@@ -116,7 +116,6 @@ function(FindMkl)
     message(FATAL_ERROR "Unkown platform")
   endif()
 
-  message(${mkl_libraries})
   add_library(mkl INTERFACE)
   target_link_options(mkl INTERFACE ${mkl_libraries})
   target_include_directories(mkl INTERFACE ${mkl_include_dir})
