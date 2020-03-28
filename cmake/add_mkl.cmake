@@ -128,3 +128,4 @@ function(FindMkl)
 endfunction(FindMkl)
 
 FindMkl()
+install(FILES ${mkl_libraries} DESTINATION lib)

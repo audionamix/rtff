@@ -56,18 +56,13 @@ target_link_libraries(rtff
   eigen
   ${external_libraries}
 )
-target_compile_definitions(rtff
-  PUBLIC
-    -D${fft_backend}
-)
-# TODO: deal with fftw wisdom
-# if (${rtff_fftw_use_wisdom})
-#   message(STATUS "Using fftw wisdom files")
-#   target_compile_definitions(rtff
-#     PUBLIC
-#       -DRTFF_FFTW_USE_WISDOM=ON
-#   )
-# endif()
+# deal with fftw wisdom
+set(compile_definitions -D${fft_backend})
+if (${rtff_fftw_use_wisdom})
+  message(STATUS "Using fftw wisdom files")
+  set(compile_definitions ${compile_definitions} -DRTFF_FFTW_USE_WISDOM=ON)
+endif()
+target_compile_definitions(rtff PUBLIC ${compile_definitions})
 
 # install rules
 # - built lib
@@ -90,33 +85,6 @@ install(FILES
   ${src}/rtff/fft/window_type.h
   DESTINATION include/rtff/fft
 )
-# - external libraries
-set(external_libraries "")
-set(external_includes "")
-if (${rtff_use_mkl})
-  set(external_libraries ${mkl_libraries})
-  set(mkl_dependencies "")
-  foreach (lib ${external_libraries})
-    if (EXISTS ${lib})
-      set(mkl_dependencies ${mkl_dependencies} "${lib}")
-    endif()
-  endforeach()
-
-  install(FILES
-    ${mkl_dependencies}
-    DESTINATION lib
-  )
-else()
-  set(external_libraries ${fftw_libraries})
-  if (UNIX AND NOT APPLE)
-      set(external_libraries ${external_libraries} pthread)
-  endif()
-  set(external_includes ${fftw_include_dir})
-  install(FILES
-    ${fftw_install_dir}/lib/libfftw3f.a
-    DESTINATION lib
-  )
-endif()
 
 if (${rtff_enable_tests})
   add_executable(rtff_test
