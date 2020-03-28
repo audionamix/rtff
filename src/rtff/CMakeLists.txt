@@ -28,11 +28,19 @@ if (${rtff_use_mkl})
     ${src}/rtff/fft/mkl/mkl_fft_context.cc
     ${src}/rtff/fft/mkl/mkl_fft_context.h
   )
-else()
+  set(fft_backend RTFF_USE_MKL)
+elseif (${rtff_use_fftw})
   set(rtff_sources ${rtff_sources}
     ${src}/rtff/fft/fftw/fftw_fft.cc
     ${src}/rtff/fft/fftw/fftw_fft.h
   )
+  set(fft_backend RTFF_USE_FFTW)
+else ()
+  set(rtff_sources ${rtff_sources}
+    ${src}/rtff/fft/eigen/eigen_fft.cc
+    ${src}/rtff/fft/eigen/eigen_fft.h
+  )
+  set(fft_backend RTFF_USE_EIGEN)
 endif()
 
 add_library(rtff ${rtff_sources})
@@ -44,32 +52,22 @@ target_include_directories(rtff PUBLIC
 
 OrganizeSources(SOURCES ${rtff_sources})
 
-# Add fftw if we don't want to use the mkl
-if (${rtff_use_mkl})
-  target_link_libraries(rtff
-    eigen
-    mkl
-  )
-  target_compile_definitions(rtff
-    PUBLIC
-      -DRTFF_USE_MKL
-  )
-else()
-  target_link_libraries(rtff
-    eigen
-  )
-  target_include_directories(rtff
-    PUBLIC
-      ${fftw_include_dir}
-  )
-  if (${rtff_fftw_use_wisdom})
-    message(STATUS "Using fftw wisdom files")
-    target_compile_definitions(rtff
-      PUBLIC
-        -DRTFF_FFTW_USE_WISDOM=ON
-    )
-  endif()
-endif()
+target_link_libraries(rtff
+  eigen
+  ${external_libraries}
+)
+target_compile_definitions(rtff
+  PUBLIC
+    -D${fft_backend}
+)
+# TODO: deal with fftw wisdom
+# if (${rtff_fftw_use_wisdom})
+#   message(STATUS "Using fftw wisdom files")
+#   target_compile_definitions(rtff
+#     PUBLIC
+#       -DRTFF_FFTW_USE_WISDOM=ON
+#   )
+# endif()
 
 # install rules
 # - built lib
