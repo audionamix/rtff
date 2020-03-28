@@ -19,7 +19,7 @@ script:
   - make install
   # also test the rtff wisdom
   - cd .. && mkdir -p build-wisdom && cd build-wisdom
-  - cmake -DCMAKE_INSTALL_PREFIX=$PWD/install -Drtff_use_mkl=OFF -Drtff_fftw_use_wisdom=ON ..
+  - cmake -DCMAKE_INSTALL_PREFIX=$PWD/install -Drtff_use_mkl=OFF -Drtff_use_fftw=ON -Drtff_fftw_use_wisdom=ON ..
   - make
   # first will take a long time
   - "./src/rtff/rtff_test"

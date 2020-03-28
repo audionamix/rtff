@@ -28,11 +28,19 @@ if (${rtff_use_mkl})
     ${src}/rtff/fft/mkl/mkl_fft_context.cc
     ${src}/rtff/fft/mkl/mkl_fft_context.h
   )
-else()
+  set(fft_backend RTFF_USE_MKL)
+elseif (${rtff_use_fftw})
   set(rtff_sources ${rtff_sources}
     ${src}/rtff/fft/fftw/fftw_fft.cc
     ${src}/rtff/fft/fftw/fftw_fft.h
   )
+  set(fft_backend RTFF_USE_FFTW)
+else ()
+  set(rtff_sources ${rtff_sources}
+    ${src}/rtff/fft/eigen/eigen_fft.cc
+    ${src}/rtff/fft/eigen/eigen_fft.h
+  )
+  set(fft_backend RTFF_USE_EIGEN)
 endif()
 
 add_library(rtff ${rtff_sources})
@@ -48,6 +56,7 @@ target_link_libraries(rtff
   eigen
   ${external_libraries}
 )
+<<<<<<< HEAD
 
 if (${rtff_use_mkl})
   target_compile_definitions(rtff
@@ -60,7 +69,15 @@ elseif (${rtff_fftw_use_wisdom})
     PUBLIC
       -DRTFF_FFTW_USE_WISDOM=ON
   )
+=======
+# deal with fftw wisdom
+set(compile_definitions -D${fft_backend})
+if (${rtff_fftw_use_wisdom})
+  message(STATUS "Using fftw wisdom files")
+  set(compile_definitions ${compile_definitions} -DRTFF_FFTW_USE_WISDOM=ON)
+>>>>>>> ff9382e6145fcf239163015b144f1229be2942b7
 endif()
+target_compile_definitions(rtff PUBLIC ${compile_definitions})
 
 # install rules
 # - built lib

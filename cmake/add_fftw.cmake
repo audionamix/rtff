@@ -24,16 +24,28 @@ if (NOT EXISTS ${fftw_dir})
     set(fftw_configure_command ${fftw_configure_command} ${rtff_fftw_extra_configure_flags})
   endif()
 
+<<<<<<< HEAD
+=======
+  message(STATUS "FFTW - Configure: ${fftw_configure_command}")
+>>>>>>> ff9382e6145fcf239163015b144f1229be2942b7
   execute_process(
     COMMAND ${fftw_configure_command}
     WORKING_DIRECTORY ${fftw_dir}/fftw-3.3.7/
   )
 
+<<<<<<< HEAD
+=======
+  message(STATUS "FFTW - Make")
+>>>>>>> ff9382e6145fcf239163015b144f1229be2942b7
   execute_process(
     COMMAND make
     WORKING_DIRECTORY ${fftw_dir}/fftw-3.3.7/
   )
 
+<<<<<<< HEAD
+=======
+  message(STATUS "FFTW - Install")
+>>>>>>> ff9382e6145fcf239163015b144f1229be2942b7
   execute_process(
     COMMAND make install
     WORKING_DIRECTORY ${fftw_dir}/fftw-3.3.7/
@@ -42,15 +54,30 @@ if (NOT EXISTS ${fftw_dir})
   find_library(fftw3f
     NAMES fftw3f
     PATHS ${fftw_install_dir}/lib
+<<<<<<< HEAD
     REQUIRED
   )
+=======
+    NO_DEFAULT_PATH
+  )
+  message(STATUS "FFTW - Found at ${fftw3f}")
+>>>>>>> ff9382e6145fcf239163015b144f1229be2942b7
 else()
   find_library(fftw3f
     NAMES fftw3f
     PATHS ${fftw_install_dir}/lib
+<<<<<<< HEAD
   )
 endif()
 
+=======
+    NO_DEFAULT_PATH
+  )
+  message(STATUS "FFTW - Found at ${fftw3f}")
+endif()
+
+
+>>>>>>> ff9382e6145fcf239163015b144f1229be2942b7
 # -- Create lib target
 add_library(fftw INTERFACE)
 target_link_libraries(fftw
@@ -61,5 +88,9 @@ target_include_directories(fftw
   INTERFACE
     ${fftw_install_dir}/include
 )
+<<<<<<< HEAD
+=======
+install(FILES ${fftw3f} DESTINATION lib)
+>>>>>>> ff9382e6145fcf239163015b144f1229be2942b7
 
 set(fftw_libraries fftw)
