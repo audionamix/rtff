@@ -44,31 +44,22 @@ target_include_directories(rtff PUBLIC
 
 OrganizeSources(SOURCES ${rtff_sources})
 
-# Add fftw if we don't want to use the mkl
+target_link_libraries(rtff
+  eigen
+  ${external_libraries}
+)
+
 if (${rtff_use_mkl})
-  target_link_libraries(rtff
-    eigen
-    mkl
-  )
   target_compile_definitions(rtff
     PUBLIC
       -DRTFF_USE_MKL
   )
-else()
-  target_link_libraries(rtff
-    eigen
-  )
-  target_include_directories(rtff
+elseif (${rtff_fftw_use_wisdom})
+  message(STATUS "Using fftw wisdom files")
+  target_compile_definitions(rtff
     PUBLIC
-      ${fftw_include_dir}
+      -DRTFF_FFTW_USE_WISDOM=ON
   )
-  if (${rtff_fftw_use_wisdom})
-    message(STATUS "Using fftw wisdom files")
-    target_compile_definitions(rtff
-      PUBLIC
-        -DRTFF_FFTW_USE_WISDOM=ON
-    )
-  endif()
 endif()
 
 # install rules
@@ -92,43 +83,12 @@ install(FILES
   ${src}/rtff/fft/window_type.h
   DESTINATION include/rtff/fft
 )
-# - external libraries
-set(external_libraries "")
-set(external_includes "")
-if (${rtff_use_mkl})
-  set(external_libraries ${mkl_libraries})
-  set(mkl_dependencies "")
-  foreach (lib ${external_libraries})
-    if (EXISTS ${lib})
-      set(mkl_dependencies ${mkl_dependencies} "${lib}")
-    endif()
-  endforeach()
-
-  install(FILES
-    ${mkl_dependencies}
-    DESTINATION lib
-  )
-else()
-  set(external_libraries ${fftw_libraries})
-  if (UNIX AND NOT APPLE)
-      set(external_libraries ${external_libraries} pthread)
-  endif()
-  set(external_includes ${fftw_include_dir})
-  install(FILES
-    ${fftw_install_dir}/lib/libfftw3f.a
-    DESTINATION lib
-  )
-endif()
 
 if (${rtff_enable_tests})
   add_executable(rtff_test
     ${src}/rtff/test.cc
     ${src}/rtff/buffer/buffer_test.cc
   )
-
-  if (${rtff_enable_multithread})
-    set(external_libraries ${external_libraries} tbb)
-  endif()
 
   target_link_libraries(rtff_test
     gtest
@@ -137,10 +97,6 @@ if (${rtff_enable_tests})
     wave
     eigen
     ${external_libraries}
-  )
-  target_include_directories(rtff_test
-    PUBLIC
-      ${external_includes}
   )
   target_compile_definitions(rtff_test
     PUBLIC
