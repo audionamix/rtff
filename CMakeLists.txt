@@ -10,7 +10,7 @@ project(rtff)
 option(rtff_enable_tests "Build Unit tests" ON)
 option(rtff_enable_multithread "Allow multithreading" OFF)
 option(rtff_use_mkl "Use the mkl backend to compute faster ffts and matrix operation" OFF)
-# Dependent on MKL ?
+# TODO: dependent option. Can't be true if use_mkl is true
 option(rtff_use_fftw "Use the fftw backend to compute faster ffts" OFF)
 
 set(CMAKE_CXX_STANDARD 14)
