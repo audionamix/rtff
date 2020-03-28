@@ -56,26 +56,11 @@ target_link_libraries(rtff
   eigen
   ${external_libraries}
 )
-<<<<<<< HEAD
-
-if (${rtff_use_mkl})
-  target_compile_definitions(rtff
-    PUBLIC
-      -DRTFF_USE_MKL
-  )
-elseif (${rtff_fftw_use_wisdom})
-  message(STATUS "Using fftw wisdom files")
-  target_compile_definitions(rtff
-    PUBLIC
-      -DRTFF_FFTW_USE_WISDOM=ON
-  )
-=======
 # deal with fftw wisdom
 set(compile_definitions -D${fft_backend})
 if (${rtff_fftw_use_wisdom})
   message(STATUS "Using fftw wisdom files")
   set(compile_definitions ${compile_definitions} -DRTFF_FFTW_USE_WISDOM=ON)
->>>>>>> ff9382e6145fcf239163015b144f1229be2942b7
 endif()
 target_compile_definitions(rtff PUBLIC ${compile_definitions})
 
