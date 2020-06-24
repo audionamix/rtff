@@ -15,7 +15,7 @@ build_script:
   - cd C:\projects\rtff-0j7kw
   - mkdir build
   - cd build
-  - cmake ..
+  - cmake -Drtff_use_mkl=ON ..
   - cmake --build .
 
 test_script:

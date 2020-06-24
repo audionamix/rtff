@@ -9,8 +9,11 @@ Eigen::VectorXf Window::Make(fft_window::Type type, uint32_t size) {
   const static double pi = 3.14159265358979323846264338327950288419;
 
   Eigen::VectorXf window = Eigen::VectorXf::Zero(size);
-  if (type == fft_window::Type::Hamming) {
+  if (type == fft_window::Type::Hamming || type == fft_window::Type::Hann) {
     auto alpha = 0.54;
+    if (type == fft_window::Type::Hann) {
+      alpha = 0.5;
+    }
     auto beta = 1 - alpha;
     for (uint32_t window_idx = 0; window_idx < window.size(); window_idx++) {
       window[window_idx] =

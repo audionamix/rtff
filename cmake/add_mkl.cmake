@@ -116,7 +116,22 @@ function(FindMkl)
     message(FATAL_ERROR "Unkown platform")
   endif()
 
+  add_library(mkl INTERFACE)
+  target_link_options(mkl INTERFACE ${mkl_libraries})
+  target_include_directories(mkl INTERFACE ${mkl_include_dir})
+  # If included, leads to errors
+  # target_compile_options(mkl INTERFACE ${mkl_compiler_options})
+
   set(mkl_libraries ${mkl_libraries} PARENT_SCOPE)
   set(mkl_include_dir ${mkl_include_dir} PARENT_SCOPE)
   set(mkl_compiler_options ${mkl_compiler_options} PARENT_SCOPE)
 endfunction(FindMkl)
+
+FindMkl()
+set(mkl_real_lib "")
+foreach (lib ${mkl_libraries})
+  if (EXISTS ${lib})
+    set(mkl_real_lib ${mkl_real_lib} "${lib}")
+  endif()
+endforeach()
+install(FILES ${mkl_real_lib} DESTINATION lib)

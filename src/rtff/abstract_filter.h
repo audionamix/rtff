@@ -25,18 +25,28 @@ class AbstractFilter {
   AbstractFilter();
   virtual ~AbstractFilter();
   /**
-   * @brief Initialize the filter
+   * @brief Initialize the filter with the default Hamming window
    * @param channel_count: the number of channel of the input signal
    * @param fft_size: the length in samples of the fourier transform window.
    * @param overlap: the number of samples that will be kept between each
    * window.
    * @param err: an error code that gets set if something goes wrong
-   * @param windows_type: type of analysis and synthesis window for FFT, default
-   * to Hamming to ensure backward compatibility
    */
   void Init(uint8_t channel_count, uint32_t fft_size, uint32_t overlap,
-            std::error_code& err,
-            fft_window::Type windows_type = fft_window::Type::Hamming);
+            std::error_code& err);
+  
+  /**
+   * @brief Initialize the filter
+   * @param channel_count: the number of channel of the input signal
+   * @param fft_size: the length in samples of the fourier transform window.
+   * @param overlap: the number of samples that will be kept between each
+   * window.
+   * @param windows_type: type of analysis and synthesis window for FFT, default
+   * to Hamming to ensure backward compatibility
+   * @param err: an error code that gets set if something goes wrong
+   */
+  void Init(uint8_t channel_count, uint32_t fft_size, uint32_t overlap,
+            fft_window::Type windows_type, std::error_code& err);
 
   /**
    * @brief Initialize the filter with default stft parameters
@@ -121,7 +131,7 @@ class AbstractFilter {
 
   uint32_t fft_size_;
   uint32_t overlap_;
-  fft_window::Type windows_type_;
+  fft_window::Type window_type_;
   uint32_t block_size_;
   uint8_t channel_count_;
   std::shared_ptr<MultichannelOverlapRingBuffer> input_buffer_;
