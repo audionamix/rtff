@@ -14,17 +14,25 @@ class AbstractFilter::Impl {
   TimeFrequencyBuffer frequential_block;
 };
 
-AbstractFilter::AbstractFilter()
-    : fft_size_(2048), overlap_(2048 * 0.5), block_size_(512) {}
+AbstractFilter::AbstractFilter() :
+  fft_size_(2048),
+  overlap_(2048 * 0.5),
+  window_type_(fft_window::Type::Hamming),
+  block_size_(512) {}
 
 AbstractFilter::~AbstractFilter() {}
 
 void AbstractFilter::Init(uint8_t channel_count, uint32_t fft_size,
-                          uint32_t overlap, std::error_code& err,
-                          fft_window::Type windows_type) {
+                          uint32_t overlap, std::error_code& err) {
+  Init(channel_count, fft_size, overlap, fft_window::Type::Hamming, err);
+}
+
+void AbstractFilter::Init(uint8_t channel_count, uint32_t fft_size,
+                          uint32_t overlap, fft_window::Type windows_type,
+                          std::error_code& err) {
   fft_size_ = fft_size;
   overlap_ = overlap;
-  windows_type_ = windows_type;
+  window_type_ = windows_type;
   Init(channel_count, err);
 }
 
@@ -76,7 +84,7 @@ uint8_t AbstractFilter::channel_count() const { return channel_count_; }
 uint32_t AbstractFilter::window_size() const { return impl_->window_size(); }
 uint32_t AbstractFilter::fft_size() const { return fft_size_; }
 uint32_t AbstractFilter::overlap() const { return overlap_; }
-fft_window::Type AbstractFilter::windows_type() const { return windows_type_; }
+fft_window::Type AbstractFilter::windows_type() const { return window_type_; }
 uint32_t AbstractFilter::hop_size() const { return fft_size_ - overlap_; }
 
 uint32_t AbstractFilter::FrameLatency() const {

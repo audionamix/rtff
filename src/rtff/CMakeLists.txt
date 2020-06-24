@@ -28,49 +28,41 @@ if (${rtff_use_mkl})
     ${src}/rtff/fft/mkl/mkl_fft_context.cc
     ${src}/rtff/fft/mkl/mkl_fft_context.h
   )
-else()
+  set(fft_backend RTFF_USE_MKL)
+elseif (${rtff_use_fftw})
   set(rtff_sources ${rtff_sources}
     ${src}/rtff/fft/fftw/fftw_fft.cc
     ${src}/rtff/fft/fftw/fftw_fft.h
   )
+  set(fft_backend RTFF_USE_FFTW)
+else ()
+  set(rtff_sources ${rtff_sources}
+    ${src}/rtff/fft/eigen/eigen_fft.cc
+    ${src}/rtff/fft/eigen/eigen_fft.h
+  )
+  set(fft_backend RTFF_USE_EIGEN)
 endif()
 
 add_library(rtff ${rtff_sources})
 
+target_include_directories(rtff PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/..>
+  $<INSTALL_INTERFACE:include>
+)
+
 OrganizeSources(SOURCES ${rtff_sources})
 
-# Add fftw if we don't want to use the mkl
-if (${rtff_use_mkl})
-  target_include_directories(rtff
-    PUBLIC
-      ${eigen_install_dir}
-      ${mkl_include_dir}
-  )
-  add_dependencies(rtff
-    external_eigen
-  )
-  target_compile_definitions(rtff
-    PUBLIC
-      -DRTFF_USE_MKL
-  )
-else()
-  target_include_directories(rtff
-    PUBLIC
-      ${eigen_install_dir}
-      ${fftw_include_dir}
-  )
-  add_dependencies(rtff
-    external_eigen
-    external_fftw
-  )
-  if (${rtff_fftw_use_wisdom})
-    message(STATUS "Using fftw wisdom files")
-    target_compile_definitions(rtff
-      PUBLIC
-        -DRTFF_FFTW_USE_WISDOM=ON
-    )
-  endif()
+target_link_libraries(rtff
+  eigen
+  ${external_libraries}
+)
+# deal with fftw wisdom
+set(compile_definitions -D${fft_backend})
+if (${rtff_fftw_use_wisdom})
+  message(STATUS "Using fftw wisdom files")
+  set(compile_definitions ${compile_definitions} -DRTFF_FFTW_USE_WISDOM=ON)
 endif()
+target_compile_definitions(rtff PUBLIC ${compile_definitions})
 
 # install rules
 # - built lib
@@ -93,86 +85,20 @@ install(FILES
   ${src}/rtff/fft/window_type.h
   DESTINATION include/rtff/fft
 )
-# - external libraries
-set(external_libraries "")
-set(external_includes "")
-if (${rtff_use_mkl})
-  set(external_libraries ${mkl_libraries})
-  set(mkl_dependencies "")
-  foreach (lib ${external_libraries})
-    if (EXISTS ${lib})
-      set(mkl_dependencies ${mkl_dependencies} "${lib}")
-    endif()
-  endforeach()
-
-  install(FILES
-    ${mkl_dependencies}
-    DESTINATION lib
-  )
-else()
-  set(external_libraries ${fftw_libraries})
-  if (UNIX AND NOT APPLE)
-      set(external_libraries ${external_libraries} pthread)
-  endif()
-  set(external_includes ${fftw_include_dir})
-  install(FILES
-    ${fftw_install_dir}/lib/libfftw3f.a
-    DESTINATION lib
-  )
-endif()
 
 if (${rtff_enable_tests})
-  # libwave
-  set(wave_install_dir ${CMAKE_BINARY_DIR}/wave-install)
-  ExternalProject_Add(external_wave
-    GIT_REPOSITORY "https://github.com/audionamix/wave"
-    GIT_TAG "a782663d90b5a199e51ef59fc64bbe5a4aa02c38"
-    # don't update so that we don't rebuild every time
-    UPDATE_COMMAND ""
-    CMAKE_ARGS
-      "-DCMAKE_INSTALL_PREFIX=${wave_install_dir}"
-      "-Dwave_enable_tests=OFF"
-  )
-  link_directories("${wave_install_dir}/lib")
-
   add_executable(rtff_test
     ${src}/rtff/test.cc
     ${src}/rtff/buffer/buffer_test.cc
   )
-  add_dependencies(rtff_test
-    external_wave
-    external_googletest
-  )
-  if (${rtff_enable_multithread})
-    add_dependencies(rtff_test external_tbb)
-  endif()
-  if (UNIX AND NOT APPLE)
-    target_link_libraries(rtff_test
-      gtest
-      gtest_main
-      rtff
-      debug waved
-      optimized wave
-      ${external_libraries}
-    )
-  else ()
-    target_link_libraries(rtff_test
-      optimized gtest
-      optimized gtest_main
-      debug gtestd
-      debug gtest_maind
-      rtff
-      debug waved
-      optimized wave
-      ${external_libraries}
-    )
-  endif()
-  target_include_directories(rtff_test
-    PUBLIC
-      ${gtest_install_dir}/include
-      ${eigen_install_dir}
-      ${wave_install_dir}/include
-      ${external_includes}
+
+  target_link_libraries(rtff_test
+    gtest
+    gtest_main
+    rtff
+    wave
+    eigen
+    ${external_libraries}
   )
   target_compile_definitions(rtff_test
     PUBLIC
